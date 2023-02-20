@@ -9,7 +9,6 @@
     "editor.lineNumbers": "off",
     "editor.wordWrap": "on",
     "editor.renderLineHighlight": "none",
-    "editor.renderIndentGuides": false,
     "editor.overviewRulerBorder": false,
     // "workbench.editor.showTabs": false,
     "editor.hideCursorInOverviewRuler": true,
@@ -21,5 +20,6 @@
     "window.nativeTabs": true,
     "workbench.iconTheme": "Monokai Pro Icons",
     "workbench.sideBar.location": "right",
+    "editor.guides.indentation": false,
     // "git.enabled": false,
     }
