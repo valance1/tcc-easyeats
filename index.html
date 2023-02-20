@@ -1,584 +1,820 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cardapio Virtual</title>
-    <!-- CSS FRAMEWORK -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- FONTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-    <!-- ICONES -->
-    <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
-    <style>
-        html{
-            font-family: Montserrat !important;
-        }
-        @media(max-width: 500px) {
-            .reverse-columns {
-                flex-direction: column-reverse;
-                display: flex;
-            }
-        }
-
-        .titled {
-            font-family: 'Merriweather', serif !important;
-            font-size: 58px !important;
-            font-weight: 400 !important;
-            line-height: 64px !important;
-        }
-
-        .subtitled {
-            font-family: 'Merriweather', serif !important;
-            font-size: 22px !important;
-            font-weight: 400 !important;
-            line-height: 36px !important;
-        }
-    </style>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-<!-- GABRIEL, VAI NO GITHUB NA PAGINA QUE VOCE LIKOU PRA VER COMO FAZER AS TABS -->
-<body>
-    <!-- MODAL LOGIN -->
-    <div id="modal-js-login" class="modal">
-        <div class="modal-background"></div>
+<body class="animsition">
 
-        <div class="modal-content">
-            <div class="box">
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="wrap-menu-header gradient1 trans-0-4">
+			<div class="container h-full">
+				<div class="wrap_header trans-0-3">
+					<!-- Logo -->
+					<div class="logo">
+						<a href="index.html">
+							<img src="images/icons/logo2.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+						</a>
+					</div>
 
-                <!-- TEM QUE CONFIGURAR PRA QUANDO CLICAR TROCAR AS TABS -->
-                <div>
+					<!-- Menu -->
+					<div class="wrap_menu p-l-45 p-l-0-xl">
+						<nav class="menu">
+							<ul class="main_menu">
+								<li>
+									<a href="index.html">Home</a>
+								</li>
 
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="email" placeholder="exemplo@gmail.com" value="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <!-- <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span> -->
-                        </div>
-                        <!-- MESMO CASO DA VALIDADE -->
-                        <!-- <p class="help is-danger">This email is invalid</p> -->
-                    </div>
+								<li>
+									<a href="#">Restaurantes</a>
+								</li>
 
-                    <div class="field">
-                        <label class="label">Senha</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="">
-                        </div>
-                    </div>
+								<li>
+									<a href="#">Suporte</a>
+								</li>
 
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link">Logar</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-light">Cancelar</button>
-                        </div>
-                    </div>
+								<!-- <li>
+									<a href="gallery.html">Gallery</a>
+								</li> -->
 
-                </div>
+								<li>
+									<a href="#">Sobre nós</a>
+								</li>
 
-            </div>
-        </div>
+								<!-- <li>
+									<a href="blog.html">Blog</a>
+								</li> -->
 
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-    <!-- MODAL REGISTRO -->
-    <div id="modal-js-registro" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <div class="tabs is-fullwidth">
-                    <ul>
-                        <li>
-                            <a>
-                                <span class="icon"><i class="fas fa-angle-left" aria-hidden="true"></i></span>
-                                <span>Cliente</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="icon"><i class="fas fa-angle-up" aria-hidden="true"></i></span>
-                                <span>Empresa</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+								<li>
+									<a href="#">Contato</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
 
-                <!-- TEM QUE CONFIGURAR PRA QUANDO CLICAR TROCAR AS TABS -->
-                <div>
-                    <div class="field">
-                        <label class="label">Nome</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Insira seu nome">
-                        </div>
-                    </div>
+					<!-- Social -->
+					<div class="social flex-w flex-l-m p-r-20">
+						<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
 
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="email" placeholder="exemplo@gmail.com" value="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <!-- <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span> -->
-                        </div>
-                        <!-- MESMO CASO DA VALIDADE -->
-                        <!-- <p class="help is-danger">This email is invalid</p> -->
-                    </div>
+						<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-                    <div class="field">
-                        <label class="label">Senha</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="">
-                        </div>
-                    </div>
+	<!-- Sidebar -->
+	<aside class="sidebar trans-0-4">
+		<!-- Button Hide sidebar -->
+		<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-                    <div class="field">
-                        <label class="label">Data de Nascimento</label>
-                        <div class="control">
-                            <input class="input" type="date" placeholder="dd/mm/yyyy">
-                        </div>
-                    </div>
+		<!-- - -->
+		<ul class="menu-sidebar p-t-95 p-b-70">
+			<li class="t-center m-b-13">
+				<a href="#" class="txt19">Iníco</a>
+			</li>
 
-                    <div class="field">
-                        <label class="label">Número do Celular</label>
-                        <div class="control">
-                            <input class="input" type="tel" placeholder="(xx) xxxxx-xxxx">
-                        </div>
-                    </div>
+		
+			<li class="t-center m-b-13">
+				<a href="#" class="txt19">Sobre nós</a>
+			</li>
 
-                    <!-- <div class="field"> PODE USAR PRA PEGAR GENERO
-                        <label class="label">Subject</label>
-                        <div class="control">
-                            <div class="select">
-                                <select>
-                                    <option>Select dropdown</option>
-                                    <option>With options</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> -->
+		
+			<li class="t-center m-b-33">
+				<a href="#" class="txt19">Contato</a>
+			</li>
 
-                    <!-- <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                            <textarea class="textarea" placeholder="Textarea"></textarea>
-                        </div>
-                    </div> -->
+			<li class="t-center">
+				<!-- Button3 -->
+				<a href="#l" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+					Restaurantes
+				</a>
+			</li>
+		</ul>
 
-                    <div class="field">
-                        <div class="control">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                Eu concordo com os <a href="#">termos e políticas de privacidade</a>
-                            </label>
-                        </div>
-                    </div>
+		<!-- - -->
+		<div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
+			<!-- - -->
+			<h4 class="txt20 m-b-33">
+				Gallery
+			</h4>
 
-                    <!-- <div class="field">
-                        <div class="control">
-                            <label class="radio">
-                                <input type="radio" name="question">
-                                Yes
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="question">
-                                No
-                            </label>
-                        </div>
-                    </div> -->
+			<!-- Gallery -->
+			<!-- <div class="wrap-gallery-sidebar flex-w">
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+				</a>
 
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link">Registrar</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-light">Cancelar</button>
-                        </div>
-                    </div>
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+				</a>
 
-                </div>
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
+					<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+				</a>
+			</div> -->
+		</div>
+	</aside>
+
+	<!-- Slide1 -->
+	<section class="section-slide">
+		<div class="wrap-slick1">
+			<div class="slick1">
+				<div class="item-slick1 item1-slick1" style="background-image: url(images/slide1-01.jpg);">
+					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+							Bem vindo ao
+						</span>
+
+						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+							Cardápio Digital
+						</h2>
+
+						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
+							<!-- Button1 -->
+							<a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+								Ver Restaurantes
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Welcome -->
+	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
+		<div class="container">
+			<!-- <div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-welcome t-center">
+						<span class="tit2 t-center">
+							Italian Restaurant
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Welcome
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia, nisl ante egestas mi, ac facilisis ligula sem id neque.
+						</p>
+
+						<a href="about.html" class="txt4">
+							Our Story
+							<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="images/our-story-01.jpg" alt="IMG-OUR">
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</section>
+
+	<!-- Intro -->
+	<section class="section-intro">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(images/bg-intro-01.jpg);">
+			<span class="tit2 p-l-15 p-r-15">
+				Descubra
+			</span>
+
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+				Restaurantes e Lanchonetes
+			</h3>
+		</div>
+
+		<div class="content-intro bg-white p-t-77 p-b-133">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-4 p-t-30">
+						<!-- Block1 -->
+						<div class="blo1">
+							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+								<a href="#"><img src="images/restaurante1.jpg" alt="IMG-INTRO"></a>
+							</div>
+
+							<div class="wrap-text-blo1 p-t-35">
+								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+									Lanchonete do Eliesio
+								</h4></a>
+
+								<p class="m-b-20">
+									Uma lanchonete localizada no IFES Campus Colatina
+								</p>
+
+								<a href="#" class="txt4">
+									Veja os produtos
+									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+<!-- 
+					<div class="col-md-4 p-t-30">
+						<div class="blo1">
+							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+								<a href="#"><img src="images/intro-04.jpg" alt="IMG-INTRO"></a>
+							</div>
+
+							<div class="wrap-text-blo1 p-t-35">
+								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+									Red Wines You Love
+								</h4></a>
+
+								<p class="m-b-20">
+									Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+								</p>
+
+								<a href="#" class="txt4">
+									Learn More
+									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Event -->
+	<section class="section-event">
+		<div class="wrap-slick2">
+			<div class="slick2">
+				<div class="item-slick2 item1-slick2" style="background-image: url(images/bg-event-01.jpg);">
+					<div class="wrap-content-slide2 p-t-115 p-b-208">
+						<div class="container">
+							<!-- - -->
+							<div class="title-event t-center m-b-52">
+								<span class="tit2 p-l-15 p-r-15">
+									Datas
+								</span>
+
+								<h3 class="tit6 t-center p-l-15 p-r-15 p-t-3">
+									Especiais
+								</h3>
+							</div>
+
+							<!-- Block2 -->
+							<div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false" data-appear="zoomIn">
+								<!-- Pic block2 -->
+								<a href="#" class="wrap-pic-blo2 bg1-blo2" style="background-image: url(images/event-02.jpg);">
+									<div class="time-event size10 txt6 effect1">
+										<span class="txt-effect1 flex-c-m t-center">
+											
+										</span>
+									</div>
+								</a>
+
+								<!-- Text block2 -->
+								<div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
+									<h4 class="tit7 t-center m-b-10">
+										Lançamento do Aplicativo
+									</h4>
+
+									<p class="t-center">
+										Pelo amor de Deus, isso tem que acabar logo
+									</p>
+
+									<div class="flex-sa-m flex-w w-full m-t-40">
+										<div class="size11 flex-col-c-m">
+											<span class="dis-block t-center txt7 m-b-2 days">
+												190
+											</span>
+
+											<span class="dis-block t-center txt8">
+												Dias
+											</span>
+										</div>
+
+										<div class="size11 flex-col-c-m">
+											<span class="dis-block t-center txt7 m-b-2 hours">
+												23
+											</span>
+
+											<span class="dis-block t-center txt8">
+												Horas
+											</span>
+										</div>
+
+										<div class="size11 flex-col-c-m">
+											<span class="dis-block t-center txt7 m-b-2 minutes">
+												59
+											</span>
+
+											<span class="dis-block t-center txt8">
+												Minutos
+											</span>
+										</div>
+
+										<div class="size11 flex-col-c-m">
+											<span class="dis-block t-center txt7 m-b-2 seconds">
+												56
+											</span>
+
+											<span class="dis-block t-center txt8">
+												Segundos
+											</span>
+										</div>
+									</div>
+
+									<!-- <a href="#" class="txt4 m-t-40">
+										Ver detalhes
+										<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+									</a> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
 
 
-            </div>
-        </div>
+	<!-- Review -->
+	<!-- <section class="section-review p-t-115">
+		<div class="title-review t-center m-b-2">
+			<span class="tit2 p-l-15 p-r-15">
+				Customers Say
+			</span>
 
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+			<h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
+				Review
+			</h3>
+		</div>
+		<div class="wrap-slick3">
+			<div class="slick3">
+				<div class="item-slick3 item1-slick3">
+					<div class="wrap-content-slide3 p-b-50 p-t-50">
+						<div class="container">
+							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+								<img src="images/avatar-01.jpg" alt="IGM-AVATAR">
+							</div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">
-                <img src="assets/img/navbar/logo.png">
-            </a>
+							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+								<p class="t-center txt12 size15 m-l-r-auto">
+									“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
+								</p>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+								<div class="star-review fs-18 color0 flex-c-m m-t-12">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								</div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Início
-                </a>
+								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+									Marie Simmons ˗ New York
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <a class="navbar-item">
-                    Restaurantes
-                </a>
+				<div class="item-slick3 item2-slick3">
+					<div class="wrap-content-slide3 p-b-50 p-t-50">
+						<div class="container">
+							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+								<img src="images/avatar-04.jpg" alt="IGM-AVATAR">
+							</div>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        Suporte
-                    </a>
+							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+								<p class="t-center txt12 size15 m-l-r-auto">
+									“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
+								</p>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Políticas
-                        </a>
-                        <a class="navbar-item">
-                            Perguntas frequentes
-                        </a>
-                        <a class="navbar-item">
-                            Contato
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Atendimento online
-                        </a>
-                    </div>
-                </div>
-            </div>
+								<div class="star-review fs-18 color0 flex-c-m m-t-12">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								</div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary js-modal-trigger" data-target="modal-js-registro">
-                            <strong>Registrar</strong>
-                        </a>
-                        <a class="button is-light js-modal-trigger" data-target="modal-js-login">
-                            Login
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+									Marie Simmons ˗ New York
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    <!-- HERO -->
-    <section class="hero is-fullheight">
-        <!-- Hero head: will stick at the top -->
-        <!-- <div class="hero-head">
-        </div> -->
-        <section class="hero is-white is-fullheight">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="columns  is-vcentered reverse-columns">
-                        <div class="column
-                  is-10-mobile 
-                  is-10-tablet 
-                  is-5-desktop 
-                  is-5-widescreen 
-                  is-5-fullhd " data-aos="fade-down">
-                            <h1 class="title titled is-1 mb-6">
-                                Bem vindo ao seu cardápio digital!
-                            </h1>
-                            <h2 class="subtitle subtitled">
-                                Menos tempo esperando, mais tempo comendo.
-                              </h2>
-                        </div>
-                        <div data-aos="fade-right" class="column
-                  is-10-mobile 
-                  is-10-tablet 
-                  is-4-desktop 
-                  is-7-widescreen 
-                  is-4-fullhd is-offset-1-fullhd">
-                            <figure class="image is-square">
-                                <img src="https://media.istockphoto.com/id/1194096660/vector/restaurant-grand-opening-vector-concept-for-web-banner-website-page.jpg?s=1024x1024&w=is&k=20&c=H1WXfuxuiHW5UNPbyi3n-F-fNGIC1qaBQ3rBibJ-Gwo=">
-                            </figure>
-                        </div>
+				<div class="item-slick3 item3-slick3">
+					<div class="wrap-content-slide3 p-b-50 p-t-50">
+						<div class="container">
+							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
+								<img src="images/avatar-05.jpg" alt="IGM-AVATAR">
+							</div>
 
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Hero content: will be in the middle -->
-        <!-- <div class="hero-body">
-            <div class="container has-text-centered">
-                <p class="title">
-                    Cardápio Digital
-                </p>
-                <p class="subtitle">
-                    Menos tempo esperando, mais tempo comendo.
-                </p>
-            </div>
-        </div> -->
+							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+								<p class="t-center txt12 size15 m-l-r-auto">
+									“ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
+								</p>
 
-        <!-- Hero footer: will stick at the bottom -->
-        <!-- <div class="hero-foot">
-          <nav class="tabs">
-            <div class="container">
-              <ul>
-                <li class="is-active"><a>Overview</a></li>
-                <li><a>Modifiers</a></li>
-                <li><a>Grid</a></li>
-                <li><a>Elements</a></li>
-                <li><a>Components</a></li>
-                <li><a>Layout</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div> -->
-    </section>
+								<div class="star-review fs-18 color0 flex-c-m m-t-12">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+									<i class="fa fa-star p-l-1" aria-hidden="true"></i>
+								</div>
 
-    <section class="section">
-        <div data-aos="fade-up" class="container">
-          <div class="mb-6 pb-3 columns is-multiline">
-            <div class="column is-12 is-6-desktop mx-auto has-text-centered">
-              <h2 class="mb-4 is-size-1 is-size-3-mobile has-text-weight-bold">Conheça o nosso projeto</h2>
-              <p class="subtitle  mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-                massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p>
-              <div class="buttons is-centered">
-                <a class="mr-3" href="#">
-                  <img src="../images/app-page/images/buttons/app-store.svg" alt=""></a>
-                <a href="#">
-                  <img src="../images/app-page/images/buttons/google-play.svg" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="columns is-multiline">
-            <div data-aos="fade-right" class="column is-12 is-4-desktop">
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-            </div>
-            <div class="column is-4 is-block-desktop is-hidden-touch">
-              <img class="mx-auto mt-0-widescreen is-block image" src="../images/app-page/images/devices/phone-full.svg"
-                alt=""></div>
-            <div data-aos="fade-left" class="column is-12 is-4-desktop">
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-              <div class="mb-6 is-flex">
-                <span>
-                  <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
-                      fill="#00d1b2"></path>
-                    <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
-                  </svg></span>
-                <div class="ml-3">
-                  <h4 class="is-size-4 has-text-weight-bold mb-2">Lorem ipsum dolor</h4>
-                  <p class="subtitle ">Pellentesque eu quam vitae mi lacinia consequat quis in metus.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  
-      <section class="section has-background-primary">
-        <div class="container">
-          <div class="is-vcentered columns is-multiline">
-            <div class="column is-6 is-5-desktop mb-4">
-              <span class="has-text-white">Informações</span>
-              <h2 class="has-text-white mt-2 mb-3 is-size-1 is-size-3-mobile has-text-weight-bold">Lorem ipsum dolor sit
-                amet consectutar</h2>
-              <p class="has-text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa nibh,
-                pulvinar vitae aliquet nec, accumsan aliquet orci.</p>
-            </div>
-            <div class="column is-5 ml-auto">
-              <div class="mx-auto box p-6 has-background-light has-text-centered">
-                <h4 class="is-size-5 mb-2 has-text-weight-bold">Digite seu e-mail e fique por dentro de tudo!</h4>
-                <p class="-dark mb-4">Não perca nenhuma promoção, nem atualizações futuras.</p>
-                <form action="#">
-                  <input class="input mb-3" type="email" placeholder="exemplo@gmail.com"><button
-                    class="button is-primary is-fullwidth">Quero ser notificado</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  
-      <footer class="section">
-        <div class="container">
-          <div class="pb-5 is-flex is-flex-wrap-wrap is-justify-content-between is-align-items-center">
-            <div class="mr-auto mb-2 is-flex is-align-items-center">
-              <a class="is-inline-block" href="#">
-                <img class="image" src="assets/img/navbar/logo.png" alt="" width="48px"></a>
-                Cardápio Digital
-            </div>
-            <div>
-              <ul class="is-flex is-flex-wrap-wrap is-align-items-center is-justify-content-center">
-                <li class="mr-4"><a class="button is-white" href="#">Início</a></li>
-                <li class="mr-4"><a class="button is-white" href="#">Restaurantes</a></li>
-                <li class="mr-4"><a class="button is-white" href="#">Suporte</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="pt-5" style="border-top: 1px solid #dee2e6;"></div>
-        <div class="container">
-          <div class="is-flex-tablet is-justify-content-between is-align-items-center">
-            <p><strong>"Cardápio Digital"</strong> feito por <a href="linkedinh">Gabriel Pinotti</a>, <a
-                href="https://www.instagram.com/_aldair_junior/">Aldair Júnior</a> e <a
-                href="https://www.instagram.com/gabrielgasparoni_/">Gabriel Gasparoni.</a> Conteúdo protegido pela <a
-                href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.</p>
-            <div class="py-2 is-hidden-tablet"></div>
-            <div class="ml-auto">
-              <a class="mr-4 is-inline-block" href="#">
-                <img src="../images/app-page/socials/facebook.svg" alt=""></a>
-              <a class="mr-4 is-inline-block" href="#">
-                <img src="../images/app-page/socials/twitter.svg" alt=""></a>
-              <a class="mr-4 is-inline-block" href="#">
-                <img src="../images/app-page/socials/github.svg" alt=""></a>
-              <a class="mr-4 is-inline-block" href="#">
-                <img src="../images/app-page/socials/instagram.svg" alt=""></a>
-              <a class="is-inline-block" href="#">
-                <img src="../images/app-page/socials/linkedin.svg" alt=""></a>
-            </div>
-          </div>
-        </div>
-      </footer>
+								<div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+									Marie Simmons ˗ New York
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    <!-- SCRIPT MODAL -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Functions to open and close a modal
-            function openModal($el) {
-                $el.classList.add('is-active');
-            }
+			</div>
 
-            function closeModal($el) {
-                $el.classList.remove('is-active');
-            }
+			<div class="wrap-slick3-dots m-t-30"></div>
+		</div>
+	</section> -->
 
-            function closeAllModals() {
-                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-                    closeModal($modal);
-                });
-            }
 
-            // Add a click event on buttons to open a specific modal
-            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-                const modal = $trigger.dataset.target;
-                const $target = document.getElementById(modal);
+	<!-- Video -->
+	<!-- <section class="section-video parallax100" style="background-image: url(images/bg-cover-video-02.jpg);">
+		<div class="content-video t-center p-t-225 p-b-250">
+			<span class="tit2 p-l-15 p-r-15">
+				Discover
+			</span>
 
-                $trigger.addEventListener('click', () => {
-                    openModal($target);
-                });
-            });
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+				Our Video
+			</h3>
 
-            // Add a click event on various child elements to close the parent modal
-            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-                const $target = $close.closest('.modal');
+			<div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal" data-target="#modal-video-01">
+				<div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
+					<i class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	</section> -->
 
-                $close.addEventListener('click', () => {
-                    closeModal($target);
-                });
-            });
 
-            // Add a keyboard event to close all modals
-            document.addEventListener('keydown', (event) => {
-                const e = event || window.event;
+	<!-- Blog -->
+	<!-- <section class="section-blog bg-white p-t-115 p-b-123">
+		<div class="container">
+			<div class="title-section-ourmenu t-center m-b-22">
+				<span class="tit2 t-center">
+					Latest News
+				</span>
 
-                if (e.keyCode === 27) { // Escape key
-                    closeAllModals();
-                }
-            });
-        });
-    </script>
+				<h3 class="tit5 t-center m-t-2">
+					The Blog
+				</h3>
+			</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.13.1/core.min.js"></script>
-    <script>
-        new Typewriter('#typewriter', {
-            strings: ['typewriter', 'Effect', 'typewriter.js', 'example'],
-            autoStart: true,
-            loop: true,
-        });
-    </script>
+			<div class="row">
+				<div class="col-md-4 p-t-30">
+					<div class="blo1">
+						<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+							<a href="blog-detail.html"><img src="images/blog-01.jpg" alt="IMG-INTRO"></a>
 
-    <!-- SCRIPT FODA PRO FADE -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>    
-    <script>
-        AOS.init({
-            once: true
-        });
-    </script>
+							<div class="time-blog">
+								21 Dec 2017
+							</div>
+						</div>
+
+						<div class="wrap-text-blo1 p-t-35">
+							<a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+								Best Places for Wine
+							</h4></a>
+
+							<p class="m-b-20">
+								Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
+							</p>
+
+							<a href="blog-detail.html" class="txt4">
+								Continue Reading
+								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 p-t-30">
+					<div class="blo1">
+						<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+							<a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+
+							<div class="time-blog">
+								15 Dec 2017
+							</div>
+						</div>
+
+						<div class="wrap-text-blo1 p-t-35">
+							<a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+								Eggs and Cheese
+							</h4></a>
+
+							<p class="m-b-20">
+								Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
+							</p>
+
+							<a href="blog-detail.html" class="txt4">
+								Continue Reading
+								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 p-t-30">
+
+					<div class="blo1">
+						<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+							<a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+
+							<div class="time-blog">
+								12 Dec 2017
+							</div>
+						</div>
+
+						<div class="wrap-text-blo1 p-t-35">
+							<a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+								Style the Wedding Party
+							</h4></a>
+
+							<p class="m-b-20">
+								Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+							</p>
+
+							<a href="blog-detail.html" class="txt4">
+								Continue Reading
+								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section> -->
+
+
+	<!-- Sign up -->
+	<div class="section-signup bg1-pattern p-t-85 p-b-85">
+		<form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
+			<span class="txt5 m-10">
+				Fique por dentro
+			</span>
+
+			<div class="wrap-input-signup size17 bo2 bo-rad-10 bgwhite pos-relative txt10 m-10">
+				<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email-address" placeholder="exemplo@gmail.com">
+				<i class="fa fa-envelope ab-r-m m-r-18" aria-hidden="true"></i>
+			</div>
+
+			<!-- Button3 -->
+			<button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
+				Inscrever
+			</button>
+		</form>
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="bg1">
+		<div class="container p-t-40 p-b-70">
+			<div class="row justify-content-between">
+				<div class="col-sm-6 col-md-4 p-t-50">
+					<!-- - -->
+					<h4 class="txt13 m-b-33">
+						Entre em contato
+					</h4>
+
+					<ul class="m-b-70">
+						<li class="txt14 m-b-14">
+							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							Santa Margarida
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							+55 27 99999-9999
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
+							cardapiodigital@gmail.com
+						</li>
+					</ul>
+
+		
+				</div>
+
+				<div class="col-sm-6 col-md-4 p-t-50">
+					<!-- - -->
+					<h4 class="txt13 m-b-32">
+						Horários de Atendimento
+					</h4>
+
+					<ul>
+						<li class="txt14">
+							09:30 – 18:00
+						</li>
+
+						<li class="txt14">
+							De segunda as sextas
+						</li>
+					</ul>
+				</div>
+
+
+
+				<!-- <div class="col-sm-6 col-md-4 p-t-50">
+					<h4 class="txt13 m-b-38">
+						Gallery
+					</h4>
+
+					<div class="wrap-gallery-footer flex-w">
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+						</a>
+
+						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
+							<img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+						</a>
+					</div>
+
+				</div> -->
+			</div>
+		</div>
+
+		<div class="end-footer bg2">
+			<div class="container">
+				<div class="flex-sb-m flex-w p-t-22 p-b-22">
+					<div class="p-t-5 p-b-5">
+						<a href="#" class="fs-15 c-white"><i class="fa fa-facebook m-l-18" aria-hidden="true"></i></a>
+						<a href="#" class="fs-15 c-white"><i class="fa fa-twitter m-l-18" aria-hidden="true"></i></a>
+					</div>
+
+					<div class="txt17 p-r-20 p-t-5 p-b-5">
+						Copyright &copy; 2023 Todos os direitos reservados | por <a href="#" target="_blank">Aldair Júnior, Gabriel Pinotti e Gabriel Gasparoni</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+
+	<!-- Modal Video 01-->
+	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<div class="modal-dialog" role="document" data-dismiss="modal">
+			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
+
+			<div class="wrap-video-mo-01">
+				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
+				<div class="video-mo-01">
+					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/parallax100/parallax100.js"></script>
+	<script type="text/javascript">
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
 </body>
-
-
 </html>
