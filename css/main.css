@@ -1007,6 +1007,12 @@ input[type="date" i] {
 /*[ Button4 ]
 ///////////////////////////////////////////////////////////
 */
+.header-fixed .btn4{
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: .1px solid rgba(0, 0, 0, 0.484);
+}
 .btn4 {
   background-color: rgba(255, 255, 255, 0);
   color: #fff;
@@ -1017,6 +1023,7 @@ input[type="date" i] {
 .btn4:hover {
   background-color: #ec1d25;
   color: white;
+  border: 0px;
 }
 
 /*[ Button5 ]
@@ -1041,6 +1048,7 @@ input[type="date" i] {
   border-radius: 10px;
   color: #000;
   border: .1px solid rgba(0, 0, 0, 0.484);
+  
 }
 
 .btn6:hover {

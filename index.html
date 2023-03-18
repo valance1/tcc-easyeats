@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Home</title>
+	<title>EasyEats</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/logo2.png"/>
+	<link rel="icon" type="image/png" href="images/logos/SmallICO.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -30,6 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body class="animsition">
 
@@ -42,7 +43,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
-							<img src="images/icons/logo2.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+							<img src="images/logos/LOGOBIG.png" alt="IMG-LOGO" data-logofixed="images/logos/logoBIG2.png">
 						</a>
 					</div>
 
@@ -77,17 +78,16 @@
 								<li>
 									<a href="#">Contato</a>
 								</li>
-								<button type="submit" class="btn4 flex-c-m size39 txt4 trans-0-4 m-10">
+								<button type="button" class="btn4 flex-c-m size39 txt4 trans-0-4 m-10" data-toggle="modal" data-bs-target="#logarModal">
 									Logar
 								</button>
-								<button type="submit" class="btn5 flex-c-m size39 txt4 trans-0-4 m-10">
+								<button type="button" class="btn5 flex-c-m size39 txt4 trans-0-4 m-10" data-bs-toggle="modal" data-bs-target="#registrarModal">
 									Registrar
 								</button>
 
 							</ul>
 						</nav>
 					</div>
-
 					<!-- Social -->
 					<div class="social flex-w flex-l-m p-r-20">
 						<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
@@ -99,7 +99,25 @@
 			</div>
 		</div>
 	</header>
-
+	
+	<!-- MODALS -->
+	<div class="modal fade" id="logarModal" tabindex="-1" aria-labelledby="logarModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h1 class="modal-title fs-5" id="logarModalLabel">Modal title</h1>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  ...
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	<!-- Sidebar -->
 	<aside class="sidebar trans-0-4">
 		<!-- Button Hide sidebar -->
@@ -221,6 +239,7 @@
 
 	<!-- Welcome -->
 	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
+		
 		<div class="container">
 			<!-- <div class="row">
 				<div class="col-md-6 p-t-45 p-b-30">
@@ -817,8 +836,7 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
