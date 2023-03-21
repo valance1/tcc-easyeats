@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<title>EasyEats</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/logos/SmallICO.png"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/logos/SmallICO.png" />
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
 </head>
+
 <body class="animsition">
+	<!-- MODALS -->
+	<div class="modal fade" id="logarModal" tabindex="-1" aria-labelledby="logarModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title" style="font-size: 14px;" id="logarModalLabel">Login</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">CPF/CNPJ</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+							<div id="emailHelp" class="form-text fs-10">Nós nunca vamos compartilhar seus dados com
+								ninguém</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Senha</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" style="margin-left: 0" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Concordo com os termos de
+								serviço</label>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Logar</button>
+					</form>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Header -->
 	<header>
@@ -43,7 +82,8 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
-							<img src="images/logos/LOGOBIG.png" alt="IMG-LOGO" data-logofixed="images/logos/logoBIG2.png">
+							<img src="images/logos/LOGOBIG.png" alt="IMG-LOGO"
+								data-logofixed="images/logos/logoBIG2.png">
 						</a>
 					</div>
 
@@ -78,10 +118,12 @@
 								<li>
 									<a href="#">Contato</a>
 								</li>
-								<button type="button" class="btn4 flex-c-m size39 txt4 trans-0-4 m-10" data-toggle="modal" data-bs-target="#logarModal">
+								<button type="button" class="btn4 flex-c-m size39 txt4 trans-0-4 m-10"
+									data-bs-toggle="modal" data-bs-target="#logarModal">
 									Logar
 								</button>
-								<button type="button" class="btn5 flex-c-m size39 txt4 trans-0-4 m-10" data-bs-toggle="modal" data-bs-target="#registrarModal">
+								<button type="button" class="btn5 flex-c-m size39 txt4 trans-0-4 m-10"
+									data-bs-toggle="modal" data-bs-target="#registrarModal">
 									Registrar
 								</button>
 
@@ -99,25 +141,7 @@
 			</div>
 		</div>
 	</header>
-	
-	<!-- MODALS -->
-	<div class="modal fade" id="logarModal" tabindex="-1" aria-labelledby="logarModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h1 class="modal-title fs-5" id="logarModalLabel">Modal title</h1>
-			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-			  ...
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			  <button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
+
 	<!-- Sidebar -->
 	<aside class="sidebar trans-0-4">
 		<!-- Button Hide sidebar -->
@@ -129,12 +153,12 @@
 				<a href="#" class="txt19">Iníco</a>
 			</li>
 
-		
+
 			<li class="t-center m-b-13">
 				<a href="#" class="txt19">Sobre nós</a>
 			</li>
 
-		
+
 			<li class="t-center m-b-13">
 				<a href="#" class="txt19">Contato</a>
 			</li>
@@ -217,7 +241,8 @@
 			<div class="slick1">
 				<div class="item-slick1 item1-slick1" style="background-image: url(images/slide1-01.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15"
+							data-appear="fadeInDown">
 							Bem vindo ao
 						</span>
 
@@ -239,7 +264,7 @@
 
 	<!-- Welcome -->
 	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
-		
+
 		<div class="container">
 			<!-- <div class="row">
 				<div class="col-md-6 p-t-45 p-b-30">
@@ -274,7 +299,8 @@
 
 	<!-- Intro -->
 	<section class="section-intro">
-		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(images/bg-intro-01.jpg);">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158"
+			style="background-image: url(images/bg-intro-01.jpg);">
 			<span class="tit2 p-l-15 p-r-15">
 				Descubra
 			</span>
@@ -295,9 +321,11 @@
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
-								<a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-									Lanchonete do Eliesio
-								</h4></a>
+								<a href="#">
+									<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+										Lanchonete do Eliesio
+									</h4>
+								</a>
 
 								<p class="m-b-20">
 									Uma lanchonete localizada no IFES Campus Colatina
@@ -310,7 +338,7 @@
 							</div>
 						</div>
 					</div>
-<!-- 
+					<!-- 
 					<div class="col-md-4 p-t-30">
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
@@ -357,12 +385,14 @@
 							</div>
 
 							<!-- Block2 -->
-							<div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false" data-appear="zoomIn">
+							<div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false"
+								data-appear="zoomIn">
 								<!-- Pic block2 -->
-								<a href="#" class="wrap-pic-blo2 bg1-blo2" style="background-image: url(images/event-02.jpg);">
+								<a href="#" class="wrap-pic-blo2 bg1-blo2"
+									style="background-image: url(images/event-02.jpg);">
 									<div class="time-event size10 txt6 effect1">
 										<span class="txt-effect1 flex-c-m t-center">
-											
+
 										</span>
 									</div>
 								</a>
@@ -667,7 +697,8 @@
 			</span>
 
 			<div class="wrap-input-signup size17 bo2 bo-rad-10 bgwhite pos-relative txt10 m-10">
-				<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email-address" placeholder="exemplo@gmail.com">
+				<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email-address"
+					placeholder="exemplo@gmail.com">
 				<i class="fa fa-envelope ab-r-m m-r-18" aria-hidden="true"></i>
 			</div>
 
@@ -706,7 +737,7 @@
 						</li>
 					</ul>
 
-		
+
 				</div>
 
 				<div class="col-sm-6 col-md-4 p-t-50">
@@ -796,7 +827,8 @@
 					</div>
 
 					<div class="txt17 p-r-20 p-t-5 p-b-5">
-						Copyright &copy; 2023 Todos os direitos reservados | por <a href="#" target="_blank">Aldair Júnior, Gabriel Pinotti e Gabriel Gasparoni</a>
+						Copyright &copy; 2023 Todos os direitos reservados | por <a href="#" target="_blank">Aldair
+							Júnior, Gabriel Pinotti e Gabriel Gasparoni</a>
 					</div>
 				</div>
 			</div>
@@ -823,7 +855,8 @@
 			<div class="wrap-video-mo-01">
 				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
 				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0"
+						allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
@@ -831,31 +864,34 @@
 
 
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
 	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
 	<script type="text/javascript" src="js/slick-custom.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/parallax100/parallax100.js"></script>
 	<script type="text/javascript">
-        $('.parallax100').parallax100();
+		$('.parallax100').parallax100();
 	</script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
 </body>
+
 </html>
