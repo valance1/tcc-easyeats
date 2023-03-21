@@ -149,8 +149,8 @@ ul, li {
 
 /* ------------------------------------ */
 input {
-	outline: none;
-	border: none !important;
+	/* outline: none;
+	border: none !important; */
 }
 
 textarea {
@@ -1336,7 +1336,7 @@ body {padding-right: 0px !important;}
   overflow-x: hidden;
   overflow-y: auto !important;
 }
-.modal-open {overflow-y: scroll;}
+.modal-open {overflow-y:  scroll !important;}
 
 /* ------------------------------------ */
 .modal-backdrop {
