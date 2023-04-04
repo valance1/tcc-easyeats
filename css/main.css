@@ -1,31 +1,4 @@
 /*------------------------------------------------------------------
-Project:  Pato
-Version:  
-Last change:  
-Assigned to:  Kevin Nguyen
-Primary use:  Company
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
-
-* body
-  + Header / header
-  + Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-  + Footer / footer
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[COLOR CODES]
-
-# Text Color      :  
-# Primary Color 01:  
-# Primary Color 02:   
-# Primary Color 03:  
-
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
 [TYPOGRAPHY]
 
 Body            : 16px/1.6 '', Arial, sans-serif;
@@ -535,6 +508,25 @@ input[type="date" i] {
 /*[ Menu ]
 -----------------------------------------------------------
 */
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+.product-image{
+  width: 100px;
+  height:  100px;
+}
+.product-image img {
+  width: 100px;
+  height: 100px;
+}
+.item-mainmenu{
+  width: 100%;
+} 
+
 .wrap_menu {
   height: 100%;
 }

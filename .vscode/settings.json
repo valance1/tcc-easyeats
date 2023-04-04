@@ -4,8 +4,6 @@
     "editor.fontFamily": "Operator Mono",
     "editor.lineHeight": 40,
     "editor.minimap.enabled": false,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "hidden",
     "editor.lineNumbers": "off",
     "editor.wordWrap": "on",
     "editor.renderLineHighlight": "none",
