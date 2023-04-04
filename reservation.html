@@ -35,6 +35,41 @@
 </head>
 <body class="animsition">
 
+	<div class="modal fade" id="logarModal" tabindex="-1" aria-labelledby="logarModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title" style="font-size: 14px;" id="logarModalLabel">Login</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">CPF/CNPJ</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+							<div id="emailHelp" class="form-text fs-10">Nós nunca vamos compartilhar seus dados com
+								ninguém</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Senha</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" style="margin-left: 0" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Concordo com os termos de
+								serviço</label>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Logar</button>
+					</form>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -44,7 +79,8 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
-							<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+							<img src="images/logos/LOGOBIG.png" alt="IMG-LOGO"
+								data-logofixed="images/logos/logoBIG2.png">
 						</a>
 					</div>
 
@@ -57,35 +93,42 @@
 								</li>
 
 								<li>
-									<a href="menu.html">Menu</a>
+									<a href="#">Restaurantes</a>
 								</li>
 
 								<li>
-									<a href="reservation.html">Reservation</a>
+									<a href="#">Suporte</a>
 								</li>
 
-								<li>
+								<!-- <li>
 									<a href="gallery.html">Gallery</a>
-								</li>
+								</li> -->
 
 								<li>
-									<a href="about.html">About</a>
+									<a href="#">Sobre nós</a>
 								</li>
 
-								<li>
+								<!-- <li>
 									<a href="blog.html">Blog</a>
-								</li>
+								</li> -->
 
 								<li>
-									<a href="contact.html">Contact</a>
+									<a href="#">Contato</a>
 								</li>
+								<button type="button" class="btn4 flex-c-m size39 txt4 trans-0-4 m-10"
+									data-bs-toggle="modal" data-bs-target="#logarModal">
+									Logar
+								</button>
+								<button type="button" class="btn5 flex-c-m size39 txt4 trans-0-4 m-10"
+									data-bs-toggle="modal" data-bs-target="#registrarModal">
+									Registrar
+								</button>
+
 							</ul>
 						</nav>
 					</div>
-
 					<!-- Social -->
 					<div class="social flex-w flex-l-m p-r-20">
-						<a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
 						<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
 						<a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
 

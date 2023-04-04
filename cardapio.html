@@ -36,65 +36,40 @@
 <body class="animsition">
 
 	<!-- Header -->
-	<header>
-		<!-- Header desktop -->
-		<div class="wrap-menu-header gradient1 trans-0-4">
-			<div class="container h-full">
-				<div class="wrap_header trans-0-3">
-					<!-- Logo -->
-					<div class="logo">
-						<a href="index.html">
-							<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
-						</a>
-					</div>
-
-					<!-- Menu -->
-					<div class="wrap_menu p-l-45 p-l-0-xl">
-						<nav class="menu">
-							<ul class="main_menu">
-								<li>
-									<a href="index.html">Home</a>
-								</li>
-
-								<li>
-									<a href="menu.html">Menu</a>
-								</li>
-
-								<li>
-									<a href="reservation.html">Reservation</a>
-								</li>
-
-								<li>
-									<a href="gallery.html">Gallery</a>
-								</li>
-
-								<li>
-									<a href="about.html">About</a>
-								</li>
-
-								<li>
-									<a href="blog.html">Blog</a>
-								</li>
-
-								<li>
-									<a href="contact.html">Contact</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<!-- Social -->
-					<div class="social flex-w flex-l-m p-r-20">
-						<a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-						<a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
-						<a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
-
-						<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
-					</div>
+	<div class="modal fade" id="logarModal" tabindex="-1" aria-labelledby="logarModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title" style="font-size: 14px;" id="logarModalLabel">Login</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">CPF/CNPJ</label>
+							<input type="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+							<div id="emailHelp" class="form-text fs-10">Nós nunca vamos compartilhar seus dados com
+								ninguém</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Senha</label>
+							<input type="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" style="margin-left: 0" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Concordo com os termos de
+								serviço</label>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Logar</button>
+					</form>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
 				</div>
 			</div>
 		</div>
-	</header>
+	</div>
 
 	<!-- Sidebar -->
 	<aside class="sidebar trans-0-4">
@@ -187,7 +162,7 @@
 	<!-- Title Page -->
 	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(images/bg-title-page-01.jpg);">
 		<h2 class="tit6 t-center">
-			Restaurantes
+			Eliesio Grill
 		</h2>
 	</section>
 
@@ -199,203 +174,52 @@
 				<div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
 					<div class="wrap-item-mainmenu p-b-22">
 						<h3 class="tit-mainmenu tit10 p-b-25">
-							CONFIRA OS RESTAURANTES CADASTRADOS:
+							CONFIRA OS ITENS DO NOSSO MENU:
 						</h3>
 
 						<!-- Item mainmenu -->
 						<div class="item-mainmenu m-b-36">
 							<div class="flex-w flex-b m-b-3">
 								<a href="#" class="name-item-mainmenu txt21">
-									Pine nut sbrisalona
+									Hamburguer
 								</a>
 
 								<div class="line-item-mainmenu bg3-pattern"></div>
 
 								<div class="price-item-mainmenu txt22">
-									$29.79
+									R$7,00
 								</div>
 							</div>
 
 							<span class="info-item-mainmenu txt23">
-								Sed fermentum eros vitae eros
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, blanditiis.
 							</span>
+						</div>
+						<div class="item-mainmenu m-b-36">
+
+							<!-- FAZER AQUI UMA CAIXA PARA A FOTO DO PRODUTO -->
+
+							<div class="flex-w flex-b m-b-3">
+								<a href="#" class="name-item-mainmenu txt21">
+									SUCO POLPA
+								</a>
+								<div class="line-item-mainmenu bg3-pattern"></div>
+								<div class="price-item-mainmenu txt22">
+									R$6,00
+								</div>
+							</div>
+
+							<span class="info-item-mainmenu txt23">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+							</span>
+
+							<!-- FAZER AQUI O BOTÃO PARA ADICIONAR AO CARRINHO -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-
-	<!-- Footer -->
-	<footer class="bg1">
-		<div class="container p-t-40 p-b-70">
-			<div class="row">
-				<div class="col-sm-6 col-md-4 p-t-50">
-					<!-- - -->
-					<h4 class="txt13 m-b-33">
-						Contact Us
-					</h4>
-
-					<ul class="m-b-70">
-						<li class="txt14 m-b-14">
-							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
-							8th floor, 379 Hudson St, New York, NY 10018
-						</li>
-
-						<li class="txt14 m-b-14">
-							<i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
-							(+1) 96 716 6879
-						</li>
-
-						<li class="txt14 m-b-14">
-							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
-							contact@site.com
-						</li>
-					</ul>
-
-					<!-- - -->
-					<h4 class="txt13 m-b-32">
-						Opening Times
-					</h4>
-
-					<ul>
-						<li class="txt14">
-							09:30 AM – 11:00 PM
-						</li>
-
-						<li class="txt14">
-							Every Day
-						</li>
-					</ul>
-				</div>
-
-				<div class="col-sm-6 col-md-4 p-t-50">
-					<!-- - -->
-					<h4 class="txt13 m-b-33">
-						Latest twitter
-					</h4>
-
-					<div class="m-b-25">
-						<span class="fs-13 color2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</span>
-						<a href="#" class="txt15">
-							@colorlib
-						</a>
-
-						<p class="txt14 m-b-18">
-							Activello is a good option. It has a slider built into that displays the featured image in the slider.
-							<a href="#" class="txt15">
-								https://buff.ly/2zaSfAQ
-							</a>
-						</p>
-
-						<span class="txt16">
-							21 Dec 2017
-						</span>
-					</div>
-
-					<div>
-						<span class="fs-13 color2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</span>
-						<a href="#" class="txt15">
-							@colorlib
-						</a>
-
-						<p class="txt14 m-b-18">
-							Activello is a good option. It has a slider built into that displays
-							<a href="#" class="txt15">
-								https://buff.ly/2zaSfAQ
-							</a>
-						</p>
-
-						<span class="txt16">
-							21 Dec 2017
-						</span>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 p-t-50">
-					<!-- - -->
-					<h4 class="txt13 m-b-38">
-						Gallery
-					</h4>
-
-					<!-- Gallery footer -->
-					<div class="wrap-gallery-footer flex-w">
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
-						</a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="end-footer bg2">
-			<div class="container">
-				<div class="flex-sb-m flex-w p-t-22 p-b-22">
-					<div class="p-t-5 p-b-5">
-						<a href="#" class="fs-15 c-white"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-						<a href="#" class="fs-15 c-white"><i class="fa fa-facebook m-l-18" aria-hidden="true"></i></a>
-						<a href="#" class="fs-15 c-white"><i class="fa fa-twitter m-l-18" aria-hidden="true"></i></a>
-					</div>
-
-					<div class="txt17 p-r-20 p-t-5 p-b-5">
-						Copyright &copy; 2018 All rights reserved  |  This template is made with <i class="fa fa-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
@@ -414,6 +238,8 @@
 	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="js/navbar-footer.js"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
 	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
