@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">EasyEats</a>
@@ -32,18 +34,60 @@
             <a class="nav-link" href="#">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Login</a>
+            <button type="button" class="btn btn-primary disabled" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link disabled">Cadastro</a>
+            <button type="button" class="btn btn-primary disabled" data-bs-toggle="modal" data-bs-target="#cadastroModal">
+              Cadastrar
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   
+  <!-- LOGIN Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
+  <!--CADASTRO Modal -->
+  <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- HERO -->
 <div class="container col-xxl-8 px-4 py-5">
 	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 		<div class="col-10 col-sm-8 col-lg-6">
