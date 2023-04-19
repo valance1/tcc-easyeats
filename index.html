@@ -53,24 +53,25 @@
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        
         <div class="modal-header">
           <h5 class="modal-title" id="ModalLabel">Login</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        
         <div class="modal-body">
-          
           <!-- CAMPO EMAIL -->
-            <div class="mb-3">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
               <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
-              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">Nós nunca vamos compartilhar seus dados com ninguém</div>
             </div>
             <!-- CAMPO  SENHA -->
-            <div class="mb-3">
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="InputPassword1" placeholder="******">
               <label for="InputPassword1" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="InputPassword1">
             </div>
         </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
           <button type="button" class="btn btn-primary">Confirmar</button>
