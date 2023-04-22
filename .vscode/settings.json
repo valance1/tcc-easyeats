@@ -1,0 +1,23 @@
+
+{
+    "editor.fontSize": 13,
+    "editor.fontFamily": "Operator Mono",
+    "editor.lineHeight": 40,
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "off",
+    "editor.wordWrap": "on",
+    "editor.renderLineHighlight": "none",
+    "editor.overviewRulerBorder": false,
+    // "workbench.editor.showTabs": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "workbench.tree.renderIndentGuides": "none",
+    "breadcrumbs.enabled": false,
+    "workbench.statusBar.visible": false,
+    // "workbench.activityBar.visible": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.nativeTabs": true,
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.sideBar.location": "right",
+    "editor.guides.indentation": false,
+    // "git.enabled": false,
+    }

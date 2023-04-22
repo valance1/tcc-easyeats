@@ -1,0 +1,6 @@
+nav.navbar{
+  background-color: #121212 !important;
+}
+nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
+  color: #fff !important;
+}
