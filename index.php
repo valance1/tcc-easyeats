@@ -1,3 +1,7 @@
+<?php
+require_once('php/bd.php')
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
