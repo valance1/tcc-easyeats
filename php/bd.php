@@ -1,24 +1,13 @@
 <?php
 
-$pdo = new PDO('sqlite:easyeats.sqlite');
+$usuario = 'root';
+$senha = 'root';
+$database = 'easyeats';
+$server = 'localhost';
 
-$pdo->exec('CREATE TABLE IF NOT EXISTS pessoa(
-    nome TEXT,
-    senha TEXT,
-    email TEXT,
-    CPF text)');
+$mysqli = new $mysqli($server, $usuario, $senha, $database);
 
-$pdo->exec('CREATE TABLE IF NOT EXISTS empresa(
-    nome TEXT,
-    senha TEXT,
-    email TEXT,
-    CNPJ TEXT,
-    agencia TEXT,
-    conta TEXT)');
-
-
-if (!$pdo->query("SELECT * FROM easyeats")>fetch()){
-    // $pdo->exec("INSERT INTO easyeats")
-};
-
+if($mysqli0->error){
+  die('Falha  no banco de dados:' . $mysqli->error);
+}
 ?>
