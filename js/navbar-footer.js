@@ -55,7 +55,7 @@ function createHeaderAndFooter() {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           
         </div>
-        
+        <form action="" method="POST">
         <div class="modal-body">
           <!-- CAMPO EMAIL -->
             <div class="form-floating mb-3">
@@ -68,12 +68,14 @@ function createHeaderAndFooter() {
               <label for="InputPassword1" class="form-label">Senha</label>
               <!-- TEM QUE BOTAR UM BOTÃO DE "ESQUECI MINHA  SENHA" -->
             </div>
+            
         </div>
         
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
+          <button type="submit" class="btn btn-primary">Confirmar</button>
         </div>
+        </form>
       </div>
     </div>
   </div>
@@ -98,40 +100,43 @@ function createHeaderAndFooter() {
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de Cliente</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <form action="" method="POST">
               <div class="modal-body">
                 
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="InputNome1" aria-describedby="nomeHelp" placeholder="Nome Completo">
-                  <label for="InputNome1" class="form-label">Nome Completo</label>
-                </div>
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" placeholder="CPF">
-                  <label for="InputCPF1" class="form-label">CPF</label>
-                </div>
-                
-                
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
-                  <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
-                </div>
-                
-                <!-- CAMPO  SENHA -->
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputPassword1" placeholder="******">
-                  <label for="InputPassword1" class="form-label">Senha</label>
-                </div>
-                
-                <!-- CONFIRMAR SENHA -->
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputPassword2" placeholder="******">
-                  <label for="InputPassword2" class="form-label">Confirmar Senha</label>
-                </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="InputNome1" aria-describedby="nomeHelp" placeholder="Nome Completo">
+                    <label for="InputNome1" class="form-label">Nome Completo</label>
+                  </div>
+                  
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" placeholder="CPF">
+                    <label for="InputCPF1" class="form-label">CPF</label>
+                  </div>
+                  
+                  
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
+                    <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
+                  </div>
+                  
+                  <!-- CAMPO  SENHA -->
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="InputPassword1" placeholder="******">
+                    <label for="InputPassword1" class="form-label">Senha</label>
+                  </div>
+                  
+                  <!-- CONFIRMAR SENHA -->
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="InputPassword2" placeholder="******">
+                    <label for="InputPassword2" class="form-label">Confirmar Senha</label>
+                  </div>
+          
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Confirmar</button>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
               </div>
+              </form>
             </div>
 
             <!-- MODAL DA EMPRESA -->
@@ -140,8 +145,8 @@ function createHeaderAndFooter() {
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de Empresa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <form action="" method="POST">
               <div class="modal-body">
-                
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="InputNome2" aria-describedby="nomeHelp" placeholder="Nome Completo">
                   <label for="InputNome2" class="form-label">Nome Completo</label>
@@ -183,11 +188,13 @@ function createHeaderAndFooter() {
                   <input type="password" class="form-control" id="InputPassword2" placeholder="******">
                   <label for="InputPassword2" class="form-label">Confirmar Senha</label>
                 </div>
+    
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Confirmar</button>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
               </div>
+              </form>
             </div>
           </div>
       </div>
