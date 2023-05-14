@@ -4,3 +4,9 @@ nav.navbar{
 nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
+
+section.average-section, nav.navbar{
+  width: 100%;
+  padding-left: 150px;
+  padding-right:  150px;
+}

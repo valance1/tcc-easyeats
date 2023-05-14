@@ -13,163 +13,98 @@
 		<link href='css/main.css' rel="stylesheet">
 </head>
 
-<body>
-  
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">EasyEats</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Restaurantes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-              Login
-            </button>
-          </li>
-          
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">
-              Cadastrar
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- LOGIN Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          
-          <h5 class="modal-title" id="ModalLabel">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          
-        </div>
-        
-        <div class="modal-body">
-          <!-- CAMPO EMAIL -->
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
-              <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
-            </div>
-            <!-- CAMPO  SENHA -->
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="InputPassword1" placeholder="******">
-              <label for="InputPassword1" class="form-label">Senha</label>
-              <!-- TEM QUE BOTAR UM BOTÃO DE "ESQUECI MINHA  SENHA" -->
-            </div>
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!--CADASTRO Modal -->
-  <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- 
-        DENTRO DESSE MODAL,VAI TER TIPO DOIS MODAIS, UM PRA EMPRESA E OUTRO PARA CLIENTE -->
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Cliente</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Empresa</a>
-          </li>
-        </ul>
-        
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cadastro de Cliente</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        
-        <div class="modal-body">
-          
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="InputNome1" aria-describedby="nomeHelp" placeholder="Nome Completo">
-            <label for="InputNome1" class="form-label">Nome Completo</label>
-          </div>
-          
-          <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="InputCNPJ1" aria-describedby="CNPJHelp" placeholder="CNPJ">
-            <label for="InputCNPJ1" class="form-label">CNPJ</label>
-          </div>
-          
-          
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
-            <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
-          </div>
-          
-          <!-- CAMPO  SENHA -->
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="InputPassword1" placeholder="******">
-            <label for="InputPassword1" class="form-label">Senha</label>
-          </div>
-          
-          <!-- CONFIRMAR SENHA -->
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="InputPassword2" placeholder="******">
-            <label for="InputPassword2" class="form-label">Confirmar Senha</label>
-          </div>
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+<body></body>
+
   <!-- HERO -->
-<div class="container col-xxl-8 px-4 py-5">
-	<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-		<div class="col-10 col-sm-8 col-lg-6">
-			<img src="" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
-		</div>
-		<div class="col-lg-6">
-			<div class="lc-block mb-3">
-				<div editable="rich">
-					<h2 class="fw-bold display-5">EasyEats</h2>
-					<p>Espere menos, viva mais</p>
-				</div>
-			</div>
+  <section class="average-section" id="hero">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <div class="lc-block mb-3">
+            <div editable="rich">
+              <h2 class="fw-bold display-5">EasyEats</h2>
+              <p>Espere menos, viva mais</p>
+            </div>
+          </div>
 
-			<div class="lc-block mb-3">
-				<div editable="rich">
-					<p class="lead"> Uma plataforma feita para você adiantar suas compras em lanchonetes
-					</p>
-				</div>
-			</div>
+          <div class="lc-block mb-3">
+            <div editable="rich">
+              <p class="lead"> Uma plataforma feita para você adiantar suas compras em lanchonetes
+              </p>
+            </div>
+          </div>
 
-			<div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-				<a class="btn btn-outline-secondary px-4" href="#" role="button">Ver Restaurantes</a>
-			</div>
+          <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+            <a class="btn btn-outline-secondary px-4" href="restaurantes.html" role="button">Ver Restaurantes</a>
+          </div>
 
-		</div>
-	</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PREVIEW RESTAURANTS -->
+  <section class="average-section" id="restaurantes-preview">
+
+    <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
+    <div class="section-text-container">
+      <h1 class="section-heading"></h1>
+      <p class="section-detail"></p>
+    </div>
+    
+    <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
+    <div class="restaurant-wrapper">
+      <!-- CARTAO DO RESTAURANTE  -->
+      <div class="restaurant-card">
+        <image class="restaurante-image"> FOTO DA CANTINA</image>
+        <div class="restaurant-text-info">
+          <h1 class="restaurant-name">ELIESIO</h1>
+          <p class="restaurant-tag">LANCHONETE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- developers -->
+  <section class="average-section" id="developers">
+    
+    <div class="section-text-container">
+      <h1 class="section-heading"></h1>
+      <p class="section-detail"></p>
+    </div>
+  <div class="dev-wrapper">
+    <!-- -------------------------------------------------- -->
+    <div class="dev-card">
+      <image>FOTO DO MELIANTE</image>
+      <h1 class="dev-name">NOME DO MELIANTE</h1>
+      <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+    </div>
+  <!-- -------------------------------------------------- -->
+    <div class="dev-card">
+      <image>FOTO DO MELIANTE</image>
+      <h1 class="dev-name">NOME DO MELIANTE</h1>
+      <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+    </div>
+    <!-- -------------------------------------------------- -->
+    <div class="dev-card">
+      <image>FOTO DO MELIANTE</image>
+      <h1 class="dev-name">NOME DO MELIANTE</h1>
+      <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+    </div>
+    <!-- -------------------------------------------------- -->
+  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer" id="footer">
+
+  </section>
+
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="js/forms.js"></script>
+  <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
-
 </html>
