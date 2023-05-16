@@ -7,7 +7,7 @@ function inserirProduto($conexao, $nome, $descricao, $email, $preço)
         $descricao = $conexao->real_escape_string($_POST['descricao']);
         $nome = $conexao->real_escape_string($_POST['nome']);
         
-        $sql = "INSERT INTO produto (nome, descricao, email, preço, agencia, conta) VALUES ( '$nome', '$descricao', '$email', '$preço') ";
+        $sql = "INSERT INTO produto (nome, descricao, preço) VALUES ('$nome', '$descricao', '$preço')";
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function alterarProduto(){
