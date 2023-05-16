@@ -1,5 +1,5 @@
 <?php
-function inserirPessoa($conexao, $nome, $cpf, $email, $senha )
+function inserirPessoa($conexao, $nome, $senha, $email, $cpf)
 {
         // LIMPANDO SQL INJECTION
         $email = $conexao->real_escape_string($_POST['email']);
