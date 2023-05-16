@@ -4,11 +4,11 @@
     require_once "../dao/pessoaDAO.php";
 
     // PASSO 1 - Receber os campos
-    $nome = $_POST["txtNome"];
-    $cpf = $_POST["txtCPF"];
-    $email = $_POST["email"];
-    $senha1 = $_POST["txtSenha1"];
-    $senha2 = $_POST["txtSenha2"];
+    $nome = $_POST["inputNome"];
+    $cpf = $_POST["inputCPF"];
+    $email = $_POST["inputEmail"];
+    $senha1 = $_POST["inputSenha1"];
+    $senha2 = $_POST["inputSenha2"];
 
     // PASSO 2 - Validar os campos
     $msgErro = validarCampos($nome, $cpf, $ender, $dtNasc, $senha1, $senha2 );

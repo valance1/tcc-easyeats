@@ -1,5 +1,5 @@
 <?php
-function inserirEmpresa($conexao, $nome, $CNPJ, $email, $senha, $agencia, $conta )
+function inserirEmpresa($conexao, $nome, $senha, $email, $CNPJ, $agencia, $conta )
 {
         // LIMPANDO SQL INJECTION
         $email = $conexao->real_escape_string($_POST['email']);
