@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 14-Maio-2023 às 17:10
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Tempo de geração: 16-Maio-2023 às 13:03
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `easyeats`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(90) NOT NULL,
+  `CNPJ` varchar(14) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `agencia` varchar(45) NOT NULL,
+  `conta` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -44,6 +60,14 @@ INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`) VALUES
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`CNPJ`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `conta` (`conta`);
 
 --
 -- Índices para tabela `pessoa`
