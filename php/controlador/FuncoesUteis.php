@@ -1,4 +1,7 @@
 <?php
+include(../conexaoBD.php)
+
+$conexao = conectarBD();
 
     function validarCampos($nome, $cpf, $ender, $dtNasc, $senha1, $senha2 ) {
         $msgErro = "";
@@ -29,7 +32,9 @@
         return $msgErro;
     }
     
-    
+    function clearInjection($item){
+      return $conexao->real_escape_string($item);
+    }
     function validarCPF($cpf) {
         return true;
     }

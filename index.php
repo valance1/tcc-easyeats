@@ -1,3 +1,10 @@
+<?php
+if( (!isset($_SESSION['email']) == true)){
+  //mudar navbar
+};
+$logado = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
