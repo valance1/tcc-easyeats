@@ -25,14 +25,14 @@ if(strlen($email)==0){
         
         // PEGANDO OS USERS
         $sqlCode = 'SELECT * FROM pessoa WHERE email = ' .  $email . ' OR cpf =' .$cpf;
-        $query = mysql_query(conexaoBD(), $sqlCode);
+        $query = mysqli_query($conexao, $sqlCode);
         // VERIFICANDO BUSCAS
         if($mysqli_num_rows($query) == 1){
           echo "Esse usuário já existe";
         }else{
             // Verificar a possibilidade de haver uma empresa com o email
             $sqlCode = 'SELECT * FROM empresa WHERE email = ' . $email;
-            $query = mysql_query(conexaoBD(), $sqlCode);
+            $query = mysqli_query($conexao, $sqlCode);
             if($mysqli_num_rows($query) == 1){
               echo "Esse usuário já existe";
             }else{ //CASO NÃO EXISTA NINGUEM COM O EMAIL:

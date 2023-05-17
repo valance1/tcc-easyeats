@@ -1,8 +1,6 @@
 <?php
-
 function conectarBD()
 {
-
     $usuario = 'root';
     $senha = 'root';
     $database = 'easyeats';
