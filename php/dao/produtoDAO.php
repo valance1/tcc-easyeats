@@ -2,10 +2,10 @@
 function inserirProduto($conexao, $nome, $descricao, $email, $preço)
 {
         // LIMPANDO SQL INJECTION
-        $email = $conexao->real_escape_string($_POST['email']);
-        $preço = $conexao->real_escape_string($_POST['preço']);
-        $descricao = $conexao->real_escape_string($_POST['descricao']);
-        $nome = $conexao->real_escape_string($_POST['nome']);
+        $email = $conexao->real_escape_string($email);
+        $preço = $conexao->real_escape_string($preço);
+        $descricao = $conexao->real_escape_string($descricao);
+        $nome = $conexao->real_escape_string($nome);
         
         $sql = "INSERT INTO produto (nome, descricao, preço) VALUES ('$nome', '$descricao', '$preço')";
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
