@@ -4,8 +4,8 @@
     require_once "../dao/pessoaDAO.php";
 
     // PASSO 1 - Receber os campos
-    $email = cleanInjection($_POST["inputEmail"]);
-    $senha = cleanInjection($_POST["inputSenha"]);
+    $email = clearInjection($_POST["inputEmail"]);
+    $senha = clearInjection($_POST["inputSenha"]);
     
     
     // VERIFICANDO INPUTS
@@ -30,7 +30,7 @@
         }else{
           echo 'Senha incorreta';
           // header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
-        }
-      }
+        };
+      };
 ?>
 

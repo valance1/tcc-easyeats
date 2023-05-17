@@ -100,35 +100,35 @@ function createHeaderAndFooter() {
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de Cliente</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="" method="POST">
+              <form action="php/controlador/cadPessoa.php" method="POST">
               <div class="modal-body">
                 
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="InputNome1" aria-describedby="nomeHelp" placeholder="Nome Completo">
+                    <input type="text" class="form-control" id="InputNome1" aria-describedby="nomeHelp" name="inputNome" placeholder="Nome Completo">
                     <label for="InputNome1" class="form-label">Nome Completo</label>
                   </div>
                   
                   <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" placeholder="CPF">
+                    <input type="number" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF">
                     <label for="InputCPF1" class="form-label">CPF</label>
                   </div>
                   
                   
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="inputEmail" placeholder="exemplo@emailcom">
                     <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
                   </div>
                   
                   <!-- CAMPO  SENHA -->
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="InputPassword1" placeholder="******">
-                    <label for="InputPassword1" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="InputSenha1" name="inputSenha1" placeholder="******">
+                    <label for="InputSenha1" class="form-label">Senha</label>
                   </div>
                   
                   <!-- CONFIRMAR SENHA -->
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="InputPassword2" placeholder="******">
-                    <label for="InputPassword2" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="InputSenha2" name="inputSenha2" placeholder="******">
+                    <label for="InputSenha2" class="form-label">Confirmar Senha</label>
                   </div>
           
               </div>
@@ -145,7 +145,7 @@ function createHeaderAndFooter() {
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de Empresa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="" method="POST">
+              <form action="php/controlador/cadEmpresa.php" method="POST">
               <div class="modal-body">
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="InputNome2" aria-describedby="nomeHelp" placeholder="Nome Completo">
@@ -179,14 +179,14 @@ function createHeaderAndFooter() {
                 
                 <!-- CAMPO  SENHA -->
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputPassword1" placeholder="******">
-                  <label for="InputPassword1" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="InputSenha1" placeholder="******">
+                  <label for="InputSenha1" class="form-label">Senha</label>
                 </div>
                 
                 <!-- CONFIRMAR SENHA -->
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputPassword2" placeholder="******">
-                  <label for="InputPassword2" class="form-label">Confirmar Senha</label>
+                  <input type="password" class="form-control" id="InputSenha2" placeholder="******">
+                  <label for="InputSenha2" class="form-label">Confirmar Senha</label>
                 </div>
     
               </div>

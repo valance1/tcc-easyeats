@@ -12,8 +12,34 @@ $senha2 = $_POST["inputSenha2"];
 // PASSO 3 - Inserir/Alterar dados no banco
 $conexao = conectarBD();
 // INSERIR
-inserirPessoa($conexao, $nome, $senha1, $email, $cpf);
+
 // PASSO 4 - Resposta de SUCESSO       
 // header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
-
+if(strlen($email)==0){
+        echo "Preencha seu email";
+      } else if(strlen($senha1) == 0 || strlen($senha2) == 0){
+        echo "Preencha sua senha";
+      } else if(strlen($cpf) == 0){
+        echo "Preencha seu CPF";
+      }else{ //VERIFICANDO SE ALGUEM Jà TEM ESSE LOGIN
+        
+        // PEGANDO OS USERS
+        $sqlCode = 'SELECT * FROM pessoa WHERE email = ' .  $email . ' OR cpf =' .$cpf;
+        $query = mysql_query(conexaoBD(), $sqlCode);
+        // VERIFICANDO BUSCAS
+        if($mysqli_num_rows($query) == 1){
+          echo "Esse usuário já existe";
+        }else{
+            // Verificar a possibilidade de haver uma empresa com o email
+            $sqlCode = 'SELECT * FROM empresa WHERE email = ' . $email;
+            $query = mysql_query(conexaoBD(), $sqlCode);
+            if($mysqli_num_rows($query) == 1){
+              echo "Esse usuário já existe";
+            }else{ //CASO NÃO EXISTA NINGUEM COM O EMAIL:
+              $conexao = conectarBD();
+              inserirPessoa($conexao, $nome, $senha1, $email, $cpf);
+              // header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
+            }
+        }
+      }
 ?>
