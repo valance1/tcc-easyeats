@@ -21,6 +21,8 @@ if(strlen($email)==0){
         echo "Preencha sua senha";
       } else if(strlen($cpf) == 0){
         echo "Preencha seu CPF";
+      }else if(validaCPF($cpf) == false){
+        echo 'CPF Inválido';
       }else{ //VERIFICANDO SE ALGUEM Jà TEM ESSE LOGIN
         
         // PEGANDO OS USERS
