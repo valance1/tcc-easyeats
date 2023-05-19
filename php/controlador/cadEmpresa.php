@@ -13,7 +13,42 @@
     $conta = $_POST["inputConta"];
 
     $conexao = conectarBD();
-    // INSERIR
-    inserirEmpresa($conexao, $nome, $senha1, $email, $CNPJ, $agencia, $conta);
+    
+    
+// PASSO 4 - Resposta de SUCESSO       
+// header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
+if(strlen($email)==0){
+        echo "Preencha seu email";
+      }else if(strlen($senha1) == 0 || strlen($senha2) == 0){
+        echo "Preencha sua senha";
+      }else if(strlen($agencia)  == 0  or strlen($conta) ==  0){
+          echo "Preencha seus dados bancários";
+      }else if(strlen($CNPJ) == 0){
+        echo "Preencha seu CNPJ";
+      }else if(validaCNPJ($CNPJ) == false){
+        echo 'CNPJ Inválido';
+      }else{ //VERIFICANDO SE ALGUEM Jà TEM ESSE LOGIN
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+            echo "EMAIL INVÁLIDO";
+            exit();
+        }
+        // PEGANDO OS USERS
+        $sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
+        $query = mysqli_query($conexao, $sqlCode);
+        // VERIFICANDO BUSCAS
+        if(mysqli_num_rows($query) == 1){
+          echo "Já existe um  usuário com esse EMAIL";
+        }else{
+            
+            $sqlCode = "SELECT * FROM empresa WHERE email = '$email or cnpj = '$cnpj' or conta='$conta'";
+            $query = mysqli_query($conexao, $sqlCode);
+            if(mysqli_num_rows($query) == 1){
+              echo "Já existe alguem com algum de seus dados.";
+            }else{
+              inserirEmpresa($conexao, $nome, $senha1, $email, $CNPJ, $agencia, $conta);
+              header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
+            }
+        }
 ?>
 

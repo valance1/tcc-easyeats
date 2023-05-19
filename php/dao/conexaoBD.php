@@ -1,12 +1,7 @@
 <?php
 function conectarBD()
 {
-    $usuario = 'root';
-    $senha = 'root';
-    $database = 'easyeats';
-    $server = 'localhost';
-
-    $conexao = mysqli_connect($server, $usuario, $senha, $database) or die("Erro ao conectar com o banco de dados.");
+    $conexao = mysqli_connect("127.0.0.1:3306", "root", "root", "easyeats" ) or die("Erro ao conectar com o banco de dados.");
 
     // PARA RESOLVER PROBLEMAS DE ACENTUAÇÃO 
     // Converte CODIFICAÇÃO para UTF-8

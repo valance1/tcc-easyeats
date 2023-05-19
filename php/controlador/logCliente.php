@@ -14,22 +14,28 @@
         echo "Preencha seu email";
       } else if(strlen($senha) == 0){
         echo "Preencha sua senha";
-      }else{ //VERIFICANDO SE ALGUEM Jà TEM ESSE LOGIN
+      }else{ 
         
         // PEGANDO OS USERS
-        $sqlCode = 'SELECT * FROM pessoa WHERE email = ' .  $email . ' AND cpf =' .  $senha;
-        $query = mysql_query(conexaoBD(), $sqlCode);
+        $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
+        $query = mysqli_query(conectarBD(), $sqlCode);
         
         // VERIFICANDO BUSCAS
-        if( $query->num_rows == 1){
-          // FAZER LOGIN, INICIAR SESSÃO
+        if(mysqli_num_rows($query) == 1){
           $_SESSION['email'] = $email;
           $_SESSION['senha'] = $senha;
-          /// header('');
-          
+          header("Location:../../index.php?msg=Login sucesso.");
         }else{
-          echo 'Senha incorreta';
-          // header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
+            $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
+            $query = mysql_query(conectarBD(), $sqlCode);
+            if(mysqli_num_rows($query)==1){
+                $_SESSION['email'] = $email;
+                $_SESSION['senha'] = $senha;
+                header("Location:../../index.php?msg=Login sucesso.");
+            }else{
+                header("Location:../../index.php?msg=Login incoreto.");
+            }
+            
         };
       };
 ?>
