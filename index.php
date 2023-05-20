@@ -1,8 +1,5 @@
 <?php
-if( (!isset($_SESSION['email']) == true)){
-  //mudar navbar
-};
-$logado = $_SESSION['email'];
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +18,58 @@ $logado = $_SESSION['email'];
 </head>
 
 <body></body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">EasyEats</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <!-- LEFT SIDE -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="restaurantes.html">Restaurantes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Contato</a>
+          </li>
+        </ul>
+
+        <!-- RIGHT SIDE -->
+        <ul class="navbar-nav me-auto"></ul>
+        <?php
+        session_start();
+        if(!$_SESSION['email']){
+            echo '
+        <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
+          </li>';
+        }else{
+            echo '
+            <li class="nav-item dropdown" style="
+    display:  flex;
+    align-items: center;">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
+          </ul>
+        </li>';
+        };
+        ?>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 
   <!-- HERO -->
   <section class="average-section" id="hero">
@@ -111,7 +160,7 @@ $logado = $_SESSION['email'];
   </section>
 
   <!-- SCRIPTS -->
-  <script type="text/javascript" src="js/forms.js"></script>
-  <script type="text/javascript" src="js/navbar-footer.js"></script>
+<!--   <script type="text/javascript" src="js/forms.js"></script> -->
+    <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
 </html>

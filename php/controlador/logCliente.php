@@ -2,6 +2,8 @@
     require_once "FuncoesUteis.php";
     require_once "../dao/conexaoBD.php";
     require_once "../dao/pessoaDAO.php";
+    
+    session_start();
 
     // PASSO 1 - Receber os campos
     $email = clearInjection($_POST["inputEmail"]);
@@ -27,7 +29,7 @@
           header("Location:../../index.php?msg=Login sucesso.");
         }else{
             $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
-            $query = mysql_query(conectarBD(), $sqlCode);
+            $query = mysqli_query(conectarBD(), $sqlCode);
             if(mysqli_num_rows($query)==1){
                 $_SESSION['email'] = $email;
                 $_SESSION['senha'] = $senha;
