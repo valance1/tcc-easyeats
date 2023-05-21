@@ -28,11 +28,12 @@
           $_SESSION['senha'] = $senha;
           header("Location:../../index.php?msg=Login sucesso.");
         }else{
-            $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
+            $sqlCode = "SELECT * FROM empresa WHERE email = '$email' AND senha ='$senha'";
             $query = mysqli_query(conectarBD(), $sqlCode);
             if(mysqli_num_rows($query)==1){
                 $_SESSION['email'] = $email;
                 $_SESSION['senha'] = $senha;
+                $_SESSION['empresa'] = true;
                 header("Location:../../index.php?msg=Login sucesso.");
             }else{
                 header("Location:../../index.php?msg=Login incoreto.");
