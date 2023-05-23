@@ -50,5 +50,6 @@ if(strlen($email)==0){
               header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
             }
         }
+      }
 ?>
 
