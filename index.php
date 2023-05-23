@@ -74,7 +74,7 @@ session_start();
 
   <!-- HERO -->
   <section class="average-section" id="hero">
-    <div class="container col-xxl-8 px-4 py-5">
+    <div id="HERO" class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
           <img src="" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
@@ -97,7 +97,6 @@ session_start();
           <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
             <a class="btn btn-outline-secondary px-4" href="restaurantes.html" role="button">Ver Restaurantes</a>
           </div>
-
         </div>
       </div>
     </div>
@@ -116,10 +115,13 @@ session_start();
     <div class="restaurant-wrapper">
       <!-- CARTAO DO RESTAURANTE  -->
       <div class="restaurant-card">
-        <image class="restaurante-image"> FOTO DA CANTINA</image>
+        <image class="restaurant-image" src="images\restaurantes\eliesio.png">
         <div class="restaurant-text-info">
           <h1 class="restaurant-name">ELIESIO</h1>
+          <div class="restaurant-wrapper-bottom">
           <p class="restaurant-tag">LANCHONETE</p>
+          <p class="restaurant-view">VER</p>
+          </div>
         </div>
       </div>
     </div>
