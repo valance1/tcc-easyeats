@@ -19,5 +19,8 @@
     "workbench.iconTheme": "Monokai Pro Icons",
     "workbench.sideBar.location": "right",
     "editor.guides.indentation": false,
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
+    ],
     // "git.enabled": false,
     }
