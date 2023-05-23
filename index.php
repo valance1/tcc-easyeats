@@ -14,7 +14,7 @@ session_start();
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 		crossorigin="anonymous"></script>
-		<link href='css/main.css' rel="stylesheet">
+	<link href="css/main.css" type="text/css" rel="stylesheet">
 </head>
 
 <body></body>
@@ -107,8 +107,8 @@ session_start();
 
     <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
     <div class="section-text-container">
-      <h1 class="section-heading"></h1>
-      <p class="section-detail"></p>
+      <h1 class="section-heading">RESTAURANTES</h1>
+      <p class="section-detail">Ver restaurantes disponíveis na sua região</p>
     </div>
     
     <!-- PARA ALINHAR OS 3 RESTAURANTES  -->

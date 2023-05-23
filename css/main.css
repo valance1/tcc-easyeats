@@ -5,8 +5,23 @@ nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
 
+
+/* SECTION */
+/* ---------------------------------------- */
 section.average-section, nav.navbar{
   width: 100%;
   padding-left: 150px;
   padding-right:  150px;
+}
+
+.section-text-container{
+  display: flex;
+}
+
+.section-text-container .section-heading{
+  font-size: 48px;
+}
+
+.section-text-container .section-detail{
+  font-size: 36px;
 }
