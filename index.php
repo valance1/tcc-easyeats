@@ -43,7 +43,7 @@ session_start();
         <!-- RIGHT SIDE -->
         <ul class="navbar-nav me-auto"></ul>
         <?php
-        session_start();
+        error_reporting(0);
         if(!$_SESSION['email']){
             echo '
         <li class="nav-item">
