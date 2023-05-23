@@ -33,6 +33,10 @@ if(strlen($email)==0){
             echo "EMAIL INVÁLIDO";
             exit();
         }
+        if($senha1 != $senha2){
+          echo 'As SENHAS não correspondem';
+          exit();
+        }
         // PEGANDO OS USERS
         $sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
         $query = mysqli_query($conexao, $sqlCode);
@@ -46,9 +50,9 @@ if(strlen($email)==0){
             if(mysqli_num_rows($query) == 1){
               echo "Já existe alguem com algum de seus dados.";
             }else{
-              inserirEmpresa($conexao, $nome, $senha1, $email, $CNPJ, $agencia, $conta);
+              inserirEmpresa($conexao, $nome, md5($senha1), $email, $CNPJ, $agencia, $conta);
               header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
             }
-        }
+        }}
 ?>
 

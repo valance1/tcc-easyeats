@@ -26,6 +26,10 @@ if(strlen($email)==0){
             echo "EMAIL INVÁLIDO";
             exit();
         }
+        if($senha1 != $senha2){
+          echo 'As SENHAS não correspondem';
+          exit();
+        }
         // PEGANDO OS USERS
         $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' OR cpf ='$cpf'";
         $query = mysqli_query($conexao, $sqlCode);
@@ -39,7 +43,7 @@ if(strlen($email)==0){
             if(mysqli_num_rows($query) == 1){
               echo "Esse usuário já existe";
             }else{ //CASO NÃO EXISTA NINGUEM COM O EMAIL:
-              inserirPessoa($conexao, $nome, $senha1, $email, $cpf);
+              inserirPessoa($conexao, $nome, md5($senha1), $email, $cpf);
               header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
             }
         }

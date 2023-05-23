@@ -19,6 +19,7 @@
       }else{ 
         
         // PEGANDO OS USERS
+        $senha = md5($senha);
         $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
         $query = mysqli_query(conectarBD(), $sqlCode);
         
