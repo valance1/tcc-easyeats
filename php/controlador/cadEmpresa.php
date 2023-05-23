@@ -5,7 +5,7 @@
 
     // PASSO 1 - Receber os campos
     $nome = $_POST["inputNome"];
-    $CNPJ = $_POST["inputCNPJ"];
+    $CNPJ = mask($_POST["inputCNPJ"], '##.###.###/####-##');
     $email = $_POST["inputEmail"];
     $senha1 = $_POST["inputSenha1"];
     $senha2 = $_POST["inputSenha2"];
