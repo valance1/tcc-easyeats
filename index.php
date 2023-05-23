@@ -143,24 +143,24 @@ session_start();
     <div class="dev-card">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="dev-wrapper">
-        <h1 class="dev-name">NOME DO MELIANTE</h1>
-        <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+        <h1 class="dev-name">Aldair Schmitberger</h1>
+        <p class="dev-role"Programador Back-End</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->
     <div class="dev-card">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="dev-wrapper">
-        <h1 class="dev-name">NOME DO MELIANTE</h1>
-        <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+        <h1 class="dev-name">Gabriel Pinotti</h1>
+        <p class="dev-role">Programador Full-Stack</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->
     <div class="dev-card">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="dev-wrapper">
-        <h1 class="dev-name">NOME DO MELIANTE</h1>
-        <p class="dev-role">FUNÇÃO DO MELIANTE</p>
+        <h1 class="dev-name">Gabriel Gasparoni</h1>
+        <p class="dev-role">Ideia</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->

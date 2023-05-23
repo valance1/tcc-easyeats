@@ -81,16 +81,19 @@ section.average-section{
 
 .dev-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .dev-card{
   width: 300px;
   height: 400px;
+  border-radius: 8px;;
   background-color: #0000002a;
 }
 
 .dev-image{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   width: 300px;
 }
 .dev-wrapper{
