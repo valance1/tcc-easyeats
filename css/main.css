@@ -16,13 +16,15 @@ section.average-section, nav.navbar{
   padding-left: 150px;
   padding-right:  150px;
 }
-
+section.average-section{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 .section-text-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -33,7 +35,12 @@ section.average-section, nav.navbar{
 .section-text-container .section-detail{
   font-size: 24px;
 }
-
+#hero{
+  padding-bottom: 0;
+  padding-top: 0;
+  background-color: #121212 !important;
+  color: #fff;
+}
 /* CARD DO RESTAURANTE */
 /* ---------------------------------------- */
 .restaurant-wrapper{
@@ -67,4 +74,33 @@ section.average-section, nav.navbar{
 .restaurant-wrapper-bottom{
   display: flex;
   justify-content: space-between;
+}
+
+/* CARD DEV */
+/* ---------------------------------------- */
+
+.dev-container{
+  display: flex;
+  justify-content: center;
+}
+
+.dev-card{
+  width: 300px;
+  height: 400px;
+  background-color: #0000002a;
+}
+
+.dev-image{
+  width: 300px;
+}
+.dev-wrapper{
+  padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.dev-name{
+  font-size: 24px;
+}
+.dev-role{
+  font-size: 16px;
 }
