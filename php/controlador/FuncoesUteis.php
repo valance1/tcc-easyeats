@@ -1,45 +1,48 @@
 <?php
 require_once '../dao/conexaoBD.php';
 
-function validarCampos($nome, $cpf, $ender, $dtNasc, $senha1, $senha2 ) {
+function validarCampos($nome, $cpf, $ender, $dtNasc, $senha1, $senha2)
+{
     $msgErro = "";
-    if ( empty($nome)  ) {
-        $msgErro = $msgErro . "NOME inválido! <BR>";            
+    if (empty($nome)) {
+        $msgErro = $msgErro . "NOME inválido! <BR>";
     }
-    
-    if ( validarCPF($cpf) == false ) {
-        $msgErro = $msgErro . "CPF inválido! <BR>";  
+
+    if (validarCPF($cpf) == false) {
+        $msgErro = $msgErro . "CPF inválido! <BR>";
     }
-    
-    if ( empty($ender)  ) {
-        $msgErro = $msgErro . "ENDEREÇO inválido! <BR>";            
+
+    if (empty($ender)) {
+        $msgErro = $msgErro . "ENDEREÇO inválido! <BR>";
     }
-    
-    if ( validarData($dtNasc) == false ) {
-        $msgErro = $msgErro . "DATA inválida! <BR>";            
+
+    if (validarData($dtNasc) == false) {
+        $msgErro = $msgErro . "DATA inválida! <BR>";
     }
-    
-    if ( strlen($senha1) < 6 ) {
-        $msgErro = $msgErro . "A SENHA deve ter mais que 6 caracteres! <BR>"; 
+
+    if (strlen($senha1) < 6) {
+        $msgErro = $msgErro . "A SENHA deve ter mais que 6 caracteres! <BR>";
     }
-    
-    if ( strcmp($senha1, $senha2) != 0 ) {
-        $msgErro = $msgErro . "As SENHAS não conferem! <BR>"; 
+
+    if (strcmp($senha1, $senha2) != 0) {
+        $msgErro = $msgErro . "As SENHAS não conferem! <BR>";
     }
-    
+
     return $msgErro;
 }
 
-function clearInjection($item){
+function clearInjection($item)
+{
     // $conexao = conectarBD();
     // return $conexao->real_escape_string($item);
     return $item;
 }
-function validaCPF($cpf) {
- 
+function validaCPF($cpf)
+{
+
     // Extrai somente os números
-    $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-     
+    $cpf = preg_replace('/[^0-9]/is', '', $cpf);
+
     // Verifica se foi informado todos os digitos corretamente
     if (strlen($cpf) != 11) {
         return false;
@@ -65,51 +68,50 @@ function validaCPF($cpf) {
 
 function validaCNPJ($cnpj)
 {
-	$cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
-	
-	// Valida tamanho
-	if (strlen($cnpj) != 14)
-		return false;
+    $cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
 
-	// Verifica se todos os digitos são iguais
-	if (preg_match('/(\d)\1{13}/', $cnpj))
-		return false;	
+    // Valida tamanho
+    if (strlen($cnpj) != 14)
+        return false;
 
-	// Valida primeiro dígito verificador
-	for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++)
-	{
-		$soma += $cnpj[$i] * $j;
-		$j = ($j == 2) ? 9 : $j - 1;
-	}
+    // Verifica se todos os digitos são iguais
+    if (preg_match('/(\d)\1{13}/', $cnpj))
+        return false;
 
-	$resto = $soma % 11;
+    // Valida primeiro dígito verificador
+    for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
+        $soma += $cnpj[$i] * $j;
+        $j = ($j == 2) ? 9 : $j - 1;
+    }
 
-	if ($cnpj[12] != ($resto < 2 ? 0 : 11 - $resto))
-		return false;
+    $resto = $soma % 11;
 
-	// Valida segundo dígito verificador
-	for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++)
-	{
-		$soma += $cnpj[$i] * $j;
-		$j = ($j == 2) ? 9 : $j - 1;
-	}
+    if ($cnpj[12] != ($resto < 2 ? 0 : 11 - $resto))
+        return false;
 
-	$resto = $soma % 11;
+    // Valida segundo dígito verificador
+    for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++) {
+        $soma += $cnpj[$i] * $j;
+        $j = ($j == 2) ? 9 : $j - 1;
+    }
 
-	return $cnpj[13] == ($resto < 2 ? 0 : 11 - $resto);
+    $resto = $soma % 11;
+
+    return $cnpj[13] == ($resto < 2 ? 0 : 11 - $resto);
 }
 
-function validarData($data) {
+function validarData($data)
+{
     $dataSep = explode("/", $data);
-    
-    if ( count($dataSep) != 3 ) {
+
+    if (count($dataSep) != 3) {
         return false;
     } else {
         $dia = $dataSep[0];
         $mes = $dataSep[1];
         $ano = $dataSep[2];
-        return checkdate($mes, $dia, $ano);            
+        return checkdate($mes, $dia, $ano);
     }
-    
+
 }
 ?>

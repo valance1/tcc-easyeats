@@ -5,8 +5,102 @@ nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
 
+#HERO{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+/* SECTION */
+/* ---------------------------------------- */
 section.average-section, nav.navbar{
   width: 100%;
   padding-left: 150px;
   padding-right:  150px;
+}
+section.average-section{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.section-text-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.section-text-container .section-heading{
+  font-size: 48px;
+}
+
+.section-text-container .section-detail{
+  font-size: 24px;
+}
+#hero{
+  padding-bottom: 0;
+  padding-top: 0;
+  background-color: #121212 !important;
+  color: #fff;
+}
+/* CARD DO RESTAURANTE */
+/* ---------------------------------------- */
+.restaurant-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.restaurant-card{
+  width: 300px;
+  height: 400px;
+  border-radius: 8px;
+  background-color: E9E9E9;
+}
+.restaurant-image{
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.restaurant-text-info{
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.restaurant-text-info .restaurant-name{
+  font-weight: 600;
+  font-size: 24px;
+}
+.restaurant-text-info .restaurant-tag{
+  font-size: 14px;
+}
+.restaurant-wrapper-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* CARD DEV */
+/* ---------------------------------------- */
+
+.dev-container{
+  display: flex;
+  justify-content: center;
+}
+
+.dev-card{
+  width: 300px;
+  height: 400px;
+  background-color: #0000002a;
+}
+
+.dev-image{
+  width: 300px;
+}
+.dev-wrapper{
+  padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.dev-name{
+  font-size: 24px;
+}
+.dev-role{
+  font-size: 16px;
 }
