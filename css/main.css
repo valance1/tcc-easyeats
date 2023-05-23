@@ -1,13 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+/* -------------------------------------------------------------- */
+body{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* -------------------------------------------------------------- */
+
 nav.navbar{
   background-color: #121212 !important;
 }
 nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
+#loginNavButton{
+  margin-right: 16px !important;
+}
 
 #HERO{
   padding-right: 0 !important;
   padding-left: 0 !important;
+  margin: 0;
 }
 /* SECTION */
 /* ---------------------------------------- */
@@ -51,7 +76,12 @@ section.average-section{
   width: 300px;
   height: 400px;
   border-radius: 8px;
-  background-color: E9E9E9;
+  background-color: #e9ebf8;
+  transition: ease-in .2s;
+}
+.restaurant-card:hover{
+  transform: scale(103%);
+transition: ease-in-out .2s;
 }
 .restaurant-image{
   width: 100%;
@@ -80,15 +110,20 @@ section.average-section{
 /* ---------------------------------------- */
 
 .dev-container{
+  margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.dev-container:hover{
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .dev-card{
   width: 300px;
   height: 400px;
   border-radius: 8px;;
-  background-color: #0000002a;
+  background-color: #e9ebf8;
 }
 
 .dev-image{
@@ -106,4 +141,16 @@ section.average-section{
 }
 .dev-role{
   font-size: 16px;
+}
+
+
+
+@media (min-width: 1400px){
+  .dev-container, .card-container{
+    max-width: 1400px;
+  }
+}
+  @media (min-width: 1278px){
+}
+    @media (min-width: 300px){
 }

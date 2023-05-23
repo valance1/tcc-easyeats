@@ -50,7 +50,7 @@ session_start();
       if (!$_SESSION['email']) {
         echo '
         <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="loginNavButton" data-bs-target="#loginModal">Login</button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
@@ -123,7 +123,7 @@ session_start();
           <h1 class="restaurant-name">ELIESIO</h1>
           <div class="restaurant-wrapper-bottom">
             <p class="restaurant-tag">LANCHONETE</p>
-            <p class="restaurant-view">VER</p>
+            <p class="restaurant-view"><a href="">VER</a></p>
           </div>
         </div>
     </div>
@@ -144,7 +144,7 @@ session_start();
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="dev-wrapper">
         <h1 class="dev-name">Aldair Schmitberger</h1>
-        <p class="dev-role"Programador Back-End</p>
+        <p class="dev-role">Programador Back-End</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->
