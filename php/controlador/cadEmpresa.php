@@ -1,7 +1,7 @@
 <?php
     require_once "FuncoesUteis.php";
     require_once "../dao/conexaoBD.php";
-    require_once "../dao/pessoaDAO.php";
+    require_once "../dao/empresaDAO.php";
 
     // PASSO 1 - Receber os campos
     $nome = $_POST["inputNome"];
@@ -45,7 +45,7 @@ if(strlen($email)==0){
           echo "Já existe um  usuário com esse EMAIL";
         }else{
             
-            $sqlCode = "SELECT * FROM empresa WHERE email = '$email or cnpj = '$cnpj' or conta='$conta'";
+            $sqlCode = "SELECT * FROM empresa WHERE email = '$email' or cnpj = '$CNPJ' or conta='$conta'";
             $query = mysqli_query($conexao, $sqlCode);
             if(mysqli_num_rows($query) == 1){
               echo "Já existe alguem com algum de seus dados.";

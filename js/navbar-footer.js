@@ -110,44 +110,44 @@ function createHeaderAndFooter() {
               <form action="php/controlador/cadEmpresa.php" method="POST">
               <div class="modal-body">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="InputNome2" aria-describedby="nomeHelp" placeholder="Nome Completo">
+                  <input type="text" class="form-control" id="InputNome2" name="inputNome" aria-describedby="nomeHelp" placeholder="Nome Completo">
                   <label for="InputNome2" class="form-label">Nome Completo</label>
                 </div>
                 
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="InputCNPJ1" aria-describedby="CNPJHelp" placeholder="CNPJ">
+                  <input type="number" class="form-control" id="InputCNPJ1" name="inputCNPJ" aria-describedby="CNPJHelp" placeholder="CNPJ">
                   <label for="InputCNPJ1" class="form-label">CNPJ</label>
                 </div>
                 
                 <div class="row g-2">
                   <div class="col-md">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="InputNumAgencia" aria-describedby="numAgenciaHelp" placeholder="Agência">
+                      <input type="text" class="form-control" id="InputNumAgencia" name="inputAgencia" aria-describedby="numAgenciaHelp" placeholder="Agência">
                       <label for="numAgencia" class="form-label">Agência</label>
                     </div>    
                   </div>
                   <div class="col-md">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="InputNumConta" aria-describedby="numContaHelp" placeholder="Número da Conta">
+                      <input type="text" class="form-control" id="InputNumConta" name="inputConta" aria-describedby="numContaHelp" placeholder="Número da Conta">
                       <label for="inputNumConta" class="form-label">Número da Conta</label>
                     </div>    
                   </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
+                  <input type="email" class="form-control" id="InputEmail1" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
                   <label for="InputEmail1" class="form-label">Endereço de e-mail</label>
                 </div>
                 
                 <!-- CAMPO  SENHA -->
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputSenha1" placeholder="******">
+                  <input type="password" class="form-control" id="InputSenha1" name="inputSenha1" placeholder="******">
                   <label for="InputSenha1" class="form-label">Senha</label>
                 </div>
                 
                 <!-- CONFIRMAR SENHA -->
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="InputSenha2" placeholder="******">
+                  <input type="password" class="form-control" id="InputSenha2" name="inputSenha2" placeholder="******">
                   <label for="InputSenha2" class="form-label">Confirmar Senha</label>
                 </div>
     
