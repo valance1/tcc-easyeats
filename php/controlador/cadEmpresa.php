@@ -1,11 +1,11 @@
 <?php
     require_once "FuncoesUteis.php";
     require_once "../dao/conexaoBD.php";
-    require_once "../dao/pessoaDAO.php";
+    require_once "../dao/empresaDAO.php";
 
     // PASSO 1 - Receber os campos
     $nome = $_POST["inputNome"];
-    $CNPJ = $_POST["inputCNPJ"];
+    $CNPJ = mask($_POST["inputCNPJ"], '##.###.###/####-##');
     $email = $_POST["inputEmail"];
     $senha1 = $_POST["inputSenha1"];
     $senha2 = $_POST["inputSenha2"];
@@ -33,6 +33,10 @@ if(strlen($email)==0){
             echo "EMAIL INVÁLIDO";
             exit();
         }
+        if($senha1 != $senha2){
+          echo 'As SENHAS não correspondem';
+          exit();
+        }
         // PEGANDO OS USERS
         $sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
         $query = mysqli_query($conexao, $sqlCode);
@@ -41,14 +45,16 @@ if(strlen($email)==0){
           echo "Já existe um  usuário com esse EMAIL";
         }else{
             
-            $sqlCode = "SELECT * FROM empresa WHERE email = '$email or cnpj = '$CNPJ' or conta='$conta'";
+            $sqlCode = "SELECT * FROM empresa WHERE email = '$email' or cnpj = '$CNPJ' or conta='$conta'";
+
             $query = mysqli_query($conexao, $sqlCode);
             if(mysqli_num_rows($query) == 1){
               echo "Já existe alguem com algum de seus dados.";
             }else{
-              inserirEmpresa($conexao, $nome, $senha1, $email, $CNPJ, $agencia, $conta);
+              inserirEmpresa($conexao, $nome, md5($senha1), $email, $CNPJ, $agencia, $conta);
               header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
             }
+
         }
       }
 ?>
