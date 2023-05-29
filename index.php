@@ -63,6 +63,7 @@ session_start();
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email'] . '
           </a>
           <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="config.php">Configurações</a></li>
             <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
           </ul>
         </li>';
@@ -119,7 +120,8 @@ session_start();
     <!-- CARTAO DO RESTAURANTE  -->
 
     <?php
-    
+    error_reporting(0);
+    require 'php/dao/conexaoBD.php';
     ?>
     <div class="restaurant-card">
       <image class="restaurant-image" src="images\restaurantes\eliesio.png">
