@@ -21,60 +21,7 @@ session_start();
 
 <body></body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">EasyEats</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-      <!-- LEFT SIDE -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="restaurantes.html">Restaurantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contato</a>
-        </li>
-      </ul>
-
-      <!-- RIGHT SIDE -->
-      <ul class="navbar-nav me-auto"></ul>
-      <?php
-      error_reporting(0);
-      if (!$_SESSION['email']) {
-        echo '
-        <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="loginNavButton" data-bs-target="#loginModal">Login</button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
-          </li>';
-      } else {
-        echo '
-            <li class="nav-item dropdown" style="
-    display:  flex;
-    align-items: center;">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email'] . '
-          </a>
-          <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="config.php">Configurações</a></li>
-            <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
-          </ul>
-        </li>';
-      }
-      ;
-      ?>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+<?php include 'php/navbar.php' ?>
 
 <!-- HERO -->
 <section class="average-section" id="hero">
@@ -117,22 +64,58 @@ session_start();
 
   <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
   <div class="restaurant-wrapper">
-    <!-- CARTAO DO RESTAURANTE  -->
+<!--     CARTAO DO RESTAURANTE -->
 
     <?php
-    error_reporting(0);
     require 'php/dao/conexaoBD.php';
-    ?>
-    <div class="restaurant-card">
-      <image class="restaurant-image" src="images\restaurantes\eliesio.png">
-        <div class="restaurant-text-info">
-          <h1 class="restaurant-name">ELIESIO</h1>
-          <div class="restaurant-wrapper-bottom">
-            <p class="restaurant-tag">LANCHONETE</p>
-            <p class="restaurant-view"><a href="">VER</a></p>
+    
+    $code = "SELECT * FROM empresa";
+    $query = mysqli_query(conectarBD(), $code) or die (mysqli_error(conectarBD()));
+    $fetch = mysqli_fetch_assoc($query);
+    if(mysqli_num_rows($fetch) < 3 ){
+      if(mysqli_num_rows($fetch) == 0){
+        echo '';
+      }else{
+        for ($i = 0 ; $i < mysqli_num_rows($fetch); $i++){
+        
+          $loja = $fetch[0];
+          $nomeLoja = $loja["nome"];
+          $idCardapio = $loja["CNPJ"];
+          
+          echo '
+          <div class="restaurant-card">
+            <image class="restaurant-image" src="images\restaurantes\eliesio.png">
+              <div class="restaurant-text-info">
+                <h1 class="restaurant-name">'.  $nomeLoja . '</h1>
+                <div class="restaurant-wrapper-bottom">
+                  <p class="restaurant-tag">Lanchonete</p>
+                  <p class="restaurant-view"><a href="' . $idCardapio . '">VER</a></p>
+                </div>
+              </div>
+          </div> ';
+        };
+      };
+    }else{
+      for ($i = 0 ; $i < 2; $i++){
+      
+      $loja = $fetch[0];
+      $nomeLoja = $loja["nome"];
+      $idCardapio = $loja["CNPJ"];
+      
+      echo '
+      <div class="restaurant-card">
+        <image class="restaurant-image" src="images\restaurantes\eliesio.png">
+          <div class="restaurant-text-info">
+            <h1 class="restaurant-name">'.  $nomeLoja . '</h1>
+            <div class="restaurant-wrapper-bottom">
+              <p class="restaurant-tag">Lanchonete</p>
+              <p class="restaurant-view"><a href="' . $idCardapio . '">VER</a></p>
+            </div>
           </div>
-        </div>
-    </div>
+      </div> ';
+      };
+    };
+    ?>
   </div>
 </section>
 
