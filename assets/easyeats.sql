@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 23-Maio-2023 às 12:14
--- Versão do servidor: 10.3.16-MariaDB
--- versão do PHP: 7.3.7
+-- Host: localhost
+-- Tempo de geração: 20-Maio-2023 às 11:52
+-- Versão do servidor: 10.4.6-MariaDB
+-- versão do PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,6 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(90) NOT NULL,
+  `CNPJ` varchar(14) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `agencia` varchar(45) NOT NULL,
+  `conta` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item`
+--
+
+CREATE TABLE `item` (
+  `idItem` varchar(10) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `preco` varchar(10) DEFAULT NULL,
+  `idProduto` varchar(20) NOT NULL,
+  `donoDoItem` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pessoa`
 --
 
@@ -32,20 +60,48 @@ CREATE TABLE `pessoa` (
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `email` varchar(90) NOT NULL,
-  `senha` varchar(32) NOT NULL,
-  `credito` varchar(20) DEFAULT NULL
+  `senha` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pessoa`
 --
 
-INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`, `credito`) VALUES
-('superuser', '11122233344', 'superuser@gmail.com', 'admin', NULL);
+INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`) VALUES
+('superuser', '11122233344', 'superuser@gmail.com', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `nome` varchar(45) NOT NULL,
+  `descricao` varchar(90) DEFAULT NULL,
+  `preco` varchar(4) NOT NULL,
+  `idProduto` varchar(20) NOT NULL,
+  `CNPJ` varchar(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`CNPJ`),
+  ADD UNIQUE KEY `email` (`email`,`conta`);
+
+--
+-- Índices para tabela `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`idItem`),
+  ADD KEY `ClasseDoItem` (`idProduto`),
+  ADD KEY `DonoDoItem` (`donoDoItem`);
 
 --
 -- Índices para tabela `pessoa`
@@ -53,6 +109,30 @@ INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`, `credito`) VALUES
 ALTER TABLE `pessoa`
   ADD PRIMARY KEY (`cpf`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Índices para tabela `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`idProduto`),
+  ADD KEY `EmpresaDoProduto` (`CNPJ`);
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `item`
+--
+ALTER TABLE `item`
+  ADD CONSTRAINT `ClasseDoItem` FOREIGN KEY (`idProduto`) REFERENCES `produto` (`idProduto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `DonoDoItem` FOREIGN KEY (`donoDoItem`) REFERENCES `pessoa` (`cpf`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `produto`
+--
+ALTER TABLE `produto`
+  ADD CONSTRAINT `EmpresaDoProduto` FOREIGN KEY (`CNPJ`) REFERENCES `empresa` (`CNPJ`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
