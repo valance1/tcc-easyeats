@@ -117,6 +117,10 @@ session_start();
   <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
   <div class="restaurant-wrapper">
     <!-- CARTAO DO RESTAURANTE  -->
+
+    <?php
+    
+    ?>
     <div class="restaurant-card">
       <image class="restaurant-image" src="images\restaurantes\eliesio.png">
         <div class="restaurant-text-info">
