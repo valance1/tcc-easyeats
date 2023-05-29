@@ -160,7 +160,7 @@ session_start();
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="dev-wrapper">
         <h1 class="dev-name">Gabriel Gasparoni</h1>
-        <p class="dev-role">Ideia</p>
+        <p class="dev-role">Laranja</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->
