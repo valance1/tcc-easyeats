@@ -25,11 +25,11 @@ session_start();
 
 <!-- HERO -->
 <section class="average-section" id="config">
-    <div class="dados-bancarios-wrapper">
-    
+  <div class="dados-bancarios-wrapper">
+
     <?php
-    if($_SESSION['empresa'] == true){
-        echo  '
+    if ($_SESSION['empresa'] == true) {
+      echo '
         <form action="php/controlador/logCliente.php" method="POST">
         <div class="dados-bancarios-container">
           <!-- CAMPO AGENCIA -->
@@ -46,24 +46,27 @@ session_start();
         </div>
         </form>
         ';
-    };
-    
+    }
+    ;
+
     ?>
-    
+
     <div class="excluir-container">
-        <h1 class="basic-heading">Exclusão de conta</h1>
-        <p class="basic-text">Caso queira excluir sua conta no website, aperte o botão abaixo.
-        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas convertidas em crédito no site.</p>
-        <button class="btn btn-primary" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
+      <h1 class="basic-heading">Exclusão de conta</h1>
+      <p class="basic-text">Caso queira excluir sua conta no website, aperte o botão abaixo.
+        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
+        convertidas em crédito no site.</p>
+      <button class="btn btn-primary" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
     </div>
-    </php> 
+    </php>
 </section>
 
 <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
 <?php
-  if($_SESSION['empresa'] == true){
-    echo '';
-  };
+if ($_SESSION['empresa'] == true) {
+  echo '';
+}
+;
 ?>
 
 <?php include 'php/components/footer.php' ?>
