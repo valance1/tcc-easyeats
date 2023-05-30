@@ -23,23 +23,71 @@
 
     <div class="section-text-container">
       <div class="restaurantes-section-wrapper">
-        <p> ICON DA SETA</p>
         <h1 class="section-heading">Restaurantes</h1>
       </div>
     </div>
 
-    <!-- TEM QUE USAR A GRID DO BOOTSTRAP  -->
-    <div class="grid">
-      <div class="g-col-4">
-        <div style="color: red; width: 100px; height: 100px;">
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between">
+        <h4>Recommended Jobs</h4> <button class="btn btn-sm btn-outline-dark">Apply all</button>
+      </div>
+      <div class="row mt-2 g-1">
+        <div class="col-md-3">
+          <div class="card p-2">
+            <div class="text-right"> <small>Full Time</small> </div>
+            <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/color/96/000000/google-logo.png"
+                width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+              <hr> <span>Google Inc</span>
+              <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i>
+                <small class="ml-1">FA 100, OH, USA</small> </div>
+              <div class="d-flex justify-content-between mt-3"> <span>$40,000</span> <button
+                  class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-2">
+            <div class="text-right"> <small>Full Time</small> </div>
+            <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"
+                width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+              <hr> <span>Instagram Inc</span>
+              <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i>
+                <small class="ml-1">FA 104, OH, USA</small> </div>
+              <div class="d-flex justify-content-between mt-3"> <span>$38,000</span> <button
+                  class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-2">
+            <div class="text-right"> <small>Full Time</small> </div>
+            <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/officel/80/000000/dribbble.png"
+                width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+              <hr> <span>Dribbble Inc</span>
+              <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i>
+                <small class="ml-1">FA 280, OH, USA</small> </div>
+              <div class="d-flex justify-content-between mt-3"> <span>$24,000</span> <button
+                  class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="g-col-4">
-      <div style="color: red; width: 100px; height: 100px;"></div>
+    </div>
+    
+    
+    
+    <!-- <div class="row">
+      <div class="col">
+        Column
       </div>
-      <div class="g-col-4"><div style="color: red; width: 100px; height: 100px;">
+      <div class="col">
+        Column
+      </div>
+      <div class="col">
+        Column
       </div>
     </div>
+    </div> -->
   </section>
   <!-- SCRIPTS -->
   <script type="text/javascript" src="js/navbar-footer.js"></script>
