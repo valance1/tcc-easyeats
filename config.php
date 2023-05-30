@@ -21,68 +21,15 @@ session_start();
 
 <body></body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">EasyEats</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-      <!-- LEFT SIDE -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="restaurantes.html">Restaurantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contato</a>
-        </li>
-      </ul>
-
-      <!-- RIGHT SIDE -->
-      <ul class="navbar-nav me-auto"></ul>
-      <?php
-      error_reporting(0);
-      if (!$_SESSION['email']) {
-        echo '
-        <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
-          </li>';
-      } else {
-        echo '
-            <li class="nav-item dropdown" style="
-    display:  flex;
-    align-items: center;">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email'] . '
-          </a>
-          <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="config.php">Configurações</a></li>
-            <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
-          </ul>
-        </li>';
-      }
-      ;
-      ?>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+<?php include 'php/components/navbar.php' ?>
 
 <!-- HERO -->
 <section class="average-section" id="config">
-    <div class="dados-bancarios-wrapper">
-    
+  <div class="dados-bancarios-wrapper">
+
     <?php
-    if($_SESSION['empresa'] == true){
-        echo  '
+    if ($_SESSION['empresa'] == true) {
+      echo '
         <form action="php/controlador/logCliente.php" method="POST">
         <div class="dados-bancarios-container">
           <!-- CAMPO AGENCIA -->
@@ -99,32 +46,30 @@ session_start();
         </div>
         </form>
         ';
-    };
-    
+    }
+    ;
+
     ?>
-    
+
     <div class="excluir-container">
-        <h1 class="basic-heading">Exclusão de conta</h1>
-        <p class="basic-text">Caso queira excluir sua conta no website, aperte o botão abaixo.
-        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas convertidas em crédito no site.</p>
-        <button class="btn btn-primary" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
+      <h1 class="basic-heading">Exclusão de conta</h1>
+      <p class="basic-text">Caso queira excluir sua conta no website, aperte o botão abaixo.
+        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
+        convertidas em crédito no site.</p>
+      <button class="btn btn-primary" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
     </div>
-    </php> 
+    </php>
 </section>
 
 <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
 <?php
-
-  if($_SESSION['empresa'] == true){
-    echo '';
-  };
-  
+if ($_SESSION['empresa'] == true) {
+  echo '';
+}
+;
 ?>
 
-<!-- FOOTER -->
-<section class="footer" id="footer">
-
-</section>
+<?php include 'php/components/footer.php' ?>
 
 <!-- SCRIPTS -->
 <!--   <script type="text/javascript" src="js/forms.js"></script> -->

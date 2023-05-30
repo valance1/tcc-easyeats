@@ -1,5 +1,4 @@
 <?php
-session_start();
 error_reporting(0);
 
 echo '
@@ -15,10 +14,10 @@ echo '
       <!-- LEFT SIDE -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="restaurantes.html">Restaurantes</a>
+          <a class="nav-link" href="restaurantes.php">Restaurantes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Contato</a>
@@ -45,7 +44,9 @@ align-items: center;">
       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
       </a>
       <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="config.php">Configurações</a></li>
         <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
+
       </ul>
     </li>';
     };
