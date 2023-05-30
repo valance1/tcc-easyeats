@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 20-Maio-2023 às 11:52
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Tempo de geração: 30-Maio-2023 às 12:31
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `easyeats`
 --
+CREATE DATABASE IF NOT EXISTS `easyeats` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `easyeats`;
 
 -- --------------------------------------------------------
 
@@ -27,13 +30,15 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `empresa`
 --
 
-CREATE TABLE `empresa` (
+CREATE TABLE IF NOT EXISTS `empresa` (
   `nome` varchar(45) NOT NULL,
   `email` varchar(90) NOT NULL,
   `CNPJ` varchar(14) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `agencia` varchar(45) NOT NULL,
-  `conta` varchar(45) NOT NULL
+  `conta` varchar(45) NOT NULL,
+  PRIMARY KEY (`CNPJ`),
+  UNIQUE KEY `email` (`email`,`conta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,12 +47,15 @@ CREATE TABLE `empresa` (
 -- Estrutura da tabela `item`
 --
 
-CREATE TABLE `item` (
+CREATE TABLE IF NOT EXISTS `item` (
   `idItem` varchar(10) NOT NULL,
   `nome` varchar(45) DEFAULT NULL,
   `preco` varchar(10) DEFAULT NULL,
   `idProduto` varchar(20) NOT NULL,
-  `donoDoItem` varchar(11) NOT NULL
+  `donoDoItem` varchar(11) NOT NULL,
+  PRIMARY KEY (`idItem`),
+  KEY `ClasseDoItem` (`idProduto`),
+  KEY `DonoDoItem` (`donoDoItem`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,19 +64,22 @@ CREATE TABLE `item` (
 -- Estrutura da tabela `pessoa`
 --
 
-CREATE TABLE `pessoa` (
+CREATE TABLE IF NOT EXISTS `pessoa` (
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `email` varchar(90) NOT NULL,
-  `senha` varchar(45) NOT NULL
+  `senha` varchar(45) NOT NULL,
+  `credito` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`cpf`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pessoa`
 --
 
-INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`) VALUES
-('superuser', '11122233344', 'superuser@gmail.com', 'admin');
+INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`, `credito`) VALUES
+('superuser', '11122233344', 'superuser@gmail.com', 'admin', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,46 +87,15 @@ INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`) VALUES
 -- Estrutura da tabela `produto`
 --
 
-CREATE TABLE `produto` (
+CREATE TABLE IF NOT EXISTS `produto` (
   `nome` varchar(45) NOT NULL,
   `descricao` varchar(90) DEFAULT NULL,
   `preco` varchar(4) NOT NULL,
   `idProduto` varchar(20) NOT NULL,
-  `CNPJ` varchar(14) NOT NULL
+  `CNPJ` varchar(14) NOT NULL,
+  PRIMARY KEY (`idProduto`),
+  KEY `EmpresaDoProduto` (`CNPJ`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`CNPJ`),
-  ADD UNIQUE KEY `email` (`email`,`conta`);
-
---
--- Índices para tabela `item`
---
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`idItem`),
-  ADD KEY `ClasseDoItem` (`idProduto`),
-  ADD KEY `DonoDoItem` (`donoDoItem`);
-
---
--- Índices para tabela `pessoa`
---
-ALTER TABLE `pessoa`
-  ADD PRIMARY KEY (`cpf`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Índices para tabela `produto`
---
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`idProduto`),
-  ADD KEY `EmpresaDoProduto` (`CNPJ`);
 
 --
 -- Restrições para despejos de tabelas
