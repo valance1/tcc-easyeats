@@ -21,7 +21,7 @@ session_start();
 
 <body></body>
 
-<?php include 'php/navbar.php' ?>
+<?php include 'php/components/navbar.php' ?>
 
 <!-- HERO -->
 <section class="average-section" id="hero">
@@ -109,7 +109,7 @@ session_start();
             <h1 class="restaurant-name">'.  $nomeLoja . '</h1>
             <div class="restaurant-wrapper-bottom">
               <p class="restaurant-tag">Lanchonete</p>
-              <p class="restaurant-view"><a href="' . $idCardapio . '">VER</a></p>
+              <p class="restaurant-view"><a href="cardapio.php">VER</a></p>
             </div>
           </div>
       </div> ';
@@ -156,13 +156,9 @@ session_start();
   </div>
 </section>
 
-<!-- FOOTER -->
-<section class="footer" id="footer">
-
-</section>
+<?php include 'php/components/footer.php' ?>
 
 <!-- SCRIPTS -->
-<!--   <script type="text/javascript" src="js/forms.js"></script> -->
 <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
 
