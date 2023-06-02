@@ -25,13 +25,18 @@ session_start();
 
 <!-- HERO -->
 <section class="average-section" id="config">
-  <div class="dados-bancarios-wrapper">
+
+<div class="section-text-container">
+    <h1 class="h1">Configurações</h1>
+    <p class="lead">Aqui você pode alterar seus dados ou excluir a sua conta</p>
+  </div>
 
     <?php
-    if ($_SESSION['empresa'] == true) {
-      echo '
-        <form action="php/controlador/logCliente.php" method="POST">
-        <div class="dados-bancarios-container">
+    if ($_SESSION['empresa'] != true) {
+      echo  '<div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="container d-flex justify-content-center align-items-center">
+        <form action="php/controlador/logCliente.php" class="w-100" method="POST">
+
           <!-- CAMPO AGENCIA -->
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
@@ -42,23 +47,32 @@ session_start();
               <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
               <label for="inputConta" class="form-label">Senha</label>
             </div>
-            <button type="submit" class="btn btn-primary">Confirmar</button>
-        </div>
+            <button type="submit" class="btn btn-success">Confirmar</button>
         </form>
-        ';
-    }
-    ;
+  
+        </div>
 
-    ?>
 
-    <div class="excluir-container">
-      <h1 class="basic-heading">Exclusão de conta</h1>
-      <p class="basic-text">Caso queira excluir sua conta no website, aperte o botão abaixo.
+
+        <div class="container d-flex justify-content-center align-items-center flex-column">
+      <h1 class="h2">Exclusão de conta</h1>
+      <p class="lead text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.</p>
-      <button class="btn btn-primary" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
+      <button class="btn btn-outline-danger" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
     </div>
-    </php>
+    </div>
+        ';
+    }else{
+      echo'<div class="container">
+      <h1 class="h2">Exclusão de conta</h1>
+      <p class="lead">Caso queira excluir sua conta no website, aperte o botão abaixo.
+        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
+        convertidas em crédito no site.</p>
+      <button class="btn btn-outline-danger" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
+    </div>';
+    };
+    ?>
 </section>
 
 <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->

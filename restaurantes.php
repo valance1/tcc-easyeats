@@ -23,24 +23,46 @@
 
     <div class="section-text-container">
       <div class="restaurantes-section-wrapper">
-        <p> ICON DA SETA</p>
         <h1 class="section-heading">Restaurantes</h1>
       </div>
     </div>
+  <?php
+  require 'php/dao/conexaoBD.php';
+  
+  $code = "SELECT * FROM empresa";
+  $query = mysqli_query(conectarBD(), $code) or die (mysqli_error(conectarBD()));
 
-    <!-- TEM QUE USAR A GRID DO BOOTSTRAP  -->
-    <div class="grid">
-      <div class="g-col-4">
-        <div style="color: red; width: 100px; height: 100px;">
-        </div>
-      </div>
-      <div class="g-col-4">
-      <div style="color: red; width: 100px; height: 100px;"></div>
-      </div>
-      <div class="g-col-4"><div style="color: red; width: 100px; height: 100px;">
-      </div>
-    </div>
-  </section>
+  if(mysqli_num_rows(mysqli_fetch_assoc($query)) != 0){
+    echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+    while ($lanchonetes = mysqli_fetch_assoc($query)) {
+      echo '
+          <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">' . $loja["nome"] . '</h5>
+    <p class="card-text">DESCRIÇÃO</p>
+    <a href="'. md5($loja["CNPJ"]) . '" class="btn btn-primary">VER</a>
+  </div>
+</div>';
+echo '</div>';
+};
+  }else{
+    echo '
+    <div class="card container-xxl text-center" id="noEmpresasFound">
+  <div class="card-body">
+    <h5 class="card-title">ERRO!</h5>
+    <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+  </div>
+  <div class="card-footer text-body-secondary">
+    Agora
+  </div>
+</div>
+    ';
+  };
+?>
+
+
+</section>
   <!-- SCRIPTS -->
   <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>

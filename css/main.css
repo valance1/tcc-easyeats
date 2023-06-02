@@ -22,6 +22,9 @@ ul, li {
 nav.navbar{
   background-color: #121212 !important;
 }
+nav.navbar .container-fluid{
+  padding: 0;
+} 
 nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
@@ -53,13 +56,6 @@ section.average-section{
   margin-bottom: 20px;
 }
 
-.section-text-container .section-heading{
-  font-size: 48px;
-}
-
-.section-text-container .section-detail{
-  font-size: 24px;
-}
 #hero{
   padding-bottom: 0;
   padding-top: 0;
@@ -72,40 +68,6 @@ section.average-section{
   display: flex;
   justify-content: center;
 }
-.restaurant-card{
-  width: 300px;
-  height: 400px;
-  border-radius: 8px;
-  background-color: #e9ebf8;
-  transition: ease-in .2s;
-}
-.restaurant-card:hover{
-  transform: scale(103%);
-transition: ease-in-out .2s;
-}
-.restaurant-image{
-  width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.restaurant-text-info{
-  width: 100%;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-}
-.restaurant-text-info .restaurant-name{
-  font-weight: 600;
-  font-size: 24px;
-}
-.restaurant-text-info .restaurant-tag{
-  font-size: 14px;
-}
-.restaurant-wrapper-bottom{
-  display: flex;
-  justify-content: space-between;
-}
-
 /* CARD DEV */
 /* ---------------------------------------- */
 
@@ -143,14 +105,12 @@ transition: ease-in-out .2s;
   font-size: 16px;
 }
 
+#noEmpresasFound{
+  max-width: 600px;
+}
 
-
-@media (min-width: 1400px){
-  .dev-container, .card-container{
-    max-width: 1400px;
+@media (max-width: 992px) { 
+  #loginBUTTON{
+    margin-bottom: 8px;
   }
-}
-  @media (min-width: 1278px){
-}
-    @media (min-width: 300px){
 }

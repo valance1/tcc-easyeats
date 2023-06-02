@@ -4,7 +4,7 @@ error_reporting(0);
 echo '
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">EasyEats</a>
+    <a class="navbar-brand" href="index.php">EasyEats</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,10 +31,10 @@ echo '
     if(!$_SESSION['email']){
         echo '
     <li class="nav-item">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button type="button" class="btn btn-outline-light" id="loginBUTTON" data-bs-toggle="modal" data-bs-target="#loginModal" style="margin-right: 16px;">Login</button>
       </li>
       <li class="nav-item">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
       </li>';
     }else{
         echo '

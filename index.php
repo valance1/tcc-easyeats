@@ -12,8 +12,10 @@ session_start();
 
   <link href="css/main.css" type="text/css" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
@@ -46,7 +48,9 @@ session_start();
         </div>
 
         <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-          <a class="btn btn-outline-secondary px-4" href="restaurantes.html" role="button">Ver Restaurantes</a>
+          <a class="btn btn-outline-secondary px-4" href="restaurantes.php" role="button">Ver Restaurantes
+            
+          </a>
         </div>
       </div>
     </div>
@@ -58,8 +62,9 @@ session_start();
 
   <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
   <div class="section-text-container">
-    <h1 class="section-heading">RESTAURANTES</h1>
-    <p class="section-detail">Ver restaurantes disponíveis na sua região</p>
+    <h1 class="h1">RESTAURANTES</h1>
+    <!-- <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg> -->
+    <p class="lead">Ver restaurantes disponíveis na sua região</p>
   </div>
 
   <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
@@ -74,7 +79,17 @@ session_start();
     $fetch = mysqli_fetch_assoc($query);
     if(mysqli_num_rows($fetch) < 3 ){
       if(mysqli_num_rows($fetch) == 0){
-        echo '';
+        echo '
+        <div class="card container-xxl text-center" id="noEmpresasFound">
+      <div class="card-body">
+        <h5 class="card-title">ERRO!</h5>
+        <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+      </div>
+      <div class="card-footer text-body-secondary">
+        Agora
+      </div>
+    </div>
+        ';
       }else{
         for ($i = 0 ; $i < mysqli_num_rows($fetch); $i++){
         
@@ -83,16 +98,14 @@ session_start();
           $idCardapio = $loja["CNPJ"];
           
           echo '
-          <div class="restaurant-card">
-            <image class="restaurant-image" src="images\restaurantes\eliesio.png">
-              <div class="restaurant-text-info">
-                <h1 class="restaurant-name">'.  $nomeLoja . '</h1>
-                <div class="restaurant-wrapper-bottom">
-                  <p class="restaurant-tag">Lanchonete</p>
-                  <p class="restaurant-view"><a href="' . $idCardapio . '">VER</a></p>
-                </div>
-              </div>
-          </div> ';
+          <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">' . $nomeLoja . '</h5>
+    <p class="card-text">DESCRIÇÃO</p>
+    <a href="'. md5($idCardapio) . '" class="btn btn-primary">VER</a>
+  </div>
+</div>';
         };
       };
     }else{
@@ -103,16 +116,14 @@ session_start();
       $idCardapio = $loja["CNPJ"];
       
       echo '
-      <div class="restaurant-card">
-        <image class="restaurant-image" src="images\restaurantes\eliesio.png">
-          <div class="restaurant-text-info">
-            <h1 class="restaurant-name">'.  $nomeLoja . '</h1>
-            <div class="restaurant-wrapper-bottom">
-              <p class="restaurant-tag">Lanchonete</p>
-              <p class="restaurant-view"><a href="cardapio.php">VER</a></p>
-            </div>
-          </div>
-      </div> ';
+      <div class="card" style="width: 18rem;">
+<img src="..." class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">' . $nomeLoja . '</h5>
+<p class="card-text">DESCRIÇÃO</p>
+<a href="'. md5($idCardapio) . '" class="btn btn-primary">VER</a>
+</div>
+</div>';
       };
     };
     ?>
@@ -123,8 +134,8 @@ session_start();
 <section class="average-section" id="developers">
 
   <div class="section-text-container">
-    <h1 class="section-heading">DESENVOLVEDORES</h1>
-    <p class="section-detail">Conheça nossa equipe</p>
+    <h1 class="h1">DESENVOLVEDORES</h1>
+    <p class="lead">Conheça nossa equipe</p>
   </div>
 
   <div class="dev-container">
@@ -160,6 +171,7 @@ session_start();
 
 <!-- SCRIPTS -->
 <script type="text/javascript" src="js/navbar-footer.js"></script>
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
 </body>
 
 </html>

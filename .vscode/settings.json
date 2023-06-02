@@ -4,7 +4,7 @@
     "editor.fontFamily": "Operator Mono",
     "editor.lineHeight": 40,
     "editor.minimap.enabled": false,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "on",
     "editor.wordWrap": "on",
     "editor.renderLineHighlight": "none",
     "editor.overviewRulerBorder": false,
