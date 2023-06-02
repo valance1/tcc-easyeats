@@ -44,9 +44,15 @@ align-items: center;">
       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
       </a>
       <ul class="dropdown-menu">
+      ';
+      
+      if($_SESSION['empresa'] != true){
+        echo '<li><a class="dropdown-item" href="inventario.php">Inventário</a></li>';
+      };
+      
+      echo '
       <li><a class="dropdown-item" href="config.php">Configurações</a></li>
-        <li><a class="dropdown-item" href="php/controlador/logout.php">Desconectar</a></li>
-
+        <li><a class="dropdown-item text-danger" href="php/controlador/logout.php">Desconectar</a></li>
       </ul>
     </li>';
     };

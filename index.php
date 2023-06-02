@@ -21,7 +21,7 @@ session_start();
     crossorigin="anonymous"></script>
 </head>
 
-<body></body>
+<body>
 
 <?php include 'php/components/navbar.php' ?>
 
@@ -48,9 +48,7 @@ session_start();
         </div>
 
         <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-          <a class="btn btn-outline-secondary px-4" href="restaurantes.php" role="button">Ver Restaurantes
-            
-          </a>
+          <a class="btn btn-outline-light px-4" href="restaurantes.php" role="button">Ver Restaurantes</a>
         </div>
       </div>
     </div>
@@ -59,10 +57,10 @@ session_start();
 
 <!-- PREVIEW RESTAURANTS -->
 <section class="average-section" id="restaurantes-preview">
-
+<hr class="hr" />
   <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
-  <div class="section-text-container">
-    <h1 class="h1">RESTAURANTES</h1>
+  <div class="section-text-container my-5">
+    <h1 class="h1">Restaurantes</h1>
     <!-- <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg> -->
     <p class="lead">Ver restaurantes disponíveis na sua região</p>
   </div>
@@ -82,11 +80,9 @@ session_start();
         echo '
         <div class="card container-xxl text-center" id="noEmpresasFound">
       <div class="card-body">
-        <h5 class="card-title">ERRO!</h5>
+        <h5 class="card-title">OPS!</h5>
+        <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
         <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
-      </div>
-      <div class="card-footer text-body-secondary">
-        Agora
       </div>
     </div>
         ';
@@ -132,35 +128,33 @@ session_start();
 
 <!-- developers -->
 <section class="average-section" id="developers">
-
-  <div class="section-text-container">
-    <h1 class="h1">DESENVOLVEDORES</h1>
+  <hr class="hr" />
+  <div class="section-text-container my-5">
+    <h1 class="h1">Desenvolvedores</h1>
+    
     <p class="lead">Conheça nossa equipe</p>
   </div>
-
-  <div class="dev-container">
+  <div class="container d-flex justify-content-center align-items-center flex-row">
     <!-- -------------------------------------------------- -->
-    <div class="dev-card">
+    <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-      <div class="dev-wrapper">
-        <h1 class="dev-name">Aldair Schmitberger</h1>
-        <p class="dev-role">Programador Back-End</p>
+      <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
+        <p class="text-center fw-bold">Aldair Schmitberger</p>
+        <p class="text-center">Programador Back-End</p>
       </div>
-    </div>
     <!-- -------------------------------------------------- -->
-    <div class="dev-card">
+    <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-      <div class="dev-wrapper">
-        <h1 class="dev-name">Gabriel Pinotti</h1>
-        <p class="dev-role">Programador Full-Stack</p>
+      <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
+        <p class="text-center fw-bold">Gabriel Pinotti</p>
+        <p class="text-center">Programador Full-Stack e Designer</p>
       </div>
-    </div>
     <!-- -------------------------------------------------- -->
-    <div class="dev-card">
+    <div class="container d-flex justify-content-center align-items-center flex-column " style="width: 15rem;">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-      <div class="dev-wrapper">
-        <h1 class="dev-name">Gabriel Gasparoni</h1>
-        <p class="dev-role">Ideia</p>
+      <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
+        <p class="text-center fw-bold">Gabriel Gasparoni</p>
+        <p class="text-center">Ideia</p>
       </div>
     </div>
     <!-- -------------------------------------------------- -->
@@ -171,7 +165,6 @@ session_start();
 
 <!-- SCRIPTS -->
 <script type="text/javascript" src="js/navbar-footer.js"></script>
-<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
 </body>
 
 </html>

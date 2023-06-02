@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,11 +24,10 @@
 
   <!-- PREVIEW RESTAURANTS -->
   <section class="average-section" id="restaurantes-preview">
-
-    <div class="section-text-container">
-      <div class="restaurantes-section-wrapper">
-        <h1 class="section-heading">Restaurantes</h1>
-      </div>
+   <hr class="hr"/>
+    <div class="section-text-container mb-5">
+        <h1 class="h1">Restaurantes</h1>
+        <p class="lead">Confira os restaurantes disponíveis:</p>
     </div>
   <?php
   require 'php/dao/conexaoBD.php';
@@ -33,7 +36,17 @@
   $query = mysqli_query(conectarBD(), $code) or die (mysqli_error(conectarBD()));
 
   if(mysqli_num_rows(mysqli_fetch_assoc($query)) != 0){
-    echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+    echo '
+    <div class="input-group">
+                <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+            
+    <div class="row row-cols-1 row-cols-md-3 g-4">';
     while ($lanchonetes = mysqli_fetch_assoc($query)) {
       echo '
           <div class="card" style="width: 18rem;">
@@ -49,20 +62,19 @@ echo '</div>';
   }else{
     echo '
     <div class="card container-xxl text-center" id="noEmpresasFound">
-  <div class="card-body">
-    <h5 class="card-title">ERRO!</h5>
-    <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
-  </div>
-  <div class="card-footer text-body-secondary">
-    Agora
-  </div>
-</div>
+      <div class="card-body">
+        <h5 class="card-title">OPS!</h5>
+        <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
+        <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+      </div>
+    </div>
     ';
   };
 ?>
 
 
 </section>
+
   <!-- SCRIPTS -->
   <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
