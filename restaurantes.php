@@ -26,8 +26,6 @@
         <h1 class="section-heading">Restaurantes</h1>
       </div>
     </div>
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
   <?php
   require 'php/dao/conexaoBD.php';
   
@@ -35,6 +33,7 @@
   $query = mysqli_query(conectarBD(), $code) or die (mysqli_error(conectarBD()));
 
   if(mysqli_num_rows(mysqli_fetch_assoc($query)) != 0){
+    echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
     while ($lanchonetes = mysqli_fetch_assoc($query)) {
       echo '
           <div class="card" style="width: 18rem;">
@@ -45,10 +44,11 @@
     <a href="'. md5($loja["CNPJ"]) . '" class="btn btn-primary">VER</a>
   </div>
 </div>';
-  }
+echo '</div>';
+};
   }else{
     echo '
-    <div class="card text-center">
+    <div class="card container-xxl text-center" id="noEmpresasFound">
   <div class="card-body">
     <h5 class="card-title">ERRO!</h5>
     <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
@@ -57,10 +57,9 @@
     Agora
   </div>
 </div>
-    '
+    ';
   };
 ?>
-</div>
 
 
 </section>

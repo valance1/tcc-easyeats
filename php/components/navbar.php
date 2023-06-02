@@ -31,10 +31,10 @@ echo '
     if(!$_SESSION['email']){
         echo '
     <li class="nav-item">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button type="button" class="btn btn-outline-light" id="loginBUTTON" data-bs-toggle="modal" data-bs-target="#loginModal" style="margin-right: 16px;">Login</button>
       </li>
       <li class="nav-item">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
       </li>';
     }else{
         echo '

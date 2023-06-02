@@ -58,8 +58,8 @@ session_start();
 
   <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
   <div class="section-text-container">
-    <h1 class="section-heading">RESTAURANTES</h1>
-    <p class="section-detail">Ver restaurantes disponíveis na sua região</p>
+    <h1 class="h1">RESTAURANTES</h1>
+    <p class="lead">Ver restaurantes disponíveis na sua região</p>
   </div>
 
   <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
@@ -74,7 +74,17 @@ session_start();
     $fetch = mysqli_fetch_assoc($query);
     if(mysqli_num_rows($fetch) < 3 ){
       if(mysqli_num_rows($fetch) == 0){
-        echo '';
+        echo '
+        <div class="card container-xxl text-center" id="noEmpresasFound">
+      <div class="card-body">
+        <h5 class="card-title">ERRO!</h5>
+        <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+      </div>
+      <div class="card-footer text-body-secondary">
+        Agora
+      </div>
+    </div>
+        ';
       }else{
         for ($i = 0 ; $i < mysqli_num_rows($fetch); $i++){
         
@@ -119,8 +129,8 @@ session_start();
 <section class="average-section" id="developers">
 
   <div class="section-text-container">
-    <h1 class="section-heading">DESENVOLVEDORES</h1>
-    <p class="section-detail">Conheça nossa equipe</p>
+    <h1 class="h1">DESENVOLVEDORES</h1>
+    <p class="lead">Conheça nossa equipe</p>
   </div>
 
   <div class="dev-container">
