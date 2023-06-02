@@ -42,7 +42,7 @@
   <div class="card-body">
     <h5 class="card-title">' . $loja["nome"] . '</h5>
     <p class="card-text">DESCRIÇÃO</p>
-    <a href="'. md5($loja["CNPJ"])) . '" class="btn btn-primary">VER</a>
+    <a href="'. md5($loja["CNPJ"]) . '" class="btn btn-primary">VER</a>
   </div>
 </div>';
   }
