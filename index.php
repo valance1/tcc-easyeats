@@ -12,8 +12,10 @@ session_start();
 
   <link href="css/main.css" type="text/css" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
@@ -46,7 +48,9 @@ session_start();
         </div>
 
         <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-          <a class="btn btn-outline-secondary px-4" href="restaurantes.html" role="button">Ver Restaurantes</a>
+          <a class="btn btn-outline-secondary px-4" href="restaurantes.php" role="button">Ver Restaurantes
+            
+          </a>
         </div>
       </div>
     </div>
@@ -59,6 +63,7 @@ session_start();
   <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
   <div class="section-text-container">
     <h1 class="h1">RESTAURANTES</h1>
+    <!-- <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg> -->
     <p class="lead">Ver restaurantes disponíveis na sua região</p>
   </div>
 
