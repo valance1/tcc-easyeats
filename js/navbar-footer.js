@@ -71,7 +71,7 @@ function createHeaderAndFooter() {
 					</div>
 					
 					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" name="inputCPF" placeholder="">
+					  <input type="text" class="form-control" id="InputCPF1" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF">
 					  <label for="InputCPF1" class="form-label">CPF</label>
 					</div>
 					
