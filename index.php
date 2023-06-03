@@ -134,7 +134,7 @@ session_start();
     
     <p class="lead">Conheça nossa equipe</p>
   </div>
-  <div class="container d-flex justify-content-center align-items-center flex-row">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <!-- -------------------------------------------------- -->
     <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
@@ -142,12 +142,14 @@ session_start();
         <p class="text-center fw-bold">Aldair Schmitberger</p>
         <p class="text-center">Programador Back-End</p>
       </div>
+      </div>
     <!-- -------------------------------------------------- -->
     <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
       <image class="dev-image" src="images/restaurantes/R.jfif"></image>
       <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
         <p class="text-center fw-bold">Gabriel Pinotti</p>
         <p class="text-center">Programador Full-Stack e Designer</p>
+        </div>
       </div>
     <!-- -------------------------------------------------- -->
     <div class="container d-flex justify-content-center align-items-center flex-column " style="width: 15rem;">
