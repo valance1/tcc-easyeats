@@ -51,8 +51,8 @@ align-items: center;">
       };
       
       echo '
-      <li><a class="dropdown-item" href="config.php">Configurações</a></li>
-        <li><a class="dropdown-item text-danger" href="php/controlador/logout.php">Desconectar</a></li>
+      <li><a class="dropdown-item" href="config.php"><i class="fa-solid fa-gear"></i>Configurações</a></li>
+        <li><a class="dropdown-item text-danger" href="php/controlador/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Desconectar</a></li>
       </ul>
     </li>';
     };

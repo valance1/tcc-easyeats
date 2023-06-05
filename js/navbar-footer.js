@@ -34,8 +34,8 @@ function createHeaderAndFooter() {
 		  </div>
 		  
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-			<button type="submit" class="btn btn-primary">Confirmar</button>
+			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+			<button type="submit" class="btn btn-success">Confirmar</button>
 		  </div>
 		  </form>
 		</div>
@@ -95,8 +95,8 @@ function createHeaderAndFooter() {
 			
 				</div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-				  <button type="submit" class="btn btn-primary">Confirmar</button>
+				  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+				  <button type="submit" class="btn btn-success">Confirmar</button>
 				</div>
 				</form>
 			  </div>
@@ -153,8 +153,8 @@ function createHeaderAndFooter() {
 	  
 				</div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-				  <button type="submit" class="btn btn-primary">Confirmar</button>
+				  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+				  <button type="submit" class="btn btn-success">Confirmar</button>
 				</div>
 				</form>
 			  </div>

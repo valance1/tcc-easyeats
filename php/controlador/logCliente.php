@@ -36,7 +36,7 @@ if (strlen($email) == 0) {
       $_SESSION['empresa'] = true;
       header("Location:../../index.php?msg=Login sucesso.");
     } else {
-      header("Location:../../index.php?msg=Login incoreto.");
+      header("Location:../../index.php?msg=Login incorreto.");
     }
 
   }
