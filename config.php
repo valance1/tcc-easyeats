@@ -23,19 +23,19 @@ session_start();
 
 <body>
 
-<?php include 'php/components/navbar.php' ?>
+  <?php include 'php/components/navbar.php' ?>
 
-<!-- HERO -->
-<section class="average-section" id="config">
- <hr class="hr"/>
-<div class="section-text-container mb-5">
-    <h1 class="h1">Configurações</h1>
-    <p class="lead">Aqui você pode alterar seus dados ou excluir a sua conta</p>
-</div>
+  <!-- HERO -->
+  <section class="average-section" id="config">
+    <hr class="hr" />
+    <div class="section-text-container mb-5">
+      <h1 class="h1">Configurações</h1>
+      <p class="lead">Aqui você pode alterar seus dados ou excluir a sua conta</p>
+    </div>
 
     <?php
     if ($_SESSION['empresa'] == true) {
-      echo  '<div class="row row-cols-1 row-cols-md-3 g-4">
+      echo '<div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="container d-flex justify-content-center align-items-center">
         <form action="php/controlador/logCliente.php" class="w-100" method="POST">
         
@@ -69,8 +69,8 @@ session_start();
     </div>
     </div>
         ';
-    }else{
-      echo'
+    } else {
+      echo '
       <div class="container d-flex justify-content-center align-items-center flex-column border p-3" id="deleteContainer">
       <h2 class="h2">Exclusão de conta</h2>
       <p class="text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
@@ -78,14 +78,15 @@ session_start();
         convertidas em crédito no site.</p>
       <button class="btn btn-outline-danger" action="php/dao/excluir.php" id="excluir-conta">EXCLUIR CONTA</button>
     </div>';
-    };
+    }
+    ;
     ?>
-</section>
+  </section>
 
-<!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
-<?php
-if($_SESSION['empresa'] == true){
- echo '<section class="average-section" id="config-produtos">
+  <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
+  <?php
+  if ($_SESSION['empresa'] == true) {
+    echo '<section class="average-section" id="config-produtos">
   <hr class="hr" />
   <div class="section-text-container my-5">
     <h1 class="h1">Gerenciamento de produtos</h1>
@@ -128,16 +129,16 @@ if($_SESSION['empresa'] == true){
     
     
 </section>
-';  
-}
-?>
+';
+  }
+  ?>
 
 
-<?php include 'php/components/footer.php' ?>
+  <?php include 'php/components/footer.php' ?>
 
-<!-- SCRIPTS -->
-<!--   <script type="text/javascript" src="js/forms.js"></script> -->
-<script type="text/javascript" src="js/navbar-footer.js"></script>
+  <!-- SCRIPTS -->
+  <!--   <script type="text/javascript" src="js/forms.js"></script> -->
+  <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
 
 
@@ -280,4 +281,5 @@ if($_SESSION['empresa'] == true){
         </div>
     </div> -->
 </section>
+
 </html>

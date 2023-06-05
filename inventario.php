@@ -6,82 +6,80 @@ session_start();
 <html lang="pt-br">
 
 <head>
-  <title>EasyEats</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyEats</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="css/main.css" type="text/css" rel="stylesheet">
-  <link href="css/config.css" type="text/css" rel="stylesheet">
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <link href="css/config.css" type="text/css" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-<?php include 'php/components/navbar.php' ?>
+    <?php include 'php/components/navbar.php' ?>
 
-<section class="average-section" id="inventario">
-   <hr class="hr"/>
-<div class="section-text-container mb-5">
-    <h1 class="h1">Inventário</h1>
-    <p class="lead">Aqui você visualizar suas fichas</p>
-</div>
-  
-  
-<div class="container">
-        <div class="table-wrap">
-            <table class="table table-responsive table-borderless">
-                <thead>
-                    <th>[NOME DA LOJA]</th>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                </thead>
-                <tbody>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td class="text-center">
-                        <!--   FOTO DO PRODUTO  -->
-                            <img class="pic placeholder"
-                                src="..."
-                                alt="">
-                        </td>
-                        <td>
-                          <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
-                            <div>
-                                <p class="m-0 fw-bold lead">Hambúrguer</p>
-                                <p class="m-0 text-muted">Uma refeição deliciosa para qualquer hora</p>
-                            </div>
-                        </td>
-                        <td>
-                          <!-- PREÇO DO PRODUTO -->
-                            <div class="fw-600">R$7,00</div>
-                        </td>
-                        <td class="d-">
-                            <input class="input" type="text" placeholder="2">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="average-section" id="inventario">
+        <hr class="hr" />
+        <div class="section-text-container mb-5">
+            <h1 class="h1">Inventário</h1>
+            <p class="lead">Aqui você visualizar suas fichas</p>
         </div>
-    </div>
-    
-    
-</section>
-';  
-}
-?>
 
 
-<?php include 'php/components/footer.php' ?>
+        <div class="container">
+            <div class="table-wrap">
+                <table class="table table-responsive table-borderless">
+                    <thead>
+                        <th>[NOME DA LOJA]</th>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </thead>
+                    <tbody>
+                        <tr class="align-middle alert border-bottom" role="alert">
+                            <td class="text-center">
+                                <!--   FOTO DO PRODUTO  -->
+                                <img class="pic placeholder" src="..." alt="">
+                            </td>
+                            <td>
+                                <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
+                                <div>
+                                    <p class="m-0 fw-bold lead">Hambúrguer</p>
+                                    <p class="m-0 text-muted">Uma refeição deliciosa para qualquer hora</p>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- PREÇO DO PRODUTO -->
+                                <div class="fw-600">R$7,00</div>
+                            </td>
+                            <td class="d-">
+                                <input class="input" type="text" placeholder="2">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- SCRIPTS -->
-<!--   <script type="text/javascript" src="js/forms.js"></script> -->
-<script type="text/javascript" src="js/navbar-footer.js"></script>
+
+    </section>
+    ';
+    };
+    ?>
+
+
+    <?php include 'php/components/footer.php' ?>
+
+    <!-- SCRIPTS -->
+    <!--   <script type="text/javascript" src="js/forms.js"></script> -->
+    <script type="text/javascript" src="js/navbar-footer.js"></script>
 </body>
 
 
@@ -224,4 +222,5 @@ session_start();
         </div>
     </div> -->
 </section>
+
 </html>
