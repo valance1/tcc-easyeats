@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
+    header("Location:index.php");
+};
 ?>
 
 <!DOCTYPE html>

@@ -1,14 +1,12 @@
 <?php
 require_once '../dao/conexaoBD.php';
 
-function clearInjection($item)
-{
+function clearInjection($item){
     // $conexao = conectarBD();
     // return $conexao->real_escape_string($item);
     return $item;
-}
-function validaCPF($cpf)
-{
+};
+function validaCPF($cpf){
 
     // Extrai somente os números
     $cpf = preg_replace('/[^0-9]/is', '', $cpf);
@@ -34,10 +32,9 @@ function validaCPF($cpf)
         }
     }
     return true;
-}
+};
 
-function validaCNPJ($cnpj)
-{
+function validaCNPJ($cnpj){
     $cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
 
     // Valida tamanho
@@ -68,10 +65,9 @@ function validaCNPJ($cnpj)
     $resto = $soma % 11;
 
     return $cnpj[13] == ($resto < 2 ? 0 : 11 - $resto);
-}
+};
 
-function validarData($data)
-{
+function validarData($data){
     $dataSep = explode("/", $data);
 
     if (count($dataSep) != 3) {
@@ -82,10 +78,8 @@ function validarData($data)
         $ano = $dataSep[2];
         return checkdate($mes, $dia, $ano);
     }
-
-}
-function mask($val, $mask)
-{
+};
+function mask($val, $mask){
     $maskared = '';
     $k = 0;
     for ($i = 0; $i <= strlen($mask) - 1; $i++) {
@@ -98,5 +92,20 @@ function mask($val, $mask)
         }
     }
     return $maskared;
-}
+};
+function deleteUser($email){
+    $query = "SELECT * FROM empresa WHERE email = '$email'";
+    mysqli_query(conectarBD(), $query) or die(mysqli_error(conectarBD()));
+    $fetch = mysqli_fetch_assoc($query);
+
+    if (mysqli_num_rows($fetch) == 0) {
+        $query = "DELETE FROM pessoa WHERE EMAIL = '$email'";
+        mysqli_query(conectarBD(), $query) or die(mysqli_error(conectarBD()));
+        header("Location:../../index.php?msg=Conta deletada com sucesso.");
+    }else{
+        $query = "DELETE FROM empresa WHERE EMAIL = '$email'";
+        header("Location:../../index.php?msg=Conta deletada com sucesso.");
+    }
+};
+
 ?>

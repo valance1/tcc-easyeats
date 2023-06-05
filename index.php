@@ -20,6 +20,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -58,10 +59,10 @@ session_start();
 
   <!-- PREVIEW RESTAURANTS -->
   <section class="average-section" id="restaurantes-preview">
-    <hr class="hr" />
+    <hr class="hr"/>
     <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
     <div class="section-text-container my-5">
-      <h1 class="h1">Restaurantes</h1>
+      <h1 class="h1"><a href="restaurantes.php">Restaurantes<i class="fa-solid fa-arrow-right"></i></a></h1>
       <!-- <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg> -->
       <p class="lead">Ver restaurantes disponíveis na sua região</p>
     </div>
@@ -141,7 +142,7 @@ session_start();
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
+      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
         <image class="dev-image" src="images/restaurantes/R.jfif"></image>
         <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
           <p class="text-center fw-bold">Aldair Schmitberger</p>
@@ -149,7 +150,7 @@ session_start();
         </div>
       </div>
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column" style="width: 15rem;">
+      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
         <image class="dev-image" src="images/restaurantes/R.jfif"></image>
         <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
           <p class="text-center fw-bold">Gabriel Pinotti</p>
@@ -157,7 +158,7 @@ session_start();
         </div>
       </div>
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column " style="width: 15rem;">
+      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
         <image class="dev-image" src="images/restaurantes/R.jfif"></image>
         <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
           <p class="text-center fw-bold">Gabriel Gasparoni</p>
