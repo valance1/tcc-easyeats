@@ -105,6 +105,11 @@ section.average-section{
   font-size: 16px;
 }
 
+.footerSection{
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
 #noEmpresasFound{
   max-width: 600px;
 }
