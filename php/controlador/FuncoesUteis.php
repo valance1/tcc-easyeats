@@ -94,17 +94,22 @@ function mask($val, $mask){
     return $maskared;
 };
 function deleteUser($email){
-    $query = "SELECT * FROM empresa WHERE email = '$email'";
-    mysqli_query(conectarBD(), $query) or die(mysqli_error(conectarBD()));
-    $fetch = mysqli_fetch_assoc($query);
 
-    if (mysqli_num_rows($fetch) == 0) {
-        $query = "DELETE FROM pessoa WHERE EMAIL = '$email'";
-        mysqli_query(conectarBD(), $query) or die(mysqli_error(conectarBD()));
-        header("Location:../../index.php?msg=Conta deletada com sucesso.");
+    $code = "SELECT * FROM empresa WHERE email = '$email'";
+    $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
+
+    // Se a query de selecionar todas as empresas com o respectivo email não der certo, isso significa que é uma pessoa.
+    // Portanto, vamos definir o novo código SQL para deletar a pessoa com o e-mail correspondente.
+    if (mysqli_num_rows($query) == 0) {
+        $code = "DELETE FROM pessoa WHERE EMAIL = '$email'";
+        mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
+        header("Location:../../index.php?msg=Conta deletada com sucesso.&deleteSucess=yes");
+    
+    // Entretanto, se houver algum resultado, isso significa que a conta pertence a uma empresa, portanto:
     }else{
-        $query = "DELETE FROM empresa WHERE EMAIL = '$email'";
-        header("Location:../../index.php?msg=Conta deletada com sucesso.");
+        $code = "DELETE FROM empresa WHERE EMAIL = '$email'";
+        mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
+        header("Location:../../index.php?msg=Conta deletada com sucesso.&deleteSucess=yes");
     }
 };
 
