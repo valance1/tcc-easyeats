@@ -37,26 +37,26 @@ session_start();
 
     if (mysqli_num_rows(mysqli_fetch_assoc($query)) != 0) {
       echo '
-    <div class="input-group">
-                <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
+      <div class="input-group">
+            <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
+                <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
             
     <div class="row row-cols-1 row-cols-md-3 g-4">';
       while ($lanchonetes = mysqli_fetch_assoc($query)) {
-        echo '
-          <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">' . $loja["nome"] . '</h5>
-    <p class="card-text">DESCRIÇÃO</p>
-    <a href="' . md5($loja["CNPJ"]) . '" class="btn btn-primary">VER</a>
-  </div>
-</div>';
+        echo "
+        <div class='card' style='width: 18rem;'>
+      <img src='...' class='card-img-top' alt='...'>
+      <div class='card-body'>
+        <h5 class='card-title'>$loja["nome"]</h5>
+        <p class='card-text'>DESCRIÇÃO</p>
+        <a href='cardapio.php?id=$loja["nome"]'class="btn btn-primary">VER</a>
+      </div>
+    </div>";
         echo '</div>';
       };
     } else {
