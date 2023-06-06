@@ -112,6 +112,9 @@ section.average-section{
   font-size: 16px;
 }
 
+.footerSection  .nav-item, .footerSection p{
+  color: white;
+}
 .footerSection{
   background-color: #121212;
   color: white;
