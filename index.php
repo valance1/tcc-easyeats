@@ -70,7 +70,7 @@ session_start();
     </div>
 
     <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
-    <div class="restaurant-wrapper">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- CARTAO DO RESTAURANTE -->
       <?php
       require 'php/dao/conexaoBD.php';
