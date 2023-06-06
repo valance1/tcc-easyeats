@@ -12,7 +12,7 @@ if(!$_SESSION['email']){
   <title>EasyEats</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" type="image/x-icon" href="assets/icon.png">
   <link href="css/main.css" type="text/css" rel="stylesheet">
   <link href="css/config.css" type="text/css" rel="stylesheet">
 
@@ -179,10 +179,7 @@ if(!$_SESSION['email']){
   ?>
 
   <?php include 'php/components/footer.php' ?>
-
-  <!-- SCRIPTS -->
-  <!--   <script type="text/javascript" src="js/forms.js"></script> -->
-  <script type="text/javascript" src="js/navbar-footer.js"></script>
+  <?php include 'php/components/forms.php' ?>
 </body>
 
 
