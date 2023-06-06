@@ -1,6 +1,13 @@
 <?php
-    session_start();
-    require '../controlador/FuncoesUteis.php';
-    deleteUser($_SESSION['email']);
-    session_destroy();
+
+  // Esse código serve simplesmente pra ser a ação do botão "excluir"
+  session_start();
+  require '../controlador/FuncoesUteis.php';
+  
+  // Vamos apagar o usuário com o atual email logado;
+  deleteUser($_SESSION['email']);
+  
+  // Já apagado do nosso banco de dados, basta limpar do navegador.
+  session_destroy();
+  
 ?>

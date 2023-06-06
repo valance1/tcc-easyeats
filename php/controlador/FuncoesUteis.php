@@ -1,11 +1,6 @@
 <?php
 require_once '../dao/conexaoBD.php';
 
-function clearInjection($item){
-    // $conexao = conectarBD();
-    // return $conexao->real_escape_string($item);
-    return $item;
-};
 function validaCPF($cpf){
 
     // Extrai somente os números

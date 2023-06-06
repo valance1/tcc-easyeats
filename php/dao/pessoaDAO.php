@@ -9,7 +9,6 @@ function alterarPessoa(){
 }
 function excluirPessoa(){
 
-
 }
 function pesquisarNome(){
 

@@ -5,18 +5,16 @@ require_once "../dao/empresaDAO.php";
 
 // PASSO 1 - Receber os campos
 $nome = $_POST["inputNome"];
-$CNPJ = mask($_POST["inputCNPJ"], '##.###.###/####-##');
+$CNPJ = $_POST["inputCNPJ"];
 $email = $_POST["inputEmail"];
 $senha1 = $_POST["inputSenha1"];
 $senha2 = $_POST["inputSenha2"];
 $agencia = $_POST["inputAgencia"];
-$conta = $_POST["inputConta"];
+$conta = $_POST["inputConta"]
 
 $conexao = conectarBD();
 
-
-// PASSO 4 - Resposta de SUCESSO       
-// header("Location:../visao/formulario.php?msg=Cadastro de $nome realizado com sucesso.");
+// Me recuso a comentar esse código, ele é mesma  coisa que o cadPessoa,php
 if (strlen($email) == 0) {
   echo "Preencha seu email";
 } else if (strlen($senha1) == 0 || strlen($senha2) == 0) {
@@ -27,7 +25,7 @@ if (strlen($email) == 0) {
   echo "Preencha seu CNPJ";
 } else if (validaCNPJ($CNPJ) == false) {
   echo 'CNPJ Inválido';
-} else { //VERIFICANDO SE ALGUEM Jà TEM ESSE LOGIN
+} else {
   $email = filter_var($email, FILTER_SANITIZE_EMAIL);
   if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
     echo "EMAIL INVÁLIDO";
@@ -37,24 +35,25 @@ if (strlen($email) == 0) {
     echo 'As SENHAS não correspondem';
     exit();
   }
-  // PEGANDO OS USERS
+
   $sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
   $query = mysqli_query($conexao, $sqlCode);
-  // VERIFICANDO BUSCAS
+
   if (mysqli_num_rows($query) == 1) {
     echo "Já existe um  usuário com esse EMAIL";
+    
   } else {
 
     $sqlCode = "SELECT * FROM empresa WHERE email = '$email' or cnpj = '$CNPJ' or conta='$conta'";
-
     $query = mysqli_query($conexao, $sqlCode);
+    
     if (mysqli_num_rows($query) == 1) {
       echo "Já existe alguem com algum de seus dados.";
+      
     } else {
       inserirEmpresa($conexao, $nome, md5($senha1), $email, $CNPJ, $agencia, $conta);
       header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
     }
-
   }
 }
 ?>

@@ -20,29 +20,16 @@
 
   <section class="average-section" id="restaurantes-preview">
 
-    <!-- ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO: -->
+    ESSA PARTE AQUI VAI TER EM PRATICAMENTE TODA SEÇÃO:
     <div class="section-text-container">
-      <h1 class="section-heading">(NOME DO RESTAURANTE)</h1>
+      <?php
+      echo '<h1 class="section-heading">'. $_GET['loja'] .'</h1>';
+      ?>
       <p class="section-detail">Confira os itens disponíveis:</p>
     </div>
-
-    <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
-    <div class="menu-container">
-      <div class="item-wrapper" id="(ITEMHASH)">
-        <image class="item-image"></image>
-        <div class="item-text-wrapper">
-          <h1 class="item-name">NOME DO ITEM</h1>
-          <p class="item-desc">DESCRIÇÃO DO ITEM</p>
-        </div>
-        <p class="item-price">R$00,00</p>
-        <div class="alter-button-container">
-          <div class="add">+</div>
-          <div class="counter">0</div>
-          <div class="remove">-</div>
-        </div>
-      </div>
-    </div>
   </section>
+  
+  <!-- Importando componentes -->
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
 </body>

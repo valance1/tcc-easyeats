@@ -1,22 +1,16 @@
 <?php
-function inserirEmpresa($conexao, $nome, $senha, $email, $CNPJ, $agencia, $conta )
-{
-        // LIMPANDO SQL INJECTION
-        
-        $sql = "INSERT INTO empresa (nome, CNPJ, email, senha, agencia, conta) VALUES ( '$nome', '$CNPJ', '$email', '$senha', '$agencia', '$conta' ) ";
-        mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+function inserirEmpresa($conexao, $nome, $senha, $email, $CNPJ, $agencia, $conta ){
+  $sql = "INSERT INTO empresa (nome, CNPJ, email, senha, agencia, conta) VALUES ( '$nome', '$CNPJ', '$email', '$senha', '$agencia', '$conta')";
+  mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
-function alterarEmpresa(){
+function alterarEmpresa($nome){
 
 }
-function excluirEmpresa(){
 
-
-}
-function pesquisarNome(){
+function pesquisarNome($nome){
 
 }
-function pesquisarCNPJ(){
+function pesquisarCNPJ($cnpj){
 
 }
 ?>
