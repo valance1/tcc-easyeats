@@ -10,7 +10,12 @@ $email = $_POST["inputEmail"];
 $senha1 = $_POST["inputSenha1"];
 $senha2 = $_POST["inputSenha2"];
 $conexao = conectarBD();
-
+ 	
+$username_error = null; 
+$email_error = null;   
+$password_error = null; 
+$password2_error = null; 
+$CPF = null; 
 
 if (strlen($email) == 0) {
   echo "Preencha seu email";

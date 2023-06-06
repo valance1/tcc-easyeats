@@ -2,8 +2,15 @@
 .montserrat {
   font-family: 'Montserrat', sans-serif;
 }
+:root {
+  --blackDominant: #121212;
+  --white: #ffffff;
+}
 /* -------------------------------------------------------------- */
 body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Montserrat', sans-serif !important;
 }
 
@@ -103,6 +110,14 @@ section.average-section{
 }
 .dev-role{
   font-size: 16px;
+}
+
+.footerSection{
+  background-color: #121212;
+  color: white;
+  margin-top: auto;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 #noEmpresasFound{

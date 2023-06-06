@@ -12,7 +12,7 @@ if(!$_SESSION['email']){
   <title>EasyEats</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" type="image/x-icon" href="assets/icon.png">
   <link href="css/main.css" type="text/css" rel="stylesheet">
   <link href="css/config.css" type="text/css" rel="stylesheet">
 
@@ -38,6 +38,9 @@ if(!$_SESSION['email']){
     </div>
 
     <?php
+
+    //  SE O USUÁRIO FOR EMPRESARIAL, DEVEMOS PERMITIR QUE ELE MODIFIQUE SEUS DADOS BANCÁRIOS, COMO AGÊNCIA E CONTA.
+
     if (!$_SESSION['empresa'] == false) {
       echo '<div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="container d-flex justify-content-center align-items-center">
@@ -59,23 +62,20 @@ if(!$_SESSION['email']){
             </div>
             <button type="submit" class="btn btn-success align-self-end">Salvar</button>
         </form>
-  
         </div>
-
-
-
         <div class="container d-flex justify-content-center align-items-center flex-column  border p-3">
       <h1 class="h2">Exclusão de conta</h1>
       <p class="lead text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.</p>
-
         <form action="php/dao/excluir.php" method="POST">
             <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
         </form>
         </div>
-    </div>
-        ';
+    </div>';
+    
+    // Caso contrário, se for um usuário comum, devemos exibir SOMENTE o card de exclusão de conta.
+    
     } else {
       echo '
       <div class="container d-flex justify-content-center align-items-center flex-column border p-3" id="deleteContainer">
@@ -88,8 +88,7 @@ if(!$_SESSION['email']){
         <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
     </form>
     </div>';
-    }
-    ;
+    };
     ?>
   </section>
 
@@ -179,10 +178,7 @@ if(!$_SESSION['email']){
   ?>
 
   <?php include 'php/components/footer.php' ?>
-
-  <!-- SCRIPTS -->
-  <!--   <script type="text/javascript" src="js/forms.js"></script> -->
-  <script type="text/javascript" src="js/navbar-footer.js"></script>
+  <?php include 'php/components/forms.php' ?>
 </body>
 
 

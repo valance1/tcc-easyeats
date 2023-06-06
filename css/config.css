@@ -49,6 +49,7 @@
 .table tbody td {
     padding: 30px;
     margin: 0;
+}
 
 .table tbody td .fa-times {
     color: #D32F2F;

@@ -1,13 +1,7 @@
-function createHeaderAndFooter() {
-	var header = `
-	`;
-
-	var footer = `
-	`;
-
-  var modals =`
-  <!-- LOGIN Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+<?php
+echo '
+<!-- LOGIN Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  
@@ -23,11 +17,17 @@ function createHeaderAndFooter() {
 			  <div class="form-floating mb-3">
 				<input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
 				<label for="inputEmail" class="form-label">Endereço de e-mail</label>
+                <p class="error email-error">
+                    <?php echo $email_error; ?>
+                </p>
 			  </div>
 			  <!-- CAMPO  SENHA -->
 			  <div class="form-floating mb-3">
 				<input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="******">
 				<label for="inputSenha" class="form-label">Senha</label>
+                <p class="error password-error">
+                    <?php echo $password_error; ?>
+                </p>
 				<!-- TEM QUE BOTAR UM BOTÃO DE "ESQUECI MINHA  SENHA" -->
 			  </div>
 			  
@@ -50,7 +50,7 @@ function createHeaderAndFooter() {
 			<div class="nav nav-tabs" id="nav-tab" role="tablist">
   
 			  <button class="nav-link active" id="nav-pessoa-tab" data-bs-toggle="tab" data-bs-target="#nav-pessoa" type="button" role="tab" aria-controls="nav-pessoa" aria-selected="true">Pessoa</button>
-  
+
 			  <button class="nav-link" id="nav-empresa-tab" data-bs-toggle="tab" data-bs-target="#nav-empresa" type="button" role="tab" aria-controls="nav-empresa" aria-selected="false">Empresa</button>
   
 			</div>
@@ -161,9 +161,5 @@ function createHeaderAndFooter() {
 			</div>
 		</div>
 	  </div>
-	</div>
-  
-	`;
-	document.body.innerHTML = modals + document.body.innerHTML + footer;
-}
-window.addEventListener("load", createHeaderAndFooter);
+	</div>';
+    ?>
