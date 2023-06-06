@@ -38,9 +38,6 @@ if (strlen($email) == 0) {
     } else {
       header("Location:../../index.php?msg=Login incorreto.");
     }
-
   }
-  ;
 }
-;
 ?>
