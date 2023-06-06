@@ -32,10 +32,16 @@ session_start();
     <?php
     require 'php/dao/conexaoBD.php';
 
+    // Mesma lógica do index.php, porém, diferentemente do for loop
+    // Aqui nós temos um while, que vai simplesmente cuspir todas as
+    // Empresas encontradas no banco de dados.
+
+    // Selecionando todas as empresas
     $code = "SELECT * FROM empresa";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 
-    if (mysqli_num_rows(mysqli_fetch_assoc($query)) != 0) {
+    // Se houver alguma empresa, mostre a search bar e começe o while
+    if (mysqli_num_rows($query) != 0) {
       echo '
       <div class="input-group">
             <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
@@ -45,9 +51,10 @@ session_start();
                 </button>
             </span>
         </div>
-            
+
     <div class="row row-cols-1 row-cols-md-3 g-4">';
-      while ($lanchonetes = mysqli_fetch_assoc($query)) {
+      // Pegando as empresas 1 por 1 e exibindo os cartões.
+      while ($loja = mysqli_fetch_assoc($query)) {
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
 
@@ -57,24 +64,27 @@ session_start();
         <div class="card-body">';
         echo '<h5 class="card-title">' . $loja["nome"] .'</h5>';
         echo '<p class="card-text">DESCRIÇÃO</p>';
-        echo '<a href="cardapio.php?id='. $loja["nome"] .'"class="btn btn-primary">VER</a>';
+        echo '<a href="cardapio.php?loja='. $loja["nome"] .'"class="btn btn-primary">VER</a>';
         echo '</div></div></div>';
-      };
+      }
+
+      // Se não houver nenhuma, mostre o card de indisponibilidade
     } else {
       echo '
-    <div class="card container-xxl text-center" id="noEmpresasFound">
-      <div class="card-body">
-        <h5 class="card-title">OPS!</h5>
-        <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
-        <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+      <div class="card container-xxl text-center" id="noEmpresasFound">
+        <div class="card-body">
+          <h5 class="card-title">OPS!</h5>
+          <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
+          <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
+        </div>
       </div>
-    </div>
-    ';};
+    ';
+  }
     ?>
   </section>
+    
 
   <?php include 'php/components/footer.php' ?>
-  <!-- SCRIPTS -->
   <?php include 'php/components/forms.php' ?>
 </body>
 

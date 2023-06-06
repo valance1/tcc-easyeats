@@ -84,8 +84,9 @@ session_start();
       // Isso é necessário porque no for loop, se o número for inferior a 3, pode ocorrer um erro
       // Essa é a maneira mais rápida de contornar isso, caso não exista mais de 3 empresas.
 
-      if (mysqli_num_rows($fetch) < 3) {
-        if (mysqli_num_rows($fetch) == 0) {
+      if (mysqli_num_rows($query) < 3) {
+        // Se o número de empresas selecionadas for 0, simplesmente exiba uma tela que avise que nenhuma empresa está cadastrada.
+        if (mysqli_num_rows($query) == 0) {
           echo '
           <div class="card container-xxl text-center" id="noEmpresasFound">
             <div class="card-body">
@@ -95,13 +96,12 @@ session_start();
             </div>
           </div>';
         }else{
-          for ($i = 0; $i < mysqli_num_rows($fetch); $i++) {
+          for ($i = 0; $i < mysqli_num_rows($query); $i++) {
 
             // Coletando os dados da empresa selecionada pelo $fetch
 
             $loja = $fetch[$i];
             $nomeLoja = $loja["nome"];
-            $idCardapio = $loja["CNPJ"];
 
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
 
@@ -109,9 +109,9 @@ session_start();
             <div class="card" style="width: 18rem;">
               <img src="..." class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">' . $nomeLoja . '</h5>
+                <h5 class="card-title">'. $nomeLoja .'</h5>
                 <p class="card-text">DESCRIÇÃO</p>
-                <a href="' . md5($idCardapio) . '" class="btn btn-primary">VER</a>
+                <a href="cardapio.php?id='. $nomeLoja .'" class="btn btn-primary">VER</a>
               </div>
             </div>';
       }}}else{
@@ -121,7 +121,6 @@ session_start();
 
           $loja = $fetch[0];
           $nomeLoja = $loja["nome"];
-          $idCardapio = $loja["CNPJ"];
 
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
 
@@ -129,9 +128,9 @@ session_start();
           <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">' . $nomeLoja . '</h5>
+              <h5 class="card-title">'. $nomeLoja .'</h5>
               <p class="card-text">DESCRIÇÃO</p>
-              <a href="' . md5($idCardapio) . '" class="btn btn-primary">VER</a>
+              <a href="cardapio.php?loja='. $nomeLoja .'" class="btn btn-primary">VER</a>
             </div>
           </div>';
         };
