@@ -83,8 +83,8 @@ session_start();
       // Se o número for inferior a 3 devemos checar se esse valor é 0 ou simplesmente menor
       // Isso é necessário porque no for loop, se o número for inferior a 3, pode ocorrer um erro
       // Essa é a maneira mais rápida de contornar isso, caso não exista mais de 3 empresas.
-
       if (mysqli_num_rows($query) < 3) {
+
         // Se o número de empresas selecionadas for 0, simplesmente exiba uma tela que avise que nenhuma empresa está cadastrada.
         if (mysqli_num_rows($query) == 0) {
           echo '
@@ -96,44 +96,38 @@ session_start();
             </div>
           </div>';
         }else{
-          for ($i = 0; $i < mysqli_num_rows($query); $i++) {
+          for ($i = 0; $i < mysqli_num_rows($query); $i++){
 
             // Coletando os dados da empresa selecionada pelo $fetch
-
             $loja = $fetch[$i];
-            $nomeLoja = $loja["nome"];
 
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
-
             echo '
             <div class="card" style="width: 18rem;">
               <img src="..." class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">'. $nomeLoja .'</h5>
+                <h5 class="card-title">'. $loja['nome'] .'</h5>
                 <p class="card-text">DESCRIÇÃO</p>
-                <a href="cardapio.php?id='. $nomeLoja .'" class="btn btn-primary">VER</a>
+                <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-primary">VER</a>
               </div>
             </div>';
       }}}else{
         for ($i = 0; $i < 2; $i++) {
 
           // Coletando os dados da empresa selecionada pelo $fetch
-
-          $loja = $fetch[0];
-          $nomeLoja = $loja["nome"];
+          $loja = $fetch[$i];
 
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
-
           echo '
           <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">'. $nomeLoja .'</h5>
+              <h5 class="card-title">'. $loja['nome'] .'</h5>
               <p class="card-text">DESCRIÇÃO</p>
-              <a href="cardapio.php?loja='. $nomeLoja .'" class="btn btn-primary">VER</a>
+              <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-primary">VER</a>
             </div>
           </div>';
-        };
+        }
       };
       ?>
     </div>
@@ -141,7 +135,7 @@ session_start();
 
   <!-- Apresentando os desenvolvedores -->
   <section class="average-section" id="developers">
-    <hr class="hr" />
+    <hr class="hr"/>
     <div class="section-text-container my-5">
       <h1 class="h1">Desenvolvedores</h1>
       <p class="lead">Conheça nossa equipe</p>

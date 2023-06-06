@@ -57,14 +57,13 @@ session_start();
       while ($loja = mysqli_fetch_assoc($query)) {
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
-
         echo '
         <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">';
         echo '<h5 class="card-title">' . $loja["nome"] .'</h5>';
         echo '<p class="card-text">DESCRIÇÃO</p>';
-        echo '<a href="cardapio.php?loja='. $loja["nome"] .'"class="btn btn-primary">VER</a>';
+        echo '<a href="cardapio.php?loja='. $loja['nome'] .'"class="btn btn-primary">VER</a>';
         echo '</div></div></div>';
       }
 
