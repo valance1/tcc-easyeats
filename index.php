@@ -78,7 +78,6 @@ session_start();
       // Selecionando todas as empresas para adicionar os respectivos cards
       $code = "SELECT * FROM empresa";
       $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
-      $fetch = mysqli_fetch_assoc($query);
       
       // Se o número for inferior a 3 devemos checar se esse valor é 0 ou simplesmente menor
       // Isso é necessário porque no for loop, se o número for inferior a 3, pode ocorrer um erro
@@ -96,10 +95,17 @@ session_start();
             </div>
           </div>';
         }else{
+          // Esse loop é necessário caso haja 1 ou 2 empresas.
+          
+          // O fetch row só avança de coluna quando o método é chamado, portanto, precisamos converter ele pra uma array.
+          $resultado = array();
+          while ($fetch = mysqli_fetch_assoc($query)) {
+            $resultado[] = $fetch;
+          };
+          
           for ($i = 0; $i < mysqli_num_rows($query); $i++){
-
             // Coletando os dados da empresa selecionada pelo $fetch
-            $loja = $fetch[$i];
+            $loja = $resultado[$i];
 
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
@@ -112,10 +118,17 @@ session_start();
               </div>
             </div>';
       }}}else{
+        
+        // Esse loop é necessário caso haja 3 ou mais lojas. Dessa forma, não há repetição de cards nem erros. 
+    
+        $resultado = array();
+          while ($fetch = mysqli_fetch_assoc($query)) {
+            $resultado[] = $fetch;
+          }
         for ($i = 0; $i < 2; $i++) {
 
           // Coletando os dados da empresa selecionada pelo $fetch
-          $loja = $fetch[$i];
+          $loja = $resultado[$i];
 
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
