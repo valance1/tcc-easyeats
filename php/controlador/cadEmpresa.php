@@ -10,7 +10,7 @@ $email = $_POST["inputEmail"];
 $senha1 = $_POST["inputSenha1"];
 $senha2 = $_POST["inputSenha2"];
 $agencia = $_POST["inputAgencia"];
-$conta = $_POST["inputConta"]
+$conta = $_POST["inputConta"];
 
 $conexao = conectarBD();
 

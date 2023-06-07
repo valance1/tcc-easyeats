@@ -1,10 +1,8 @@
 <?php
-function inserirProduto($conexao, $nome, $descricao, $email, $preço)
+function inserirProduto($conexao, $nome, $descricao, $preco, $cnpj, $path)
 {
-        // Tem que tirar esse post...
-        
-        $sql = "INSERT INTO produto (nome, descricao, preço) VALUES ('$nome', '$descricao', '$preço')";
-        mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+  $sql = "INSERT INTO produto (nome, descricao, preco, imagem, cnpj) VALUES ('$nome', '$descricao', '$preco', '$path', '$cnpj')";
+  mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function alterarProduto(){
 

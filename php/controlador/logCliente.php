@@ -5,8 +5,8 @@ require_once "../dao/conexaoBD.php";
 session_start();
 
 // PASSO 1 - Receber os campos
-$email = clearInjection($_POST["inputEmail"]);
-$senha = clearInjection($_POST["inputSenha"]);
+$email = $_POST["inputEmail"];
+$senha = $_POST["inputSenha"];
 
 
 // VERIFICANDO INPUTS

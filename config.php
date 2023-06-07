@@ -111,6 +111,7 @@ if(!$_SESSION['email']){
                     <th>&nbsp;</th>
                     <th>Produto</th>
                     <th>Preço</th>
+                    <th>&nbsp;</th>
                 </thead>
                 <tbody>
                     <tr class="align-middle alert border-bottom" role="alert">
@@ -131,42 +132,52 @@ if(!$_SESSION['email']){
                           <!-- PREÇO DO PRODUTO -->
                             <div class="fw-600">R$7,00</div>
                         </td>
+                        <!-- Ações do produto (EDITAR OU DELETAR) 
+                        Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
+                        -->
+                        <td>
+                          <div>
+                            <button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                          </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    
+    <!-- Formulário cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
 			<h5 class="modal-title" id="ModalLabel">Cadastrar Produto</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			
+	
 		  </div>
-		  <form action="php/controlador/cadProduto.php" method="POST">
+		  <form action="php/controlador/cadProduto.php" method="POST"  enctype="multipart/form-data">
 		  <div class="modal-body">
             <div class="input-group mb-3">
-                 <input type="file" class="form-control" id="inputGroupFile02">
+                 <input type="file" class="form-control" id="inputProdutoImagem" name="inputImagemProduto">
             </div>
-			<!-- CAMPO EMAIL -->
+
 			  <div class="form-floating mb-3">
-				<input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
-				<label for="inputEmail" class="form-label">Nome</label>
+				<input type="text" class="form-control" id="inputNomeProduto" name="inputNomeProduto" aria-describedby="nomeProdutoHelp" placeholder="">
+				<label for="inputNomeProduto" class="form-label">Nome do Produto</label>
 			  </div>
-              <div class="form-floating mb-3">
-				<input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
-				<label for="inputEmail" class="form-label">Descrição</label>
+        <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputDescProduto" name="inputDescProduto" aria-describedby="descProdutoHelp" placeholder="">
+				<label for="inputDescProduto" class="form-label">Descrição do Produto</label>
 			  </div>
-			  <!-- CAMPO  SENHA -->
-              <div class="form-floating mb-3">
-				<input type="text" class="form-control" id="inputPreco" name="inputPreco" aria-describedby="Preco" placeholder="0">
-				<label for="inputPreco" class="form-label">R$</label>
+        <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
+				<label for="inputPreco" class="form-label">Preço</label>
 			  </div>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-			<button type="submit" class="btn btn-success">Confirmar</button>
+			<button type="submit" class="btn btn-success">Cadastrar</button>
 		  </div>
 		  </form>
 		</div>
