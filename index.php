@@ -82,7 +82,7 @@ session_start();
       // Se o número for inferior a 3 devemos checar se esse valor é 0 ou simplesmente menor
       // Isso é necessário porque no for loop, se o número for inferior a 3, pode ocorrer um erro
       // Essa é a maneira mais rápida de contornar isso, caso não exista mais de 3 empresas.
-      if (mysqli_num_rows($query) < 3) {
+      if (mysqli_num_rows($query) <= 3) {
 
         // Se o número de empresas selecionadas for 0, simplesmente exiba uma tela que avise que nenhuma empresa está cadastrada.
         if (mysqli_num_rows($query) == 0) {
@@ -110,7 +110,7 @@ session_start();
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="' . $loja['imagem'] . '" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">'. $loja['nome'] .'</h5>
                 <p class="card-text">DESCRIÇÃO</p>
@@ -133,7 +133,7 @@ session_start();
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="' . $loja['imagem'] . '" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">'. $loja['nome'] .'</h5>
               <p class="card-text">DESCRIÇÃO</p>

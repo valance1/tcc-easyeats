@@ -53,13 +53,23 @@ session_start();
         </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">';
+    
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($loja = mysqli_fetch_assoc($query)) {
-
+        
+        // Verificando se a loja já possui imagem
+        if(!$loja['imagem']){
+          
+          // Caso não tenha, colocar foto temporária
+          $imagem = "/caminho/para/a/foto.png";
+        }else{
+          $imagem = $loja['imagem'];
+        }
+        
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
         echo '
         <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="' . $imagem . '" class="card-img-top" alt="...">
         <div class="card-body">';
         echo '<h5 class="card-title">' . $loja["nome"] .'</h5>';
         echo '<p class="card-text">DESCRIÇÃO</p>';
