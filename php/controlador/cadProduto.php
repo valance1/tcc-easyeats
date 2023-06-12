@@ -37,22 +37,24 @@ $sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
 $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
 $cnpj = $fetch['CNPJ'];
-print_r($fetch);
 
 $image_type = exif_imagetype($imagem["tmp_name"]);
 $image_extension = image_type_to_extension($image_type, true);
 $image_name = bin2hex(random_bytes(16)) . $image_extension;
 
 // Inserindo a imagem no BD.
+
+//
+$path = '../../images/produtos/' . $cnpj . '/';
+
+// Cria caminho
+mkdir($path, 0777, true);
+
+// Move o arquivo até o caminho
+move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name");
 //$image_file[md5($cnpj)]
-
-// ta precisando inserir a imagem no diretório
-// OBS, __DIR__ se refere ao diretório local do arquivo 
-
-$caminho = __DIR__ . "../../images/produtos/". $cnpj . "/";
-move_uploaded_file($image_name, $caminho);
-$path = "images/produtos/" . $cnpj . "/" . $image_name;
 
 // Inserindo o produto no BD
 inserirProduto(conectarBD(), $nome, $descricao, $preco, $cnpj, $path);
+header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso");
 ?>
