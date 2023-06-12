@@ -50,12 +50,9 @@ $image_name = bin2hex(random_bytes(16)) . $image_extension;
 // OBS, __DIR__ se refere ao diretório local do arquivo 
 
 $caminho = __DIR__ . "../../images/produtos/". $cnpj . "/";
-  
-move_uploaded_file($image_name, $caminho) 
+move_uploaded_file($image_name, $caminho);
 $path = "images/produtos/" . $cnpj . "/" . $image_name;
+
 // Inserindo o produto no BD
 inserirProduto(conectarBD(), $nome, $descricao, $preco, $cnpj, $path);
-
-
-
 ?>
