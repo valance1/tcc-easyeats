@@ -68,10 +68,12 @@
   max-width: 600px !important;
 }
 
-
-
 @media(min-width: 992px) {
     .container .table-wrap {
         overflow: hidden;
+    }
+    
+   #deleteContainer{
+      margin-top: 36px !important;
     }
 }

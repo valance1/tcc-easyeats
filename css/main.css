@@ -24,6 +24,10 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+
+.pointer{
+  cursor: pointer;
+}
 /* -------------------------------------------------------------- */
 
 nav.navbar{
@@ -35,6 +39,22 @@ nav.navbar .container-fluid{
 nav a.nav-link, nav a.navbar-brand, nav navbar-toggler-icon{
   color: #fff !important;
 }
+nav a.nav-link:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+nav a.nav-link:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
 #loginNavButton{
   margin-right: 16px !important;
 }
@@ -75,41 +95,151 @@ section.average-section{
   display: flex;
   justify-content: center;
 }
+
+.text-section {
+  max-width: 60%;
+}
+.cta-section {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.cta-section .btn {
+  padding: 0.3em 0.5em;
+  /* color: #696969; */
+}
+.card.bg-light-subtle .cta-section .btn {
+  background-color: #898989;
+  border-color: #898989;
+}
+/* CARDS */
+
+.card{
+  transition:  all ease-out  0.2s;
+}
+.card:hover{
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  transition: all ease-out 0.2s;
+  transform: scale(101%);
+}
+
+.card a.btn-outline-dark:hover{
+  color: #fff !important;
+}
+a.btn.btn-outline-light.px-4:hover{
+  color: #121212 !important;
+}
+
 /* CARD DEV */
 /* ---------------------------------------- */
 
-.dev-container{
-  margin: auto;
-  display: flex;
-  justify-content: space-evenly;
+.developer-card {
+  width: 300px;
+  border-radius: 2px;
+  margin: 1em;
+  padding: 1em 0.6em;
+  background: #fbfbfb;
+  border: 1px solid rgba(89, 94, 95, 0.2);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
 }
-.dev-container:hover{
-  display: flex;
-  justify-content: space-evenly;
+.developer-card #developer-status {
+  color: #5cbf55;
+  display: block;
+  position: absolute;
+  border-radius: 2px;
+}
+.developer-card h4 {
+  margin: 1em 0;
+  color: #131313;
+}
+.developer-card p {
+  color: #4e4e4e;
+  font-size: 0.77em;
+}
+.developer-card .developer-links a {
+  text-decoration: none;
+  color: grey;
+  margin: 0 0.4em;
+  transition: 0.3s ease-out;
+}
+.developer-card .developer-links a:hover {
+  color: #6096ba;
+  opacity: 0.9;
+}
+.developer-card ul {
+  list-style: none;
+  margin: 0 auto;
+  padding-left: 0;
+}
+.developer-card ul li {
+  display: inline;
+  font-size: 0.7em;
+  margin: 0 0.4em;
+  opacity: 0.76;
+}
+.developer-card ul li span {
+  opacity: 0.5;
 }
 
-.dev-card{
-  width: 300px;
-  height: 400px;
-  border-radius: 8px;;
-  background-color: #e9ebf8;
+.developer-profile-img {
+  background-size: cover;
+  background-position: center;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 5%;
 }
 
-.dev-image{
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  width: 300px;
+[data-hover] {
+  position: relative;
+  cursor: pointer;
 }
-.dev-wrapper{
-  padding: 8px;
-    display: flex;
-    flex-direction: column;
+
+[data-hover]:after {
+  box-sizing: border-box;
+  position: absolute;
+  color: white;
+  max-width: 110px;
+  min-width: 80px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  content: attr(data-hover);
+  transition: 0.3s ease-out;
+  opacity: 0;
+  text-align: center;
+  border-radius: 2px;
+  z-index: 9999;
+  pointer-events: none;
 }
-.dev-name{
-  font-size: 24px;
+
+[data-hover]:hover:after {
+  opacity: 1;
 }
-.dev-role{
-  font-size: 16px;
+
+/* 
+   Color styles for tooltips 
+   CHANGE HOWEVER YOU WANT
+*/
+[data-hover].tt-default:after {
+  background: #242626;
+}
+
+[data-hover].tt-info:after {
+  background: #242626;
+}
+
+/* Style for tooltop that will slide to bottom */
+[data-hover].hover-tt-bottom:after {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 0%);
+}
+
+[data-hover].hover-tt-bottom:hover:after {
+  top: calc(100% + 10px);
 }
 
 .footerSection  .nav-item, .footerSection p{
@@ -128,7 +258,15 @@ section.average-section{
 }
 
 @media (max-width: 992px) { 
+  
+  nav a.nav-link:hover:after, nav a.nav-link:after{
+    display: none;
+  }
   #loginBUTTON{
     margin-bottom: 8px;
+  }
+  section.average-section, nav.navbar{
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }

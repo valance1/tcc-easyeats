@@ -43,7 +43,7 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
         <hr class="hr" />
         <div class="section-text-container mb-5">
             <h1 class="h1">Inventário</h1>
-            <p class="lead">Aqui você visualizar suas fichas</p>
+            <p class="lead text-secondary">Aqui você visualizar suas fichas</p>
         </div>
 
 
