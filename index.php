@@ -202,6 +202,8 @@ session_start();
   <!-- COMPONENTES PHP -->
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
+
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

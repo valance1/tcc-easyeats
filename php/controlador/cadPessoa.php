@@ -3,6 +3,8 @@ require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
 require_once "../dao/pessoaDAO.php";
 
+session_start();
+
 // PASSO 1 - Receber os campos
 $nome = $_POST["inputNome"];
 $cpf = $_POST["inputCPF"];
@@ -59,7 +61,10 @@ if (strlen($email) == 0) {
     // Se não existe ninguém com o email no nosso sistema, vamos inserir a pessoa pelo nosso DAO.
     } else {
       inserirPessoa($conexao, $nome, md5($senha1), $email, $cpf);
+      $_SESSION['email'] = $email;
+      $_SESSION['senha'] = $senha;
       header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.&toast=sucesso");
+      
     }
   }
 }

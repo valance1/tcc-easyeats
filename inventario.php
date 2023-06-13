@@ -232,6 +232,7 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
             </table>
         </div>
     </div> -->
+    <script type="text/javascript" src="js/main.js"></script>
 </section>
 
 </html>

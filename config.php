@@ -342,6 +342,7 @@ if(!$_SESSION['email']){
             </table>
         </div>
     </div> -->
+    <script type="text/javascript" src="js/main.js"></script>
 </section>
 
 </html>

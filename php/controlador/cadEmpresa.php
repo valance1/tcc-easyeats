@@ -3,6 +3,8 @@ require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
 require_once "../dao/empresaDAO.php";
 
+session_start();
+
 // PASSO 1 - Receber os campos
 $nome = $_POST["inputNome"];
 $CNPJ = $_POST["inputCNPJ"];
@@ -53,6 +55,9 @@ if (strlen($email) == 0) {
     } else {
       inserirEmpresa($conexao, $nome, md5($senha1), $email, $CNPJ, $agencia, $conta);
       header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.&toast=sucesso");
+      $_SESSION['email'] = $email;
+      $_SESSION['senha'] = $senha;
+      $_SESSION['empresa'] = true;
     }
   }
 }
