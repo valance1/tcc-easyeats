@@ -86,7 +86,7 @@ session_start();
     </div>
 
     <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
-    <div class="row row-cols-1 justify-content-between row-cols-md-3 g-4">
+    <div class="row row-cols-1 justify-content-evenly row-cols-md-3 g-4">
       <!-- CARTAO DO RESTAURANTE -->
       <?php
       require 'php/dao/conexaoBD.php';
@@ -170,7 +170,7 @@ session_start();
       <p class="lead">Conheça nossa equipe</p>
     </div>
     
-    <div class="row row-cols-1 justify-content-around row-cols-md-3 g-4">
+    <div class="row row-cols-1 justify-content-center row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
       <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
         <image class="dev-image" src="images/restaurantes/R.jfif"></image>

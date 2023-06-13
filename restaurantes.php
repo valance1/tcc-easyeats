@@ -64,7 +64,7 @@ session_start();
             </span>
         </div>
 
-    <div class="row row-cols-1 justify-content-around row-cols-md-3 mt-5 g-4">';
+    <div class="row row-cols-1 justify-content-evenly row-cols-md-3 mt-5 g-4">';
 
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($loja = mysqli_fetch_assoc($query)) {
