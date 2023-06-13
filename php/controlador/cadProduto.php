@@ -45,7 +45,7 @@ $image_name = bin2hex(random_bytes(16)) . $image_extension;
 // Inserindo a imagem no BD.
 
 //
-$path = '../../images/produtos/' . $cnpj . '/';
+$path = 'images/produtos/' . $cnpj . '/' . $image_name;
 
 // Cria caminho
 mkdir($path, 0777, true);

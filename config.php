@@ -53,112 +53,8 @@ if(!$_SESSION['email']){
     //  SE O USUÁRIO FOR EMPRESARIAL, DEVEMOS PERMITIR QUE ELE MODIFIQUE SEUS DADOS BANCÁRIOS, COMO AGÊNCIA E CONTA.
 
     if (!$_SESSION['empresa'] == false) {
-      echo '<div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="container d-flex justify-content-center align-items-center">
-        <form action="php/controlador/logCliente.php" class="w-100" method="POST">
-        
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
-        </div>
-
-          <!-- CAMPO AGENCIA -->
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
-              <label for="inputAgencia" class="form-label">Agencia</label>
-            </div>
-            <!-- CAMPO  SENHA -->
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
-              <label for="inputConta" class="form-label">Conta</label>
-            </div>
-            <button type="submit" class="btn btn-success align-self-end">Salvar</button>
-        </form>
-        </div>
-        <div class="container d-flex justify-content-center align-items-center flex-column  border p-3">
-      <h1 class="h2">Exclusão de conta</h1>
-      <p class="lead text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
-        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
-        convertidas em crédito no site.</p>
-        <form action="php/dao/excluir.php" method="POST">
-            <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
-        </form>
-        </div>
-    </div>';
-    
-    // Caso contrário, se for um usuário comum, devemos exibir SOMENTE o card de exclusão de conta.
-    
-    } else {
       echo '
-      <div class="container d-flex justify-content-center align-items-center flex-column border p-3" id="deleteContainer">
-      <h2 class="h2">Exclusão de conta</h2>
-      <p class="text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
-        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
-        convertidas em crédito no site.
-        </p>
-        <form action="php/dao/excluir.php" method="POST">
-        <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
-    </form>
-    </div>';
-    };
-    ?>
-  </section>
-
-  <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
-  <?php
-  if (!$_SESSION['empresa'] == false) {
-    
-    echo '
-    <section class="average-section" id="config-produtos">
-        <hr class="hr" />
-        <div class="section-text-container my-5">
-            <h1 class="h1">Gerenciamento de produtos</h1>
-            <p class="lead">Aqui você pode editar seus produtos</p>
-        </div>  
-    <div class="container" style="max-width: 1920px;">
-    <button type="button" data-bs-toggle="modal" data-bs-target="#cadProdutoModal" class="btn btn-success"><i class="fa-solid fa-plus"></i>  Criar Produto</button>
-        <div class="table-wrap">
-            <table class="table table-responsive table-borderless">
-                <thead>
-                    <th>&nbsp;</th>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>&nbsp;</th>
-                </thead>
-                <tbody>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td class="text-center">
-                        <!--   FOTO DO PRODUTO  -->
-                            <img class="pic placeholder"
-                                src="..."
-                                alt="">
-                        </td>
-                        <td>
-                          <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
-                            <div>
-                                <p class="m-0 fw-bold lead">Hambúrguer</p>
-                                <p class="m-0 text-muted">Uma refeição deliciosa para qualquer hora</p>
-                            </div>
-                        </td>
-                        <td>
-                          <!-- PREÇO DO PRODUTO -->
-                            <div class="fw-600">R$7,00</div>
-                        </td>
-                        <!-- Ações do produto (EDITAR OU DELETAR) 
-                        Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
-                        -->
-                        <td>
-                          <div>
-                            <button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                          </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <!-- Formulário cadastro de produto -->
+      <!-- Formulário cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 		<div class="modal-content">
@@ -194,6 +90,131 @@ if(!$_SESSION['email']){
 		</div>
 	  </div>
 	</div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="container d-flex justify-content-center align-items-center">
+        <form action="php/controlador/logCliente.php" class="w-100" method="POST">
+        
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+        </div>
+
+          <!-- CAMPO AGENCIA -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
+              <label for="inputAgencia" class="form-label">Agencia</label>
+            </div>
+            <!-- CAMPO  SENHA -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
+              <label for="inputConta" class="form-label">Conta</label>
+            </div>
+            <button type="submit" class="btn btn-success align-self-end">Salvar</button>
+        </form>
+        </div>
+        <div class="container d-flex justify-content-center align-items-center flex-column  border p-3">
+      <h1 class="h2">Exclusão de conta</h1>
+      <p class="lead text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
+        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
+        convertidas em crédito no site.</p>
+        <form action="php/dao/excluir.php" method="POST">
+            <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
+        </form>
+        </div>
+    </div>';
+    
+    // Caso contrário, se for um usuário comum, devemos exibir SOMENTE o card de exclusão de conta.
+    
+    } else {
+      echo '
+      
+      <div class="container d-flex justify-content-center align-items-center flex-column border p-3" id="deleteContainer">
+      <h2 class="h2">Exclusão de conta</h2>
+      <p class="text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
+        Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
+        convertidas em crédito no site.
+        </p>
+        <form action="php/dao/excluir.php" method="POST">
+        <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
+    </form>
+    </div>';
+    };
+    ?>
+  </section>
+
+  <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
+  <?php
+  require_once 'php/dao/conexaoBD.php';
+  if (!$_SESSION['empresa'] == false) {
+    
+    echo '
+    <section class="average-section" id="config-produtos">
+        <hr class="hr" />
+        <div class="section-text-container my-5">
+            <h1 class="h1">Gerenciamento de produtos</h1>
+            <p class="lead">Aqui você pode editar seus produtos</p>
+        </div>  
+    <div class="container" style="max-width: 1920px;">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#cadProdutoModal" class="btn btn-success"><i class="fa-solid fa-plus"></i>  Criar Produto</button>
+        <div class="table-wrap">
+            <table class="table table-responsive table-borderless">
+                <thead>
+                    <th>&nbsp;</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>&nbsp;</th>
+                </thead>
+                <tbody>';
+                
+
+$email = $_SESSION ['email'];
+$sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
+$query = mysqli_query(conectarBD(), $sqlCode);
+$fetch = mysqli_fetch_assoc($query);
+$cnpj = $fetch['CNPJ'];
+
+$sqlCode = "SELECT * FROM produto where CNPJ = '$cnpj'";
+$query = mysqli_query(conectarBD(), $sqlCode) or die(mysqli_error(conectarBD()));
+
+
+// Pegando as empresas 1 por 1 e exibindo os cartões.
+if (mysqli_num_rows($query) != 0) {
+      while ($produto = mysqli_fetch_assoc($query)) {
+        echo '<tr class="align-middle alert border-bottom" role="alert">
+                        <td class="text-center">
+                        <!--   FOTO DO PRODUTO  -->
+                            <img class="pic placeholder"
+                                src="' . $produto['imagem']  .'"
+                                alt="">
+                        </td>
+                        <td>
+                          <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
+                            <div>
+                                <p class="m-0 fw-bold lead">' . $produto['nome'] . '</p>
+                                <p class="m-0 text-muted">'. $produto['descricao'] .'</p>
+                            </div>
+                        </td>
+                        <td>
+                          <!-- PREÇO DO PRODUTO -->
+                            <div class="fw-600">'. $produto['preco'] .'</div>
+                        </td>
+                        <!-- Ações do produto (EDITAR OU DELETAR) 
+                        Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
+                        -->
+                        <td>
+                          <div>
+                            <button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                          </div>
+                        </td>
+                    </tr>';
+  }}else{
+    echo 'Não há nenhum produto cadastrado';
+  }
+  echo '
+                  </tbody>
+            </table>
+        </div>
+    </div>
 </section>
 ';
   }
