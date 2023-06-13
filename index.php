@@ -123,10 +123,18 @@ session_start();
             // Coletando os dados da empresa selecionada pelo $fetch
             $loja = $resultado[$i];
 
+        // Verificando se a loja já possui imagem
+        if (!$loja['imagem']) {
+
+          // Caso não tenha, colocar foto temporária
+          $imagem = "images/placeholder/loja.png";
+        } else {
+          $imagem = $loja['imagem'];
+        }
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
             <div class="card" style="width: 18rem;">
-              <img src="' . $loja['imagem'] . '" class="card-img-top" alt="...">
+              <img src="' . $imagem . '" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">'. $loja['nome'] .'</h5>
                 <p class="card-text">DESCRIÇÃO</p>
@@ -146,6 +154,14 @@ session_start();
           // Coletando os dados da empresa selecionada pelo $fetch
           $loja = $resultado[$i];
 
+        // Verificando se a loja já possui imagem
+        if (!$loja['imagem']) {
+
+          // Caso não tenha, colocar foto temporária
+          $imagem = "images/placeholder/loja.png";
+        } else {
+          $imagem = $loja['imagem'];
+        }
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
           <div class="card" style="width: 18rem;">

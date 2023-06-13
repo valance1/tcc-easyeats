@@ -73,7 +73,7 @@ session_start();
         if (!$loja['imagem']) {
 
           // Caso não tenha, colocar foto temporária
-          $imagem = "/caminho/para/a/foto.png";
+          $imagem = "images/placeholder/loja.png";
         } else {
           $imagem = $loja['imagem'];
         }
