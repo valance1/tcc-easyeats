@@ -59,7 +59,7 @@ if (strlen($email) == 0) {
     // Se não existe ninguém com o email no nosso sistema, vamos inserir a pessoa pelo nosso DAO.
     } else {
       inserirPessoa($conexao, $nome, md5($senha1), $email, $cpf);
-      header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
+      header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.&toast=sucesso");
     }
   }
 }

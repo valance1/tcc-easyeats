@@ -27,7 +27,18 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
 <body>
 
     <?php include 'php/components/navbar.php' ?>
+    <?php require_once 'php/components/alerts.php';
+  if ($_GET['toast'] == 'sucesso') {
+    createSuccessAlert("Ação realizada com sucesso");
+  }
+  if ($_GET['toast'] == 'erro') {
+    createErrorAlert("Ação realizada com erro");
+  }
 
+  if ($_GET['toast' == 'warning']){
+    createWarningAlert("Alguma coisa não está certa");
+  }
+  ?>
     <section class="average-section" id="inventario">
         <hr class="hr" />
         <div class="section-text-container mb-5">

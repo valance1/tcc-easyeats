@@ -29,13 +29,25 @@ session_start();
       <h1 class="h1">Restaurantes</h1>
       <p class="lead">Confira os restaurantes disponíveis:</p>
     </div>
+    <?php require_once 'php/components/alerts.php';
+    if ($_GET['toast'] == 'sucesso') {
+      createSuccessAlert("Ação realizada com sucesso");
+    }
+    if ($_GET['toast'] == 'erro') {
+      createErrorAlert("Ação realizada com erro");
+    }
+
+    if ($_GET['toast' == 'warning']) {
+      createWarningAlert("Alguma coisa não está certa");
+    }
+    ?>
     <?php
     require 'php/dao/conexaoBD.php';
 
     // Mesma lógica do index.php, porém, diferentemente do for loop
     // Aqui nós temos um while, que vai simplesmente cuspir todas as
     // Empresas encontradas no banco de dados.
-
+    
     // Selecionando todas as empresas
     $code = "SELECT * FROM empresa";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
@@ -52,29 +64,29 @@ session_start();
             </span>
         </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">';
-    
+    <div class="row row-cols-1 justify-content-around row-cols-md-3 mt-5 g-4">';
+
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($loja = mysqli_fetch_assoc($query)) {
-        
+
         // Verificando se a loja já possui imagem
-        if(!$loja['imagem']){
-          
+        if (!$loja['imagem']) {
+
           // Caso não tenha, colocar foto temporária
           $imagem = "/caminho/para/a/foto.png";
-        }else{
+        } else {
           $imagem = $loja['imagem'];
         }
-        
+
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
         echo '
         <div class="card" style="width: 18rem;">
         <img src="' . $imagem . '" class="card-img-top" alt="...">
         <div class="card-body">';
-        echo '<h5 class="card-title">' . $loja["nome"] .'</h5>';
+        echo '<h5 class="card-title">' . $loja["nome"] . '</h5>';
         echo '<p class="card-text">DESCRIÇÃO</p>';
-        echo '<a href="cardapio.php?loja='. $loja['nome'] .'"class="btn btn-primary">VER</a>';
-        echo '</div></div></div>';
+        echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-primary">VER</a>';
+        echo '</div></div>';
       }
 
       // Se não houver nenhuma, mostre o card de indisponibilidade
@@ -88,10 +100,10 @@ session_start();
         </div>
       </div>
     ';
-  }
+    }
     ?>
   </section>
-    
+
 
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>

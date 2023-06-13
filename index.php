@@ -23,6 +23,11 @@ session_start();
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
   
+<!-- TOASTER -->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 </head>
@@ -30,7 +35,18 @@ session_start();
 <body>
   <!-- Importando componente  -->
   <?php include 'php/components/navbar.php' ?>
+  <?php require_once 'php/components/alerts.php';
+  if ($_GET['toast'] == 'sucesso') {
+    createSuccessAlert("Ação realizada com sucesso");
+  }
+  if ($_GET['toast'] == 'erro') {
+    createErrorAlert("Ação realizada com erro");
+  }
 
+  if ($_GET['toast' == 'warning']){
+    createWarningAlert("Alguma coisa não está certa");
+  }
+  ?>
   <!-- HERO -->
   <section class="average-section" id="hero">
     <div id="HERO" class="container col-xxl-8 px-4 py-5">
@@ -70,7 +86,7 @@ session_start();
     </div>
 
     <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 justify-content-between row-cols-md-3 g-4">
       <!-- CARTAO DO RESTAURANTE -->
       <?php
       require 'php/dao/conexaoBD.php';
@@ -154,7 +170,7 @@ session_start();
       <p class="lead">Conheça nossa equipe</p>
     </div>
     
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 justify-content-around row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
       <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
         <image class="dev-image" src="images/restaurantes/R.jfif"></image>

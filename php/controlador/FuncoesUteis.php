@@ -98,13 +98,13 @@ function deleteUser($email){
     if (mysqli_num_rows($query) == 0) {
         $code = "DELETE FROM pessoa WHERE EMAIL = '$email'";
         mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
-        header("Location:../../index.php?msg=Conta deletada com sucesso.&deleteSucess=yes");
+        header("Location:../../index.php?msg=Conta deletada com sucesso.&toast=sucesso");
     
     // Entretanto, se houver algum resultado, isso significa que a conta pertence a uma empresa, portanto:
     }else{
         $code = "DELETE FROM empresa WHERE EMAIL = '$email'";
         mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
-        header("Location:../../index.php?msg=Conta deletada com sucesso.&deleteSucess=yes");
+        header("Location:../../index.php?msg=Conta deletada com sucesso.&toast=sucesso");
     }
 };
 

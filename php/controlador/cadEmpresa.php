@@ -52,7 +52,7 @@ if (strlen($email) == 0) {
       
     } else {
       inserirEmpresa($conexao, $nome, md5($senha1), $email, $CNPJ, $agencia, $conta);
-      header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.");
+      header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.&toast=sucesso");
     }
   }
 }

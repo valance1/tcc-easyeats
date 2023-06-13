@@ -34,9 +34,9 @@ if (strlen($email) == 0) {
       $_SESSION['email'] = $email;
       $_SESSION['senha'] = $senha;
       $_SESSION['empresa'] = true;
-      header("Location:../../index.php?msg=Login sucesso.");
+      header("Location:../../index.php?msg=Login sucesso.&toast=sucesso");
     } else {
-      header("Location:../../index.php?msg=Login incorreto.");
+      header("Location:../../index.php?msg=Login incorreto.&toast=erro");
     }
   }
 }

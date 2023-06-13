@@ -56,5 +56,5 @@ move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name
 
 // Inserindo o produto no BD
 inserirProduto(conectarBD(), $nome, $descricao, $preco, $cnpj, $path);
-header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso");
+header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso&toast=sucesso");
 ?>
