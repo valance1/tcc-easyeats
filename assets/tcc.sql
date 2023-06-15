@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 15-Jun-2023 às 18:39
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.10
+-- Tempo de geraÃ§Ã£o: 15-Jun-2023 Ã s 22:31
+-- VersÃ£o do servidor: 10.4.6-MariaDB
+-- versÃ£o do PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,10 +109,18 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Restrições para despejos de tabelas
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`nome`, `descricao`, `preco`, `idProduto`, `CNPJ`, `imagem`) VALUES
+('Salgado Frito', 'Coxinha e derivados', '7,50', 15, '91018981000150', 'images/produtos/91018981000150/8930251f45b5cba00519f165bbd79da1.jpeg'),
+('HambÃºrguer', 'Uma explosÃ£o de sabores', '12', 16, '91018981000150', 'images/produtos/91018981000150/94b65e30c3dff504cbb93343f6d961de.jpeg');
+
+--
+-- RestriÃ§Ãµes para despejos de tabelas
 --
 
 --

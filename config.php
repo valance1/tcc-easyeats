@@ -94,26 +94,26 @@ if (!$_SESSION['email']) {
 	  </div>
 	</div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="container d-flex justify-content-center align-items-center">
-        <form action="php/controlador/logCliente.php" class="w-100" method="POST">
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
-        </div>
+        <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
+          <form action="php/controlador/logCliente.php" class="w-100" method="POST">
+          <div class="input-group mb-3">
+              <input type="file" class="form-control" id="inputGroupFile02">
+          </div>
 
           <!-- CAMPO AGENCIA -->
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
-              <label for="inputAgencia" class="form-label">Agencia</label>
-            </div>
-            <!-- CAMPO  SENHA -->
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
-              <label for="inputConta" class="form-label">Conta</label>
-            </div>
-            <button type="submit" class="btn btn-success align-self-end">Salvar</button>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
+            <label for="inputAgencia" class="form-label">Agencia</label>
+          </div>
+        <!-- CAMPO  SENHA -->
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
+            <label for="inputConta" class="form-label">Conta</label>
+          </div>
+          <button type="submit" class="btn btn-success align-self-end">Salvar</button>
         </form>
         </div>
-        <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column  border p-3" id="deleteContainer">
+        <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column w-50 mx-0 border p-3" id="deleteContainer">
       <h1 class="h2">Exclusão de conta</h1>
       <p class="fs-5 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
@@ -128,7 +128,7 @@ if (!$_SESSION['email']) {
 
   } else {
     echo '
-      <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column border p-3" id="deleteContainer">
+      <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column border p-3 w-50 mx-0" id="deleteContainer">
       <h2 class="h2">Exclusão de conta</h2>
       <p class="fs-5 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
@@ -196,9 +196,8 @@ if (!$_SESSION['empresa'] == false) {
       <h1 class="h1">Gerenciamento de produtos</h1>
       <p class="lead text-secondary">Aqui você pode editar seus produtos</p>
     </div>
-    <div class="container" style="max-width: 1920px;">
+    <div class="container mx-0 px-0" style="max-width: 1920px;">
       <button type="button" data-bs-toggle="modal" data-bs-target="#cadProdutoModal" class="btn btn-success"><i class="fa-solid fa-plus"></i>Criar Produto</button>
-    </div>
 
     ';
 
@@ -255,7 +254,8 @@ if (!$_SESSION['empresa'] == false) {
   } else {
 
     // Criar um container que fala isso:
-    echo '<div class="container">Não há nenhum produto cadastrado</div>';
+    echo '</div>
+    <div class="container mx-0 mt-3 px-0">Não há nenhum produto cadastrado</div>';
   }
   echo '</section>';
 }

@@ -14,17 +14,17 @@ $preco = $_POST["inputPreco"];
 if (!isset($imagem)) {
   echo "Nenhuma imagem foi inserida";
   exit();
-  
-// Veriica se o usuário inseriu nome (obrigatório)
-}else if(!isset($nome)){
+
+  // Veriica se o usuário inseriu nome (obrigatório)
+} else if (!isset($nome)) {
   echo "Nenhum nome foi inserido";
   exit();
-  
-// A descrição pode ser nula, temos que mudar isso depois.
-}else if(!isset($descricao)){
+
+  // A descrição pode ser nula, temos que mudar isso depois.
+} else if (!isset($descricao)) {
   echo "Nenhuma descricao foi inserida";
   exit();
-}else if(!isset($preco)){
+} else if (!isset($preco)) {
   echo "Nenhum preço foi inserido";
   exit();
 }
@@ -32,7 +32,7 @@ if (!isset($imagem)) {
 // Tem que adicionar um código que verifica se já existe um produto com o nome, é bem simples
 
 // Consultando quem é o dono da imagem primeiro
-$email = $_SESSION ['email'];
+$email = $_SESSION['email'];
 $sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
 $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
@@ -43,12 +43,12 @@ $image_extension = image_type_to_extension($image_type, true);
 $image_name = bin2hex(random_bytes(16)) . $image_extension;
 
 // Inserindo a imagem no BD.
-
-//
-$path = 'images/produtos/' . $cnpj . '/' . $image_name;
+$path = '../../images/produtos/' . $cnpj;
 
 // Cria caminho
 mkdir($path, 0777, true);
+
+$path = 'images/produtos/' . $cnpj . '/' . $image_name;
 
 // Move o arquivo até o caminho
 move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name");
