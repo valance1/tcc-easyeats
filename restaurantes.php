@@ -16,6 +16,8 @@ session_start();
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
   <link href='css/main.css' rel="stylesheet">
+  <!-- ICONES -->
+    <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@ session_start();
     <hr class="hr" />
     <div class="section-text-container mb-5">
       <h1 class="h1">Restaurantes</h1>
-      <p class="lead">Confira os restaurantes disponíveis:</p>
+      <p class="lead text-secondary">Confira os restaurantes disponíveis:</p>
     </div>
     <?php require_once 'php/components/alerts.php';
     if ($_GET['toast'] == 'sucesso') {
@@ -80,12 +82,12 @@ session_start();
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
         echo '
-        <div class="card" style="width: 18rem;">
+        <div class="card rounded" style="width: 18rem;">
         <img src="' . $imagem . '" class="card-img-top" alt="...">
         <div class="card-body">';
-        echo '<h5 class="card-title">' . $loja["nome"] . '</h5>';
-        echo '<p class="card-text">DESCRIÇÃO</p>';
-        echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-primary">VER</a>';
+        echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
+        echo '<p class="fs-6 fw-light text-muted">Lanchonete</p>';
+        echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-outline-dark fw-normal">VER</a>';
         echo '</div></div>';
       }
 
@@ -103,7 +105,6 @@ session_start();
     }
     ?>
   </section>
-
 
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>

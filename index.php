@@ -80,9 +80,9 @@ session_start();
   <!-- PREVIEW RESTAURANTS -->
   <section class="average-section" id="restaurantes-preview">
     <hr class="hr"/>
-    <div class="section-text-container my-5">
-      <h1 class="h1"><a href="restaurantes.php">Restaurantes<i class="fa-solid fa-arrow-right"></i></a></h1>
-      <p class="lead">Ver restaurantes disponíveis na sua região</p>
+    <div class="section-text-container mb-5">
+      <h1 class="h1"><a href="restaurantes.php">Restaurantes<i class="fa-solid fa-arrow-right ms-2"></i></a></h1>
+      <p class="lead text-secondary">Ver restaurantes disponíveis na sua região</p>
     </div>
 
     <!-- PARA ALINHAR OS 3 RESTAURANTES  -->
@@ -106,7 +106,7 @@ session_start();
           <div class="card container-xxl text-center" id="noEmpresasFound">
             <div class="card-body">
               <h5 class="card-title">OPS!</h5>
-              <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
+              <img src="images/CAT.gif" alt="Não encontramos nada" class="my-2"  width="250" />
               <p class="card-text">Desculpe, mas não encontramos nenhuma loja em nosso banco de dados.</p>
             </div>
           </div>';
@@ -133,12 +133,13 @@ session_start();
         }
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
-            <div class="card" style="width: 18rem;">
+            
+            <div class="card rounded" style="width: 18rem;">
               <img src="' . $imagem . '" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">'. $loja['nome'] .'</h5>
-                <p class="card-text">DESCRIÇÃO</p>
-                <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-primary">VER</a>
+                <h5 class="card-title fs-4 fw-bold">'. $loja['nome'] .'</h5>
+                <p class="fs-6 fw-light text-muted">Lanchonete</p>
+                <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-outline-dark fw-normal">VER</a>
               </div>
             </div>';
       }}}else{
@@ -164,12 +165,12 @@ session_start();
         }
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
-          <div class="card" style="width: 18rem;">
+          <div class="card rounded" style="width: 18rem;">
             <img src="' . $loja['imagem'] . '" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">'. $loja['nome'] .'</h5>
-              <p class="card-text">DESCRIÇÃO</p>
-              <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-primary">VER</a>
+              <h5 class="card-title fs-4 fw-bold">'. $loja['nome'] .'</h5>
+                <p class="fs-6 fw-light text-muted">Lanchonete</p>
+                <a href="cardapio.php?loja='. $loja['nome'] .'" class="btn btn-outline-dark fw-normal">VER</a>
             </div>
           </div>';
         }
@@ -181,36 +182,100 @@ session_start();
   <!-- Apresentando os desenvolvedores -->
   <section class="average-section" id="developers">
     <hr class="hr"/>
-    <div class="section-text-container my-5">
+    <div class="section-text-container mb-5">
       <h1 class="h1">Desenvolvedores</h1>
-      <p class="lead">Conheça nossa equipe</p>
+      <p class="lead text-secondary">Conheça nossa equipe</p>
     </div>
     
     <div class="row row-cols-1 justify-content-center row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
-        <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-        <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
-          <p class="text-center fw-bold">Aldair Schmitberger</p>
-          <p class="text-center">Programador Back-End</p>
-        </div>
+      <div class="developer-card">
+    <div class="developer-header">
+      <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom" data-hover="Open to Opportunities"></span>
+      <img class="developer-profile-img" src="...">
+    </div>
+    <div class="developer-content">
+      <h4>Gabriel Gasparoni</h4>
+      <p>Ideia</p>
+      <hr>
+      <ul>
+        <li>País: <span>Brasil</span></li>
+      </ul>
+      <hr>
+      <div class="developer-links">
+        <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
+        <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
       </div>
+      <hr>
+      
+    </div>
+  </div>
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
-        <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-        <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
-          <p class="text-center fw-bold">Gabriel Pinotti</p>
-          <p class="text-center">Programador Full-Stack e Designer</p>
-        </div>
+      <div class="developer-card">
+    <div class="developer-header">
+      <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom" data-hover="Open to Opportunities"></span>
+      <img class="developer-profile-img" src="...">
+    </div>
+    <div class="developer-content">
+      <h4>Gabriel Pinotti</h4>
+      <p>FullStack Developer</p>
+      
+      <hr>
+      <ul>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">HTML</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">CSS</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">PHP</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">C++</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">Python</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">Java</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Intermediate">JavaScript</li>
+        <li class="tt-info hover-tt-bottom" data-hover="Expert">Photoshop</li>
+      </ul>
+ 
+      <ul>
+        <li>Repos: <span>17</span></li>
+        <li>País: <span>Brasil</span></li>
+      </ul>
+      <hr>
+      
+      <div class="developer-links">
+        <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
+        <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
+        <a href="#" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
       </div>
+      <hr>
+      
+    </div>
+  </div>
       <!-- -------------------------------------------------- -->
-      <div class="container d-flex justify-content-center align-items-center flex-column h-100" style="width: 300px;">
-        <image class="dev-image" src="images/restaurantes/R.jfif"></image>
-        <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
-          <p class="text-center fw-bold">Gabriel Gasparoni</p>
-          <p class="text-center">Ideia</p>
-        </div>
+<div class="developer-card">
+    <div class="developer-header">
+      <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom" data-hover="Open to Opportunities"></span>
+      <img class="developer-profile-img" src="">
+    </div>
+    <div class="developer-content">
+      <h4>Aldair Schmitberger</h4>
+      <p>Backend Dev</p>
+      
+      <hr>
+      <ul>
+        <li class="tt-info hover-tt-bottom" data-hover="Intermediate">Python</li>
+      </ul>
+ 
+      <ul>
+        <li>Repositórios: <span>1</span></li>
+        <li>País: <span>Brasil</span></li>
+      </ul>
+      <hr>
+      
+      <div class="developer-links">
+        <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
+        <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
+        <a href="#" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
       </div>
+      <hr>
+    </div>
+  </div>
       <!-- -------------------------------------------------- -->
     </div>
   </section>
