@@ -16,9 +16,9 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-    <!-- ICONES -->
-    <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
-    
+  <!-- ICONES -->
+  <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
+
   <link href='css/main.css' rel="stylesheet">
   <link href='css/cardapio.css' rel="stylesheet">
 </head>
@@ -33,7 +33,7 @@ session_start();
   if ($_GET['toast'] == 'erro') {
     createErrorAlert("Ação realizada com erro");
   }
-  if ($_GET['toast' == 'warning']){
+  if ($_GET['toast' == 'warning']) {
     createWarningAlert("Alguma coisa não está certa");
   }
   ?>
@@ -42,12 +42,12 @@ session_start();
 
     <div class="section-text-container">
       <?php
-      echo '<h1 class="section-heading">'. $_GET['loja'] .'</h1>';
+      echo '<h1 class="section-heading">' . $_GET['loja'] . '</h1>';
       ?>
       <p class="section-detail">Confira os itens disponíveis:</p>
     </div>
-    
-    
+
+
     <?php
     require 'php/dao/conexaoBD.php';
 
@@ -57,27 +57,27 @@ session_start();
     
     // Selecionando todas as empresas (temoss que passar uma chave mais segura pra garantir a exclusividade  da empresa, tipo  CNPJ)
     $empresa = $_GET['loja'];
-    $code = "SELECT * FROM empresa WHERE nome ='$empresa'" ;
+    $code = "SELECT * FROM empresa WHERE nome ='$empresa'";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
     $empresa = mysqli_fetch_assoc($query);
     $cnpj = $empresa['CNPJ'];
 
-    
-    
+
+
     $code = "SELECT * FROM produto where CNPJ = '$cnpj'";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
-    
+
     // Se houver algum produto:
     if (mysqli_num_rows($query) != 0) {
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($produto = mysqli_fetch_assoc($query)) {
-        
+
         echo '
         <div class="card product-card my-3 d-flex flex-row">
-          <img class="float-start" src="'. $produto['imagem']  .'">
+          <img class="float-start" src="' . $produto['imagem'] . '">
           
           <div class="ms-3 d-flex flex-column my-3  w-75">
-            <p class="fs-4 mb-0">'. $produto['nome'] .'</p>
+            <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
             <p class="text-muted fs-6 my-1">' . $produto['escricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
           </div>
@@ -98,9 +98,9 @@ session_start();
     ';
     }
     ?>
-    
+
   </section>
-  
+
   <!-- Importando componentes -->
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>

@@ -17,7 +17,7 @@ session_start();
     crossorigin="anonymous"></script>
   <link href='css/main.css' rel="stylesheet">
   <!-- ICONES -->
-    <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

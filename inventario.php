@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
+if (!$_SESSION['email'] or $_SESSION['empresa'] == true) {
     header("Location:index.php");
-};
+}
+;
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-        
+
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
@@ -32,17 +33,17 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
 
     <?php include 'php/components/navbar.php' ?>
     <?php require_once 'php/components/alerts.php';
-  if ($_GET['toast'] == 'sucesso') {
-    createSuccessAlert("Ação realizada com sucesso");
-  }
-  if ($_GET['toast'] == 'erro') {
-    createErrorAlert("Ação realizada com erro");
-  }
+    if ($_GET['toast'] == 'sucesso') {
+        createSuccessAlert("Ação realizada com sucesso");
+    }
+    if ($_GET['toast'] == 'erro') {
+        createErrorAlert("Ação realizada com erro");
+    }
 
-  if ($_GET['toast' == 'warning']){
-    createWarningAlert("Alguma coisa não está certa");
-  }
-  ?>
+    if ($_GET['toast' == 'warning']) {
+        createWarningAlert("Alguma coisa não está certa");
+    }
+    ?>
     <section class="average-section" id="inventario">
         <hr class="hr" />
         <div class="section-text-container mb-5">
@@ -236,7 +237,7 @@ if(!$_SESSION['email'] or $_SESSION['empresa'] == true){
             </table>
         </div>
     </div> -->
-    <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </section>
 
 </html>

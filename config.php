@@ -2,7 +2,8 @@
 session_start();
 if (!$_SESSION['email']) {
   header("Location:index.php");
-};
+}
+;
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ if (!$_SESSION['email']) {
   <link href="css/config.css" type="text/css" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
@@ -44,20 +45,20 @@ if (!$_SESSION['email']) {
   <!-- Configurações de dados -->
   <section class="average-section" id="config">
     <hr class="hr" />
-  <div class="section-text-container mb-5">
-    <h1 class="h1">Configurações</h1>
-    <p class="lead text-secondary">
-      Aqui você pode alterar seus dados ou excluir a sua conta
-    </p>
-  </div>
+    <div class="section-text-container mb-5">
+      <h1 class="h1">Configurações</h1>
+      <p class="lead text-secondary">
+        Aqui você pode alterar seus dados ou excluir a sua conta
+      </p>
+    </div>
 
-  <?php
+    <?php
 
-  //  SE O USUÁRIO FOR EMPRESARIAL, DEVEMOS PERMITIR QUE ELE MODIFIQUE SEUS DADOS BANCÁRIOS, COMO AGÊNCIA E CONTA.
-
-  // Se a variavel sessão empresa for diferente de false:
-  if (!$_SESSION['empresa'] == false) {
-    echo '
+    //  SE O USUÁRIO FOR EMPRESARIAL, DEVEMOS PERMITIR QUE ELE MODIFIQUE SEUS DADOS BANCÁRIOS, COMO AGÊNCIA E CONTA.
+    
+    // Se a variavel sessão empresa for diferente de false:
+    if (!$_SESSION['empresa'] == false) {
+      echo '
       <!-- Formulário cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -124,10 +125,10 @@ if (!$_SESSION['email']) {
         </div>
     </div>';
 
-    // Caso contrário, se for um usuário comum, devemos exibir SOMENTE o card de exclusão de conta.
-
-  } else {
-    echo '
+      // Caso contrário, se for um usuário comum, devemos exibir SOMENTE o card de exclusão de conta.
+    
+    } else {
+      echo '
       <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column border p-3 w-50 mx-0" id="deleteContainer">
       <h2 class="h2">Exclusão de conta</h2>
       <p class="fs-5 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
@@ -138,14 +139,15 @@ if (!$_SESSION['email']) {
         <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
     </form>
     </div>';
-  };
-  ?>
-</section>
+    }
+    ;
+    ?>
+  </section>
 
-<?php
+  <?php
 
-if (!$_SESSION['empresa'] == false) {
-  echo '<!-- Sessão para abater uma ficha -->
+  if (!$_SESSION['empresa'] == false) {
+    echo '<!-- Sessão para abater uma ficha -->
   <section class="average-section" id="abater-fichas-section">
     <hr class="hr" />
     <div class="section-text-container mb-5">
@@ -171,25 +173,25 @@ if (!$_SESSION['empresa'] == false) {
         </form>
     </div>
   </section>';
-}
+  }
 
-?>
+  ?>
 
-<!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
-<?php
-require_once 'php/dao/conexaoBD.php';
-if (!$_SESSION['empresa'] == false) {
+  <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
+  <?php
+  require_once 'php/dao/conexaoBD.php';
+  if (!$_SESSION['empresa'] == false) {
 
-  $email = $_SESSION ['email'];
-  $sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
-  $query = mysqli_query(conectarBD(), $sqlCode);
-  $fetch = mysqli_fetch_assoc($query);
-  $cnpj = $fetch['CNPJ'];
+    $email = $_SESSION['email'];
+    $sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
+    $query = mysqli_query(conectarBD(), $sqlCode);
+    $fetch = mysqli_fetch_assoc($query);
+    $cnpj = $fetch['CNPJ'];
 
-  $sqlCode = "SELECT * FROM produto where CNPJ = '$cnpj'";
-  $query = mysqli_query(conectarBD(), $sqlCode) or die(mysqli_error(conectarBD()));
+    $sqlCode = "SELECT * FROM produto where CNPJ = '$cnpj'";
+    $query = mysqli_query(conectarBD(), $sqlCode) or die(mysqli_error(conectarBD()));
 
-  echo '
+    echo '
   <section class="average-section" id="config-produtos">
     <hr class="hr" />
     <div class="section-text-container">
@@ -201,9 +203,9 @@ if (!$_SESSION['empresa'] == false) {
 
     ';
 
-  // Pegando as empresas 1 por 1 e exibindo os cartões.
-  if (mysqli_num_rows($query) != 0) {
-    echo '
+    // Pegando as empresas 1 por 1 e exibindo os cartões.
+    if (mysqli_num_rows($query) != 0) {
+      echo '
         <div class="table-wrap">
             <table class="table table-responsive table-borderless">
                 <thead>
@@ -213,24 +215,24 @@ if (!$_SESSION['empresa'] == false) {
                     <th>&nbsp;</th>
                 </thead>
                 <tbody>';
-    while ($produto = mysqli_fetch_assoc($query)) {
-      echo '<tr class="align-middle alert border-bottom" role="alert">
+      while ($produto = mysqli_fetch_assoc($query)) {
+        echo '<tr class="align-middle alert border-bottom" role="alert">
                         <td class="text-center">
                         <!--   FOTO DO PRODUTO  -->
                             <img class="pic"
-                                src="' . $produto['imagem']  .'"
+                                src="' . $produto['imagem'] . '"
                                 alt="">
                         </td>
                         <td>
                           <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
                             <div>
                                 <p class="m-0 fw-bold lead">' . $produto['nome'] . '</p>
-                                <p class="m-0 text-muted">'. $produto['descricao'] .'</p>
+                                <p class="m-0 text-muted">' . $produto['descricao'] . '</p>
                             </div>
                         </td>
                         <td>
                           <!-- PREÇO DO PRODUTO -->
-                            <div class="fw-600">'. $produto['preco'] .'</div>
+                            <div class="fw-600">' . $produto['preco'] . '</div>
                         </td>
                         <!-- Ações do produto (EDITAR OU DELETAR)
                         Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
@@ -242,27 +244,27 @@ if (!$_SESSION['empresa'] == false) {
                           </div>
                         </td>
                     </tr>';
-    }
+      }
 
-    echo '
+      echo '
                   </tbody>
             </table>
         </div>
     </div>
 </section>';
 
-  } else {
+    } else {
 
-    // Criar um container que fala isso:
-    echo '</div>
+      // Criar um container que fala isso:
+      echo '</div>
     <div class="container mx-0 mt-3 px-0">Não há nenhum produto cadastrado</div>';
+    }
+    echo '</section>';
   }
-  echo '</section>';
-}
-?>
+  ?>
 
-<?php include 'php/components/footer.php' ?>
-<?php include 'php/components/forms.php' ?>
+  <?php include 'php/components/footer.php' ?>
+  <?php include 'php/components/forms.php' ?>
 </body>
 
 
