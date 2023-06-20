@@ -197,7 +197,7 @@ session_start();
       </p>
     </div>
 
-    <div class="row row-cols-1 justify-content-center row-cols-md-3 g-4">
+    <div class="row row-cols-1 justify-content-evenly row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
       <div class="developer-card">
         <div class="developer-header d-flex justify-content-center">

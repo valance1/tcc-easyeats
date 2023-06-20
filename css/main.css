@@ -54,6 +54,11 @@ nav a.nav-link:hover:after {
   left: 0; 
 }
 
+.nav-link.dropdown-toggle::after{
+  border: 0;
+  margin-left: 0;
+}
+
 #loginNavButton{
   margin-right: 16px !important;
 }
@@ -135,11 +140,10 @@ a.btn.btn-outline-light.px-4:hover{
 /* ---------------------------------------- */
 
 .developer-card {
-  width: 300px;
+  width: 18rem !important;
   border-radius: 2px;
-  margin: 1em;
   padding: 1em 0.6em;
-  background: #fbfbfb;
+  background: (--white);
   border: 1px solid rgba(89, 94, 95, 0.2);
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.03);
 }
