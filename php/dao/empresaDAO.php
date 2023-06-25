@@ -4,17 +4,17 @@ function inserirEmpresa($conexao, $nome, $senha, $email, $cnpj, $agencia, $conta
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function alterarFotoEmpresa($conexao, $path, $cnpj){
-  $sql = "UPDATE empresa SET perfil='$path' WHERE cpf='$cnpj'";
+  $sql = "UPDATE empresa SET perfil='$path' WHERE cnpj='$cnpj'";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
 }
 function alterarAgenciaEmpresa($conexao, $agencia, $cnpj){
 
-  $sql = "UPDATE empresa SET agencia='$agencia' WHERE cpf='$cnpj'";
+  $sql = "UPDATE empresa SET agencia='$agencia' WHERE cnpj='$cnpj'";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function alterarContaEmpresa($conexao, $conta, $cnpj){
-  $sql = "UPDATE empresa SET conta='$conta' WHERE cpf='$cnpj'";
+  $sql = "UPDATE empresa SET conta='$conta' WHERE cnpj='$cnpj'";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function pesquisarNome($nome){

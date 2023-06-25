@@ -59,7 +59,7 @@ if (!$_SESSION['email']) {
     // Se a variavel sessão empresa for diferente de false:
     if (!$_SESSION['empresa'] == false) {
       echo '
-      <!-- Formulário cadastro de produto -->
+      <!-- Modal cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 		<div class="modal-content">
@@ -96,9 +96,9 @@ if (!$_SESSION['email']) {
 	</div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
-          <form action="php/controlador/logCliente.php" class="w-100" method="POST">
+          <form action="php/controlador/editEmpresa.php" class="w-100" enctype="multipart/form-data" method="POST">
           <div class="input-group mb-3">
-              <input type="file" class="form-control" id="inputGroupFile02">
+              <input type="file" class="form-control" name="inputImagem" id="inputGroupFile02">
           </div>
 
           <!-- CAMPO AGENCIA -->

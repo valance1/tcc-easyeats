@@ -52,7 +52,8 @@ logForm.addEventListener('submit', function (event) {
             // location.reload();
 
             // Tem que dar um jeito de passar as mensagens?
-            window.location.href = "index.php"
+            window.location.href = "index.php";
+            toastr.success("'. $text .'");
         } else {
 
             // Erro: exibe uma mensagem de erro
