@@ -1,8 +1,8 @@
 <?php
 session_start();
-
 // REVER ESSA Lógica
-if (!$_SESSION['email'] && $_SESSION['empresa'] || $_SESSION['email'] && $_SESSION['empresa']) {
+echo $_SESSION['email'];
+if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     header("Location:index.php");
 };
 ?>

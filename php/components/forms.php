@@ -119,13 +119,24 @@ echo '
 				  <h5 class="modal-title" id="exampleModalLabel">Cadastro de Empresa</h5>
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<form action="php/controlador/cadEmpresa.php" method="POST">
+				<form action="php/controlador/cadEmpresa.php" id="cadEmpresa" method="POST">
 				<div class="modal-body">
-				  <div class="form-floating mb-3">
+
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="inputRegCPFEmpresa" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF">
+					<label for="InputRegCPFEmpresa" class="form-label">CPF</label>
+					<div class="invalid-feedback">CPF inválido</div>
+				</div>
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="InputRegNomeDonoEmpresa" name="inputNome" aria-describedby="nomeHelp" placeholder="Nome do Dono">
+					<label for="InputRegNomeDonoEmpresa" class="form-label">Nome do Dono</label>
+					<div class="invalid-feedback">Nome inválido</div>
+				</div>
+				<div class="form-floating mb-3">
 					<input type="text" class="form-control" id="InputRegNomeEmpresa" name="inputNome" aria-describedby="nomeHelp" placeholder="Nome da Empresa">
 					<label for="InputNome2" class="form-label">Nome da Empresa</label>
 					<div class="invalid-feedback">Nome inválido</div>
-				  </div>
+				</div>
 				  
 				  <div class="form-floating mb-3">
 					<input type="text" class="form-control" id="InputRegCNPJ" name="inputCNPJ" aria-describedby="CNPJHelp" placeholder="CNPJ">
@@ -158,7 +169,7 @@ echo '
 				  
 				  <!-- CAMPO  SENHA -->
 				  <div class="form-floating mb-3">
-					<input type="password" class="form-control" id="InputRegSenhaEmpresa" name="inputSenha1" placeholder="******">
+					<input type="password" class="form-control" id="InputRegSenhaEmpresa1" name="inputSenha1" placeholder="******">
 					<label for="InputSenha1" class="form-label">Senha</label>
 					<div class="invalid-feedback">Senha inválida</div>
 				  </div>
@@ -181,4 +192,4 @@ echo '
 		</div>
 	  </div>
 	</div>';
-    ?>
+?>

@@ -157,7 +157,7 @@ session_start();
         while ($fetch = mysqli_fetch_assoc($query)) {
           $resultado[] = $fetch;
         }
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 3; $i++) {
 
           // Coletando os dados da empresa selecionada pelo $fetch
           $loja = $resultado[$i];
@@ -173,7 +173,7 @@ session_start();
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
           <div class="card rounded" style="width: 18rem;">
-            <img src="' . $loja['imagem'] . '" class="card-img-top" alt="...">
+          <img src="' . $imagem . '" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title fs-4 fw-bold">' . $loja['nome'] . '</h5>
                 <p class="fs-6 fw-light text-muted">Lanchonete</p>

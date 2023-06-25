@@ -39,12 +39,12 @@ session_start();
   ?>
 
   <section class="average-section" id="restaurantes-preview">
-
-    <div class="section-text-container">
+  <hr class="hr" />
+    <div class="ection-text-container mb-5">
       <?php
-      echo '<h1 class="section-heading">' . $_GET['loja'] . '</h1>';
+      echo '<h1 class="h1">' . $_GET['loja'] . '</h1>';
       ?>
-      <p class="section-detail">Confira os itens disponíveis:</p>
+      <p class="lead text-secondary">Confira os itens disponíveis:</p>
     </div>
 
 

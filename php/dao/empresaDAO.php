@@ -1,6 +1,6 @@
 <?php
-function inserirEmpresa($conexao, $nome, $senha, $email, $cnpj, $agencia, $conta ){
-  $sql = "INSERT INTO empresa (nome, CNPJ, email, senha, agencia, conta) VALUES ( '$nome', '$cnpj', '$email', '$senha', '$agencia', '$conta')";
+function inserirEmpresa($conexao, $nome, $senha, $email, $cnpj, $agencia, $conta, $dono, $cpf){
+  $sql = "INSERT INTO empresa (nome, CNPJ, email, senha, agencia, conta, dono, cpf) VALUES ( '$nome', '$cnpj', '$email', '$senha', '$agencia', '$conta', '$dono', '$cpf')";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function alterarFotoEmpresa($conexao, $path, $cnpj){
