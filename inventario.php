@@ -2,7 +2,7 @@
 session_start();
 
 // REVER ESSA Lógica
-if (!$_SESSION['email'] && $_SESSION['empresa']) {
+if (!$_SESSION['email'] && $_SESSION['empresa'] || $_SESSION['email'] && $_SESSION['empresa']) {
     header("Location:index.php");
 };
 ?>
