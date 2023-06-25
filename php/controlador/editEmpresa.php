@@ -17,7 +17,7 @@ $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
 $cnpj = $fetch['CNPJ'];
 
-if (isset($imagem)) {
+if ($imagem['size'] != 0) {
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
     $image_name = 'perfil' . $image_extension;

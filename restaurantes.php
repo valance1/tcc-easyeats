@@ -82,9 +82,9 @@ session_start();
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
         echo '
-        <div class="card rounded" style="width: 18rem;">
-        <img src="' . $imagem . '" class="card-img-top" alt="...">
-        <div class="card-body">';
+        <div class="card card-loja px-0 rounded" style="width: 18rem;">
+        <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
+        <div class="card-body loja-details">';
         echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
         echo '<p class="fs-6 fw-light text-muted">Lanchonete</p>';
         echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-outline-dark fw-normal">VER</a>';

@@ -116,7 +116,7 @@ if (!$_SESSION['email']) {
         </div>
         <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column w-50 mx-0 border p-3 rounded" id="deleteContainer">
       <h1 class="h2">Exclusão de conta</h1>
-      <p class="fs-5 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
+      <p class="fs-6 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.</p>
         <form action="php/dao/excluir.php" method="POST">
@@ -131,7 +131,7 @@ if (!$_SESSION['email']) {
       echo '
       <div class="deleteContainer container d-flex justify-content-center align-items-center flex-column border p-3 w-50 rounded" id="deleteContainer">
       <h2 class="h2">Exclusão de conta</h2>
-      <p class="fs-5 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
+      <p class="fs-6 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.
         </p>

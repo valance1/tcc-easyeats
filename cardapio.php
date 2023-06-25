@@ -62,8 +62,6 @@ session_start();
     $empresa = mysqli_fetch_assoc($query);
     $cnpj = $empresa['CNPJ'];
 
-
-
     $code = "SELECT * FROM produto where CNPJ = '$cnpj'";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 
@@ -78,7 +76,7 @@ session_start();
           
           <div class="ms-3 d-flex flex-column my-3  w-100">
             <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
-            <p class="text-muted fs-6 my-1">' . $produto['escricao'] . '</p>
+            <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
           </div>
           <button class="btn btn-success btn-buy-product"><i class="fa-solid fa-cart-shopping"></i></button>

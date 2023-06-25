@@ -17,6 +17,16 @@
 // }
 
 
+// Função pra validar dados
+function validateInput(input) {
+    if (input.value.trim() === '' || input.value.trim() === null) {
+        input.classList.add("is-invalid");
+        return false;
+    }
+    input.classList.remove("is-invalid");
+    return true;
+}
+
 //SCRIPT EXPERIMENTAL! 
 // -----------------------------------------------
 // Obtém referências para os elementos do modal
@@ -30,26 +40,16 @@ logForm.addEventListener('submit', function (event) {
     // Coletando os inputs
     const email = document.getElementById('inputLogEmail');
     const senha = document.getElementById('inputLogSenha');
+    
 
     // Verifica se os campos estão preenchidos
-    if ((email.value.trim() === '' || email.value.trim() === null)) {
-
-        // Marcando o campo como inválido
-        email.classList.add("is-invalid");
-        return;
-    } else {
-        email.classList.remove("is-invalid");
-    }
-
-    if (senha.value.trim() === '' || senha.value.trim() === null) {
-
-        // Marcando o campo como inválido
-        senha.classList.add("is-invalid");
-        return;
-    } else {
-        senha.classList.remove("is-invalid");
-    }
-
+    let fields = [email, senha];
+    for (let field of fields) {
+        if (!validateInput(field)) {
+            return;
+        }
+    };
+    
     // Cria um objeto FormData para enviar os dados do formulário
     const formData = new FormData();
     formData.append('inputEmail', email.value);
@@ -97,31 +97,13 @@ cadPessoaForm.addEventListener('submit', function (event) {
     const senha1 = document.getElementById('inputRegSenhaPessoa1');
     const senha2 = document.getElementById('inputRegSenhaPessoa2');
 
-    if (nome.value.trim() === '' || nome.value.trim() === null) {
-        nome.classList.add("is-invalid");
-        return;
-    } else { nome.classList.remove("is-invalid"); }
-
-    if (cpf.value.trim() === '' || cpf.value.trim() === null) {
-        cpf.classList.add("is-invalid");
-        return;
-    } else { cpf.classList.remove("is-invalid"); }
-
-    // Verifica se os campos estão preenchidos
-    if ((email.value.trim() === '' || email.value.trim() === null)) {
-        email.classList.add("is-invalid");
-        return;
-    } else { email.classList.remove("is-invalid"); }
-
-    if (senha1.value.trim() === '' || senha1.value.trim() === null) {
-        senha1.classList.add("is-invalid");
-        return;
-    } else { senha1.classList.remove("is-invalid") }
-
-    if (senha2.value.trim() === '' || senha2.value.trim() === null) {
-        senha2.classList.add("is-invalid");
-        return;
-    } else { senha2.classList.remove("is-invalid"); }
+    // Verificando
+    let fields = [nome, cpf, email, senha1, senha2];
+    for (let field of fields) {
+        if (!validateInput(field)) {
+            return;
+        }
+    };
 
     // Cria um objeto FormData para enviar os dados do formulário
     const formData = new FormData();
@@ -190,56 +172,14 @@ cadEmpresaForm.addEventListener('submit', function (event) {
     const senha1 = document.getElementById('InputRegSenhaEmpresa1');
     const senha2 = document.getElementById('InputRegSenhaEmpresa2');
 
-    if (cpf.value.trim() === '' || cpf.value.trim() === null) {
-        cpf.classList.add("is-invalid");
-        return;
-    } else { cpf.classList.remove("is-invalid"); }
 
-    if (dono.value.trim() === '' || dono.value.trim() === null) {
-        dono.classList.add("is-invalid");
-        return;
-    } else {
-        dono.classList.remove("is-invalid")
-    }
-
-    if (nome.value.trim() === '' || nome.value.trim() === null) {
-        nome.classList.add("is-invalid");
-        return;
-    } else { nome.classList.remove("is-invalid"); }
-
-    if (cnpj.value.trim() === '' || cnpj.value.trim() === null) {
-        cnpj.classList.add("is-invalid");
-        return;
-    } else {
-        cnpj.classList.remove("is-invalid")
-    }
-
-    if (agencia.value.trim() === '' || agencia.value.trim() === null) {
-        agencia.classList.add("is-invalid");
-        return;
-    } else {
-        agencia.classList.remove("is-invalid")
-    }
-    if (conta.value.trim() === '' || conta.value.trim() === null) {
-        conta.classList.add("is-invalid");
-        return;
-    } else {
-        conta.classList.remove("is-invalid")
-    }
-    if (email.value.trim() === '' || email.value.trim() === null) {
-        email.classList.add("is-invalid");
-        return;
-    } else {
-        email.classList.remove("is-invalid")
-    }
-    if (senha1.value.trim() === '' || senha1.value.trim() === null) {
-        senha1.classList.add("is-invalid");
-        return;
-    } else { senha1.classList.remove("is-invalid") }
-    if (senha2.value.trim() === '' || senha2.value.trim() === null) {
-        senha2.classList.add("is-invalid");
-        return;
-    } else { senha2.classList.remove("is-invalid"); }
+    // Verificando os campos
+    let fields = [cpf, dono, nome, cnpj, agencia, conta, email, senha1, senha2];
+    for (let field of fields) {
+        if (!validateInput(field)) {
+            return;
+        }
+    };
 
     // Cria um objeto FormData para enviar os dados do formulário
     const formData = new FormData();

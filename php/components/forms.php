@@ -79,7 +79,7 @@ echo '
 					</div>
 					
 					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="inputRegCPF" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF">
+					  <input type="text" class="form-control" id="inputRegCPF" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF" maxlength="11">
 					  <label for="InputCPF1" class="form-label">CPF</label>
 					  <div class="invalid-feedback">CPF inválido</div>
 					</div>
@@ -123,7 +123,7 @@ echo '
 				<div class="modal-body">
 
 				<div class="form-floating mb-3">
-					<input type="text" class="form-control" id="inputRegCPFEmpresa" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF">
+					<input type="text" class="form-control" id="inputRegCPFEmpresa" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF" maxlength="11">
 					<label for="InputRegCPFEmpresa" class="form-label">CPF</label>
 					<div class="invalid-feedback">CPF inválido</div>
 				</div>
@@ -139,7 +139,7 @@ echo '
 				</div>
 				  
 				  <div class="form-floating mb-3">
-					<input type="text" class="form-control" id="InputRegCNPJ" name="inputCNPJ" aria-describedby="CNPJHelp" placeholder="CNPJ">
+					<input type="text" class="form-control" id="InputRegCNPJ" name="inputCNPJ" aria-describedby="CNPJHelp" placeholder="CNPJ" maxlength="14">
 					<label for="InputCNPJ1" class="form-label">CNPJ</label>
 					<div class="invalid-feedback">CNPJ inválido</div>
 				  </div>

@@ -130,18 +130,18 @@ session_start();
             $loja = $resultado[$i];
 
             // Verificando se a loja já possui imagem
-            if (!$loja['imagem']) {
+            if (!$loja['perfil']) {
 
               // Caso não tenha, colocar foto temporária
               $imagem = "images/placeholder/loja.png";
             } else {
-              $imagem = $loja['imagem'];
+              $imagem = $loja['perfil'];
             }
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
-            <div class="card rounded" style="width: 18rem;">
-              <img src="' . $imagem . '" class="card-img-top" alt="...">
-              <div class="card-body">
+            <div class="card card-loja px-0 rounded" style="width: 18rem;">
+              <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
+              <div class="card-body loja-details">
                 <h5 class="card-title fs-4 fw-bold">' . $loja['nome'] . '</h5>
                 <p class="fs-6 fw-light text-muted">Lanchonete</p>
                 <a href="cardapio.php?loja=' . $loja['nome'] . '" class="btn btn-outline-dark fw-normal">VER</a>
@@ -163,18 +163,18 @@ session_start();
           $loja = $resultado[$i];
 
           // Verificando se a loja já possui imagem
-          if (!$loja['imagem']) {
+          if (!$loja['perfil']) {
 
             // Caso não tenha, colocar foto temporária
             $imagem = "images/placeholder/loja.png";
           } else {
-            $imagem = $loja['imagem'];
+            $imagem = $loja['perfil'];
           }
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
-          <div class="card rounded" style="width: 18rem;">
-          <img src="' . $imagem . '" class="card-img-top" alt="...">
-            <div class="card-body">
+          <div class="card card-loja px-0 rounded" style="width: 18rem;">
+          <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
+            <div class="card-body loja-details">
               <h5 class="card-title fs-4 fw-bold">' . $loja['nome'] . '</h5>
                 <p class="fs-6 fw-light text-muted">Lanchonete</p>
                 <a href="cardapio.php?loja=' . $loja['nome'] . '" class="btn btn-outline-dark fw-normal">VER</a>
@@ -200,7 +200,7 @@ session_start();
     <div class="row row-cols-1 justify-content-evenly row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
       <div class="developer-card">
-        <div class="developer-header d-flex justify-content-center">
+        <div class="developer-header d-flex justify-content-center align-items-center flex-column ">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
@@ -225,7 +225,7 @@ session_start();
       </div>
       <!-- -------------------------------------------------- -->
       <div class="developer-card">
-        <div class="developer-header d-flex justify-content-center">
+        <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
@@ -265,7 +265,7 @@ session_start();
       </div>
       <!-- -------------------------------------------------- -->
       <div class="developer-card">
-        <div class="developer-header d-flex justify-content-center">
+        <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">

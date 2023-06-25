@@ -95,6 +95,17 @@ section.average-section{
 }
 /* CARD DO RESTAURANTE */
 /* ---------------------------------------- */
+
+.loja-foto{
+  height: 256px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.loja-details{
+  margin-top: auto;
+
+}
 .restaurant-wrapper{
   display: flex;
   justify-content: center;
@@ -150,7 +161,6 @@ a.btn.btn-outline-light.px-4:hover{
 .developer-card #developer-status {
   color: #5cbf55;
   display: block;
-  position: absolute;
   border-radius: 2px;
 }
 .developer-card h4 {
