@@ -2,7 +2,7 @@ toastr.options.closeButton = true;
 toastr.options.closeButton = true;
 
 //SCRIPT EXPERIMENTAL! 
-
+// -----------------------------------------------
 // Obtém referências para os elementos do modal
 const logModal = document.getElementById('loginModal');
 const logForm = document.getElementById('loginForm');
@@ -11,15 +11,27 @@ const logForm = document.getElementById('loginForm');
 logForm.addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
     
-    // Coletando dados
+    // Coletando os inputs
     const email = document.getElementById('inputLogEmail');
     const senha = document.getElementById('inputLogSenha');
-    // Verifica se os campos estão preenchidos
-    if ( (email.value.trim() === '' || email.value.trim() === null) || (senha.value.trim() === '' || senha.value.trim() === null) ) {
 
-        // Tem que adicionar um JQUERY aqui! 
-        alert('Por favor, preencha todos os campos.');
+    // Verifica se os campos estão preenchidos
+    if ( (email.value.trim() === '' || email.value.trim() === null)) {
+        
+        // Marcando o campo como inválido
+        email.classList.add("is-invalid");
         return;
+    }else{
+        email.classList.remove("is-invalid");
+    }
+
+    if ( senha.value.trim() === '' || senha.value.trim() === null ){
+
+         // Marcando o campo como inválido
+         senha.classList.add("is-invalid");
+         return;
+    }else{
+        senha.classList.remove("is-invalid")
     }
 
     // Cria um objeto FormData para enviar os dados do formulário
@@ -52,6 +64,7 @@ logForm.addEventListener('submit', function(event) {
     xhr.send(formData);
 });
 
+// -----------------------------------------------
 //Modal registro
 const regModal = document.getElementById('');
 const regForm = document.getElementById('');
