@@ -72,12 +72,12 @@ session_start();
       while ($loja = mysqli_fetch_assoc($query)) {
 
         // Verificando se a loja já possui imagem
-        if (!$loja['imagem']) {
+        if (!$loja['perfil']) {
 
           // Caso não tenha, colocar foto temporária
           $imagem = "images/placeholder/loja.png";
         } else {
-          $imagem = $loja['imagem'];
+          $imagem = $loja['perfil'];
         }
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.

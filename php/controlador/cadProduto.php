@@ -38,9 +38,26 @@ $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
 $cnpj = $fetch['CNPJ'];
 
+// Coletando mais dados da imagem
 $image_type = exif_imagetype($imagem["tmp_name"]);
 $image_extension = image_type_to_extension($image_type, true);
 $image_name = bin2hex(random_bytes(16)) . $image_extension;
+
+// Verificar o tamanho do arquivo
+$maxFileSize = 10 * 1024 * 1024; // 10MB
+if ($imagem['size'] > $maxFileSize) {
+  echo 'A imagem não pode ter mais de 10MB';
+  exit();
+}
+
+// Verificar o tipo de arquivo
+$allowedExtensions = array('png', 'jpg', 'jpeg', 'svg');
+$fileExtension = strtolower(image_type_to_extension($image_type, false));
+
+if (!in_array($fileExtension, $allowedExtensions)) {
+  echo 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
+  exit();
+}
 
 // Inserindo a imagem no BD.
 $path = '../../images/produtos/' . $cnpj;
