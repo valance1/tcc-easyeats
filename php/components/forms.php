@@ -3,19 +3,16 @@ echo '
 <!-- LOGIN Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
-		<div class="modal-content">
-		  
+		<div class="modal-content">  
 		  <div class="modal-header">
-			
 			<h5 class="modal-title" id="ModalLabel">Login</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			
 		  </div>
-		  <form action="php/controlador/logCliente.php" method="POST">
+		  <form action="php/controlador/logCliente.php" id="loginForm" method="POST">
 		  <div class="modal-body">
 			<!-- CAMPO EMAIL -->
 			  <div class="form-floating mb-3">
-				<input type="email" class="form-control" id="inputEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
+				<input type="email" class="form-control" id="inputLogEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
 				<label for="inputEmail" class="form-label">Endereço de e-mail</label>
                 <p class="error email-error">
                     <?php echo $email_error; ?>
@@ -23,16 +20,14 @@ echo '
 			  </div>
 			  <!-- CAMPO  SENHA -->
 			  <div class="form-floating mb-3">
-				<input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="******">
+				<input type="password" class="form-control" id="inputLogSenha" name="inputSenha" placeholder="******">
 				<label for="inputSenha" class="form-label">Senha</label>
                 <p class="error password-error">
                     <?php echo $password_error; ?>
                 </p>
 				<!-- TEM QUE BOTAR UM BOTÃO DE "ESQUECI MINHA  SENHA" -->
 			  </div>
-			  
 		  </div>
-		  
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
 			<button type="submit" class="btn btn-success">Confirmar</button>

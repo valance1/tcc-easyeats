@@ -8,36 +8,29 @@ session_start();
 $email = $_POST["inputEmail"];
 $senha = $_POST["inputSenha"];
 
+echo $email;
 
-// VERIFICANDO INPUTS
+// PEGANDO OS USERS
+$senha = md5($senha);
+$sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
+$query = mysqli_query(conectarBD(), $sqlCode);
 
-if (strlen($email) == 0) {
-  echo "Preencha seu email";
-} else if (strlen($senha) == 0) {
-  echo "Preencha sua senha";
+// VERIFICANDO BUSCAS
+if (mysqli_num_rows($query) == 1) {
+  $_SESSION['email'] = $email;
+  $_SESSION['senha'] = $senha;
+  header("Location:../../index.php?msg=Login sucesso.");
 } else {
-
-  // PEGANDO OS USERS
-  $senha = md5($senha);
-  $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";
+  $sqlCode = "SELECT * FROM empresa WHERE email = '$email' AND senha ='$senha'";
   $query = mysqli_query(conectarBD(), $sqlCode);
-
-  // VERIFICANDO BUSCAS
   if (mysqli_num_rows($query) == 1) {
     $_SESSION['email'] = $email;
     $_SESSION['senha'] = $senha;
-    header("Location:../../index.php?msg=Login sucesso.");
+    $_SESSION['empresa'] = true;
+    header("Location:../../index.php?msg=Login sucesso.&toast=sucesso");
   } else {
-    $sqlCode = "SELECT * FROM empresa WHERE email = '$email' AND senha ='$senha'";
-    $query = mysqli_query(conectarBD(), $sqlCode);
-    if (mysqli_num_rows($query) == 1) {
-      $_SESSION['email'] = $email;
-      $_SESSION['senha'] = $senha;
-      $_SESSION['empresa'] = true;
-      header("Location:../../index.php?msg=Login sucesso.&toast=sucesso");
-    } else {
-      header("Location:../../index.php?msg=Login incorreto.&toast=erro");
-    }
+    header("Location:../../index.php?msg=Login incorreto.&toast=erro");
   }
 }
+
 ?>

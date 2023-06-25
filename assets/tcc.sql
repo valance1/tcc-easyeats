@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geraÃ§Ã£o: 15-Jun-2023 Ã s 22:31
--- VersÃ£o do servidor: 10.4.6-MariaDB
--- versÃ£o do PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Tempo de geração: 22-Jun-2023 às 01:07
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,18 +38,20 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `agencia` varchar(45) NOT NULL,
   `conta` varchar(45) NOT NULL,
   `perfil` varchar(150) DEFAULT NULL,
+  `cpf` varchar(14) NOT NULL COMMENT 'CPF do dono da empresa',
+  `dono` varchar(90) NOT NULL COMMENT 'Nome do proprietário da empresa, são dados que precisamos em caso de responsabilidade legal',
   PRIMARY KEY (`CNPJ`),
   UNIQUE KEY `email` (`email`,`conta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Extraindo dados da tabela `empresa`
 --
 
-INSERT INTO `empresa` (`nome`, `email`, `CNPJ`, `senha`, `agencia`, `conta`, `perfil`) VALUES
-('Empresa 1', 'empresa1@gmail.com', '04797353000115', '202cb962ac59075b964b07152d234b70', '000', '134', NULL),
-('Empresa 2', 'empresa2@gmail.com', '05470474000110', '202cb962ac59075b964b07152d234b70', '000', '12344', NULL),
-('Empresa 3 ', 'empresa3@gmail.com', '91018981000150', '202cb962ac59075b964b07152d234b70', '000', '123333', NULL);
+INSERT INTO `empresa` (`nome`, `email`, `CNPJ`, `senha`, `agencia`, `conta`, `perfil`, `cpf`, `dono`) VALUES
+('Empresa 1', 'empresa1@gmail.com', '04797353000115', '202cb962ac59075b964b07152d234b70', '000', '134', NULL, '', ''),
+('Empresa 2', 'empresa2@gmail.com', '05470474000110', '202cb962ac59075b964b07152d234b70', '000', '12344', NULL, '', ''),
+('Empresa 3 ', 'empresa3@gmail.com', '91018981000150', '202cb962ac59075b964b07152d234b70', '000', '123333', NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,21 @@ CREATE TABLE IF NOT EXISTS `item` (
   PRIMARY KEY (`idItem`),
   KEY `DonoDoItem` (`donoDoItem`),
   KEY `ProdutoOriginal` (`idProduto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `idPedido` int(11) NOT NULL,
+  `dataPedido` date NOT NULL,
+  `valorTotal` float NOT NULL,
+  `qrCode` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -84,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `credito` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cpf`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Extraindo dados da tabela `pessoa`
@@ -109,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Extraindo dados da tabela `produto`
@@ -120,7 +136,7 @@ INSERT INTO `produto` (`nome`, `descricao`, `preco`, `idProduto`, `CNPJ`, `image
 ('HambÃºrguer', 'Uma explosÃ£o de sabores', '12', 16, '91018981000150', 'images/produtos/91018981000150/94b65e30c3dff504cbb93343f6d961de.jpeg');
 
 --
--- RestriÃ§Ãµes para despejos de tabelas
+-- Restrições para despejos de tabelas
 --
 
 --

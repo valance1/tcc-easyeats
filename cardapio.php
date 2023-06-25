@@ -76,7 +76,7 @@ session_start();
         <div class="card product-card my-3 d-flex flex-row">
           <img class="float-start" src="' . $produto['imagem'] . '">
           
-          <div class="ms-3 d-flex flex-column my-3  w-75">
+          <div class="ms-3 d-flex flex-column my-3  w-100">
             <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
             <p class="text-muted fs-6 my-1">' . $produto['escricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>

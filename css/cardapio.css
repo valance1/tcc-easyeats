@@ -7,7 +7,7 @@
 .product-card img {
   max-height: 100px;
   width: 100px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .btn-buy-product {
