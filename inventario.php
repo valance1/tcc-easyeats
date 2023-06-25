@@ -1,9 +1,10 @@
 <?php
 session_start();
-if (!$_SESSION['email'] or $_SESSION['empresa'] == true) {
+
+// REVER ESSA Lógica
+if (!$_SESSION['email'] && $_SESSION['empresa']) {
     header("Location:index.php");
-}
-;
+};
 ?>
 
 <!DOCTYPE html>
@@ -89,9 +90,6 @@ if (!$_SESSION['email'] or $_SESSION['empresa'] == true) {
 
 
     </section>
-    ';
-    };
-    ?>
 
 
     <?php include 'php/components/footer.php' ?>
