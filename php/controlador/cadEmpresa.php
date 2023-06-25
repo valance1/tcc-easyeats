@@ -15,13 +15,17 @@ $conexao = conectarBD();
 
 // Validação de CNPJ
 if (!validaCNPJ($inputCNPJ)) {
-  echo json_encode(array('msg' => "CNPJ Inválido"));
+  // $_SESSION['toast'] = 'erro';
+  // $_SESSION['toastmsg'] = 'CNPJ Inválido';
+  echo json_encode(array('msg' => "CNPJ Invalido"));
   exit();
 }
 
 // Validação de CPF
 if (!validaCPF($inputCPF)) {
-  echo json_encode(array('msg' => "CPF Inválido"));
+  // $_SESSION['toast'] = 'erro';
+  // $_SESSION['toastmsg'] = 'CPF Inválido';
+  echo json_encode(array('msg' => "CPF Invalido"));
   exit();
 }
 
@@ -42,6 +46,7 @@ if ($inputSenha1 != $inputSenha2) {
 $sqlCode = "SELECT * FROM pessoa WHERE email = '$inputEmail'";
 $query = mysqli_query($conexao, $sqlCode);
 if (mysqli_num_rows($query) >= 1) {
+  
   echo json_encode(array('msg' => "Usuário com esse e-mail já existe"));
   exit();
 }
@@ -58,6 +63,7 @@ if (mysqli_num_rows($query) >= 1) {
 inserirEmpresa($conexao, $inputNome, md5($inputSenha1), $inputEmail, $inputCNPJ, $inputAgencia, $inputConta, $inputDono, $inputCPF);
 $_SESSION['email'] = $inputEmail;
 $_SESSION['empresa'] = true;
-
+$_SESSION['toast'] = 'sucesso';
+$_SESSION['toastmsg'] = 'Empresa cadastrada com sucesso';
 echo json_encode(array('msg' => "Sucesso no cadastro"));
 ?>

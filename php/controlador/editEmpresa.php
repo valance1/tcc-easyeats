@@ -62,5 +62,7 @@ if (strlen($agencia) != 0) {
 if (strlen($conta) != 0) {
     alterarContaEmpresa(conectarBD(), $conta, $cnpj);
 }
-header("Location:../../config.php?msg=Perfil Alterado&toast=sucesso");
-    ?>
+$_SESSION['toast'] = 'sucesso';
+$_SESSION['toastmsg'] = 'Perfil alterado com sucesso';
+header("Location:../../config.php?msg=Perfil Alterado");
+?>

@@ -16,6 +16,24 @@
 //     }
 // }
 
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
 
 // Função pra validar dados
 function validateInput(input) {
@@ -63,13 +81,12 @@ logForm.addEventListener('submit', function (event) {
 
             // Sucesso: exibe a resposta do arquivo PHP
             // xhr.responseText retorna o todos os echos e locations do arquivo .php em uma string! (pode ser útil)
-            alert('Login realizado com sucesso!');
+            // alert('Login realizado com sucesso!');
             $('#loginModal').modal('hide');
-            // location.reload();
+            location.reload();
 
             // Tem que dar um jeito de passar as mensagens?
-            window.location.href = "index.php";
-            toastr.success("'. $text .'");
+            // window.location.href = "index.php";
         } else {
 
             // Erro: exibe uma mensagem de erro
@@ -137,9 +154,9 @@ cadPessoaForm.addEventListener('submit', function (event) {
 
             if (data.msg != "Sucesso no cadastro") {
                 // temporário, devemos adicioanr um jquery especificando o erro ao invés de colocar num diabo de um alert.
-                alert(data.msg);
+                toastr["error"](data.msg);
             } else {
-                alert('Cadastro realizado com sucesso!');
+                // alert('Cadastro realizado com sucesso!');
                 $('#cadastroModal').modal('hide');
                 window.location.href = "index.php";
             }
@@ -204,9 +221,8 @@ cadEmpresaForm.addEventListener('submit', function (event) {
 
             if (data.msg != "Sucesso no cadastro") {
                 // temporário, devemos adicioanr um jquery especificando o erro ao invés de colocar num diabo de um alert.
-                alert(data.msg);
+                toastr["error"](data.msg);
             } else {
-                alert('Cadastro realizado com sucesso!');
                 $('#cadastroModal').modal('hide');
                 window.location.href = "index.php";
             }

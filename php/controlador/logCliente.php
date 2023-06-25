@@ -19,7 +19,9 @@ $query = mysqli_query(conectarBD(), $sqlCode);
 if (mysqli_num_rows($query) == 1) {
   $_SESSION['email'] = $email;
   $_SESSION['senha'] = $senha;
-  header("Location:../../index.php?msg=Login sucesso.");
+  $_SESSION['toast'] = 'sucesso'; 
+  $_SESSION['toastmsg'] = 'Login realizado com sucesso';
+  // header("Location:../../index.php?msg=Login sucesso.");
 } else {
   $sqlCode = "SELECT * FROM empresa WHERE email = '$email' AND senha ='$senha'";
   $query = mysqli_query(conectarBD(), $sqlCode);
@@ -27,9 +29,13 @@ if (mysqli_num_rows($query) == 1) {
     $_SESSION['email'] = $email;
     $_SESSION['senha'] = $senha;
     $_SESSION['empresa'] = true;
-    header("Location:../../index.php?msg=Login sucesso.&toast=sucesso");
+    $_SESSION['toast'] = 'sucesso'; 
+    $_SESSION['toastmsg'] = 'Login realizado com sucesso';
+    // header("Location:../../index.php?msg=Login sucesso");
   } else {
-    header("Location:../../index.php?msg=Login incorreto.&toast=erro");
+    $_SESSION['toast'] = 'erro';
+    $_SESSION['toastmsg'] = 'Login falho';
+    // header("Location:../../index.php?msg=Login incorreto");
   }
 }
 

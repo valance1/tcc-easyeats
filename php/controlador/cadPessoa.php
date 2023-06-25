@@ -34,7 +34,7 @@ $query = mysqli_query($conexao, $sqlCode);
 // Selecionamos todas as pessoas com o email ou CPF, nossas PKs, se houver uma coluna, significa que alguém com essa 
 // chave primária já foi cadastrada, portanto, devemos impedir o cadastro.
 if (mysqli_num_rows($query) == 1) {
-  echo json_encode(array('msg' => "Usuario já existe"));
+  echo json_encode(array('msg' => "Usuario com esse e-mail ou CPF já existe"));
   exit();
   // Verificamos somente as pessoas, mas também devemos verificar se existe alguma empresa com determinado email:
 } else {
@@ -44,7 +44,7 @@ if (mysqli_num_rows($query) == 1) {
   $query = mysqli_query($conexao, $sqlCode);
 
   if (mysqli_num_rows($query) == 1) {
-    echo json_encode(array('msg' => "Usuario já existe"));
+    echo json_encode(array('msg' => "Usuario com esse e-mail já existe"));
     exit();
 
     // Se não existe ninguém com o email no nosso sistema, vamos inserir a pessoa pelo nosso DAO.
@@ -52,6 +52,8 @@ if (mysqli_num_rows($query) == 1) {
     inserirPessoa($conexao, $nome, md5($senha1), $email, $cpf);
     $_SESSION['email'] = $email;
     // header("Location:../../index.php?msg=Cadastro de $nome realizado com sucesso.&toast=sucesso");
+    $_SESSION['toast'] = 'sucesso';
+    $_SESSION['toastmsg'] = 'Usuário cadastrado com sucesso';
     echo json_encode(array('msg' => "Sucesso no cadastro"));
   }
 }

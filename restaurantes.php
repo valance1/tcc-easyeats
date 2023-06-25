@@ -18,6 +18,11 @@ session_start();
   <link href='css/main.css' rel="stylesheet">
   <!-- ICONES -->
   <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
+
+  <!-- TOASTER -->
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 <body>
@@ -32,16 +37,22 @@ session_start();
       <p class="lead text-secondary">Confira os restaurantes disponíveis:</p>
     </div>
     <?php require_once 'php/components/alerts.php';
-    if ($_GET['toast'] == 'sucesso') {
-      createSuccessAlert("Ação realizada com sucesso");
-    }
-    if ($_GET['toast'] == 'erro') {
-      createErrorAlert("Ação realizada com erro");
-    }
+  if ($_SESSION['toast'] == 'sucesso') {
+    createSuccessAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
+  }
+  if ($_SESSION['toast'] == 'erro') {
+    createErrorAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
+  }
 
-    if ($_GET['toast' == 'warning']) {
-      createWarningAlert("Alguma coisa não está certa");
-    }
+  if ($_SESSION['toast' == 'warning']) {
+    createWarningAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
+  }
     ?>
     <?php
     require 'php/dao/conexaoBD.php';

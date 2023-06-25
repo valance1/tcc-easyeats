@@ -46,7 +46,8 @@ $image_name = bin2hex(random_bytes(16)) . $image_extension;
 // Verificar o tamanho do arquivo
 $maxFileSize = 10 * 1024 * 1024; // 10MB
 if ($imagem['size'] > $maxFileSize) {
-  echo 'A imagem não pode ter mais de 10MB';
+  $_SESSION['toast'] = 'erro';
+  $_SESSION['toastmsg'] = 'A imagem não pode ter mais de 10MB';
   exit();
 }
 
@@ -55,7 +56,8 @@ $allowedExtensions = array('png', 'jpg', 'jpeg', 'svg');
 $fileExtension = strtolower(image_type_to_extension($image_type, false));
 
 if (!in_array($fileExtension, $allowedExtensions)) {
-  echo 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
+  $_SESSION['toast'] = 'erro';
+  $_SESSION['toastmsg'] = 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
   exit();
 }
 
@@ -73,5 +75,7 @@ move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name
 
 // Inserindo o produto no BD
 inserirProduto(conectarBD(), $nome, $descricao, $preco, $cnpj, $path);
-header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso&toast=sucesso");
+$_SESSION['toast'] = 'sucesso';
+$_SESSION['toastmsg'] = 'Produto inserido com sucesso';
+header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso");
 ?>

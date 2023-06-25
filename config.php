@@ -24,20 +24,32 @@ if (!$_SESSION['email']) {
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 
+  <!-- TOASTER -->
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
 </head>
 
 <body>
 
   <?php include 'php/components/navbar.php' ?>
   <?php require_once 'php/components/alerts.php';
-  if ($_GET['toast'] == 'sucesso') {
-    createSuccessAlert("Ação realizada com sucesso");
+  if ($_SESSION['toast'] == 'sucesso') {
+    createSuccessAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
   }
-  if ($_GET['toast'] == 'erro') {
-    createErrorAlert("Ação realizada com erro");
+  if ($_SESSION['toast'] == 'erro') {
+    createErrorAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
   }
-  if ($_GET['toast' == 'warning']) {
-    createWarningAlert("Alguma coisa não está certa");
+
+  if ($_SESSION['toast' == 'warning']) {
+    createWarningAlert($_SESSION['toastmsg']);
+    unset($_SESSION['toastmsg']);
+    unset($_SESSION['toast']);
   }
   ?>
 
