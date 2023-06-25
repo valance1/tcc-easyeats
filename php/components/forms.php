@@ -12,20 +12,19 @@ echo '
 		  <div class="modal-body">
 			<!-- CAMPO EMAIL -->
 			  <div class="form-floating mb-3">
+
 				<input type="email" class="form-control" id="inputLogEmail" name="inputEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
 				<label for="inputEmail" class="form-label">Endereço de e-mail</label>
-                <p class="error email-error">
-                    <?php echo $email_error; ?>
-                </p>
+				<div class="invalid-feedback">Preencha seu e-mail</div>
+
 			  </div>
 			  <!-- CAMPO  SENHA -->
 			  <div class="form-floating mb-3">
+
 				<input type="password" class="form-control" id="inputLogSenha" name="inputSenha" placeholder="******">
 				<label for="inputSenha" class="form-label">Senha</label>
-                <p class="error password-error">
-                    <?php echo $password_error; ?>
-                </p>
-				<!-- TEM QUE BOTAR UM BOTÃO DE "ESQUECI MINHA  SENHA" -->
+				<div class="invalid-feedback">Preencha sua senha</div>
+
 			  </div>
 		  </div>
 		  <div class="modal-footer">
@@ -37,6 +36,15 @@ echo '
 	  </div>
 	</div>
 	
+
+
+
+
+
+
+
+
+
 	<!--CADASTRO Modal -->
 	<div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
