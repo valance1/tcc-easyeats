@@ -7,9 +7,9 @@ function inserirProduto($conexao, $nome, $descricao, $preco, $cnpj, $path)
 function alterarProduto(){
 
 }
-function excluirProduto(){
-
-
+function excluirProduto($conexao, $idProduto){
+  $code = "DELETE FROM produto WHERE idProduto = '$idProduto'";
+  mysqli_query($conexao, $code) or die(mysqli_error($conexao));
 }
 function pesquisarNome(){
 

@@ -2,7 +2,12 @@
 
 :root {
   --blackDominant: #121212;
-  --white: #ffffff;
+  --white: #fEFFFE;
+  --whiteCool: #EEEFF9;
+  --grey: #DDDFF1;
+  --grey2: #CED0E4;
+  --grey3: #6B6E8D;
+  --black: #474B6D;
 }
 /* -------------------------------------------------------------- */
 body{
@@ -76,6 +81,7 @@ section.average-section, nav.navbar{
   padding-right:  150px;
 }
 section.average-section{
+  background-color: var(--white);
   padding-top: 40px;
   padding-bottom: 40px;
 }

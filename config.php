@@ -251,8 +251,8 @@ if (!$_SESSION['email']) {
                         -->
                         <td>
                           <div>
-                            <button class="btn btn-success" action=editModal()><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn btn-danger" action=removeModal()><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-success" onclick=editModal(' . $produto['id'] . ',' . $produto['nome'] . ','. $produto['descricao'] . ','. $produto['preco'] . ')><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-danger" onclick=removeModal('. $produto['idProduto'] .')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
                     </tr>';
@@ -263,7 +263,46 @@ if (!$_SESSION['email']) {
             </table>
         </div>
     </div>
-</section>';
+</section>
+
+<!-- EDIT PRODUTO MODAL -->
+
+<div class="modal fade" id="editProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="ModalLabel">Editar Produto</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <form action="php/controlador/editProduto.php" method="POST" id="editProdutoForm" enctype="multipart/form-data">
+		  <div class="modal-body">
+            <div class="input-group mb-3">
+                 <input type="file" class="form-control" id="inputEditProdutoImagem" name="inputImagemProduto">
+            </div>
+
+			  <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputEditNomeProduto" name="inputNomeProduto" aria-describedby="nomeProdutoHelp" placeholder="">
+				<label for="inputNomeProduto" class="form-label">Nome do Produto</label>
+			  </div>
+        <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputEditDescProduto" name="inputDescProduto" aria-describedby="descProdutoHelp" placeholder="">
+				<label for="inputDescProduto" class="form-label">Descrição do Produto</label>
+			  </div>
+        <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputEditPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
+				<label for="inputPreco" class="form-label">Preço</label>
+			  </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+			<button type="submit" class="btn btn-success">Salvar</button>
+		  </div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+
+';
 
     } else {
 
@@ -419,6 +458,7 @@ if (!$_SESSION['email']) {
         </div>
     </div> -->
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/produtoCRUD.js"></script>
 </section>
 
 </html>
