@@ -251,7 +251,7 @@ if (!$_SESSION['email']) {
                         -->
                         <td>
                           <div>
-                            <button class="btn btn-success" onclick=editModal(' . $produto['id'] . ',' . $produto['nome'] . ','. $produto['descricao'] . ','. $produto['preco'] . ')><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-success" onclick=editModal(' . $produto['idProduto'] . ',"' . $produto['nome'] . '","'. $produto['descricao'] . '",'. $produto['preco'] . ')><i class="fa-solid fa-pen-to-square"></i></button>
                             <button class="btn btn-danger" onclick=removeModal('. $produto['idProduto'] .')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
