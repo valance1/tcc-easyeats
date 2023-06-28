@@ -33,9 +33,10 @@ function editModal(id, nomeProd, descricaoProd, precoProd){
     $('#editProdutoModal').modal('show');
 
     // Selecionando o form pra botar o event listener
+    // Será que esse método adiciona um event listener a cada vez que o botão é clicado?
+
     let editProdutoForm = document.getElementById('editProdutoForm'); 
-    editProdutoForm.addEventListener('submit', 
-    function (event) {
+    editProdutoForm.addEventListener('submit', function (event) {
         // Impedindo o submit padrão
         event.preventDefault();
 
@@ -47,6 +48,7 @@ function editModal(id, nomeProd, descricaoProd, precoProd){
         formData.append('desc', desc.value);
         formData.append('preco', preco.value);
 
+        // Cria uma request para enviar os dados pro arquivo php
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'php/controlador/editProduto.php', true);
         xhr.onload = function () {
@@ -58,9 +60,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd){
             }
         };
         xhr.send(formData);
-    
-    
     }
     );
-
 };

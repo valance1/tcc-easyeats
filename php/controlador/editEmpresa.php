@@ -6,6 +6,7 @@ require_once "../dao/empresaDAO.php";
 
 session_start();
 
+// Recebe os parametros
 $imagem = $_FILES["inputImagem"];
 $agencia = $_POST["inputAgencia"];
 $conta = $_POST["inputConta"];
@@ -17,13 +18,16 @@ $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
 $cnpj = $fetch['CNPJ'];
 
+// Checando se o usuário inseriu alguma imagem
 if ($imagem['size'] != 0) {
 
+    // Se sim, vamos tentar deletar a imagem antiga
     $existingImagePath = "../../" . $fetch['imagem'];
     if (file_exists($existingImagePath)) {
         unlink($existingImagePath);
     }
 
+    // Agora vamos inserir a imagem nova
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
     $image_name = 'perfil' . $image_extension;
@@ -32,6 +36,8 @@ if ($imagem['size'] != 0) {
     $maxFileSize = 10 * 1024 * 1024; // 10MB
     if ($imagem['size'] > $maxFileSize) {
         echo 'A imagem não pode ter mais de 10MB';
+        $_SESSION['toast'] = 'erro';
+        $_SESSION['toastmsg'] = 'Imagem deve ser igual ou menor a 10MB';
         exit();
     }
 
@@ -40,7 +46,10 @@ if ($imagem['size'] != 0) {
     $fileExtension = strtolower(image_type_to_extension($image_type, false));
 
     if (!in_array($fileExtension, $allowedExtensions)) {
+
         echo 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
+        $_SESSION['toast'] = 'erro';
+        $_SESSION['toastmsg'] = 'Imagem deve ser do tipo PNG, JPG, JPEG ou SVG';
         exit();
     }
 
