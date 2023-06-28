@@ -1,3 +1,7 @@
+//TODO 
+// 1 - Quando o cara clicar no botão de carrinho, deve-se trocar o botão por outro que tem um +, -, e a quantidade
+// 2 - Deve-se criar um botão de finalizar compra em algum lugar da página.
+
 // Array para armazenar os produtos selecionados
 const carrinho = [];
 
@@ -18,7 +22,3 @@ function atualizarCarrinho() {
   const carrinhoContainer = document.getElementById('carrinho-container');
   carrinhoContainer.innerHTML = '';
 }
-
-
-adicionarAoCarrinho(produto1);
-adicionarAoCarrinho(produto2);
