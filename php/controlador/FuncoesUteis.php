@@ -101,6 +101,11 @@ function deleteUser($email){
     
     // Entretanto, se houver algum resultado, isso significa que a conta pertence a uma empresa, portanto:
     }else{
+        // Deletando a imagem ao excluir o user do server
+        $existingImagePath = "../../" . mysqli_fetch_assoc($query)['imagem'];
+        if (file_exists($existingImagePath)) {
+            unlink($existingImagePath);
+        }
         $code = "DELETE FROM empresa WHERE EMAIL = '$email'";
         mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
     }

@@ -24,6 +24,12 @@ if ($imagem['size'] != 0) {
     // TODO
     // DELETAR A IMAGEM ANTES DE FAZER TUDO ISSO!
 
+    // Remover a imagem existente, se houver
+    $existingImagePath = "../../" . $fetch['imagem'];
+    if (file_exists($existingImagePath)) {
+        unlink($existingImagePath);
+    }
+
 
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
