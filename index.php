@@ -30,6 +30,9 @@ session_start();
 
   <!-- ICONES -->
   <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
+
+  <!-- ANIMATIONS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -114,7 +117,7 @@ session_start();
         // Se o número de empresas selecionadas for 0, simplesmente exiba uma tela que avise que nenhuma empresa está cadastrada.
         if (mysqli_num_rows($query) == 0) {
           echo '
-          <div class="card container-xxl text-center" id="noEmpresasFound">
+          <div data-aos="fade-up" class="card container-xxl text-center" id="noEmpresasFound">
             <div class="card-body">
               <h5 class="card-title">OPS!</h5>
               <img src="images/CAT.gif" alt="Não encontramos nada" class="my-2"  width="250" />
@@ -145,7 +148,7 @@ session_start();
             }
             // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
             echo '
-            <div class="card card-loja px-0 rounded" style="width: 18rem;">
+            <div data-aos="fade-up" class="card card-loja px-0 rounded" style="width: 18rem;">
               <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
               <div class="card-body loja-details">
                 <h5 class="card-title fs-4 fw-bold">' . $loja['nome'] . '</h5>
@@ -178,7 +181,7 @@ session_start();
           }
           // Exibindo os resultados, imprimindo a imagem, o nome e a rota dinâmica da respectiva loja.
           echo '
-          <div class="card card-loja px-0 rounded" style="width: 18rem;">
+          <div data-aos="fade-up" class="card card-loja px-0 rounded" style="width: 18rem;">
           <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
             <div class="card-body loja-details">
               <h5 class="card-title fs-4 fw-bold">' . $loja['nome'] . '</h5>
@@ -205,7 +208,7 @@ session_start();
 
     <div class="row row-cols-1 justify-content-evenly row-cols-md-3 g-4">
       <!-- -------------------------------------------------- -->
-      <div class="developer-card">
+      <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column ">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
@@ -230,7 +233,7 @@ session_start();
         </div>
       </div>
       <!-- -------------------------------------------------- -->
-      <div class="developer-card">
+      <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
@@ -270,7 +273,7 @@ session_start();
         </div>
       </div>
       <!-- -------------------------------------------------- -->
-      <div class="developer-card">
+      <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
             data-hover="Open to Opportunities"></span>
@@ -310,6 +313,10 @@ session_start();
   <?php include 'php/components/forms.php' ?>
 
   <script type="text/javascript" src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
