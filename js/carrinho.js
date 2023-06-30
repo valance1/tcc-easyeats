@@ -8,7 +8,17 @@ const carrinho = [];
 // Função para adicionar um produto ao carrinho
 function adicionarAoCarrinho(produto) {
   carrinho.push(produto);
-  atualizarCarrinho();
+  console.log(carrinho);
+
+
+  // carrinho.forEach((element) => {
+  //     console.log(element)
+  // }
+  // );
+  //TODO
+  // Quando o carrinho for fechar, tem que contar as ocorrencias do ID na lista, multiplicar pelo preço para obter o valor.
+
+  // atualizarCarrinho();
 }
 
 // Função para remover um produto do carrinho

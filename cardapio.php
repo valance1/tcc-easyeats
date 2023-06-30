@@ -21,6 +21,11 @@ session_start();
 
   <link href='css/main.css' rel="stylesheet">
   <link href='css/cardapio.css' rel="stylesheet">
+
+    <!-- TOASTER -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 <body>
@@ -86,7 +91,7 @@ session_start();
             <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
           </div>
-          <button class="btn btn-success btn-buy-product"><i class="fa-solid fa-cart-shopping"></i></button>
+          <button class="btn btn-success btn-buy-product" onclick="adicionarAoCarrinho('. $produto['idProduto'] .')"><i class="fa-solid fa-cart-shopping"></i></button>
     </div>';
       }
 
@@ -110,6 +115,7 @@ session_start();
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/carrinho.js"></script>
 </body>
 
 </html>
