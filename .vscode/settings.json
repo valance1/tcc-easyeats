@@ -1,7 +1,9 @@
 
 {
-    "editor.fontSize": 13,
-    "editor.fontFamily": "Operator Mono",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
     "editor.lineHeight": 40,
     "editor.minimap.enabled": false,
     "editor.lineNumbers": "on",
