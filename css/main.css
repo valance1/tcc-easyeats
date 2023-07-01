@@ -339,8 +339,17 @@ a.btn.btn-outline-light.px-4:hover {
   }
 
   section.average-section,
-  nav.navbar {
-    padding-left: 50px;
-    padding-right: 50px;
+  nav.navbar, .footerSection {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+  section.average-section,
+  nav.navbar, .footerSection {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }

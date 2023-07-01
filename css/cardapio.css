@@ -10,9 +10,49 @@
   object-fit: cover;
 }
 
+
+.cartContainer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* align-content: center; */
+  align-items: center;
+}
 .btn-buy-product {
   height: 50px;
   width: 50px;
   align-self: center;
   margin-right: 12px;
+}
+
+.counterGroup{
+  display: flex;
+  margin-right: 12px;
+}
+.somarBtn, .subtrairBtn{
+  height: 50px;
+  width: 50px;
+  align-self: center;
+}
+
+.somarBtn{
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+
+}
+
+.subtrairBtn{
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+
+}
+
+
+.counterGroup .form-control{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
 }

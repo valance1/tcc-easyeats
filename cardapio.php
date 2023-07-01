@@ -91,7 +91,9 @@ session_start();
             <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
           </div>
-          <button class="btn btn-success btn-buy-product" onclick="adicionarAoCarrinho('. $produto['idProduto'] .')"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div class="cartContainer" id="cartContainer'. $produto['idProduto'] .'">
+            <button class="btn btn-success btn-buy-product" id="cartBtn' . $produto['idProduto'] . '" onclick="adicionarAoCarrinho('. $produto['idProduto'] .')"><i class="fa-solid fa-cart-shopping"></i></button>
+          </div>
     </div>';
       }
 
@@ -108,7 +110,6 @@ session_start();
     ';
     }
     ?>
-
   </section>
 
   <!-- Importando componentes -->
