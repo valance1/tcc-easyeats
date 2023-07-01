@@ -106,7 +106,7 @@ if (!$_SESSION['email']) {
 		</div>
 	  </div>
 	</div>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-between">
         <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
           <form action="php/controlador/editEmpresa.php" class="w-100" enctype="multipart/form-data" method="POST">
           <div class="input-group mb-3">

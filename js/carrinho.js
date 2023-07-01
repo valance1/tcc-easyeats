@@ -1,7 +1,11 @@
 //TODO 
-// 1 - Quando o cara clicar no botão de carrinho, deve-se trocar o botão por outro que tem um +, -, e a quantidade
-// 2 - Deve-se criar um botão de finalizar compra em algum lugar da página.
-// 3 - Quando o carrinho for fechar, tem que contar as ocorrencias do ID na lista, multiplicar pelo preço para obter o valor.
+// 1 - Deve-se criar um botão de finalizar compra em algum lugar da página.
+// 2 - Quando o carrinho for fechar, tem que contar as ocorrencias do ID na lista, multiplicar pelo preço para obter o valor.
+
+// O usuário clica e vai adicionando os produtos numa array, quando o cliente finalizar o pedido
+// acontece o seguinte: pegamos a array, pegamos os Ids, pegamos o produto correspondente, multiplicamos o preço
+// Quando o pagamento for finalizado, devemos gerar um novo item pertencente ao usuário. 
+
 
 // Array para armazenar os produtos selecionados
 const carrinho = [];
@@ -15,19 +19,6 @@ function adicionarAoCarrinho(produto) {
 
   //Mudanças necessárias na UI:
   substituirPorQuantidade('cartContainer' + produto, produto);
-  // atualizarCarrinho();
-}
-
-// Função para remover um produto do carrinho
-function removerDoCarrinho(index) {
-  carrinho.splice(index, 1);
-  atualizarCarrinho();
-}
-
-// Função para atualizar o carrinho na interface
-function atualizarCarrinho() {
-  const carrinhoContainer = document.getElementById('carrinho-container');
-  carrinhoContainer.innerHTML = '';
 }
 
 function substituirPorQuantidade(containerId, idProduto) {
@@ -59,6 +50,7 @@ function subtrairProduto(idProduto){
     carrinho.splice(index, 1);
     var container = document.getElementById('productCounter' + idProduto);
     container.innerHTML = parseInt(container.innerHTML) - 1;
+
     // Caso ele já tenha sido removido por completo, vamos adicionar o botão do carrinho de novo.
     if(carrinho.indexOf(idProduto) === -1){
       substituirPorCartButton(idProduto);
@@ -81,4 +73,9 @@ function incrementarProduto(idProduto){
   console.log("PRODUTO ADCIIONADO: ");
   console.log(carrinho);
 
+}
+
+
+function finalizarCompra(){
+  
 }
