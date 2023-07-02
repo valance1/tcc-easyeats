@@ -77,12 +77,36 @@ function incrementarProduto(idProduto){
 
 
 function finalizarCompra(){
-  // Saving as string
-  sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
+  if(carrinho.length == 0){
+    alert("Carrinho vazio, operação cancelada");
+  }else{
+  // Vamos criar o pedido no servidor
+  $.ajax({
+    method: 'POST',
+    url: 'php/controlador/pagarCarrinho.php',
+    data: {data:carrinho},
+    xhr: function () {
+        var xhr = new XMLHttpRequest();
+        return xhr;
+    },
 
-  // Tem que adicionar o QRCode no bd e redirecionar pra pagina!
+    success: function () {
+      //Redirect no usuário para a página do QRCode
+      //
+      alert("Sucesso");
+      window.location.href = 'pagamento.php';
+    },
 
-  window.location.href = "http://localhost/tcc-easyeats/pagamento.php?user="+ sessionStorage.getItem('uniquehash');
-  
+    error: function () {
+      alert("erro");
+    },
+
+    complete: function (res) {
+      alert(res.responseText);
+      // Limpando a array
+    
+    },
+  });
+}
   
 }
