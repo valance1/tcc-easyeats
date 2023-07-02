@@ -3,6 +3,7 @@ require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
 require_once "../dao/produtoDAO.php";
 
+error_reporting(0);
 session_start();
 
 $imagem = $_FILES["inputImagemProduto"];
@@ -12,20 +13,7 @@ $preco = $_POST["inputPreco"];
 
 // Verifica se o usuário inseriu imageme
 if (!isset($imagem)) {
-  echo "Nenhuma imagem foi inserida";
-  exit();
-
-  // Veriica se o usuário inseriu nome (obrigatório)
-} else if (!isset($nome)) {
-  echo "Nenhum nome foi inserido";
-  exit();
-
-  // A descrição pode ser nula, temos que mudar isso depois.
-} else if (!isset($descricao)) {
-  echo "Nenhuma descricao foi inserida";
-  exit();
-} else if (!isset($preco)) {
-  echo "Nenhum preço foi inserido";
+  echo json_encode(array('msg' => "Nenhuma imagem foi inserida"));
   exit();
 }
 
@@ -46,8 +34,7 @@ $image_name = bin2hex(random_bytes(16)) . $image_extension;
 // Verificar o tamanho do arquivo
 $maxFileSize = 10 * 1024 * 1024; // 10MB
 if ($imagem['size'] > $maxFileSize) {
-  $_SESSION['toast'] = 'erro';
-  $_SESSION['toastmsg'] = 'A imagem não pode ter mais de 10MB';
+  echo json_encode(array('msg' => "A imagem não pode ter mais de 10MB"));
   exit();
 }
 
@@ -56,8 +43,7 @@ $allowedExtensions = array('png', 'jpg', 'jpeg', 'svg');
 $fileExtension = strtolower(image_type_to_extension($image_type, false));
 
 if (!in_array($fileExtension, $allowedExtensions)) {
-  $_SESSION['toast'] = 'erro';
-  $_SESSION['toastmsg'] = 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
+  echo json_encode(array('msg' => "Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos"));
   exit();
 }
 
@@ -77,5 +63,6 @@ move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name
 inserirProduto(conectarBD(), $nome, $descricao, $preco, $cnpj, $path);
 $_SESSION['toast'] = 'sucesso';
 $_SESSION['toastmsg'] = 'Produto inserido com sucesso';
-header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso");
+echo json_encode(array('msg' => "Sucesso no cadastro"));
+// header("Location:../../config.php?cadProduto=true&msg=Produto cadastrado com sucesso");
 ?>

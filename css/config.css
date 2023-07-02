@@ -73,8 +73,10 @@
 }
 
 .empresaImagem{
-    width: 256px;
-    height: 256px;
+    max-width: 256px;
+    max-height: 256px;
+    width: 100%;
+    height: 100%;
 }
 .produtoCRUDFoto{
     width: 100px;
@@ -95,7 +97,9 @@ white-space: nowrap;
 border: 0;
 }
 
-#avatar, .pic{
+#avatar, .pic, #prodCadPlaceholder{
+    width: 100%;
+    height: 100%;
     cursor:pointer;
 }
 @media(min-width: 992px) {

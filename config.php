@@ -91,23 +91,29 @@ if (!$_SESSION['email']) {
 			<h5 class="modal-title" id="ModalLabel">Cadastrar Produto</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		  </div>
-		  <form action="php/controlador/cadProduto.php" method="POST"  enctype="multipart/form-data">
+		  <form action="php/controlador/cadProduto.php" method="POST" id="cadProdutoForm" enctype="multipart/form-data">
 		  <div class="modal-body">
             <div class="input-group mb-3">
-                 <input type="file" class="form-control" id="inputProdutoImagem" name="inputImagemProduto">
+            <label class="label" style="width:100%;">
+                <img class="rounded" id="prodCadPlaceholder" src="images/placeholder/produto.png" alt="avatar">
+                <input type="file" id="inputProdutoImagem" data-item-id="cadProdutoImage" class="sr-only" name="inputImagem" id="inputCadImagemProduto">
+              </label>
             </div>
 
 			  <div class="form-floating mb-3">
 				<input type="text" class="form-control" id="inputNomeProduto" name="inputNomeProduto" aria-describedby="nomeProdutoHelp" placeholder="">
 				<label for="inputNomeProduto" class="form-label">Nome do Produto</label>
+        <div class="invalid-feedback">Preencha um nome válido</div>
 			  </div>
         <div class="form-floating mb-3">
 				<input type="text" class="form-control" id="inputDescProduto" name="inputDescProduto" aria-describedby="descProdutoHelp" placeholder="">
 				<label for="inputDescProduto" class="form-label">Descrição do Produto</label>
+        <div class="invalid-feedback">Preencha uma descrição válida</div>
 			  </div>
         <div class="form-floating mb-3">
 				<input type="text" class="form-control" id="inputPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
 				<label for="inputPreco" class="form-label">Preço</label>
+        <div class="invalid-feedback">Preencha um preço válido</div>
 			  </div>
 		  </div>
 		  <div class="modal-footer">

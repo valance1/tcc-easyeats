@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Jun-2023 às 01:07
+-- Tempo de geração: 02-Jul-2023 às 19:33
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 INSERT INTO `empresa` (`nome`, `email`, `CNPJ`, `senha`, `agencia`, `conta`, `perfil`, `cpf`, `dono`) VALUES
 ('Empresa 1', 'empresa1@gmail.com', '04797353000115', '202cb962ac59075b964b07152d234b70', '000', '134', NULL, '', ''),
 ('Empresa 2', 'empresa2@gmail.com', '05470474000110', '202cb962ac59075b964b07152d234b70', '000', '12344', NULL, '', ''),
-('Empresa 3 ', 'empresa3@gmail.com', '91018981000150', '202cb962ac59075b964b07152d234b70', '000', '123333', NULL, '', '');
+('Empresa 3 ', 'empresa3@gmail.com', '91018981000150', '202cb962ac59075b964b07152d234b70', '12312', '123333', 'images/91018981000150/perfil.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -125,15 +125,22 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
 INSERT INTO `produto` (`nome`, `descricao`, `preco`, `idProduto`, `CNPJ`, `imagem`) VALUES
-('Salgado Frito', 'Coxinha e derivados', '7,50', 15, '91018981000150', 'images/produtos/91018981000150/8930251f45b5cba00519f165bbd79da1.jpeg'),
-('HambÃºrguer', 'Uma explosÃ£o de sabores', '12', 16, '91018981000150', 'images/produtos/91018981000150/94b65e30c3dff504cbb93343f6d961de.jpeg');
+('glorpa glurp', '123', '123', 20, '91018981000150', 'images/91018981000150/images'),
+('help me', '123', '123', 21, '91018981000150', 'images/91018981000150/91018981000150'),
+('Hamburgue', 'cu', '900', 22, '91018981000150', 'images/produtos/91018981000150/15087cfae819c7ceb2e766f387ffa41b.png'),
+('ddf', 'fddffd', '1233', 23, '91018981000150', 'images/produtos/91018981000150/862151eea35ce60e7720f7dd8ad2d6ec.png'),
+('e', 'e', '123', 24, '91018981000150', 'images/produtos/91018981000150/5835f36c93bbbfcd3c579593f79064f5.png'),
+('cate', '23', '23', 25, '91018981000150', 'images/produtos/91018981000150/eb1c16bf6c0eaedf2749db5de3f3846a.png'),
+('dssd', 'sdds', '1231', 26, '91018981000150', 'images/produtos/91018981000150/c6ab6b9b7beac83450077a19dd09144b.png'),
+('Banana', 'NNNN', '1090', 27, '91018981000150', 'images/produtos/91018981000150/79c90d9df5ab97501eb24975a00fb690.png'),
+('masi', 'um', '1231', 28, '91018981000150', 'images/produtos/91018981000150/2fc41a4b79aa11a3ddba03efe5f7b5dd.png');
 
 --
 -- Restrições para despejos de tabelas

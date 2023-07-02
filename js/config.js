@@ -1,3 +1,71 @@
+const imagens = [];
+
+function validateInput(input) {
+    if (input.value.trim() === '' || input.value.trim() === null) {
+        input.classList.add("is-invalid");
+        return false;
+    }
+    input.classList.remove("is-invalid");
+    return true;
+}
+
+// Form para criar produto
+const cadProdutoForm = document.getElementById('cadProdutoForm');
+
+cadProdutoForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Coletando os inputs
+    const nomeProd = document.getElementById('inputNomeProduto');
+    const descProd = document.getElementById('inputDescProduto');
+    const precoProd = document.getElementById('inputPreco');
+
+
+    // Verificando os campos
+    let fields = [nomeProd, descProd, precoProd];
+    for (let field of fields) {
+        if (!validateInput(field)) {
+            return;
+        }
+    };
+
+    // Cria um objeto FormData para enviar os dados do formulário
+    const formData = new FormData();
+    console.log(imagens[0]);
+    formData.append('inputImagemProduto', imagens[0]);
+    formData.append('inputNomeProduto', nomeProd.value);
+    formData.append('inputDescProduto', descProd.value);
+    formData.append('inputPreco', precoProd.value);
+
+    // Envia os dados para o arquivo PHP usando uma requisição AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/controlador/cadProduto.php', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+
+            if (data.msg != "Sucesso no cadastro") {
+                // temporário, devemos adicioanr um jquery especificando o erro ao invés de colocar num diabo de um alert.
+                toastr["error"](data.msg);
+            } else {
+                $('#cadProdutoModal').modal('hide');
+                window.location.href = "config.php";
+            }
+            // location.reload();
+
+        } else {
+
+            // Erro: exibe uma mensagem de erro
+            alert('Ocorreu um erro ao enviar os dados para o nosso servidor.');
+        }
+    };
+
+    // Por algum motivo diabólico isto tem que vir depois do if (?)
+    xhr.send(formData);
+});
+
 //Form para deletar produto
 function removeModal(id) {
     // Cria um objeto FormData para enviar os dados do formulário
@@ -67,7 +135,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
 // EDITAR FOTO DA EMPRESA
 
 window.addEventListener('DOMContentLoaded', function () {
-
     let elements = document.querySelectorAll('.sr-only');
     
     elements.forEach((item) => {
@@ -94,35 +161,17 @@ window.addEventListener('DOMContentLoaded', function () {
             cropper.destroy();
             cropper = null;
         });
-    {/* <div class="modal fade" id="modalEditFotoEmpresa" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="img-container">
-                  <img id="avatarPlaceholder" src="'. $perfil .'">
-                </div>
-              </div>
-              <div class="modal-footer">
-              <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-success" id="crop">Crop</button>
-              </div>
-            </div>
-          </div>
-        </div> */}
-    
     
     // Vou utilizar o mesmo modal, cada vez que o botão é clicado, ele vai carregar consigo um data attriute
     function editarFoto(input) {
     
         // Devemos verificar a origem do input
-        if (input.getAttribute("data-item-id") != 'empresa') {
-            var avatar = document.getElementById('pic' + input.getAttribute("data-item-id"));
-        } else {
+        if (input.getAttribute("data-item-id") == 'empresa') {
             var avatar = document.getElementById('avatar');
+        }else if(input.getAttribute("data-item-id") == 'cadProdutoImage' ){
+            var avatar = document.getElementById('prodCadPlaceholder');
+        } else {
+            var avatar = document.getElementById('pic' + input.getAttribute("data-item-id"));
         }
         console.log("AVATAR:" + avatar.getAttribute('id'));
         console.log("AVATAR SRC:" + avatar.getAttribute('src'));
@@ -163,10 +212,12 @@ window.addEventListener('DOMContentLoaded', function () {
         var canvas;
     
         var cropBtn = document.getElementById('crop');
-        if (cropBtn.getAttribute("data-item-id") != 'empresa') {
-            var avatar = document.getElementById('pic' + cropBtn.getAttribute("data-item-id"));
-        } else {
+        if (cropBtn.getAttribute("data-item-id") == 'empresa') {
             var avatar = document.getElementById('avatar');
+        }else if(cropBtn.getAttribute("data-item-id") == 'cadProdutoImage'){
+            var avatar = document.getElementById('prodCadPlaceholder');
+        } else {
+            var avatar = document.getElementById('pic' + cropBtn.getAttribute("data-item-id"));
         }
     
         $modal.modal('hide');
@@ -181,12 +232,13 @@ window.addEventListener('DOMContentLoaded', function () {
             // Debug reasons
             console.log("DATA DO INPUT: " + cropBtn.getAttribute("data-item-id"));
             console.log("Condição if(): " + cropBtn.getAttribute("data-item-id") == 'empresa');
-            console.log("avatar.src:  " +avatar.src);
+            console.log("avatar.src:  " + avatar.src);
             console.log("BLOB: " + canvas.toDataURL());
     
             avatar.src = canvas.toDataURL();
             canvas.toBlob(function (blob) {
                 var formData = new FormData();
+                
                 // Vantagem do AJAX: posso obter a resposta do arquivo php e retornar um warning e etc.
                 if (cropBtn.getAttribute("data-item-id") == 'empresa') {
                     formData.append('inputImagem', blob, 'avatar.jpg');
@@ -218,6 +270,8 @@ window.addEventListener('DOMContentLoaded', function () {
                             //   $progress.hide();
                         },
                     });
+                }else if(cropBtn.getAttribute("data-item-id") == 'cadProdutoImage'){
+                    imagens.push(blob);
                 } else {
                     formData.append('id', cropBtn.getAttribute("data-item-id"));
                     formData.append('imagem', blob, 'prod.jpg');
@@ -247,7 +301,7 @@ window.addEventListener('DOMContentLoaded', function () {
     
                         complete: function (response) {
                             // var data = JSON.parse(response.responseText);
-                            alert(response.responseText);
+                            // alert(response.responseText);
                             // alert.log(data);
                         },
                     });

@@ -92,7 +92,7 @@ session_start();
   <!-- PREVIEW RESTAURANTS -->
   <section class="average-section" id="restaurantes-preview">
     <hr class="hr" />
-    <div class="section-text-container mb-5">
+    <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1"><a href="restaurantes.php">Restaurantes<i class="fa-solid fa-arrow-right ms-2"></i></a></h1>
       <p class="lead text-secondary">
         Ver restaurantes disponíveis na sua região
@@ -199,14 +199,14 @@ session_start();
   <!-- COMO USAR -->
   <section class="average-section" id="help">
     <hr class="hr" />
-    <div class="section-text-container mb-5">
+    <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1">Perguntas e Respostas</h1>
       <p class="lead text-secondary">
         Como nosso site funciona?
       </p>
     </div>
 
-    <div class="accordion" id="accordionExample">
+    <div data-aos="fade-up" class="accordion" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -214,13 +214,35 @@ session_start();
             Informações gerais
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
+            <h1 id="tcc-easyeats">TCC EasyEats</h1>
+            <p>Este é o repositório do projeto de conclusão de curso &quot;EasyEats&quot;. O EasyEats é um sistema de
+              pedidos de alimentos online, desenvolvido como parte do trabalho de conclusão de curso (TCC) do autor. O
+              objetivo deste projeto é criar uma plataforma intuitiva e eficiente para facilitar a comunicação entre
+              restaurantes e clientes, permitindo que os usuários façam pedidos de alimentos de forma rápida e
+              conveniente.</p>
+            <h2 id="recursos-do-easyeats">Recursos do EasyEats</h2>
+            <p>O EasyEats possui os seguintes recursos principais:</p>
+            <ol>
+              <li>
+                <p><strong>Pedidos online</strong>: Os usuários podem navegar pelos menus dos restaurantes cadastrados,
+                  selecionar os itens desejados e fazer pedidos de forma rápida e conveniente.</p>
+              </li>
+              <li>
+                <p><strong>Rastreamento de pedidos</strong>: Os clientes podem acompanhar o status de seus pedidos em
+                  tempo real, desde o momento em que são feitos até a entrega.</p>
+              </li>
+              <li>
+                <p><strong>Avaliações e comentários</strong>: Os usuários podem avaliar e deixar comentários sobre os
+                  restaurantes e os pratos que experimentaram, compartilhando suas experiências com outros usuários.</p>
+              </li>
+              <li>
+                <p><strong>Pagamento seguro</strong>: O EasyEats oferece opções de pagamento seguras, permitindo que os
+                  usuários realizem transações online de forma tranquila.</p>
+              </li>
+            </ol>
+
           </div>
         </div>
       </div>
@@ -233,8 +255,13 @@ session_start();
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <strong>lorem10
-            <code>.accordion-body</code>, though the transition does limit overflow.
+          <p>Para utilizar o EasyEats, é necessário criar uma conta. Siga estes passos para criar sua conta:</p>
+        <ol>
+          <li>Passo 1: Acesse a página de registro do EasyEats.</li>
+          <li>Passo 2: Preencha o formulário de registro com suas informações pessoais, como nome, e-mail e senha.</li>
+          <li>Passo 3: Clique no botão "Registrar" para criar sua conta.</li>
+          <li>Passo 4: Após criar sua conta, você estará pronto para explorar os recursos do EasyEats.</li>
+        </ol>
           </div>
         </div>
       </div>
@@ -242,26 +269,61 @@ session_start();
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Accordion Item #3
+            2. Visualize produtos
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
+          <p>Com sua conta criada, você pode fazer pedidos no EasyEats seguindo estas etapas:</p>
+        <ol>
+          <li>Passo 1: Faça login em sua conta no EasyEats.</li>
+          <li>Passo 2: Navegue pelos menus dos restaurantes cadastrados.</li>
+          <li>Passo 3: Selecione os itens desejados e adicione ao seu carrinho de compras.</li>
+          <li>Passo 4: Verifique o seu pedido no carrinho e prossiga para o pagamento.</li>
+          <li>Passo 5: Escolha o método de pagamento e conclua a transação.</li>
+          <li>Passo 6: Aguarde a confirmação do pedido e o status de entrega em tempo real.</li>
+        </ol>
           </div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            3. Compre fichas
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Encontrou o restaurante que você deseja? Ótimo!
+            Agora basta você clicar no botão "Ver", você será redirecionado para uma página que contém todos os produtos daquele estabelecimento.
+            A partir daí, basta adicionar os itens desejados ao carrinho e fazer o pagamento via pix/cartão!
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            4. Acesse seu inventário para utilizar as fichas
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Com as fichas compradas, você pode acessar seu inventário clicando no canto superior direito. 
+            Dentro do seu inventário, é possível visualizar todas as fichas adquiridas, para utilzá-las, basta clicar no botão ao lado do item para adicioná-lo ao QRCode que será utilizado como ficha.
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Apresentando os desenvolvedores -->
   <section class="average-section" id="developers">
     <hr class="hr" />
-    <div class="section-text-container mb-5">
+    <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1">Desenvolvedores</h1>
       <p class="lead text-secondary">
         Conheça nossa equipe
@@ -327,7 +389,8 @@ session_start();
 
           <div class="developer-links">
             <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
-            <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
+            <a href="https://github.com/valance1" class="fa fa-linkedin tt-info hover-tt-bottom"
+              data-hover="LinkedIn"></a>
             <a href="#" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
           </div>
           <hr>

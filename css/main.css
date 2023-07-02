@@ -50,7 +50,9 @@ img {
   /* Chrome, Safari, Opera */
   transform: translateZ(0);
 }
-
+.section-text-container .h1 {
+  text-wrap: balance;
+}
 .pointer {
   cursor: pointer;
 }

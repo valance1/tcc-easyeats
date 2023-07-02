@@ -23,6 +23,9 @@ session_start();
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+  <!-- ANIMATIONS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -37,22 +40,22 @@ session_start();
       <p class="lead text-secondary">Confira os restaurantes disponíveis:</p>
     </div>
     <?php require_once 'php/components/alerts.php';
-  if ($_SESSION['toast'] == 'sucesso') {
-    createSuccessAlert($_SESSION['toastmsg']);
-    unset($_SESSION['toastmsg']);
-    unset($_SESSION['toast']);
-  }
-  if ($_SESSION['toast'] == 'erro') {
-    createErrorAlert($_SESSION['toastmsg']);
-    unset($_SESSION['toastmsg']);
-    unset($_SESSION['toast']);
-  }
+    if ($_SESSION['toast'] == 'sucesso') {
+      createSuccessAlert($_SESSION['toastmsg']);
+      unset($_SESSION['toastmsg']);
+      unset($_SESSION['toast']);
+    }
+    if ($_SESSION['toast'] == 'erro') {
+      createErrorAlert($_SESSION['toastmsg']);
+      unset($_SESSION['toastmsg']);
+      unset($_SESSION['toast']);
+    }
 
-  if ($_SESSION['toast' == 'warning']) {
-    createWarningAlert($_SESSION['toastmsg']);
-    unset($_SESSION['toastmsg']);
-    unset($_SESSION['toast']);
-  }
+    if ($_SESSION['toast' == 'warning']) {
+      createWarningAlert($_SESSION['toastmsg']);
+      unset($_SESSION['toastmsg']);
+      unset($_SESSION['toast']);
+    }
     ?>
     <?php
     require 'php/dao/conexaoBD.php';
@@ -93,7 +96,7 @@ session_start();
 
         // Tive que dar vários "echo" por conta da interpolação de variáveis.
         echo '
-        <div class="card card-loja px-0 rounded" style="width: 18rem;">
+        <div data-aos="fade-up" class="card card-loja px-0 rounded" style="width: 18rem;">
         <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
         <div class="card-body loja-details">';
         echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
@@ -119,6 +122,11 @@ session_start();
 
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
