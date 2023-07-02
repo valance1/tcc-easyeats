@@ -29,6 +29,10 @@ if (!$_SESSION['email']) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
+  <!-- CROP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -65,12 +69,45 @@ if (!$_SESSION['email']) {
     </div>
 
     <?php
+    require_once "php/dao/conexaoBD.php";
 
     //  SE O USUÁRIO FOR EMPRESARIAL, DEVEMOS PERMITIR QUE ELE MODIFIQUE SEUS DADOS BANCÁRIOS, COMO AGÊNCIA E CONTA.
     
     // Se a variavel sessão empresa for diferente de false:
     if (!$_SESSION['empresa'] == false) {
+
+      $email = $_SESSION['email'];
+      $sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
+      $query = mysqli_query(conectarBD(), $sqlCode);
+      $fetch = mysqli_fetch_assoc($query);
+      $perfil = $fetch['perfil'];
+
       echo '
+      <div class="modal fade" id="modalEditFotoEmpresa" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="avatarPlaceholder" src="'. $perfil .'">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
       <!-- Modal cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -108,8 +145,9 @@ if (!$_SESSION['email']) {
 	</div>
       <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-between">
         <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
-          <form action="php/controlador/editEmpresa.php" class="w-100" enctype="multipart/form-data" method="POST">
+          <form action="php/controlador/editEmpresa.php" id="editEmpresaForm" class="w-100" enctype="multipart/form-data" method="POST">
           <div class="input-group mb-3">
+          <img class="rounded" id="avatar" src="'. $perfil .'" alt="avatar">
               <input type="file" class="form-control" name="inputImagem" id="inputGroupFile02">
           </div>
 
@@ -316,149 +354,14 @@ if (!$_SESSION['email']) {
 
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
+
 </body>
 
+<!-- // Importante para cortar as imagens -->
+<script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
-<!--
-<div class="container">
-        <div class="table-wrap">
-            <table class="table table-responsive table-borderless">
-                <thead>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Produto</th>
-                    <th></th>
-                    <th>Quantity</th>
-                    <th>Preço</th>
-                    <th>&nbsp;</th>
-                </thead>
-                <tbody>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td>
-                            <input type="checkbox" id="check">
-                        </td>
-                        <td class="text-center">
-                            <img class="pic"
-                                src="https://www.freepnglogos.com/uploads/shoes-png/dance-shoes-png-transparent-dance-shoes-images-5.png"
-                                alt="">
-                        </td>
-                        <td>
-                            <div>
-                                <p class="m-0 fw-bold">Sneakers Shoes 2020 For Men</p>
-                                <p class="m-0 text-muted">Fugiat Voluptates quasi nemo,ipsa perferencis</p>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="fw-600">$44.99</div>
-                        </td>
-                        <td class="d-">
-                            <input class="input" type="text" placeholder="2">
-                        </td>
-                        <td>
-                            $89.98
-                        </td>
-                        <td>
-                            <div class="btn" data-bs-dismiss="alert">
-                                <span class="fas fa-times"></span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td>
-                            <input type="checkbox" id="check">
-                        </td>
-                        <td class="text-center">
-                            <img class="pic"
-                                src="https://www.freepnglogos.com/uploads/shoes-png/download-vector-shoes-image-png-image-pngimg-2.png"
-                                alt="">
-                        </td>
-                        <td>
-                            <div>
-                                <p class="m-0 fw-bold">Sneakers Shoes 2020 For Men</p>
-                                <p class="m-0 text-muted">Fugiat Voluptates quasi nemo,ipsa perferencis</p>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="fw-600">$54.99</div>
-                        </td>
-                        <td class="d-">
-                            <input class="input" type="text" placeholder="2">
-                        </td>
-                        <td>
-                            $108.98
-                        </td>
-                        <td>
-                            <div class="btn" data-bs-dismiss="alert">
-                                <span class="fas fa-times"></span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td>
-                            <input type="checkbox" id="check">
-                        </td>
-                        <td class="text-center">
-                            <img class="pic"
-                                src="https://www.freepnglogos.com/uploads/shoes-png/running-shoes-png-transparent-running-shoes-images-6.png"
-                                alt="">
-                        </td>
-                        <td>
-                            <div>
-                                <p class="m-0 fw-bold">Sneakers Shoes 2020 For Men</p>
-                                <p class="m-0 text-muted">Fugiat Voluptates quasi nemo,ipsa perferencis</p>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="fw-600">$50.99</div>
-                        </td>
-                        <td class="d-">
-                            <input class="input" type="text" placeholder="2">
-                        </td>
-                        <td>
-                            $100.98
-                        </td>
-                        <td>
-                            <div class="btn" data-bs-dismiss="alert">
-                                <span class="fas fa-times"></span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="align-middle alert border-bottom" role="alert">
-                        <td>
-                            <input type="checkbox" id="check">
-                        </td>
-                        <td class="text-center">
-                            <img class="pic"
-                                src="https://www.freepnglogos.com/uploads/shoes-png/find-your-perfect-running-shoes-26.png"
-                                alt="">
-                        </td>
-                        <td>
-                            <div>
-                                <p class="m-0 fw-bold">Sneakers Shoes 2020 For Men</p>
-                                <p class="m-0 text-muted">Fugiat Voluptates quasi nemo,ipsa perferencis</p>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="fw-600">$74.99</div>
-                        </td>
-                        <td>
-                            <input class="input" type="text" placeholder="2">
-                        </td>
-                        <td>
-                            $148.98
-                        </td>
-                        <td>
-                            <div class="btn" data-bs-dismiss="alert">
-                                <span class="fas fa-times"></span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div> -->
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/produtoCRUD.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
 </section>
 
 </html>

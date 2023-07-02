@@ -38,6 +38,7 @@ if ($imagem['size'] != 0) {
         echo 'A imagem não pode ter mais de 10MB';
         $_SESSION['toast'] = 'erro';
         $_SESSION['toastmsg'] = 'Imagem deve ser igual ou menor a 10MB';
+        header("Location:../../config.php?msg=Error");
         exit();
     }
 
@@ -50,6 +51,7 @@ if ($imagem['size'] != 0) {
         echo 'Formato de imagem não suportado. Apenas PNG, JPG, JPEG e SVG são permitidos';
         $_SESSION['toast'] = 'erro';
         $_SESSION['toastmsg'] = 'Imagem deve ser do tipo PNG, JPG, JPEG ou SVG';
+        header("Location:../../config.php?msg=Error");
         exit();
     }
 

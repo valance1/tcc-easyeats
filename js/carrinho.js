@@ -77,5 +77,12 @@ function incrementarProduto(idProduto){
 
 
 function finalizarCompra(){
+  // Saving as string
+  sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+  // Tem que adicionar o QRCode no bd e redirecionar pra pagina!
+
+  window.location.href = "http://localhost/tcc-easyeats/pagamento.php?user="+ sessionStorage.getItem('uniquehash');
+  
   
 }

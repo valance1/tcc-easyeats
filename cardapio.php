@@ -113,6 +113,8 @@ session_start();
     ';
     }
     ?>
+
+   <button class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button> 
   </section>
 
   <!-- Importando componentes -->
@@ -120,6 +122,10 @@ session_start();
   <?php include 'php/components/forms.php' ?>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/carrinho.js"></script>
+  <script type="text/javascript">
+    sessionStorage.setItem('email', "<?php echo $_SESSION['email'];  ?>" );
+    sessionStorage.setItem('uniquehash', "<?php echo md5($_SESSION['email']);  ?>" );
+  </script>
 </body>
 
 </html>
