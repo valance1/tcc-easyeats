@@ -230,10 +230,10 @@ window.addEventListener('DOMContentLoaded', function () {
             initialAvatarURL = avatar.src;
             
             // Debug reasons
-            console.log("DATA DO INPUT: " + cropBtn.getAttribute("data-item-id"));
-            console.log("Condição if(): " + cropBtn.getAttribute("data-item-id") == 'empresa');
-            console.log("avatar.src:  " + avatar.src);
-            console.log("BLOB: " + canvas.toDataURL());
+            // console.log("DATA DO INPUT: " + cropBtn.getAttribute("data-item-id"));
+            // console.log("Condição if(): " + cropBtn.getAttribute("data-item-id") == 'empresa');
+            // console.log("avatar.src:  " + avatar.src);
+            // console.log("BLOB: " + canvas.toDataURL());
     
             avatar.src = canvas.toDataURL();
             canvas.toBlob(function (blob) {
@@ -274,7 +274,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     imagens.push(blob);
                 } else {
                     formData.append('id', cropBtn.getAttribute("data-item-id"));
-                    formData.append('imagem', blob, 'prod.jpg');
+                    formData.append('imagem', blob);
                     $.ajax({
                         method: 'POST',
                         url: 'php/controlador/editProduto.php',
@@ -301,7 +301,8 @@ window.addEventListener('DOMContentLoaded', function () {
     
                         complete: function (response) {
                             // var data = JSON.parse(response.responseText);
-                            // alert(response.responseText);
+                            alert(response.responseText['msg']);
+                            console.log(response.responseText);
                             // alert.log(data);
                         },
                     });

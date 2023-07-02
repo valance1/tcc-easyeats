@@ -59,9 +59,7 @@ if ($imagem['size'] != 0) {
     // Inserindo a imagem no BD.
     $path = '../../images/' . $cnpj;
 
-    // Cria caminho
-    mkdir($path, 0777, true);
-
+    //Relative path
     $path = 'images/' . $cnpj . '/' . $image_name;
 
     // Move o arquivo até o caminho
@@ -85,5 +83,5 @@ if (strlen($preco) != 0) {
 $_SESSION['toast'] = 'sucesso';
 $_SESSION['toastmsg'] = 'Suas modificações foram salvas!';
 
-header("Location:../../config.php?msg=Produto editado");
+// header("Location:../../config.php?msg=Produto editado");
 ?>

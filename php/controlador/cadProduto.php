@@ -11,6 +11,11 @@ $nome = $_POST["inputNomeProduto"];
 $descricao = $_POST["inputDescProduto"];
 $preco = $_POST["inputPreco"];
 
+if(!is_numeric($preco)){
+  echo json_encode(array('msg' => "Valor do preço precisa ser numérico"));
+  exit();
+}
+
 // Verifica se o usuário inseriu imageme
 if (!isset($imagem)) {
   echo json_encode(array('msg' => "Nenhuma imagem foi inserida"));

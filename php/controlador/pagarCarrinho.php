@@ -59,7 +59,7 @@ echo json_encode($data);
 $pedidoID = bin2hex(random_bytes(5));
 echo $pedidoID;
 // Agora podemos inserir o novo pedido
-criarPedido($conexao, $pedidoID, $cpf, $preco, json_encode($data));
+criarPedido($conexao, $pedidoID, $cpf, $precoPedido, json_encode($data));
 echo '</br> Pedido Criado com sucesso';
 
 ?>

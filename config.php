@@ -124,6 +124,29 @@ if (!$_SESSION['email']) {
 		</div>
 	  </div>
 	</div>
+
+  <div class="modal fade" id="modalEditFoto" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="img-container">
+            <img id="avatarPlaceholder" src="">
+          </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success" id="crop">Crop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
       <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-between">
         <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
           <form action="php/controlador/editEmpresa.php" id="editEmpresaForm" class="w-100" enctype="multipart/form-data" method="POST">
@@ -293,26 +316,6 @@ if (!$_SESSION['email']) {
         </div>
     </div>
 </section>
-
-<div class="modal fade" id="modalEditFoto" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="img-container">
-            <img id="avatarPlaceholder" src="">
-          </div>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-success" id="crop">Crop</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 <!-- EDIT PRODUTO MODAL -->
