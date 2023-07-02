@@ -55,7 +55,7 @@ session_start();
 
   <section class="average-section" id="restaurantes-preview">
   <hr class="hr" />
-    <div class="ection-text-container mb-5">
+    <div class="section-text-container mb-5">
       <?php
       echo '<h1 class="h1">' . $_GET['loja'] . '</h1>';
       ?>
@@ -87,9 +87,10 @@ session_start();
 
         echo '
         <div class="card product-card my-3 d-flex flex-row">
-          <img class="float-start" src="' . $produto['imagem'] . '">
-          
-          <div class="ms-3 d-flex flex-column my-3  w-100">
+          <div class="product-img-container">
+            <img class="float-start" src="' . $produto['imagem'] . '">
+          </div>
+          <div class="product-text-container ms-3 d-flex flex-column my-3  w-50 float-start">
             <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
             <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
             <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
