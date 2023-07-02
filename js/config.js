@@ -66,7 +66,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
     );
 };
 
-
 // EDITAR FOTO DA EMPRESA
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -77,6 +76,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var input = document.getElementById('inputGroupFile02');
     var $modal = $('#modalEditFotoEmpresa');
     var cropper;
+
 
     input.addEventListener('change', function (e) {
         var files = e.target.files;
@@ -107,7 +107,7 @@ window.addEventListener('DOMContentLoaded', function () {
     $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
             aspectRatio: 1,
-            viewMode: 1,
+            viewMode: 3,
         });
     }).on('hidden.bs.modal', function () {
         $modal.modal('hide');
@@ -124,43 +124,45 @@ window.addEventListener('DOMContentLoaded', function () {
 
         if (cropper) {
             canvas = cropper.getCroppedCanvas({
-              width: 256,
-              height: 256,
+                width: 256,
+                height: 256,
             });
             initialAvatarURL = avatar.src;
             avatar.src = canvas.toDataURL();
             canvas.toBlob(function (blob) {
-              var formData = new FormData();
-    
-              formData.append('inputImagem', blob, 'avatar.jpg');
-              $.ajax({
-                method: 'POST',
-                url: 'php/controlador/editEmpresa.php',
-                data: formData,
-                processData: false,
-                contentType: false,
-    
-                xhr: function () {
-                  var xhr = new XMLHttpRequest();
-                  return xhr;
-                },
-    
-                success: function () {
-                    console.log("Sucesso");
-                //   $alert.show().addClass('alert-success').text('Upload success');
-                },
-    
-                error: function () {
-                //   avatar.src = initialAvatarURL;
-                //   $alert.show().addClass('alert-warning').text('Upload error');
-                },
-    
-                complete: function () {
-                //   $progress.hide();
-                },
-              });
+                var formData = new FormData();
+
+                formData.append('inputImagem', blob, 'avatar.jpg');
+                $.ajax({
+                    method: 'POST',
+                    url: 'php/controlador/editEmpresa.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+
+                    xhr: function () {
+                        var xhr = new XMLHttpRequest();
+                        return xhr;
+                    },
+
+                    success: function () {
+                        console.log("Sucesso");
+                        toastr["success"]("Imagem da empresa alterada com sucesso!");
+                        // window.location.href = "config.php";
+                        //   $alert.show().addClass('alert-success').text('Upload success');
+                    },
+
+                    error: function () {
+                        //   avatar.src = initialAvatarURL;
+                        //   $alert.show().addClass('alert-warning').text('Upload error');
+                    },
+
+                    complete: function () {
+                        //   $progress.hide();
+                    },
+                });
             });
-          }
+        }
     });
 });
 

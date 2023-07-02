@@ -88,9 +88,7 @@ if (!$_SESSION['email']) {
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="img-container">
@@ -98,15 +96,12 @@ if (!$_SESSION['email']) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="crop">Crop</button>
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-success" id="crop">Crop</button>
           </div>
         </div>
       </div>
     </div>
-
-
-
 
       <!-- Modal cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -147,8 +142,12 @@ if (!$_SESSION['email']) {
         <div class="container d-flex w-50 mx-0 justify-content-center align-items-center">
           <form action="php/controlador/editEmpresa.php" id="editEmpresaForm" class="w-100" enctype="multipart/form-data" method="POST">
           <div class="input-group mb-3">
-          <img class="rounded" id="avatar" src="'. $perfil .'" alt="avatar">
-              <input type="file" class="form-control" name="inputImagem" id="inputGroupFile02">
+          <label class="label" title="">
+            <div class="empresaImagem">
+              <img class="rounded" id="avatar" src="'. $perfil .'" alt="avatar">
+              <input type="file" class="sr-only" name="inputImagem" id="inputGroupFile02">
+            </div>
+          </label>
           </div>
 
           <!-- CAMPO AGENCIA -->
@@ -259,7 +258,7 @@ if (!$_SESSION['email']) {
         <div class="table-wrap">
             <table class="table table-responsive table-borderless">
                 <thead>
-                    <th>&nbsp;</th>
+                    <th>Foto</th>
                     <th>Produto</th>
                     <th>Preço</th>
                     <th>&nbsp;</th>
@@ -267,11 +266,16 @@ if (!$_SESSION['email']) {
                 <tbody>';
       while ($produto = mysqli_fetch_assoc($query)) {
         echo '<tr class="align-middle alert border-bottom" role="alert">
-                        <td class="text-center">
+                        <td class="text-center" style="width: 100px;">
                         <!--   FOTO DO PRODUTO  -->
-                            <img class="pic"
-                                src="' . $produto['imagem'] . '"
-                                alt="">
+                        <label class="label" title="">
+                          <div class="produtoCRUDFoto">
+                              <img class="pic" id="pic'. $produto['idProduto'] . '"
+                                  src="' . $produto['imagem'] . '"
+                                  alt="">
+                                <input type="file" class="sr-only inputEditProdutoImagem" data-produto-id="' . $produto['idProduto'] . '" id="inputEditProdutoImagem" name="inputImagemProduto">
+                          </div>
+                        </label>
                         </td>
                         <td>
                           <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
@@ -361,6 +365,7 @@ if (!$_SESSION['email']) {
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/produtoCRUD.js"></script>
 <script type="text/javascript" src="js/config.js"></script>
 </section>
 
