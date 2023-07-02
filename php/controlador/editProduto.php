@@ -14,15 +14,20 @@ $preco = $_POST["preco"];
 
 // Consultando quem é o dono da imagem primeiro
 $email = $_SESSION['email'];
-$sqlCode = "SELECT * FROM produto WHERE idProduto = '$id'";
+$sqlCode = "SELECT * FROM empresa WHERE email = '$email'";
 $query = mysqli_query(conectarBD(), $sqlCode);
 $fetch = mysqli_fetch_assoc($query);
 $cnpj = $fetch['CNPJ'];
+
+$sqlCode = "SELECT * FROM produto WHERE idProduto = '$id' and CNPJ = '$cnpj'";
+$query = mysqli_query(conectarBD(), $sqlCode);
+$fetch = mysqli_fetch_assoc($query);
 
 if ($imagem['size'] != 0) {
 
     // TODO
     // DELETAR A IMAGEM ANTES DE FAZER TUDO ISSO!
+
 
     // Remover a imagem existente, se houver
     $existingImagePath = "../../" . $fetch['imagem'];
@@ -33,7 +38,7 @@ if ($imagem['size'] != 0) {
 
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
-    $image_name = bin2hex(random_bytes(16)) . $image_extension;
+    $image_name = basename($fetch['imagem'], pathinfo($fetch['imagem'], PATHINFO_EXTENSION));
     
     // Verificar o tamanho do arquivo
     $maxFileSize = 10 * 1024 * 1024; // 10MB

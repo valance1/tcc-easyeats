@@ -83,26 +83,6 @@ if (!$_SESSION['email']) {
       $perfil = $fetch['perfil'];
 
       echo '
-      <div class="modal fade" id="modalEditFotoEmpresa" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="img-container">
-              <img id="avatarPlaceholder" src="'. $perfil .'">
-            </div>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-success" id="crop">Crop</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
       <!-- Modal cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -145,7 +125,7 @@ if (!$_SESSION['email']) {
           <label class="label" title="">
             <div class="empresaImagem">
               <img class="rounded" id="avatar" src="'. $perfil .'" alt="avatar">
-              <input type="file" class="sr-only" name="inputImagem" id="inputGroupFile02">
+              <input type="file" data-item-id="empresa" class="sr-only" name="inputImagem" id="inputGroupFile02">
             </div>
           </label>
           </div>
@@ -265,6 +245,7 @@ if (!$_SESSION['email']) {
                 </thead>
                 <tbody>';
       while ($produto = mysqli_fetch_assoc($query)) {
+        $porcaria = $produto['idProduto'] . ",'" . $produto['nome'] . "', '".$produto['descricao']."'," . $produto['preco'];   
         echo '<tr class="align-middle alert border-bottom" role="alert">
                         <td class="text-center" style="width: 100px;">
                         <!--   FOTO DO PRODUTO  -->
@@ -273,7 +254,7 @@ if (!$_SESSION['email']) {
                               <img class="pic" id="pic'. $produto['idProduto'] . '"
                                   src="' . $produto['imagem'] . '"
                                   alt="">
-                                <input type="file" class="sr-only inputEditProdutoImagem" data-produto-id="' . $produto['idProduto'] . '" id="inputEditProdutoImagem" name="inputImagemProduto">
+                                <input type="file" class="sr-only inputEditProdutoImagem" data-item-id="' . $produto['idProduto'] . '" id="inputEditProdutoImagem' . $produto['idProduto'] . '" name="inputImagemProduto">
                           </div>
                         </label>
                         </td>
@@ -293,7 +274,7 @@ if (!$_SESSION['email']) {
                         -->
                         <td>
                           <div>
-                            <button class="btn btn-success" onclick=editModal(' . $produto['idProduto'] . ',"' . $produto['nome'] . '","'. $produto['descricao'] . '",'. $produto['preco'] . ')><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-success" onclick="editModal('. $porcaria. ')"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button class="btn btn-danger" onclick=removeModal('. $produto['idProduto'] .')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
@@ -307,6 +288,27 @@ if (!$_SESSION['email']) {
     </div>
 </section>
 
+<div class="modal fade" id="modalEditFoto" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="img-container">
+            <img id="avatarPlaceholder" src="">
+          </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success" id="crop">Crop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <!-- EDIT PRODUTO MODAL -->
 
 <div class="modal fade" id="editProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -318,10 +320,6 @@ if (!$_SESSION['email']) {
 		  </div>
 		  <form action="php/controlador/editProduto.php" method="POST" id="editProdutoForm" enctype="multipart/form-data">
 		  <div class="modal-body">
-            <div class="input-group mb-3">
-                 <input type="file" class="form-control" id="inputEditProdutoImagem" name="inputImagemProduto">
-            </div>
-
 			  <div class="form-floating mb-3">
 				<input type="text" class="form-control" id="inputEditNomeProduto" name="inputNomeProduto" aria-describedby="nomeProdutoHelp" placeholder="">
 				<label for="inputNomeProduto" class="form-label">Nome do Produto</label>
@@ -365,7 +363,7 @@ if (!$_SESSION['email']) {
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/produtoCRUD.js"></script>
+<!-- <script type="text/javascript" src="js/produtoCRUD.js"></script> -->
 <script type="text/javascript" src="js/config.js"></script>
 </section>
 
