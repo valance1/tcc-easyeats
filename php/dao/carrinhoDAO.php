@@ -1,6 +1,6 @@
 <?php
-function criarPedido($conexao, $idPedido, $preco, $qrCode){
-  $sql = "INSERT INTO pedidos (idPedido, valorTotal, qrCode) VALUES ('$idPedido', '$preco', '$qrCode')";
+function criarPedido($conexao, $idPedido, $cpf, $preco, $qrCode){
+  $sql = "INSERT INTO pedidos (idPedido, cliente, valorTotal, qrCode, status) VALUES ('$idPedido', '$cpf', '$preco', '$qrCode', 'aguardando')";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function retornarPreco($conexao, $idProduto){
@@ -11,7 +11,7 @@ function retornarPreco($conexao, $idProduto){
 }
 
 function removerPedido($conexao, $cpf){
-  $code = "DELETE FROM pedidos WHERE idPedido = '$cpf'";
+  $code = "DELETE FROM pedidos WHERE cliente = '$cpf'";
   mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 }
 ?>

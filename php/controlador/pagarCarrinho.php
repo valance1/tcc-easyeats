@@ -30,7 +30,7 @@ $cpf = mysqli_fetch_assoc($query)['cpf'];
 echo 'cpf: ' . $cpf;
 
 // OBS, só pode existir um pedido no BD com o CPF, vamos dropar o antigo se isso acontecer
-$sqlCode = "SELECT * FROM pedidos WHERE idPedido = '$cpf'";
+$sqlCode = "SELECT * FROM pedidos WHERE cliente = '$cpf'";
 $query = mysqli_query($conexao, $sqlCode);
 if (mysqli_num_rows($query) >= 1) {
   echo 'Pedido já existe, vamos dropar o antigo';
@@ -55,8 +55,11 @@ foreach ($multiplicarArray as &$produto) {
 echo 'Preco: ' . $precoPedido;
 // Essa Array é responsável por determinar os itens que serão criados
 echo json_encode($data);
+
+$pedidoID = bin2hex(random_bytes(5));
+echo $pedidoID;
 // Agora podemos inserir o novo pedido
-criarPedido($conexao, $cpf, $preco, json_encode($data));
+criarPedido($conexao, $pedidoID, $cpf, $preco, json_encode($data));
 echo '</br> Pedido Criado com sucesso';
 
 ?>
