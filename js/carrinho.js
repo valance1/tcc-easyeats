@@ -83,7 +83,7 @@ function finalizarCompra(){
   // Vamos criar o pedido no servidor
   $.ajax({
     method: 'POST',
-    url: 'php/controlador/pagarCarrinho.php',
+    url: 'php/controlador/criarPedido.php',
     data: {data:carrinho},
     xhr: function () {
         var xhr = new XMLHttpRequest();

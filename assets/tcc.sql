@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Jul-2023 às 19:33
+-- Tempo de geração: 03-Jul-2023 às 20:37
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -40,18 +40,10 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `perfil` varchar(150) DEFAULT NULL,
   `cpf` varchar(14) NOT NULL COMMENT 'CPF do dono da empresa',
   `dono` varchar(90) NOT NULL COMMENT 'Nome do proprietário da empresa, são dados que precisamos em caso de responsabilidade legal',
+  `lucro` int(11) DEFAULT NULL COMMENT 'Variável que informa o lucro total que a empresa já teve utilizando o site',
   PRIMARY KEY (`CNPJ`),
   UNIQUE KEY `email` (`email`,`conta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Extraindo dados da tabela `empresa`
---
-
-INSERT INTO `empresa` (`nome`, `email`, `CNPJ`, `senha`, `agencia`, `conta`, `perfil`, `cpf`, `dono`) VALUES
-('Empresa 1', 'empresa1@gmail.com', '04797353000115', '202cb962ac59075b964b07152d234b70', '000', '134', NULL, '', ''),
-('Empresa 2', 'empresa2@gmail.com', '05470474000110', '202cb962ac59075b964b07152d234b70', '000', '12344', NULL, '', ''),
-('Empresa 3 ', 'empresa3@gmail.com', '91018981000150', '202cb962ac59075b964b07152d234b70', '12312', '123333', 'images/91018981000150/perfil.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -79,10 +71,13 @@ CREATE TABLE IF NOT EXISTS `item` (
 
 DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE IF NOT EXISTS `pedidos` (
-  `idPedido` int(11) NOT NULL,
-  `dataPedido` date NOT NULL,
+  `idPedido` varchar(11) NOT NULL,
   `valorTotal` float NOT NULL,
-  `qrCode` varchar(255) NOT NULL
+  `qrCode` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`qrCode`)),
+  `status` varchar(20) NOT NULL DEFAULT 'aguardando',
+  `cliente` varchar(11) NOT NULL,
+  `empresa` int(11) NOT NULL COMMENT 'CNPJ da empresa',
+  PRIMARY KEY (`idPedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -102,13 +97,6 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Extraindo dados da tabela `pessoa`
---
-
-INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`, `credito`) VALUES
-('Gabriel', '29640616028', 'usuario@gmail.com', '202cb962ac59075b964b07152d234b70', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -125,22 +113,37 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
 
 --
--- Extraindo dados da tabela `produto`
+-- Estrutura da tabela `transacaoabate`
 --
 
-INSERT INTO `produto` (`nome`, `descricao`, `preco`, `idProduto`, `CNPJ`, `imagem`) VALUES
-('glorpa glurp', '123', '123', 20, '91018981000150', 'images/91018981000150/images'),
-('help me', '123', '123', 21, '91018981000150', 'images/91018981000150/91018981000150'),
-('Hamburgue', 'cu', '900', 22, '91018981000150', 'images/produtos/91018981000150/15087cfae819c7ceb2e766f387ffa41b.png'),
-('ddf', 'fddffd', '1233', 23, '91018981000150', 'images/produtos/91018981000150/862151eea35ce60e7720f7dd8ad2d6ec.png'),
-('e', 'e', '123', 24, '91018981000150', 'images/produtos/91018981000150/5835f36c93bbbfcd3c579593f79064f5.png'),
-('cate', '23', '23', 25, '91018981000150', 'images/produtos/91018981000150/eb1c16bf6c0eaedf2749db5de3f3846a.png'),
-('dssd', 'sdds', '1231', 26, '91018981000150', 'images/produtos/91018981000150/c6ab6b9b7beac83450077a19dd09144b.png'),
-('Banana', 'NNNN', '1090', 27, '91018981000150', 'images/produtos/91018981000150/79c90d9df5ab97501eb24975a00fb690.png'),
-('masi', 'um', '1231', 28, '91018981000150', 'images/produtos/91018981000150/2fc41a4b79aa11a3ddba03efe5f7b5dd.png');
+DROP TABLE IF EXISTS `transacaoabate`;
+CREATE TABLE IF NOT EXISTS `transacaoabate` (
+  `idAbate` varchar(10) NOT NULL COMMENT 'ID do pedido na época',
+  `data` date NOT NULL COMMENT 'Data que a transação foi realizada',
+  `fichas` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '[NomedaFicha, quantidade, valor]',
+  `cliente` varchar(11) NOT NULL COMMENT 'CPF do cliente',
+  `empresa` varchar(11) NOT NULL COMMENT 'CNPJ da empresa'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `transacaopedido`
+--
+
+DROP TABLE IF EXISTS `transacaopedido`;
+CREATE TABLE IF NOT EXISTS `transacaopedido` (
+  `idPedido` varchar(10) NOT NULL,
+  `data` date NOT NULL,
+  `valor` float NOT NULL,
+  `cliente` varchar(11) NOT NULL,
+  `empresa` varchar(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Restrições para despejos de tabelas
