@@ -1,7 +1,7 @@
 <?php
 require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
-require_once "../dao/carrinhoDAO.php";
+require_once "../dao/pedidoDAO.php";
 
 session_start();
 
@@ -23,11 +23,11 @@ print_r($data);
 $conexao = conectarBD();
 
 // Pegar o CPF da pessoa para fazer o cadastro do ID da compra
-$email = $_SESSION['email'];
-$sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
-$query = mysqli_query($conexao, $sqlCode);
-$cpf = mysqli_fetch_assoc($query)['cpf'];
+$cpf = retornaVal($conexao, 'pessoa', 'email', $email, 'cpf');
 echo 'cpf: ' . $cpf;
+
+// Mesma coisa com empresa
+$cnpj = retornaVal($conexao, 'produto', 'idProduto', $data[0], 'CNPJ');
 
 // OBS, só pode existir um pedido no BD com o CPF, vamos dropar o antigo se isso acontecer
 $sqlCode = "SELECT * FROM pedidos WHERE cliente = '$cpf'";
@@ -56,13 +56,16 @@ echo 'Preco: ' . $precoPedido;
 // Essa Array é responsável por determinar os itens que serão criados
 echo json_encode($data);
 
+// Encontrando um ID para o pedido, caso exista, vamos ficar loopando até não existir
 $pedidoID = bin2hex(random_bytes(5));
+while (existe($conexao, 'pedidos', 'idPedido', $pedidoID)){
+    $pedidoID = bin2hex(random_bytes(5));
+};
+
 echo $pedidoID;
 // Agora podemos inserir o novo pedido
 
-//TODO 
-// INSERIR CNPJ DA EMPRESA
-criarPedido($conexao, $pedidoID, $cpf, $precoPedido, json_encode($data));
+criarPedido($conexao, $pedidoID, $cpf, $precoPedido, json_encode($data), $cnpj);
 echo '</br> Pedido Criado com sucesso';
 
 ?>

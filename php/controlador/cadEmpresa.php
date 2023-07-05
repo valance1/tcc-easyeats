@@ -8,10 +8,15 @@ session_start();
 // PASSO 1 - Receber os campos
 $campos = $_POST;
 $campos = array_map("trim", $campos);
-
 extract($campos);
 
 $conexao = conectarBD();
+
+// Verificando se tudo está preenchido
+if (empty($inputCNPJ) || empty($inputConta) ||empty($inputCPF) ||empty($inputDono) ||empty($inputAgencia) ||empty($inputEmail) ||empty($inputSenha1) ||empty($inputSenha2)){
+  echo json_encode(array('msg' => "Preencha todos os campos"));
+  exit();
+}
 
 // Validação de CNPJ
 if (!validaCNPJ($inputCNPJ)) {
@@ -43,13 +48,11 @@ if ($inputSenha1 != $inputSenha2) {
 }
 
 // Verificação de existência de email em tabela pessoa
-$sqlCode = "SELECT * FROM pessoa WHERE email = '$inputEmail'";
-$query = mysqli_query($conexao, $sqlCode);
-if (mysqli_num_rows($query) >= 1) {
-  
+if(existe($conexao, 'pessoa', 'email', $inputEmail)){
   echo json_encode(array('msg' => "Usuário com esse e-mail já existe"));
   exit();
 }
+
 
 // Verificação de existência de email, CNPJ ou conta em tabela empresa
 $sqlCode = "SELECT * FROM empresa WHERE email = '$inputEmail' or cnpj = '$inputCNPJ' or conta='$inputConta'";

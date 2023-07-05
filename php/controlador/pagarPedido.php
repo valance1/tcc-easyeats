@@ -5,6 +5,14 @@
 
 // ESSE AQUI TEM QUE:
 // 1- Adicionar itens ao inventário
+for {
+
+};
+
 // 2 - Criar tabela de transações
+
+criarTransacaoPedido();
 // 3 - Deletar pedido
+
+removerPedido();
 ?>

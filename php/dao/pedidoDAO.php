@@ -1,6 +1,6 @@
 <?php
-function criarPedido($conexao, $idPedido, $cpf, $preco, $qrCode){
-  $sql = "INSERT INTO pedidos (idPedido, cliente, valorTotal, qrCode, status) VALUES ('$idPedido', '$cpf', '$preco', '$qrCode', 'aguardando')";
+function criarPedido($conexao, $idPedido, $cpf, $preco, $qrCode, $cnpj){
+  $sql = "INSERT INTO pedidos (idPedido, cliente, valorTotal, qrCode, status, empresa) VALUES ('$idPedido', '$cpf', '$preco', '$qrCode', 'aguardando', '$cnpj')";
   mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 function retornarPreco($conexao, $idProduto){

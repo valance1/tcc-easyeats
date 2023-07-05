@@ -11,6 +11,13 @@ $nome = $_POST["inputNomeProduto"];
 $descricao = $_POST["inputDescProduto"];
 $preco = $_POST["inputPreco"];
 
+
+// Verificando se tudo foi digitado
+if (empty($nome) || empty($descricao) ||empty($preco)){
+  echo json_encode(array('msg' => "Preencha todos os campos"));
+  exit();
+}
+
 if(!is_numeric($preco)){
   echo json_encode(array('msg' => "Valor do preço precisa ser numérico"));
   exit();

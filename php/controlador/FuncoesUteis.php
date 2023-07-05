@@ -1,7 +1,8 @@
 <?php
 require_once '../dao/conexaoBD.php';
 
-function validaCPF($cpf){
+function validaCPF($cpf)
+{
 
     // Extrai somente os números
     $cpf = preg_replace('/[^0-9]/is', '', $cpf);
@@ -27,9 +28,11 @@ function validaCPF($cpf){
         }
     }
     return true;
-};
+}
+;
 
-function validaCNPJ($cnpj){
+function validaCNPJ($cnpj)
+{
     $cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
 
     // Valida tamanho
@@ -60,9 +63,11 @@ function validaCNPJ($cnpj){
     $resto = $soma % 11;
 
     return $cnpj[13] == ($resto < 2 ? 0 : 11 - $resto);
-};
+}
+;
 
-function validarData($data){
+function validarData($data)
+{
     $dataSep = explode("/", $data);
 
     if (count($dataSep) != 3) {
@@ -73,8 +78,10 @@ function validarData($data){
         $ano = $dataSep[2];
         return checkdate($mes, $dia, $ano);
     }
-};
-function mask($val, $mask){
+}
+;
+function mask($val, $mask)
+{
     $maskared = '';
     $k = 0;
     for ($i = 0; $i <= strlen($mask) - 1; $i++) {
@@ -87,8 +94,36 @@ function mask($val, $mask){
         }
     }
     return $maskared;
-};
-function deleteUser($email){
+}
+;
+
+//Verifica se o algo existe
+function existe($conexao, $tabela, $coluna, $valor)
+{
+    $sql = "SELECT * FROM '$tabela' WHERE '$coluna' = '$valor'";
+    $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    if (mysqli_num_rows($query) >= 1) {
+        echo 'Usuário existe';
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function retornaVal($conexao, $tabela, $coluna, $valor, $attr){
+    $sql = "SELECT * FROM '$tabela' WHERE '$coluna' = '$valor'";
+    $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    if(mysqli_num_rows($query) == 0 || mysqli_num_rows($query) > 1){
+        return false;
+    }
+    return mysqli_fetch_assoc($query)[$attr];
+}
+function vazio(){
+
+}
+
+function deleteUser($email)
+{
     session_start();
     $code = "SELECT * FROM empresa WHERE email = '$email'";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
@@ -98,9 +133,9 @@ function deleteUser($email){
     if (mysqli_num_rows($query) == 0) {
         $code = "DELETE FROM pessoa WHERE EMAIL = '$email'";
         mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
-    
-    // Entretanto, se houver algum resultado, isso significa que a conta pertence a uma empresa, portanto:
-    }else{
+
+        // Entretanto, se houver algum resultado, isso significa que a conta pertence a uma empresa, portanto:
+    } else {
         // Deletando a imagem ao excluir o user do server
         $existingImagePath = "../../" . mysqli_fetch_assoc($query)['imagem'];
         if (file_exists($existingImagePath)) {
@@ -109,6 +144,7 @@ function deleteUser($email){
         $code = "DELETE FROM empresa WHERE EMAIL = '$email'";
         mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
     }
-};
+}
+;
 
 ?>

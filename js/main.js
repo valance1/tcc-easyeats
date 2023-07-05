@@ -116,6 +116,7 @@ cadPessoaForm.addEventListener('submit', function (event) {
 
     // Verificando
     let fields = [nome, cpf, email, senha1, senha2];
+    // Apesar disso, é necessário verificar serverside para impedir algum engraçadinho de foder com o BD.
     for (let field of fields) {
         if (!validateInput(field)) {
             return;
