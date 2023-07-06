@@ -118,8 +118,38 @@ function retornaVal($conexao, $tabela, $coluna, $valor, $attr){
     }
     return mysqli_fetch_assoc($query)[$attr];
 }
-function vazio(){
+function checkVazio() {
+    foreach ($_POST as $key => $value) {
+        if (empty($value)) {
+            echo "A variável '$key' está vazia.<br>";
+            return true;
+        }
+    }
+    return false;
+}
 
+function validarAgencia($agencia) {
+    // Verificar se a agência possui 4 dígitos
+    if (strlen($agencia) !== 4) {
+        return false;
+    }
+
+    // Outras regras de validação específicas da agência (opcional)
+    // ...
+
+    return true;
+}
+
+function validarConta($conta) {
+    // Verificar se a conta possui 8 ou 9 dígitos
+    if (strlen($conta) !== 8 && strlen($conta) !== 9) {
+        return false;
+    }
+
+    // Outras regras de validação específicas da conta (opcional)
+    // ...
+
+    return true;
 }
 
 function deleteUser($email)
