@@ -12,7 +12,7 @@ if(!$_SESSION['email']){
 }
 
 if(isset($_SESSION['empresa'])){
-    echo "Empresa não comrpa";
+    echo "Empresa não compra";
     exit();
 }
 
@@ -23,7 +23,7 @@ print_r($data);
 $conexao = conectarBD();
 
 // Pegar o CPF da pessoa para fazer o cadastro do ID da compra
-$cpf = retornaVal($conexao, 'pessoa', 'email', $email, 'cpf');
+$cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
 echo 'cpf: ' . $cpf;
 
 // Mesma coisa com empresa

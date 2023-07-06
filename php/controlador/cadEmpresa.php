@@ -13,8 +13,8 @@ extract($campos);
 $conexao = conectarBD();
 
 // Verificando se tudo está preenchido
-if (empty($inputCNPJ) || empty($inputConta) ||empty($inputCPF) ||empty($inputDono) ||empty($inputAgencia) ||empty($inputEmail) ||empty($inputSenha1) ||empty($inputSenha2)){
-  echo json_encode(array('msg' => "Preencha todos os campos"));
+if(checkVazio()){
+  echo json_encode(array('msg' => "Preencha todos os campos!"));
   exit();
 }
 
@@ -50,6 +50,12 @@ if ($inputSenha1 != $inputSenha2) {
 // Verificação de existência de email em tabela pessoa
 if(existe($conexao, 'pessoa', 'email', $inputEmail)){
   echo json_encode(array('msg' => "Usuário com esse e-mail já existe"));
+  exit();
+}
+
+// O dono não pode ter conta como usuário
+if(existe($conexao, 'pessoa', 'cpf', $inputCPF)){
+  echo json_encode(array('msg' => "Usuário com esse CPF já existe"));
   exit();
 }
 

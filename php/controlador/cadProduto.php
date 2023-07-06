@@ -11,10 +11,9 @@ $nome = $_POST["inputNomeProduto"];
 $descricao = $_POST["inputDescProduto"];
 $preco = $_POST["inputPreco"];
 
-
-// Verificando se tudo foi digitado
-if (empty($nome) || empty($descricao) ||empty($preco)){
-  echo json_encode(array('msg' => "Preencha todos os campos"));
+// Verificando se tudo está preenchido
+if(checkVazio()){
+  echo json_encode(array('msg' => "Preencha todos os campos!"));
   exit();
 }
 

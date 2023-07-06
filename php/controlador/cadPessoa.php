@@ -13,8 +13,9 @@ $senha1 = $_POST["inputSenha1"];
 $senha2 = $_POST["inputSenha2"];
 $conexao = conectarBD();
 
-if (empty($nome) || empty($cpf) ||empty($email) ||empty($senha1) ||empty($senha2)){
-  echo json_encode(array('msg' => "Preencha todos os campos"));
+// Verificando se tudo está preenchido
+if(checkVazio()){
+  echo json_encode(array('msg' => "Preencha todos os campos!"));
   exit();
 }
 

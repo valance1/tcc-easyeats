@@ -32,6 +32,13 @@ session_start();
 </head>
 
 <body>
+<?php
+    if(isset($_SESSION['empresa']) || !isset($_SESSION['email'])){
+      header("Location:index.php");
+    }else{
+      echo '<script type="text/javascript" src="js/carrinho.js"></script>';
+    }
+  ?>
 
   <?php include 'php/components/navbar.php' ?>
   <?php require_once 'php/components/alerts.php';
@@ -114,7 +121,6 @@ session_start();
     ';
     }
     ?>
-
    <button class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button> 
   </section>
 
@@ -122,14 +128,6 @@ session_start();
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
   <script type="text/javascript" src="js/main.js"></script>
-
-  <?php
-    if(isset($_SESSION['empresa'])){
-      header("Location:index.php");
-    }else{
-      echo '<script type="text/javascript" src="js/carrinho.js"></script>';
-    }
-  ?>
 </body>
 
 </html>

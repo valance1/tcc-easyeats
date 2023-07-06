@@ -100,7 +100,7 @@ function mask($val, $mask)
 //Verifica se o algo existe
 function existe($conexao, $tabela, $coluna, $valor)
 {
-    $sql = "SELECT * FROM '$tabela' WHERE '$coluna' = '$valor'";
+    $sql = "SELECT * FROM $tabela WHERE '$coluna' = '$valor'";
     $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     if (mysqli_num_rows($query) >= 1) {
         echo 'Usuário existe';
@@ -111,12 +111,14 @@ function existe($conexao, $tabela, $coluna, $valor)
 }
 
 function retornaVal($conexao, $tabela, $coluna, $valor, $attr){
-    $sql = "SELECT * FROM '$tabela' WHERE '$coluna' = '$valor'";
+    $sql = "SELECT * FROM $tabela WHERE $coluna = '$valor'";
     $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-    if(mysqli_num_rows($query) == 0 || mysqli_num_rows($query) > 1){
+    if(mysqli_num_rows($query) === 0 || mysqli_num_rows($query) > 1){
+        echo "NÃO EXISTE! VALOR: ". mysqli_num_rows($query);
         return false;
     }
-    return mysqli_fetch_assoc($query)[$attr];
+    $obj = mysqli_fetch_assoc($query);
+    return $obj[$attr];
 }
 function checkVazio() {
     foreach ($_POST as $key => $value) {

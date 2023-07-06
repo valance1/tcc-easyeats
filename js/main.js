@@ -218,7 +218,6 @@ cadEmpresaForm.addEventListener('submit', function (event) {
         if (xhr.status === 200) {
 
             var data = JSON.parse(xhr.responseText);
-            console.log(data);
 
             if (data.msg != "Sucesso no cadastro") {
                 // temporário, devemos adicioanr um jquery especificando o erro ao invés de colocar num diabo de um alert.
