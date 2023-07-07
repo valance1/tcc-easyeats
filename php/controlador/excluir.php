@@ -3,7 +3,7 @@
   // Esse código serve simplesmente pra ser a ação do botão "excluir"
   session_start();
   require '../dao/excluirDAO.php';
-  require 'conexaoBD.php';
+  require '../dao/conexaoBD.php';
   
   // Vamos apagar o usuário com o atual email logado;
 
