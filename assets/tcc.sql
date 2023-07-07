@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jul-2023 às 20:37
+-- Tempo de geração: 07-Jul-2023 às 14:25
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `qrCode` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`qrCode`)),
   `status` varchar(20) NOT NULL DEFAULT 'aguardando',
   `cliente` varchar(11) NOT NULL,
-  `empresa` int(11) NOT NULL COMMENT 'CNPJ da empresa',
+  `empresa` varchar(14) NOT NULL COMMENT 'CNPJ da empresa',
   PRIMARY KEY (`idPedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -124,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `produto` (
 DROP TABLE IF EXISTS `transacaoabate`;
 CREATE TABLE IF NOT EXISTS `transacaoabate` (
   `idAbate` varchar(10) NOT NULL COMMENT 'ID do pedido na época',
-  `data` date NOT NULL COMMENT 'Data que a transação foi realizada',
+  `data` datetime NOT NULL COMMENT 'Data que a transação foi realizada',
   `fichas` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '[NomedaFicha, quantidade, valor]',
   `cliente` varchar(11) NOT NULL COMMENT 'CPF do cliente',
-  `empresa` varchar(11) NOT NULL COMMENT 'CNPJ da empresa'
+  `empresa` varchar(14) NOT NULL COMMENT 'CNPJ da empresa'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `transacaoabate` (
 DROP TABLE IF EXISTS `transacaopedido`;
 CREATE TABLE IF NOT EXISTS `transacaopedido` (
   `idPedido` varchar(10) NOT NULL,
-  `data` date NOT NULL,
+  `data` datetime NOT NULL,
   `valor` float NOT NULL,
   `cliente` varchar(11) NOT NULL,
   `empresa` varchar(14) NOT NULL

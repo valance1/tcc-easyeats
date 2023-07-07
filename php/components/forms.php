@@ -140,14 +140,14 @@ echo '
 				  <div class="row g-2">
 					<div class="col-md">
 					  <div class="form-floating mb-3">
-						<input type="text" class="form-control" id="InputNumAgencia" name="inputAgencia" aria-describedby="numAgenciaHelp" placeholder="Agência">
+						<input type="text" class="form-control" id="InputNumAgencia" name="inputAgencia" aria-describedby="numAgenciaHelp" maxlength="4" placeholder="Agência">
 						<label for="InputNumAgencia" class="form-label">Agência</label>
 						<div class="invalid-feedback">Agencia inválida</div>
 					  </div>    
 					</div>
 					<div class="col-md">
 					  <div class="form-floating mb-3">
-						<input type="text" class="form-control" id="InputNumConta" name="inputConta" aria-describedby="numContaHelp" placeholder="Número da Conta">
+						<input type="text" class="form-control" id="InputNumConta" name="inputConta" aria-describedby="numContaHelp" placeholder="Número da Conta" maxlength="8">
 						<label for="InputNumConta" class="form-label">Número da Conta</label>
 						<div class="invalid-feedback">Conta inválida</div>
 					  </div>    
