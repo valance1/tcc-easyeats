@@ -28,6 +28,7 @@ echo 'cpf: ' . $cpf;
 
 // Mesma coisa com empresa
 $cnpj = retornaVal($conexao, 'produto', 'idProduto', $data[0], 'CNPJ');
+echo $cnpj;
 
 // OBS, só pode existir um pedido no BD com o CPF, vamos dropar o antigo se isso acontecer
 $sqlCode = "SELECT * FROM pedidos WHERE cliente = '$cpf'";
