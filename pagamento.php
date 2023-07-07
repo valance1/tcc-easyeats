@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require "php/dao/conexaoBD.php";
+require "php/controlador/FuncoesUteis.php";
 
 session_start();
 
@@ -41,6 +42,8 @@ if (mysqli_num_rows($query) == 0) {
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 </head>
@@ -98,10 +101,15 @@ if (mysqli_num_rows($query) == 0) {
                 <p class="text-center bold lead fs-5 my-3">Cliente:</p>
                 <p class="text-center bold lead fs-5 my-3">Data: </p>
 
-                <button class="btn btn-outline-success">Simular Pagamento</button>
+                <?php
+                $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
+                $idPedido = retornaVal(conectarBD(), 'pedidos', 'cliente', $cpf, 'idPedido');
+                echo '<button class="btn btn-outline-success" id="pagarPEDIDO" data-num-pedido="' . $idPedido . '">Simular Pagamento</button>';
+                ?>
             </div>
         </div>
     </section>
-</body>
 
+    <script type="text/javascript" src="js/pagarPedido.js"></script>
+</body>
 </html>

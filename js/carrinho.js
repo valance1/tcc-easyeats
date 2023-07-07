@@ -102,7 +102,8 @@ function finalizarCompra(){
     },
 
     complete: function (res) {
-      alert(res.responseText);
+      // alert(res.responseText);
+      console.log(res.responseText);
       // Limpando a array
     
     },

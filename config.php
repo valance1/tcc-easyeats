@@ -177,7 +177,7 @@ if (!$_SESSION['email']) {
       <p class="fs-6 fw-light text-secondary text-center">Caso queira excluir sua conta no website, aperte o botão abaixo.
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.</p>
-        <form action="php/dao/excluir.php" method="POST">
+        <form action="php/controlador/excluir.php" method="POST">
             <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
         </form>
         </div>
@@ -193,7 +193,7 @@ if (!$_SESSION['email']) {
         Vale notar que pessoas não terão os itens no inventário reembolsados. Empresas deletadas terão as fichas
         convertidas em crédito no site.
         </p>
-        <form action="php/dao/excluir.php" method="POST">
+        <form action="php/controlador/excluir.php" method="POST">
         <button class="btn btn-outline-danger" type="submit" id="excluir-conta">EXCLUIR CONTA</button>
     </form>
     </div>';

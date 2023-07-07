@@ -2,7 +2,7 @@
 
   // Esse código serve simplesmente pra ser a ação do botão "excluir"
   session_start();
-  require '../controlador/FuncoesUteis.php';
+  require '../dao/excluirDAO.php';
   require 'conexaoBD.php';
   
   // Vamos apagar o usuário com o atual email logado;
@@ -14,7 +14,7 @@
     header("Location:../../config.php");
   }
 
-  deleteUser($_SESSION['email']);
+  deleteUser(conectarBD(), $_SESSION['email']);
   
   // Já apagado do nosso banco de dados, basta limpar do navegador.
   session_destroy();
