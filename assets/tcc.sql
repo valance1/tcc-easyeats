@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Jul-2023 às 03:17
+-- Tempo de geração: 15-Jul-2023 às 14:28
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -22,6 +22,21 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `easyeats` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `easyeats`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cesta`
+--
+
+DROP TABLE IF EXISTS `cesta`;
+CREATE TABLE IF NOT EXISTS `cesta` (
+  `idCesta` varchar(11) NOT NULL,
+  `itens` longtext NOT NULL,
+  `cliente` varchar(11) NOT NULL,
+  `empresa` varchar(14) NOT NULL,
+  PRIMARY KEY (`idCesta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
