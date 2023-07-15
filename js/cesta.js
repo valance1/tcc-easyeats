@@ -91,9 +91,9 @@ function incrementarProduto(botao, idProduto) {
   }
 }
 
-function finalizarCompra() {
+function criarCesta() {
   if (cesta.length == 0) {
-    alert("Cesta vazio, operação cancelada");
+    alert("Cesta vazia, operação cancelada");
   } else {
     // Vamos criar o pedido no servidor
     $.ajax({
@@ -108,8 +108,10 @@ function finalizarCompra() {
       success: function () {
         //Redirect no usuário para a página do QRCode
         //
+        // alert(res.responseText);
         alert("Sucesso");
-        window.location.href = 'pagamento.php';
+        
+        // window.location.href = 'cesta.php';
       },
 
       error: function () {
@@ -117,7 +119,7 @@ function finalizarCompra() {
       },
 
       complete: function (res) {
-        // alert(res.responseText);
+        alert(res.responseText);
         console.log(res.responseText);
         // Limpando a array
 

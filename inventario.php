@@ -139,7 +139,8 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
         
             // Fecha a última seção
             if ($secaoAtual !== null) {
-                echo "</div>";
+                echo '</div><button class="btn btn-success" onclick="criarCesta()" >Utilizar fichas</button>';
+                
             }
 
             // ============================================================
@@ -188,6 +189,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     <?php include 'php/components/forms.php' ?>
     <script type="text/javascript" src="js/main.js"></script>
     <?php 
+    echo $_SESSION['pass'];
     if($_SESSION['PASS']){
         echo '<script type="text/javascript" src="js/cesta.js"></script>';
         unset($_SESSION['PASS']);

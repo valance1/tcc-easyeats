@@ -38,7 +38,8 @@ session_start();
 
 <body>
   <!-- Importando componente  -->
-  <?php include 'php/components/navbar.php' ?>
+  <?php 
+  include 'php/components/navbar.php' ?>
   <?php require_once 'php/components/alerts.php';
   if ($_SESSION['toast'] == 'sucesso') {
     createSuccessAlert($_SESSION['toastmsg']);
