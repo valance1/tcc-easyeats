@@ -108,8 +108,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                     }
         
                     // Abre uma nova seção com o nome da empresa
-                    echo "<h1>$nomeEmpresa :</h1>";
-                    echo "<div>";
+                    echo '<div class="nome-empresa" data-empresa="' . $nomeEmpresa . '"><h2>' . $nomeEmpresa . ':</h2>';
                     $secaoAtual = $nomeEmpresa;
                 }
         
@@ -128,9 +127,9 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                         </div>
                         <div class="cartContainer" id="cartContainer">
                             <div class="btn-group counterGroup">
-                            <button class="btn btn-danger subtrairBtn" onclick="subtrairProduto(this, ' . $row['idProduto'] . ')"> - </button>
+                            <button class="btn btn-danger subtrairBtn sectButton" onclick="subtrairProduto(this, ' . $row['idProduto'] . ')"> - </button>
                                 <div class="form-control text-muted" id="productCounter' . $row['idProduto'] . '">0</div>
-                                <button class="btn btn-success somarBtn" onclick="incrementarProduto(this, ' . $row['idProduto'] . ')"> + </button>
+                                <button class="btn btn-success somarBtn sectButton" onclick="incrementarProduto(this, ' . $row['idProduto'] . ')"> + </button>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 // Array para armazenar os produtos selecionados
 const cesta = [];
 const quantidadesOriginais = {}; // Armazena as quantidades originais dos produtos
-const produtos = {};
+const botoesSection = {};
 
 // Função para contar a quantidade de um determinado produto na cesta
 function contarQuantidade(produto) {
@@ -16,11 +16,11 @@ function contarQuantidade(produto) {
   return quantidade;
 }
 
-function subtrairProduto(botao, idProduto){
-    var botaoAdd = botao.nextElementSibling.nextElementSibling;
-    if(botaoAdd.disabled){
-        botaoAdd.removeAttribute('disabled');
-    };
+function subtrairProduto(botao, idProduto) {
+  var botaoAdd = botao.nextElementSibling.nextElementSibling;
+  if (botaoAdd.disabled) {
+    botaoAdd.removeAttribute('disabled');
+  };
   const index = cesta.indexOf(idProduto);
 
   // Se o produto existir, vamos removê-lo da lista
@@ -30,15 +30,23 @@ function subtrairProduto(botao, idProduto){
     container.innerHTML = Math.max(parseInt(container.innerHTML) - 1, 0);
 
     // Caso ele já tenha sido removido por completo.
-    if (contarQuantidade(idProduto) === 0){
+    if (contarQuantidade(idProduto) === 0) {
     }
   }
   //Debug reasons
   console.log("PRODUTO REMOVIDO: ");
   console.log(cesta);
+  if (cesta.length === 0) {
+    for (const secao in botoesSection) {
+      const botoes = botoesSection[secao];
+      for (let i = 0; i < botoes.length; i++) {
+        botoes[i].removeAttribute("disabled");
+      }
+    }
+  };
 }
 
-function incrementarProduto(botao, idProduto){
+function incrementarProduto(botao, idProduto) {
   const quantidadeMaxima = quantidadesOriginais[idProduto]; // Obtém a quantidade máxima do produto
   console.log(quantidadeMaxima);
   console.log(quantidadesOriginais);
@@ -59,27 +67,42 @@ function incrementarProduto(botao, idProduto){
   // Atualizando o valor do contador
   var container = document.getElementById('productCounter' + idProduto);
   container.innerHTML = parseInt(container.innerHTML) + 1;
-  
+
   //Debug reasons
   console.log("PRODUTO ADCIIONADO: ");
   console.log(cesta);
   if (contarQuantidade(idProduto) >= quantidadeMaxima) {
     botao.setAttribute("disabled", "");
   }
+  // Encontrar a seção do botão
+  const secao = botao.closest(".nome-empresa");
+
+  // Verificar a empresa associada à seção
+  const empresa = secao.getAttribute("data-empresa");
+
+  // Desabilitar os botões em outras seções
+  for (const secaoAtual in botoesSection) {
+    if (secaoAtual !== empresa) {
+      const botoesOutraSecao = botoesSection[secaoAtual];
+      for (let i = 0; i < botoesOutraSecao.length; i++) {
+        botoesOutraSecao[i].setAttribute("disabled", "");
+      }
+    }
+  }
 }
 
-function finalizarCompra(){
-  if(cesta.length == 0){
+function finalizarCompra() {
+  if (cesta.length == 0) {
     alert("Cesta vazio, operação cancelada");
-  }else{
+  } else {
     // Vamos criar o pedido no servidor
     $.ajax({
       method: 'POST',
       url: 'php/controlador/criarCesta.php',
-      data: {data:cesta},
+      data: { data: cesta },
       xhr: function () {
-          var xhr = new XMLHttpRequest();
-          return xhr;
+        var xhr = new XMLHttpRequest();
+        return xhr;
       },
 
       success: function () {
@@ -97,7 +120,7 @@ function finalizarCompra(){
         // alert(res.responseText);
         console.log(res.responseText);
         // Limpando a array
-      
+
       },
     });
   }
@@ -117,19 +140,21 @@ function inicializar() {
     quantidadesOriginais[idProduto] = parseInt(quantidade);
   }
 
-//   Vamos fazer a mesma coisa para os produtos
+  // Percorre todas as seções com a classe "nome-empresa"
+  const secoes = document.querySelectorAll(".nome-empresa");
+  for (let i = 0; i < secoes.length; i++) {
+    const secao = secoes[i];
+    const empresa = secao.getAttribute("data-empresa");
 
-    // for (let i = 0; i < elementos.length; i++) {
-    //     const elemento = elementos[i];
-    //     const quantidade = elemento.getAttribute("data-quantidade");
-    //     const idProduto = elemento.getAttribute("data-id");
+    // Seleciona todos os botões dentro da seção
+    const botoes = secao.querySelectorAll(".sectButton");
 
-    //     // Armazena a quantidade original do produto
-    //     quantidadesOriginais[idProduto] = Array();
-    // }
-
-
+    // Armazena a quantidade de botões por seção
+    botoesSection[empresa] = botoes;
+  }
 }
-
 // Inicializa as quantidades originais dos produtos ao carregar a página
-inicializar();
+document.addEventListener("DOMContentLoaded", function () {
+  inicializar();
+});
+
