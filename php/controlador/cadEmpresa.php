@@ -58,6 +58,14 @@ if(existe($conexao, 'pessoa', 'cpf', $inputCPF)){
   echo json_encode(array('msg' => "Usuário com esse CPF já existe"));
   exit();
 }
+if (validarAgencia($inputAgencia) == false){
+  echo json_encode(array('msg' => "Agencia Inválida"));
+  exit();
+}
+if (validarAgencia($inputConta) == false){
+  echo json_encode(array('msg' => "Conta Inválida"));
+  exit();
+}
 
 
 // Verificação de existência de email, CNPJ ou conta em tabela empresa

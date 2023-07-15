@@ -11,6 +11,8 @@ require_once "../dao/transacaopedidoDAO.php";
 
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+
 // Verificando se tá logado
 if(!$_SESSION['email']){
     echo "Usuário não está logado";
@@ -35,7 +37,7 @@ $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf'); // Ne
 foreach ($itens as &$produto) {
     $nomeProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'nome');
     $precoProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'preco');
-    inserirItem($conexao, $nomeProduto, $precoProduto, $produto, $cpf);
+    inserirItem($conexao, $nomeProduto, $precoProduto, $produto, $cpf, $cnpj);
 };
 
 // Enviando lucro para a empresa
@@ -47,7 +49,7 @@ $data = date('Y-m-d H:i:s');
 criarTransacaoPedido($conexao, $idPedido, $data, $valorTotal, $cpf, $cnpj);
 
 // 3 - Deletar pedido
-$caminhoArquivo = "../../images/qrcodes" . $idPedido;
+$caminhoArquivo = "../../images/qrcodes/" . $idPedido;
   if (file_exists($caminhoArquivo)) {
       // Exclui o arquivo
       unlink($caminhoArquivo);

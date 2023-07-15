@@ -131,7 +131,7 @@ function checkVazio() {
 
 function validarAgencia($agencia) {
     // Verificar se a agência possui 4 dígitos
-    if (strlen($agencia) !== 4) {
+    if (strlen($agencia) !== 4 || is_numeric($agencia) == false) {
         return false;
     }
 
@@ -143,7 +143,7 @@ function validarAgencia($agencia) {
 
 function validarConta($conta) {
     // Verificar se a conta possui 8 ou 9 dígitos
-    if (strlen($conta) !== 8 && strlen($conta) !== 9) {
+    if (strlen($conta) !== 8 && strlen($conta) !== 9 || is_numeric($conta) == false ) {
         return false;
     }
 

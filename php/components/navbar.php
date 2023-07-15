@@ -38,10 +38,10 @@ echo '
       </li>';
     }else{
         echo '
-        <li class="nav-item dropdown" style="
+        <li class="nav-item dropdown"  style="
 display:  flex;
 align-items: center;">
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
+      <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
       </a>
       <ul class="dropdown-menu">
       ';

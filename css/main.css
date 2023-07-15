@@ -2,6 +2,7 @@
 
 :root {
   --blackDominant: #121212;
+  --blackSecondary: #181818;
   --white: #fEFFFE;
   --whiteCool: #EEEFF9;
   --grey: #DDDFF1;
@@ -57,6 +58,19 @@ img {
   cursor: pointer;
 }
 
+
+.dropdown-menu.show {
+  color: var(--white);
+  background-color: var(--blackSecondary);
+}
+.dropdown-menu.show .dropdown-item:hover{
+  color: var(--blackDominant) !important;
+}
+
+.darkMode{
+  color: var(--white) !important;
+  background-color: var(--blackDominant) !important;
+}
 /* -------------------------------------------------------------- */
 
 nav.navbar {
@@ -105,6 +119,9 @@ nav a.nav-link:hover:after {
   margin: 0;
 }
 
+#HERO div.row.flex-lg-row-reverse.align-items-center.g-5.py-5{
+  height: 50vh;
+}
 /* SECTION */
 /* ---------------------------------------- */
 section.average-section,
@@ -116,8 +133,8 @@ nav.navbar {
 
 section.average-section {
   background-color: var(--white);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .section-text-container {

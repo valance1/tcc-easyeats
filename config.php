@@ -82,6 +82,10 @@ if (!$_SESSION['email']) {
       $fetch = mysqli_fetch_assoc($query);
       $perfil = $fetch['perfil'];
 
+      if(!$perfil){
+        $perfil = "images/placeholder/produto.png";
+      }
+
       echo '
       <!-- Modal cadastro de produto -->
     <div class="modal fade" id="cadProdutoModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -373,7 +377,12 @@ if (!$_SESSION['email']) {
 
 <script type="text/javascript" src="js/main.js"></script>
 <!-- <script type="text/javascript" src="js/produtoCRUD.js"></script> -->
-<script type="text/javascript" src="js/config.js"></script>
+
+<?php 
+if($_SESSION['empresa']){
+  echo '<script type="text/javascript" src="js/config.js"></script>';
+}
+?>
 </section>
 
 </html>

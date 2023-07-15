@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jul-2023 às 14:25
+-- Tempo de geração: 15-Jul-2023 às 03:17
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `preco` varchar(10) DEFAULT NULL,
   `idProduto` int(11) NOT NULL,
   `donoDoItem` varchar(11) NOT NULL,
+  `empresa` varchar(14) NOT NULL,
   PRIMARY KEY (`idItem`),
   KEY `DonoDoItem` (`donoDoItem`),
   KEY `ProdutoOriginal` (`idProduto`)
@@ -113,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL,
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 

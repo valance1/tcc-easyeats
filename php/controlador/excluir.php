@@ -4,6 +4,7 @@
   session_start();
   require '../dao/excluirDAO.php';
   require '../dao/conexaoBD.php';
+  require 'FuncoesUteis.php';
   
   // Vamos apagar o usuário com o atual email logado;
 
@@ -18,9 +19,6 @@
   
   // Já apagado do nosso banco de dados, basta limpar do navegador.
   session_destroy();
-  session_start();
-  $_SESSION['toast'] = 'sucesso';
-  $_SESSION['toastmsg'] = 'Conta deletada com sucesso';
-  header("Location:../../index.php");
+  header("Location:../../index.php?toast=sucesso&toastmsg=Conta deletada com sucesso");
   
 ?>

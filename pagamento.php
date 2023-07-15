@@ -64,7 +64,14 @@ if (mysqli_num_rows($query) == 0) {
                 echo 'R$' . mysqli_fetch_assoc($query)['valorTotal'];
                 ?></b>
             </h1>
-            <button class="btn btn-dark">Copiar QRCode</button>
+            <div class="mt-5" style="
+                display: flex;
+                width: 100%;
+                align-content: center;
+                justify-content: center;
+            ">
+                <button class="btn btn-dark">Copiar QRCode</button>
+            </div>
             <div class="qr-code rounded py-2 mt-4 text-center">
                 <?php
                 // Inclua a biblioteca QR Code
@@ -104,7 +111,14 @@ if (mysqli_num_rows($query) == 0) {
                 <?php
                 $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
                 $idPedido = retornaVal(conectarBD(), 'pedidos', 'cliente', $cpf, 'idPedido');
-                echo '<button class="btn btn-outline-success" id="pagarPEDIDO" data-num-pedido="' . $idPedido . '">Simular Pagamento</button>';
+                echo '
+                <div style="
+                display: flex;
+                width: 100%;
+                align-content: center;
+                justify-content: center;
+                ">
+                <button class="btn btn-outline-success" id="pagarPEDIDO" data-num-pedido="' . $idPedido . '">Simular Pagamento</button></div>';
                 ?>
             </div>
         </div>

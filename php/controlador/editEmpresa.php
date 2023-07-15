@@ -79,5 +79,5 @@ if (strlen($conta) != 0) {
 }
 $_SESSION['toast'] = 'sucesso';
 $_SESSION['toastmsg'] = 'Perfil alterado com sucesso';
-// header("Location:../../config.php?msg=Perfil Alterado");
+header("Location:../../config.php?msg=Perfil Alterado");
 ?>
