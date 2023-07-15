@@ -17,6 +17,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="assets/icon.png">
     <link href="css/main.css" type="text/css" rel="stylesheet">
+    <link href="css/inventario.css" type="text/css" rel="stylesheet">
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -75,7 +76,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
         
         $conexao = conectarBD();
         $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
-        $code = "SELECT item.nome AS nomeItem, produto.descricao, produto.imagem, empresa.nome AS nomeEmpresa, COUNT(item.idItem) AS quantidade
+        $code = "SELECT item.nome AS nomeItem, item.idProduto, produto.descricao, produto.imagem, empresa.nome AS nomeEmpresa, COUNT(item.idItem) AS quantidade
         FROM item
         INNER JOIN produto ON item.idProduto = produto.idProduto
         INNER JOIN empresa ON item.empresa = empresa.CNPJ
@@ -88,6 +89,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
 
         // Se houver algum produto:
         if (mysqli_num_rows($query) != 0) {
+            $_SESSION['PASS'] = true;
 
             // Lógica simples para dividir os produtos por empresa
             $secaoAtual = null;
@@ -122,7 +124,14 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                         <div class="product-text-container ms-3 d-flex flex-column my-3  w-50 float-start">
                         <p class="fs-4 mb-0">' . $nomeItem . '</p>
                         <p class="text-muted fs-6 my-1">' . $descricaoItem . '</p>
-                        <p class="fw-bold text-success green mb-0">Quantidade: ' . $quantidade . '</p>
+                        <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
+                        </div>
+                        <div class="cartContainer" id="cartContainer">
+                            <div class="btn-group counterGroup">
+                            <button class="btn btn-danger subtrairBtn" onclick="subtrairProduto(this, ' . $row['idProduto'] . ')"> - </button>
+                                <div class="form-control text-muted" id="productCounter' . $row['idProduto'] . '">0</div>
+                                <button class="btn btn-success somarBtn" onclick="incrementarProduto(this, ' . $row['idProduto'] . ')"> + </button>
+                            </div>
                         </div>
                     </div>
               ';
@@ -179,6 +188,13 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     <?php include 'php/components/footer.php' ?>
     <?php include 'php/components/forms.php' ?>
     <script type="text/javascript" src="js/main.js"></script>
+    <?php 
+    if($_SESSION['PASS']){
+        echo '<script type="text/javascript" src="js/cesta.js"></script>';
+        unset($_SESSION['PASS']);
+    }
+    ?>
+    
 </body>
 
 </html>

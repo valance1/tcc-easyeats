@@ -106,7 +106,10 @@ if (mysqli_num_rows($query) == 0) {
                 <p class="text-center bold lead fs-4 my-3">Detalhes da transação</p>
                 <p class="text-center bold lead fs-5 my-3">Destinatário:</p>
                 <p class="text-center bold lead fs-5 my-3">Cliente:</p>
-                <p class="text-center bold lead fs-5 my-3">Data: </p>
+                <p class="text-center bold lead fs-5 my-3">Data: <?php
+                date_default_timezone_set('America/Sao_Paulo');
+                echo date('d-m-Y');
+                ?> </p>
 
                 <?php
                 $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
