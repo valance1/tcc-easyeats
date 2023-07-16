@@ -31,7 +31,7 @@ if ($imagem['size'] != 0) {
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
     $image_name = 'perfil' . $image_extension;
-    
+
     // Verificar o tamanho do arquivo
     $maxFileSize = 10 * 1024 * 1024; // 10MB
     if ($imagem['size'] > $maxFileSize) {
@@ -70,14 +70,30 @@ if ($imagem['size'] != 0) {
     // Inserindo o produto no BD
     alterarFotoEmpresa(conectarBD(), $path, $cnpj);
 }
+
 if (strlen($agencia) != 0) {
-    // Tem que adicionar as verificações
-    alterarAgenciaEmpresa(conectarBD(), $agencia, $cnpj);
+    if (validarAgencia($inputAgencia) != false) {
+        // Tem que adicionar as verificações
+        alterarAgenciaEmpresa(conectarBD(), $agencia, $cnpj);
+    }else{
+        $passou = false;
+    }
 }
 if (strlen($conta) != 0) {
-    alterarContaEmpresa(conectarBD(), $conta, $cnpj);
+    if (validarAgencia($inputConta) != false) {
+        alterarContaEmpresa(conectarBD(), $conta, $cnpj);
+    }else{
+        $passou = false;
+    }
 }
-$_SESSION['toast'] = 'sucesso';
-$_SESSION['toastmsg'] = 'Perfil alterado com sucesso';
-header("Location:../../config.php?msg=Perfil Alterado");
+if($passou == true){
+    $_SESSION['toast'] = 'sucesso';
+    $_SESSION['toastmsg'] = 'Perfil alterado com sucesso';
+    header("Location:../../config.php?msg=Perfil Alterado");
+
+}else{
+    $_SESSION['toast'] = 'warning';
+    $_SESSION['toastmsg'] = 'Alguns campos estavam inválidos e podem não ter sido alterados.';
+    header("Location:../../config.php?msg=Perfil Alterado com falhas");
+}
 ?>

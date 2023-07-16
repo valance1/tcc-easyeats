@@ -110,8 +110,7 @@ function criarCesta() {
         //
         // alert(res.responseText);
         alert("Sucesso");
-        
-        // window.location.href = 'cesta.php';
+        window.location.href = 'cesta.php';
       },
 
       error: function () {

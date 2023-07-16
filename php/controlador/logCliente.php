@@ -8,8 +8,6 @@ session_start();
 $email = $_POST["inputEmail"];
 $senha = $_POST["inputSenha"];
 
-echo $email;
-
 // PEGANDO OS USERS
 $senha = md5($senha);
 $sqlCode = "SELECT * FROM pessoa WHERE email = '$email' AND senha ='$senha'";

@@ -5,7 +5,7 @@ function criarCesta($conexao, $idCesta, $cpf, $itens, $cnpj){
 }
 
 function removerCesta($conexao, $cpf){
-  $code = "DELETE FROM cesta WHERE cpf = '$cpf'";
+  $code = "DELETE FROM cesta WHERE cliente = '$cpf'";
   mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 }
 

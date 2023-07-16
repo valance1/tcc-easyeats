@@ -83,6 +83,7 @@ logForm.addEventListener('submit', function (event) {
             // xhr.responseText retorna o todos os echos e locations do arquivo .php em uma string! (pode ser útil)
             // alert('Login realizado com sucesso!');
             $('#loginModal').modal('hide');
+            alert(xhr.responseText);
             location.reload();
 
             // Tem que dar um jeito de passar as mensagens?

@@ -50,7 +50,7 @@ if (!$_SESSION['email']) {
     unset($_SESSION['toast']);
   }
 
-  if ($_SESSION['toast' == 'warning']) {
+  if ($_SESSION['toast'] == 'warning') {
     createWarningAlert($_SESSION['toastmsg']);
     unset($_SESSION['toastmsg']);
     unset($_SESSION['toast']);

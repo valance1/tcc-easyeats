@@ -10,7 +10,7 @@ echo '<section class="footerSection" id="footer">
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+      <li class="nav-item"><a href="index.php" class="nav-link px-2">Home</a></li>
       <li class="nav-item"><a href="restaurantes.php" class="nav-link px-2">Restaurantes</a></li>
       <li class="nav-item"><a href="contato.php" class="nav-link px-2">Contato</a></li>
     </ul>
