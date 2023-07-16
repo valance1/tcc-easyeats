@@ -62,7 +62,7 @@ if (validarAgencia($inputAgencia) == false){
   echo json_encode(array('msg' => "Agencia Inválida"));
   exit();
 }
-if (validarAgencia($inputConta) == false){
+if (validarConta($inputConta) == false){
   echo json_encode(array('msg' => "Conta Inválida"));
   exit();
 }

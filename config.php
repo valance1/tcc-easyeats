@@ -39,6 +39,7 @@ if (!$_SESSION['email']) {
 
   <?php include 'php/components/navbar.php' ?>
   <?php require_once 'php/components/alerts.php';
+  echo $_SESSION['DEBUG'];
   if ($_SESSION['toast'] == 'sucesso') {
     createSuccessAlert($_SESSION['toastmsg']);
     unset($_SESSION['toastmsg']);
@@ -165,12 +166,12 @@ if (!$_SESSION['email']) {
 
           <!-- CAMPO AGENCIA -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="inputAgencia" name="inputAgencia" placeholder="">
+            <input type="text" class="form-control" id="inputAgencia" maxlength="4" name="inputAgencia" placeholder="">
             <label for="inputAgencia" class="form-label">Agencia</label>
           </div>
         <!-- CAMPO  SENHA -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="inputConta" name="inputConta" placeholder="">
+            <input type="text" class="form-control" id="inputConta" maxlength="9" name="inputConta" placeholder="">
             <label for="inputConta" class="form-label">Conta</label>
           </div>
           <button type="submit" class="btn btn-success align-self-end">Salvar</button>

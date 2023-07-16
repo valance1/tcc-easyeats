@@ -71,16 +71,17 @@ if ($imagem['size'] != 0) {
     alterarFotoEmpresa(conectarBD(), $path, $cnpj);
 }
 
+$passou = true;
+
 if (strlen($agencia) != 0) {
-    if (validarAgencia($inputAgencia) != false) {
-        // Tem que adicionar as verificações
+    if (validarAgencia($agencia) == true) {
         alterarAgenciaEmpresa(conectarBD(), $agencia, $cnpj);
     }else{
         $passou = false;
     }
 }
 if (strlen($conta) != 0) {
-    if (validarAgencia($inputConta) != false) {
+    if (validarConta($conta) == true) {
         alterarContaEmpresa(conectarBD(), $conta, $cnpj);
     }else{
         $passou = false;
@@ -90,7 +91,6 @@ if($passou == true){
     $_SESSION['toast'] = 'sucesso';
     $_SESSION['toastmsg'] = 'Perfil alterado com sucesso';
     header("Location:../../config.php?msg=Perfil Alterado");
-
 }else{
     $_SESSION['toast'] = 'warning';
     $_SESSION['toastmsg'] = 'Alguns campos estavam inválidos e podem não ter sido alterados.';
