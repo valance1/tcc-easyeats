@@ -214,27 +214,36 @@ if (!$_SESSION['email']) {
   <section class="average-section" id="abater-fichas-section">
     <hr class="hr" />
     <div class="section-text-container mb-5">
-      <h1 class="h1">Abater ficha</h1>
+      <h1 class="h1">Abater pedido</h1>
       <p class="lead text-secondary">Aqui você pode abater as fichas do seu cliente</p>
     </div>
 <!--     Form para abater uma ficha -->
-    <form action="php/controlador/abaterDivida.php" class="w-100" method="POST">
-    <div class="row g-2">
-			<div class="col-md">
+    <div class="visualizarPedido">
+
+      <div class="formItens">
+
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="inputPedido" name="inputPedido" placeholder="">
           <label for="inputPedido" class="form-label">Código do pedido</label>
         </div>
-      </div>
-      <div class="col-md">
+
         <div class="form-floating mb-3">
           <button class="btn"><i class="fa-solid fa-camera"></i></button>
         </div>
+
+        <div class="form-floating mb-3">
+      <button type="submit" id="viz-pedido"class="btn btn-success align-self-end">Visualizar pedido</button>
       </div>
+
     </div>
-            <button type="submit" class="btn btn-success align-self-end">Abater</button>
-        </form>
+
+    <div>exibir itens vai ser aqui
+
     </div>
+
+
+    </div>
+  </div>
   </section>';
   }
 

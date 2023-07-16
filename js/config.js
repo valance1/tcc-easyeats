@@ -136,6 +136,39 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
 
 window.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.sr-only');
+
+    // Botao de visualizar itens 
+    vizitem = document.getElementById("viz-pedido")
+    vizitem.addEventListener('click', function(){
+        alert("Feature em desenvolvimento");
+        var formData = new FormData('cesta', document.getElementById('inputPedido').value());
+        $.ajax({
+            method: 'POST',
+            url: 'php/controlador/retrieveCesta.php',
+            data: formData,
+            processData: false,
+            contentType: false,
+
+            xhr: function () {
+                var xhr = new XMLHttpRequest();
+                return xhr;
+            },
+
+            success: function (resultado) {
+                // Pegar os produtos aqui
+                // Simplesmente cuspir o ECHO na página
+                
+            },
+
+            error: function () {
+                alert("ERRO");
+            },
+
+            complete: function (response) {
+                console.log(response.responseText);
+            },
+        });
+    });
     
     elements.forEach((item) => {
         item.addEventListener('click', function(){
