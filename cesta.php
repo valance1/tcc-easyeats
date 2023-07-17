@@ -55,19 +55,18 @@ if (mysqli_num_rows($query) == 0) {
         <div class="section-text-container mb-5">
             <h1 class="h1 m-auto">Pagamento</h1>
             <p class="lead m-auto text-secondary">
-                Realize o pagamento pelo código pix!
+                Mostre o QRCode para o atendente do estabelecimento
             </p>
         </div>
 
         <div>
             <h1 class="text-center">Você irá utilizar sua ficha!</h1>
-            <div class="mt-5" style="
-                display: flex;
-                width: 100%;
-                align-content: center;
-                justify-content: center;
-            ">
-                <button class="btn btn-dark">Copiar QRCode</button>
+            <div>
+                <h1>ID da cesta: <?php 
+                $cpf = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'cpf');
+                $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
+                echo $idCesta;
+                ?> </h1>
             </div>
             <div class="qr-code rounded py-2 mt-4 text-center">
                 <?php
@@ -85,7 +84,7 @@ if (mysqli_num_rows($query) == 0) {
                 $query = mysqli_query($conexao, $sqlCode);
 
                 // Dados para o QR code
-                $text = 'Olá, Mundo!';
+                $text = 'www.yourwebsitename.com/config?idCesta='. 4;
                 $filename = 'images/qrcodes/cesta/'. mysqli_fetch_assoc($query)['idCesta'] .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code

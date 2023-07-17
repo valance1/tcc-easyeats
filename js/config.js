@@ -140,14 +140,11 @@ window.addEventListener('DOMContentLoaded', function () {
     // Botao de visualizar itens 
     vizitem = document.getElementById("viz-pedido")
     vizitem.addEventListener('click', function(){
-        alert("Feature em desenvolvimento");
-        var formData = new FormData('cesta', document.getElementById('inputPedido').value());
+        idCesta = document.getElementById('inputPedido').value;
         $.ajax({
             method: 'POST',
             url: 'php/controlador/retrieveCesta.php',
-            data: formData,
-            processData: false,
-            contentType: false,
+            data: 'idCesta=' + idCesta,
 
             xhr: function () {
                 var xhr = new XMLHttpRequest();
@@ -155,9 +152,8 @@ window.addEventListener('DOMContentLoaded', function () {
             },
 
             success: function (resultado) {
-                // Pegar os produtos aqui
-                // Simplesmente cuspir o ECHO na página
-                
+                // codHtml = resultado.responseText;
+                // document.getElementById('viz-cesta-itens').innerHTML = codHtml;
             },
 
             error: function () {
@@ -165,7 +161,8 @@ window.addEventListener('DOMContentLoaded', function () {
             },
 
             complete: function (response) {
-                console.log(response.responseText);
+                codHtml = response.responseText;
+                document.getElementById('viz-cesta-itens').innerHTML = codHtml;
             },
         });
     });

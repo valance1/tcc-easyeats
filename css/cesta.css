@@ -1,19 +1,20 @@
 .product-card {
     margin: auto;
-    max-width: 1000px;
+    /* max-width: 1000px; */
     cursor: pointer;
-    height: 100px;
+    height: 150px !important;
     justify-content: space-between;
   }
   
   .product-text-container {
     margin-right: auto;
+    align-self: center;
   }
   
   .product-img-container {
-    height: 100px;
-    min-width: 100px;
-    width: 100px !important;
+    height: 150px;
+    min-width: 150px;
+    width: 150px !important;
   
   }
   

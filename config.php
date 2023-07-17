@@ -16,6 +16,7 @@ if (!$_SESSION['email']) {
   <link rel="icon" type="image/x-icon" href="assets/icon.png">
   <link href="css/main.css" type="text/css" rel="stylesheet">
   <link href="css/config.css" type="text/css" rel="stylesheet">
+  <link href="css/cesta.css" type="text/css" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -32,6 +33,9 @@ if (!$_SESSION['email']) {
   <!-- CROP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ANIMATIONS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 
@@ -237,8 +241,7 @@ if (!$_SESSION['email']) {
 
     </div>
 
-    <div>exibir itens vai ser aqui
-
+    <div id="viz-cesta-itens">
     </div>
 
 
@@ -386,6 +389,10 @@ if (!$_SESSION['email']) {
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 <!-- <script type="text/javascript" src="js/produtoCRUD.js"></script> -->
 
 <?php 

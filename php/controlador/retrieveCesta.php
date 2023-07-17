@@ -1,10 +1,16 @@
 <?php
+
+require_once "FuncoesUteis.php";
+require_once "../dao/conexaoBD.php";
+require_once "../dao/cestaDAO.php";
+
+session_start();
+
+$conexao = conectarBD();
+
 // Vamos pegar a cesta do indivíduo
-$email = $_SESSION['email'];
-$sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
-$query = mysqli_query($conexao, $sqlCode);
-$cpf = mysqli_fetch_assoc($query)['cpf'];
-$itens = json_decode(retornaVal($conexao, 'cesta', 'cliente', $cpf, 'itens'));
+$idCesta = $_POST['idCesta'];
+$itens = json_decode(retornaVal($conexao, 'cesta', 'idCesta', $idCesta, 'itens'));
 
 // ADICIONAR UM BOTÃO QUE FECHA
 // Agora vamos exibir o que ele escolheu
@@ -20,7 +26,7 @@ foreach ($itemUnique as &$produto) {
     $quantidade = $tmp[$produto];
 
     echo '
-                    <div class="card product-card my-3 d-flex flex-row">
+                    <div class="card product-card my-3 d-flex flex-row" data-aos="fade-up">
                     <div class="product-img-container">
                         <img class="float-start" src="' . $imagemProduto . '">
                     </div>
