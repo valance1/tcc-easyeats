@@ -10,7 +10,7 @@ function removerCesta($conexao, $cpf){
 }
 
 function removerCestaPorID($conexao, $id){
-    $code = "DELETE FROM cesta WHERE idProduto = '$id'";
+    $code = "DELETE FROM cesta WHERE idCesta = '$id'";
     mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
   }
 ?>

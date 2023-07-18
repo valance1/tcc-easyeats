@@ -24,9 +24,7 @@ function abaterCesta(idCesta) {
         },
 
         complete: function (res) {
-            alert(res.responseText);
             // Limpando a array
-
         },
     });
 }

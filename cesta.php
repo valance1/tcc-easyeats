@@ -62,7 +62,7 @@ if (mysqli_num_rows($query) == 0) {
         <div>
             <h1 class="text-center">Você irá utilizar sua ficha!</h1>
             <div>
-                <h1>ID da cesta: <?php 
+                <h1 class="text-center">ID da cesta: <?php 
                 $cpf = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'cpf');
                 $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
                 echo $idCesta;
@@ -173,6 +173,6 @@ if (mysqli_num_rows($query) == 0) {
             </div>
         </div>
     </section>
-    <script type="text/javascript" src="js/pagarCesta.js"></script>
+    <script type="text/javascript" src="js/abaterCesta.js"></script>
 </body>
 </html>
