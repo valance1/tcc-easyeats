@@ -84,7 +84,7 @@ if (mysqli_num_rows($query) == 0) {
                 $query = mysqli_query($conexao, $sqlCode);
 
                 // Dados para o QR code
-                $text = 'www.yourwebsitename.com/config?idCesta='. 4;
+                $text = 'config.php?idCesta='. mysqli_fetch_assoc($query)['idCesta'];
                 $filename = 'images/qrcodes/cesta/'. mysqli_fetch_assoc($query)['idCesta'] .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code

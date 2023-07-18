@@ -26,16 +26,25 @@ if (!$_SESSION['email']) {
   <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 
   <!-- TOASTER -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
   <!-- CROP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js" integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"
+    integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
+    integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- ANIMATIONS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- instascan -->
+  <script type="text/javascript" src="js/instascan.min.js"></script>
+
+  <!-- ANIMATIONS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 
@@ -87,7 +96,7 @@ if (!$_SESSION['email']) {
       $fetch = mysqli_fetch_assoc($query);
       $perfil = $fetch['perfil'];
 
-      if(!$perfil){
+      if (!$perfil) {
         $perfil = "images/placeholder/produto.png";
       }
 
@@ -162,7 +171,7 @@ if (!$_SESSION['email']) {
           <div class="input-group mb-3">
           <label class="label" title="">
             <div class="empresaImagem">
-              <img class="rounded" id="avatar" src="'. $perfil .'" alt="avatar">
+              <img class="rounded" id="avatar" src="' . $perfil . '" alt="avatar">
               <input type="file" data-item-id="empresa" class="sr-only" name="inputImagem" id="inputGroupFile02">
             </div>
           </label>
@@ -227,21 +236,21 @@ if (!$_SESSION['email']) {
       <div class="formItens">
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="inputPedido" name="inputPedido" maxlength="10" value="'. $_GET['idCesta'] .'">
+          <input type="text" class="form-control" id="inputPedido" name="inputPedido" maxlength="10" value="' . $_GET['idCesta'] . '">
           <label for="inputPedido" class="form-label">Código do pedido</label>
         </div>
 
         <div class="form-floating mb-3">
-          <button class="btn"><i class="fa-solid fa-camera"></i></button>
+          <button class="btn" id="scanQRCodeBtn"><i class="fa-solid fa-camera"></i></button>
         </div>
 
         <div class="form-floating mb-3">
       <button type="submit" id="viz-pedido"class="btn btn-success align-self-end">Visualizar pedido</button>
       </div>
-
+      <video id="previewQR" style="display: none; width: 100%;"></video>
     </div>
 
-    <div id="viz-cesta-itens">
+    <div id="viz-cesta-itens" style="display: none;">
     </div>
 
 
@@ -291,13 +300,13 @@ if (!$_SESSION['email']) {
                 </thead>
                 <tbody>';
       while ($produto = mysqli_fetch_assoc($query)) {
-        $porcaria = $produto['idProduto'] . ",'" . $produto['nome'] . "', '".$produto['descricao']."'," . $produto['preco'];   
+        $porcaria = $produto['idProduto'] . ",'" . $produto['nome'] . "', '" . $produto['descricao'] . "'," . $produto['preco'];
         echo '<tr class="align-middle alert border-bottom" role="alert">
                         <td class="text-center" style="width: 100px;">
                         <!--   FOTO DO PRODUTO  -->
                         <label class="label" title="">
                           <div class="produtoCRUDFoto">
-                              <img class="pic" id="pic'. $produto['idProduto'] . '"
+                              <img class="pic" id="pic' . $produto['idProduto'] . '"
                                   src="' . $produto['imagem'] . '"
                                   alt="">
                                 <input type="file" class="sr-only inputEditProdutoImagem" data-item-id="' . $produto['idProduto'] . '" id="inputEditProdutoImagem' . $produto['idProduto'] . '" name="inputImagemProduto">
@@ -320,8 +329,8 @@ if (!$_SESSION['email']) {
                         -->
                         <td>
                           <div>
-                            <button class="btn btn-success" onclick="editModal('. $porcaria. ')"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn btn-danger" onclick=removeModal('. $produto['idProduto'] .')><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-success" onclick="editModal(' . $porcaria . ')"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-danger" onclick=removeModal(' . $produto['idProduto'] . ')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
                     </tr>';
@@ -391,14 +400,73 @@ if (!$_SESSION['email']) {
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/abaterCesta.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+<script>
+  AOS.init();
+</script>
 <!-- <script type="text/javascript" src="js/produtoCRUD.js"></script> -->
 
-<?php 
-if($_SESSION['empresa']){
+<?php
+if ($_SESSION['empresa']) {
   echo '<script type="text/javascript" src="js/config.js"></script>';
+  echo '   
+  <script type="text/javascript">
+  // Variável para armazenar o scanner do instascan
+  let scanner;
+
+  // Função para iniciar o scanner
+  function startScanner() {
+      // Use a API da câmera para acessar a câmera do dispositivo
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+          .then(function(stream) {
+              // Obtenha o elemento de vídeo para visualizar a câmera
+              const videoElement = document.getElementById("previewQR");
+              videoElement.srcObject = stream;
+              videoElement.play();
+
+              // Crie um scanner usando a biblioteca instascan
+              scanner = new Instascan.Scanner({ video: videoElement });
+
+              // Adicione um ouvinte para detectar quando um QRCode é lido
+              scanner.addListener("scan", function(content) {
+                  // Redirecionar para a página com o conteúdo do QRCode
+                  window.location.href = content;
+              });
+
+              // Inicie o scanner
+              Instascan.Camera.getCameras()
+                  .then(function(cameras) {
+                      if (cameras.length > 0) {
+                          scanner.start(cameras[0]); // Use a câmera traseira por padrão
+                      } else {
+                          console.error("Nenhuma câmera encontrada.");
+                          document.getElementById("previewQR").style.display = "none"; 
+                      }
+                  })
+                  .catch(function(err) {
+                    document.getElementById("previewQR").style.display = "none"; 
+                      console.error("Erro ao acessar a câmera: ", err);
+                  });
+          })
+          .catch(function(err) {
+            document.getElementById("previewQR").style.display = "none"; 
+              console.error("Erro ao acessar a câmera: ", err);
+          });
+  }
+
+  // Adicione um ouvinte ao botão "Abrir Câmera"
+  window.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("scanQRCodeBtn").addEventListener("click", function() {
+      previewContainer= document.getElementById("previewQR")
+      if (previewContainer.style.display === "none") {
+        previewContainer.style.display = "flex";
+        startScanner();
+      } else {
+        previewContainer.style.display = "none";
+      }
+      
+  });
+});
+</script>';
 }
 ?>
 </section>

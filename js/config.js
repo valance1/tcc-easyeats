@@ -162,7 +162,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
             complete: function (response) {
                 codHtml = response.responseText;
-                document.getElementById('viz-cesta-itens').innerHTML = codHtml;
+                containterAlvo = document.getElementById('viz-cesta-itens');
+                if (containterAlvo.style.display === "none" ||  containterAlvo.innerHTML.trim() == "") {
+                    containterAlvo.style.display = "block";
+                    containterAlvo.innerHTML = codHtml;
+                  } else {
+                    containterAlvo.style.display = "none";
+                    containterAlvo.innerHTML = "";
+                }
             },
         });
     });
