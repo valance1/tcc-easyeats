@@ -167,6 +167,13 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
     
+    // Se vier de um redirecionamento QRCODE:
+    if(document.getElementById('inputPedido').value !== ""){
+        vizitem.scrollIntoView();
+        vizitem.click();
+    }
+
+
     elements.forEach((item) => {
         item.addEventListener('click', function(){
             editarFoto(item);

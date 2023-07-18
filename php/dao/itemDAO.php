@@ -10,9 +10,9 @@ function inserirItem($conexao, $nome, $preco, $idProduto, $donoDoItem, $cnpj)
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
-function excluirItem($conexao, $idItem)
+function excluirItem($conexao, $idProduto, $cpf, $cnpj)
 {
-    $code = "DELETE FROM Item WHERE idItem = '$idItem'";
+    $code = "DELETE FROM Item WHERE idProduto ='$idProduto' and cliente = '$cpf' and empresa = '$cnpj' ";
     mysqli_query($conexao, $code) or die(mysqli_error($conexao));
 }
 

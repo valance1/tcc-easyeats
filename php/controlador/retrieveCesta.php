@@ -10,6 +10,35 @@ $conexao = conectarBD();
 
 // Vamos pegar a cesta do indivíduo
 $idCesta = $_POST['idCesta'];
+
+// Checar se a cesta existe
+$sqlCode = "SELECT * FROM cesta WHERE idCesta = '$idCesta'";
+$query = mysqli_query(conectarBD(), $sqlCode);
+if(mysqli_num_rows($query) == 0){
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Nenhum pedido com esse ID foi encontrado.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+    exit();
+}
+
+// Vamos verificar se a ceste pertence a empresa!
+$cnpj = retornaVal($conexao, 'empresa', 'email', $_SESSION['email'], 'CNPJ');
+$cnpjCesta = retornaVal($conexao, 'cesta', 'idCesta', $idCesta, 'empresa');
+if($cnpj != $cnpjCesta){
+    echo '
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        O pedido que você está tentando acessar pertence a outra loja.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+    exit();
+
+}
+
+
 $itens = json_decode(retornaVal($conexao, 'cesta', 'idCesta', $idCesta, 'itens'));
 
 // ADICIONAR UM BOTÃO QUE FECHA
@@ -40,5 +69,15 @@ foreach ($itemUnique as &$produto) {
                     </div>
                     </div>';
 }
+
+echo '
+<div class="mt-5" style="
+display: flex;
+width: 100%;
+align-content: center;
+justify-content: center;
+">
+    <button class="btn btn-outline-dark" id="pagarcesta" onclick=abaterCesta("' . $idCesta . '")>Abater ficha(s)</button>
+</div>';
 
 ?>

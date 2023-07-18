@@ -137,8 +137,20 @@ if (mysqli_num_rows($query) == 0) {
                 ?> 
 
                 </p>
-                <p class="text-center bold lead fs-5 my-3">Destinatário:</p>
-                <p class="text-center bold lead fs-5 my-3">Cliente:</p>
+                <p class="text-center bold lead fs-5 my-3">Destinatário:
+                    <?php
+                    $cpf = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'cpf');
+                    $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
+                    $cnpj = retornaVal(conectarBD(), 'cesta', 'idCesta', $idCesta, 'empresa');
+                    echo retornaVal(conectarBD(), 'empresa', 'CNPJ', $cnpj, 'nome');
+                    ?>
+
+                </p>
+                <p class="text-center bold lead fs-5 my-3">Cliente:
+                    <?php 
+                    echo retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'nome');
+                    ?>
+                </p>
                 <p class="text-center bold lead fs-5 my-3">Data: 
                 <?php
                 date_default_timezone_set('America/Sao_Paulo');
@@ -156,7 +168,7 @@ if (mysqli_num_rows($query) == 0) {
                 align-content: center;
                 justify-content: center;
                 ">
-                <button class="btn btn-outline-success" id="pagarcesta" data-num-cesta="' . $idCesta . '">Simular Abate</button></div>';
+                <button class="btn btn-outline-success" id="pagarcesta" onclick=abaterCesta("' . $idCesta . '")>Simular Abate</button></div>';
                 ?>
             </div>
         </div>

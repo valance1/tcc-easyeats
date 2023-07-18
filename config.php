@@ -227,7 +227,7 @@ if (!$_SESSION['email']) {
       <div class="formItens">
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="inputPedido" name="inputPedido" placeholder="">
+          <input type="text" class="form-control" id="inputPedido" name="inputPedido" value="'. $_GET['idCesta'] .'">
           <label for="inputPedido" class="form-label">Código do pedido</label>
         </div>
 
@@ -389,6 +389,7 @@ if (!$_SESSION['email']) {
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/abaterCesta.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
