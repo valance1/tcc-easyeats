@@ -227,7 +227,7 @@ if (!$_SESSION['email']) {
       <div class="formItens">
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="inputPedido" name="inputPedido" value="'. $_GET['idCesta'] .'">
+          <input type="text" class="form-control" id="inputPedido" name="inputPedido" maxlength="10" value="'. $_GET['idCesta'] .'">
           <label for="inputPedido" class="form-label">Código do pedido</label>
         </div>
 

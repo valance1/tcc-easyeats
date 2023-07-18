@@ -6,6 +6,7 @@ require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
 require_once "../dao/cestaDAO.php";
 require_once "../dao/itemDAO.php";
+require_once "../dao/transacaocestaDAO.php";
 
 session_start();
 date_default_timezone_set('America/Sao_Paulo');
@@ -54,7 +55,7 @@ foreach ($itemUnique as &$produto) {
 
 // 2 - Criar row de abates
 $data = date('Y-m-d H:i:s');
-criarTransacaoCesta($conexao, $idCesta, $data, $itensFiltrados, $cpf, $cnpj);
+criarTransacaoCesta($conexao, $idCesta, $data, json_encode($itensFiltrados), $cpf, $cnpj);
 
 // 3 - Deletar Cesta
 $caminhoArquivo = "../../images/qrcodes/cesta/" . $idCesta;

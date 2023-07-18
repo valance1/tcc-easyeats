@@ -12,7 +12,7 @@ function inserirItem($conexao, $nome, $preco, $idProduto, $donoDoItem, $cnpj)
 
 function excluirItem($conexao, $idProduto, $cpf, $cnpj)
 {
-    $code = "DELETE FROM Item WHERE idProduto ='$idProduto' and cliente = '$cpf' and empresa = '$cnpj' ";
+    $code = "DELETE FROM Item WHERE idProduto ='$idProduto' and donoDoItem = '$cpf' and empresa = '$cnpj' ";
     mysqli_query($conexao, $code) or die(mysqli_error($conexao));
 }
 

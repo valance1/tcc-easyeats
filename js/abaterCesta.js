@@ -6,8 +6,6 @@ function abaterCesta(idCesta) {
         method: 'POST',
         url: 'php/controlador/abaterCesta.php',
         data: 'idCesta=' + idCesta,
-        processData: false,
-        contentType: false,
 
         xhr: function () {
             var xhr = new XMLHttpRequest();
@@ -18,6 +16,7 @@ function abaterCesta(idCesta) {
             //Redirect no usuário para a página do QRCode
             //
             toastr["success"]('Pedido abatido com sucesso!');
+            document.getElementById('viz-cesta-itens').innerHTML = "";
         },
 
         error: function (res) {
