@@ -184,5 +184,40 @@ echo '
 			</div>
 		</div>
 	  </div>
-	</div>';
+	</div>
+	
+	<!-- CONTATO MODAL -->
+	<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">  
+		  <div class="modal-header">
+			<h5 class="modal-title" id="ModalLabel">Contato</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <form action="php/controlador/contato.php" id="contactForm" method="POST">
+		  <div class="modal-body">
+			<!-- CAMPO EMAIL -->
+			  <div class="form-floating mb-3">
+				<input type="email" class="form-control" id="inputContactEmail" name="inputContactEmail" aria-describedby="emailHelp" placeholder="exemplo@emailcom">
+				<label for="inputContactEmail" class="form-label">Endereço de e-mail</label>
+			  </div>
+			  <div class="form-floating mb-3">
+				<input type="text" class="form-control" id="inputContactNomePessoa" aria-describedby="nomeHelp" name="inputNomeContato" placeholder="Nome Completo">
+				<label for="inputContactNomePessoa" class="form-label">Nome</label>
+			  </div>
+			  <div class="form-floating mb-3">
+			  	<textarea type="text" class="form-control" id="inputContactMensagem" aria-describedby="MensagemHelp" name="inputMensagemContato" placeholder="Insira sua mensagem aqui"></textarea>
+				<label for="inputContactMensagem" class="form-label">Mensagem</label>
+			  </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+			<button type="submit" class="btn btn-success">Confirmar</button>
+		  </div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+	
+	';
 ?>

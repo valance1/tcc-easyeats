@@ -20,7 +20,7 @@ echo '
           <a class="nav-link" href="restaurantes.php">Restaurantes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Contato</a>
+        <button type="button" class="btn nav-link" id="contactModalOpenButton" data-bs-toggle="modal" data-bs-target="#contactModal" style="color: #fff !important;">Contato</button>
         </li>
       </ul>
 
