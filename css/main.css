@@ -341,7 +341,10 @@ a.btn.btn-outline-light.px-4:hover {
   padding-left: 150px;
   padding-right: 150px;
 }
+#search-input:focus{
+  box-shadow: none !important;
 
+}
 #noEmpresasFound {
   max-width: 600px;
 }

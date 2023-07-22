@@ -354,5 +354,5 @@ window.addEventListener('DOMContentLoaded', function () {
             });
         }
     });
-    });
+});
 

@@ -72,15 +72,15 @@ session_start();
     if (mysqli_num_rows($query) != 0) {
       echo '
       <div class="input-group">
-            <input class="form-control border-end-0 border" type="search" value="" id="example-search-input">
+            <input class="form-control border-end-0 border" type="search" value="" id="search-input">
             <span class="input-group-append">
-                <button class="btn border" type="button">
+                <button class="btn border" id="search-button" type="button">
                 <i class="fa fa-search"></i>
                 </button>
             </span>
         </div>
 
-    <div class="row row-cols-1 justify-content-evenly row-cols-md-3 mt-5 g-4">';
+    <div class="row row-cols-1 justify-content-evenly row-cols-md-3 mt-5 g-4 result-container">';
 
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($loja = mysqli_fetch_assoc($query)) {
@@ -102,7 +102,7 @@ session_start();
         echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
         echo '<p class="fs-6 fw-light text-muted">Lanchonete</p>';
         echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-outline-dark fw-normal">VER</a>';
-        echo '</div></div>';
+        echo '</div></div></div>';
       }
 
       // Se não houver nenhuma, mostre o card de indisponibilidade
@@ -123,6 +123,7 @@ session_start();
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/searchBar.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
