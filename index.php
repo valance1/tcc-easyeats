@@ -349,7 +349,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column ">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Open to Opportunities"></span>
+            data-hover="Disponível para prospostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">
@@ -361,12 +361,12 @@ session_start();
           <ul>
             <li>País: <span>Brasil</span></li>
           </ul>
-          <hr>
+          <!-- <hr>
           <div class="developer-links">
             <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
             <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
           </div>
-          <hr>
+          <hr> -->
 
         </div>
       </div>
@@ -374,7 +374,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Open to Opportunities"></span>
+            data-hover="Disponível para prospostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">
@@ -402,10 +402,10 @@ session_start();
           <hr>
 
           <div class="developer-links">
-            <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
-            <a href="https://github.com/valance1" class="fa fa-linkedin tt-info hover-tt-bottom"
+            <a href="https://www.instagram.com/gabrielpinottibr/" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
+            <a href="https://www.linkedin.com/in/gabriel-pinotti-a52abb239/" class="fa fa-linkedin tt-info hover-tt-bottom"
               data-hover="LinkedIn"></a>
-            <a href="#" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
+            <a href="https://github.com/valance1" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
           </div>
           <hr>
 
@@ -415,7 +415,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Open to Opportunities"></span>
+            data-hover="Disponível para prospostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">
@@ -433,14 +433,14 @@ session_start();
             <li>Repositórios: <span>1</span></li>
             <li>País: <span>Brasil</span></li>
           </ul>
-          <hr>
+          <!-- <hr>
 
           <div class="developer-links">
             <a href="#" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
             <a href="#" class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
             <a href="#" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
           </div>
-          <hr>
+          <hr> -->
         </div>
       </div>
       <!-- -------------------------------------------------- -->
