@@ -38,3 +38,24 @@
 .custom-shape-divider-bottom-1689037162 .shape-fill {
     fill: #FFFFFF;
 }
+
+.accordion-button{
+    background: var(--blackDominant) !important;
+    color: var(--whiteCool) !important;
+    box-shadow: none !important;
+}
+
+.accordion-item{
+    border: 1px solid var(--blackSecondary) !important;
+    background-color: var(--blackSecondary) !important;
+    color: rgb(147, 158, 168) !important;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+.darkMode .lead.text-secondary{
+
+    color: rgb(147, 158, 168) !important;
+
+}
