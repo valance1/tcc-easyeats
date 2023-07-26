@@ -4,7 +4,10 @@ error_reporting(0);
 echo '
 <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">EasyEats</a>
+    <a class="navbar-brand" href="index.php"><img src="assets/brand.png" style="
+    height: 50px;
+    width: 50px;
+"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">

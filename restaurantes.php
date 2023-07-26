@@ -102,7 +102,7 @@ session_start();
         echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
         echo '<p class="fs-6 fw-light text-muted">Lanchonete</p>';
         echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-outline-dark fw-normal">VER</a>';
-        echo '</div></div></div>';
+        echo '</div></div>';
       }
 
       // Se não houver nenhuma, mostre o card de indisponibilidade
