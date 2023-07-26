@@ -73,6 +73,7 @@ echo '
 					<div class="form-floating mb-3">
 					  <input type="text" class="form-control" id="inputRegCPF" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF" maxlength="11">
 					  <label for="inputRegCPF" class="form-label">CPF</label>
+					  <span class="form-text">Digite o CPF sem pontuação, ex. 11122233344</span>
 					  <div class="invalid-feedback">CPF inválido</div>
 					</div>
 					
@@ -95,6 +96,7 @@ echo '
 					  <input type="password" class="form-control" id="inputRegSenhaPessoa2" name="inputSenha2" placeholder="******">
 					  <label for="inputRegSenhaPessoa2" class="form-label">Confirmar Senha</label>
 					  <div class="invalid-feedback">Senha inválida</div>
+					  <span class="form-text">Digite a senha idêntica à anterior</span>
 					</div>
 			
 				</div>
