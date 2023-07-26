@@ -34,6 +34,11 @@ toastr.options = {
     "hideMethod": "fadeOut"
   }
 
+  // Iniciando tooltip boostrap.
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
 
 // Função pra validar dados
 function validateInput(input) {
