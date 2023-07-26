@@ -132,6 +132,8 @@ if (!$_SESSION['email']) {
 				<input type="text" class="form-control" id="inputPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
 				<label for="inputPreco" class="form-label">Preço</label>
         <div class="invalid-feedback">Preencha um preço válido</div>
+        <span
+						class="form-text">Digite o preço do seu produto. Para valores quebrados utilize ".", ex. 13.50</span>
 			  </div>
 		  </div>
 		  <div class="modal-footer">

@@ -121,16 +121,22 @@ echo '
 					<input type="text" class="form-control" id="inputRegCPFEmpresa" aria-describedby="CPFHelp" name="inputCPF" placeholder="CPF" maxlength="11">
 					<label for="inputRegCPFEmpresa" class="form-label">CPF</label>
 					<div class="invalid-feedback">CPF inválido</div>
+					<span
+					class="form-text">Digite o CPF do dono da empresa</span>
 				</div>
 				<div class="form-floating mb-3">
 					<input type="text" class="form-control" id="InputRegNomeDonoEmpresa" name="inputNome" aria-describedby="nomeHelp" placeholder="Nome do Dono">
 					<label for="InputRegNomeDonoEmpresa" class="form-label">Nome do Dono</label>
 					<div class="invalid-feedback">Nome inválido</div>
+					<span
+					class="form-text">Digite o nome do dono da empresa</span>
 				</div>
 				<div class="form-floating mb-3">
 					<input type="text" class="form-control" id="InputRegNomeEmpresa" name="inputNome" aria-describedby="nomeHelp" placeholder="Nome da Empresa">
 					<label for="InputRegNomeEmpresa" class="form-label">Nome da Empresa</label>
 					<div class="invalid-feedback">Nome inválido</div>
+					<span
+					class="form-text">Digite o nome fantasia da sua empresa</span>
 				</div>
 				  
 				  <div class="form-floating mb-3">
@@ -145,6 +151,8 @@ echo '
 						<input type="text" class="form-control" id="InputNumAgencia" name="inputAgencia" aria-describedby="numAgenciaHelp" maxlength="4" placeholder="Agência">
 						<label for="InputNumAgencia" class="form-label">Agência</label>
 						<div class="invalid-feedback">Agencia inválida</div>
+						<span
+						class="form-text">Insira a sua agência bancária no formato numérico, ex. 1234</span>
 					  </div>    
 					</div>
 					<div class="col-md">
@@ -152,6 +160,8 @@ echo '
 						<input type="text" class="form-control" id="InputNumConta" name="inputConta" aria-describedby="numContaHelp" placeholder="Número da Conta" maxlength="8">
 						<label for="InputNumConta" class="form-label">Número da Conta</label>
 						<div class="invalid-feedback">Conta inválida</div>
+						<span
+						class="form-text">Digite o número da conta para depósitos, 8-9 dígitos</span>
 					  </div>    
 					</div>
 				  </div>
@@ -174,6 +184,8 @@ echo '
 					<input type="password" class="form-control" id="InputRegSenhaEmpresa2" name="inputSenha2" placeholder="******">
 					<label for="InputRegSenhaEmpresa2" class="form-label">Confirmar Senha</label>
 					<div class="invalid-feedback">Senha inválida</div>
+					<span
+					class="form-text">Digite a senha idêntica à anterior</span>
 				  </div>
 	  
 				</div>
