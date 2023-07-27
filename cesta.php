@@ -79,13 +79,11 @@ if (mysqli_num_rows($query) == 0) {
                 $sqlCode = "SELECT * FROM pessoa WHERE email = '$email'";
                 $query = mysqli_query($conexao, $sqlCode);
                 $cpf = mysqli_fetch_assoc($query)['cpf'];
-
-                $sqlCode = "SELECT * FROM cesta WHERE cliente = '$cpf'";
-                $query = mysqli_query($conexao, $sqlCode);
+                $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
 
                 // Dados para o QR code
-                $text = 'config.php?idCesta='. mysqli_fetch_assoc($query)['idCesta'];
-                $filename = 'images/qrcodes/cesta/'. mysqli_fetch_assoc($query)['idCesta'] .'.png'; // Nome do arquivo de saída
+                $text = 'config.php?idCesta='. $idCesta;
+                $filename = 'images/qrcodes/cesta/'. $idCesta .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code
                 $size = 15; // Tamanho do QR code (pixels)
