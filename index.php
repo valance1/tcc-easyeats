@@ -210,6 +210,34 @@ session_start();
     </div>
   </section>
 
+  <section class="average-section darkMode" id="aboutUs">
+    <hr class="hr"/>
+    <div data-aos="fade-right" class="section-text-container mb-5">
+      <h1 class="h1">Quem somos nós</h1>
+      <p class="lead text-secondary">
+        Conheça um pouco sobre o nosso negócio
+      </p>
+    </div>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed excepturi sequi itaque. Dolor sequi amet iste error nostrum, quis ipsam dolorum dicta unde pariatur esse, facere aliquid soluta? Cupiditate, amet perspiciatis labore ducimus saepe porro facere ab quos assumenda sit autem laboriosam cum voluptatem repellendus nihil eveniet. Sint sequi aliquid quas, rem veniam nisi vitae ea? Illum animi mollitia ipsam tenetur ducimus consequuntur porro omnis iure. Aut odio voluptates deleniti voluptas pariatur rerum ipsam. Nihil enim quidem consequatur temporibus incidunt architecto officiis ipsam, quis sint tempora. Omnis quibusdam a, voluptate animi quam, consectetur rem ex recusandae alias corporis quo pariatur. Provident a nemo voluptatibus numquam cum excepturi. Odio doloremque, laborum accusantium quod molestias enim labore impedit assumenda autem necessitatibus incidunt, natus asperiores quia qui non corporis provident neque illo? Quam adipisci veniam amet, deserunt eum et velit rerum molestias facilis facere nemo recusandae nihil culpa atque eius inventore fuga, libero, laboriosam optio blanditiis. Id repudiandae ipsa, amet eius iusto quae labore repellat explicabo perferendis ullam, aspernatur neque? Asperiores nihil eligendi, nisi veniam aspernatur incidunt autem perferendis corporis. Error vero natus sit voluptas suscipit rerum neque consequuntur dolorum tempora consectetur laudantium sed explicabo itaque, dolor similique eos, dignissimos adipisci nihil!
+  </p>
+  </section>
+  
+
+  <section class="average-section" id="developers">
+    <hr class="hr" />
+    <div data-aos="fade-right" class="section-text-container mb-5">
+      <h1 class="h1">Abobrinha</h1>
+      <p class="lead text-secondary">
+      Tenho qeu decidir oq ue fazer
+      </p>
+  </div>
+
+  <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis magnam incidunt ut quas ad suscipit ab pariatur aut nostrum quaerat dicta doloremque iusto dolore cum id at, eius veniam, earum animi dolores unde maxime cupiditate. Sunt neque consequuntur dignissimos quidem accusantium excepturi, asperiores beatae assumenda accusamus, tempore dolorem voluptates quis sint recusandae. Libero eaque neque debitis aliquam porro perferendis voluptates velit earum optio totam, harum, quaerat doloremque quos vero, sit fugit autem. Unde, pariatur, qui dolores ea ad, iure eius architecto doloremque quo ducimus soluta sint hic. Beatae est eius totam qui ipsam quos ratione accusantium harum quae, voluptatem minima molestiae, fuga quam voluptatum tempora ipsum odit in recusandae atque veritatis vel ex deserunt obcaecati. Incidunt quis officiis excepturi assumenda accusamus soluta?
+    </p>
+  </section>
+
+
   <!-- COMO USAR -->
   <section class="average-section darkMode" id="help">
     <hr class="hr" />

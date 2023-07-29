@@ -9,6 +9,24 @@
   --grey2: #CED0E4;
   --grey3: #6B6E8D;
   --black: #474B6D;
+
+  /* CORES DARKMODE */
+  --text_Dark: #fbf9f9;
+  --background_Dark: #121212;
+  --primary_Dark: #b6c9c9;
+  --secondary_Dark: #0f1216;
+  --accent_Dark: #db1d1d;
+
+  /* CORES LIGHTMODE */
+  --text_Light: #121212;
+  --background_Light: #fbf9f9;
+  --primary_Light: #b6c9c9;
+  --secondary_Light: #d8dee5;
+  --accent_Light: #540b0b;
+
+  --sizeTitle: 32px;
+  --sizeBody: 18px;
+  --sizeSmall: 14px;
 }
 
 /* -------------------------------------------------------------- */
@@ -51,9 +69,11 @@ img {
   /* Chrome, Safari, Opera */
   transform: translateZ(0);
 }
+
 .section-text-container .h1 {
   text-wrap: balance;
 }
+
 .pointer {
   cursor: pointer;
 }
@@ -63,14 +83,16 @@ img {
   color: var(--white);
   background-color: var(--blackSecondary);
 }
-.dropdown-menu.show .dropdown-item:hover{
+
+.dropdown-menu.show .dropdown-item:hover {
   color: var(--blackDominant) !important;
 }
 
-.darkMode{
+.darkMode {
   color: var(--white) !important;
   background-color: var(--blackDominant) !important;
 }
+
 /* -------------------------------------------------------------- */
 
 nav.navbar {
@@ -119,9 +141,10 @@ nav a.nav-link:hover:after {
   margin: 0;
 }
 
-#HERO div.row.flex-lg-row-reverse.align-items-center.g-5.py-5{
+#HERO div.row.flex-lg-row-reverse.align-items-center.g-5.py-5 {
   height: 50vh;
 }
+
 /* SECTION */
 /* ---------------------------------------- */
 section.average-section,
@@ -290,9 +313,9 @@ a.btn.btn-outline-light.px-4:hover {
   max-width: 110px;
   min-width: 80px;
   padding: 8px 10px;
-  font-size: 12px;
-  font-family: "Open Sans";
-  font-weight: bold;
+  font-size: var(--sizeSmall);
+  font-family: 'avenir';
+  font-weight: 100;
   content: attr(data-hover);
   transition: 0.3s ease-out;
   opacity: 0;
@@ -341,10 +364,12 @@ a.btn.btn-outline-light.px-4:hover {
   padding-left: 150px;
   padding-right: 150px;
 }
-#search-input:focus{
+
+#search-input:focus {
   box-shadow: none !important;
 
 }
+
 #noEmpresasFound {
   max-width: 600px;
 }
@@ -361,7 +386,8 @@ a.btn.btn-outline-light.px-4:hover {
   }
 
   section.average-section,
-  nav.navbar, .footerSection {
+  nav.navbar,
+  .footerSection {
     padding-left: 50px !important;
     padding-right: 50px !important;
   }
@@ -369,8 +395,10 @@ a.btn.btn-outline-light.px-4:hover {
 
 /* Mobile */
 @media (max-width: 420px) {
+
   section.average-section,
-  nav.navbar, .footerSection {
+  nav.navbar,
+  .footerSection {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
