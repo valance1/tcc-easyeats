@@ -360,6 +360,22 @@ session_start();
       </div>
 
     </div>
+    
+    <div data-aos="fade-up" class="tutorialContainer">
+
+      <h1 class="h1 mt-5">1. Guia para usuários comuns</h1>
+      <div class="ratio ratio-16x9" style="max-width: 1080px; margin: auto;">
+        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para clientes" allowfullscreen></iframe>
+      </div>
+
+      <h1 class="h1 mt-5">2. Guia para empresas</h1>
+      <div class="ratio ratio-16x9" style="max-width: 1080px; margin: auto;">
+        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para empresas" allowfullscreen></iframe>
+      </div>
+
+    </div>
+
+    
   </section>
 
   <!-- Apresentando os desenvolvedores -->
