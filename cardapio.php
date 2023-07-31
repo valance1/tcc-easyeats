@@ -34,7 +34,10 @@ session_start();
 <body>
 <?php
     if(isset($_SESSION['empresa']) || !isset($_SESSION['email'])){
-      header("Location:index.php");
+      // header("Location:index.php");
+      if(isset($_SESSION['empresa'])){
+        header("Location:index.php");
+      }
     }else{
       echo '<script type="text/javascript" src="js/carrinho.js"></script>';
     }
