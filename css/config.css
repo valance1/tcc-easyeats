@@ -119,3 +119,17 @@ border: 0;
     flex-wrap: wrap;
     align-items: center;
 }
+
+@media (max-width: 420px) {
+    .row.row-cols-1.row-cols-md-3.g-4.justify-content-between{
+        flex-direction: column;
+    }
+    .container.d-flex.w-50.mx-0.justify-content-center.align-items-center{
+        width: 100% !important;
+        margin-bottom: 3rem;
+    }
+
+    .deleteContainer{
+        width: 100% !important;
+    }
+}

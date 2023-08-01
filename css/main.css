@@ -391,15 +391,38 @@ a.btn.btn-outline-light.px-4:hover {
     padding-left: 50px !important;
     padding-right: 50px !important;
   }
+  #HERO > div > div.col-10.col-sm-8.col-lg-6.imgHero{
+    display: none;
+  }
+  #HERO{
+    max-width: none !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 /* Mobile */
 @media (max-width: 420px) {
+
+  div.section-text-container.mb-5.aos-init.aos-animate > p {
+    font-size: 16px;
+  }
 
   section.average-section,
   nav.navbar,
   .footerSection {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+
+  section.average-section{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .footerSection .footer{
+    justify-content: center !important;
+  }
+  #HERO{
+    padding: 0 !important;
   }
 }
