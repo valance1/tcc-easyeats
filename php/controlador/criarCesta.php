@@ -57,6 +57,15 @@ $sqlCode = "SELECT * FROM cesta WHERE cliente = '$cpf'";
 $query = mysqli_query($conexao, $sqlCode);
 if (mysqli_num_rows($query) >= 1) {
   echo 'Cesta já existe, vamos dropar a antiga';
+  $idCesta = mysqli_fetch_assoc($query)['idCesta'];
+  $caminhoArquivo = "../../images/qrcodes/cesta/" . $idCesta . ".png";
+  if (file_exists($caminhoArquivo)) {
+      // Exclui o arquivo
+      unlink($caminhoArquivo);
+      echo 'Arquivo do QR Code excluído com sucesso.';
+  } else {
+      echo 'O arquivo do QR Code não existe.';
+  }
   // Código para dropar o Cesta antigo
   removerCesta($conexao, $cpf);
 }
