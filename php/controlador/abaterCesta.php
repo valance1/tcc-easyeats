@@ -58,7 +58,7 @@ $data = date('Y-m-d H:i:s');
 criarTransacaoCesta($conexao, $idCesta, $data, json_encode($itensFiltrados), $cpf, $cnpj);
 
 // 3 - Deletar Cesta
-$caminhoArquivo = "../../images/qrcodes/cesta/" . $idCesta;
+$caminhoArquivo = "../../images/qrcodes/cesta/" . $idCesta . ".png";
   if (file_exists($caminhoArquivo)) {
       // Exclui o arquivo
       unlink($caminhoArquivo);

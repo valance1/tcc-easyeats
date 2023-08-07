@@ -49,7 +49,7 @@ $data = date('Y-m-d H:i:s');
 criarTransacaoPedido($conexao, $idPedido, $data, $valorTotal, $cpf, $cnpj);
 
 // 3 - Deletar pedido
-$caminhoArquivo = "../../images/qrcodes/" . $idPedido;
+$caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";
   if (file_exists($caminhoArquivo)) {
       // Exclui o arquivo
       unlink($caminhoArquivo);
