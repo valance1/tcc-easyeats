@@ -218,7 +218,17 @@ session_start();
         Conheça um pouco sobre o nosso negócio
       </p>
     </div>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed excepturi sequi itaque. Dolor sequi amet iste error nostrum, quis ipsam dolorum dicta unde pariatur esse, facere aliquid soluta? Cupiditate, amet perspiciatis labore ducimus saepe porro facere ab quos assumenda sit autem laboriosam cum voluptatem repellendus nihil eveniet. Sint sequi aliquid quas, rem veniam nisi vitae ea? Illum animi mollitia ipsam tenetur ducimus consequuntur porro omnis iure. Aut odio voluptates deleniti voluptas pariatur rerum ipsam. Nihil enim quidem consequatur temporibus incidunt architecto officiis ipsam, quis sint tempora. Omnis quibusdam a, voluptate animi quam, consectetur rem ex recusandae alias corporis quo pariatur. Provident a nemo voluptatibus numquam cum excepturi. Odio doloremque, laborum accusantium quod molestias enim labore impedit assumenda autem necessitatibus incidunt, natus asperiores quia qui non corporis provident neque illo? Quam adipisci veniam amet, deserunt eum et velit rerum molestias facilis facere nemo recusandae nihil culpa atque eius inventore fuga, libero, laboriosam optio blanditiis. Id repudiandae ipsa, amet eius iusto quae labore repellat explicabo perferendis ullam, aspernatur neque? Asperiores nihil eligendi, nisi veniam aspernatur incidunt autem perferendis corporis. Error vero natus sit voluptas suscipit rerum neque consequuntur dolorum tempora consectetur laudantium sed explicabo itaque, dolor similique eos, dignissimos adipisci nihil!
+  <p>Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
+
+Somos um aplicativo web criado por três jovens visionários do IFES, movidos por uma ideia que nasceu durante as férias, ao presenciarmos as longas filas na cantina da escola. Decidimos enfrentar esse desafio e criar uma plataforma inovadora que tornasse a experiência alimentar mais ágil, prática e saborosa para todos.<br><br>
+
+Com a EasyEats, você pode adquirir fichas de refeição e armazená-las no seu inventário pessoal. Assim, quando a fome bater ou a correria do dia a dia não permitir uma espera prolongada, é só utilizar nosso QRCode e saborear sua refeição sem complicações.<br><br>
+
+Acreditamos que o tempo é precioso e deve ser bem aproveitado, e é por isso que nosso aplicativo foi desenvolvido com o objetivo de tornar suas refeições mais eficientes e satisfatórias.<br><br>
+
+Seja bem-vindo(a) à EasyEats, onde a praticidade encontra o sabor em cada mordida. Junte-se a nós nessa jornada gastronômica sem filas e desfrute de uma experiência única em alimentação!<br><br>
+
+Estamos ansiosos para transformar suas refeições em momentos ainda mais especiais. Bon appétit!<br><br>
   </p>
   </section>
   

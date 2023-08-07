@@ -88,7 +88,7 @@ if (mysqli_num_rows($query) == 0) {
                 $query = mysqli_query($conexao, $sqlCode);
 
                 // Dados para o QR code
-                $text = 'Olá, Mundo!';
+                $text = 'Imagine que aqui tem a API do PIX!';
                 $filename = 'images/qrcodes/'. mysqli_fetch_assoc($query)['idPedido'] .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code
@@ -104,16 +104,20 @@ if (mysqli_num_rows($query) == 0) {
             </div>
             <div class="detalhes-pagamento">
                 <p class="text-center bold lead fs-4 my-3">Detalhes da transação</p>
-                <p class="text-center bold lead fs-5 my-3">Destinatário:</p>
-                <p class="text-center bold lead fs-5 my-3">Cliente:</p>
-                <p class="text-center bold lead fs-5 my-3">Data: <?php
-                date_default_timezone_set('America/Sao_Paulo');
-                echo date('d-m-Y');
-                ?> </p>
-
+                
                 <?php
+
+                // Código simples para exibir os detalhes do cliente na página.
+                date_default_timezone_set('America/Sao_Paulo');
                 $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
                 $idPedido = retornaVal(conectarBD(), 'pedidos', 'cliente', $cpf, 'idPedido');
+                $cliente = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'nome');
+                $cnpj = retornaVal(conectarBD(), 'pedidos', 'idPedido', $idPedido, 'empresa');
+                $empresa = retornaVal(conectarBD(), 'empresa', 'CNPJ', $cnpj, 'nome');
+
+                echo '<p class="text-center bold lead fs-5 my-3">Destinatário: '. $empresa .'</p>';
+                echo '<p class="text-center bold lead fs-5 my-3">Cliente: '. $cliente .'</p>';
+                echo '<p class="text-center bold lead fs-5 my-3">Data: '.date('d-m-Y'). '</p>';
                 echo '
                 <div style="
                 display: flex;
