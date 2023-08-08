@@ -161,19 +161,6 @@ if (mysqli_num_rows($query) == 0) {
                 echo date('d-m-Y');
                 ?> 
                 </p>
-
-                <?php
-                $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
-                $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
-                echo '
-                <div style="
-                display: flex;
-                width: 100%;
-                align-content: center;
-                justify-content: center;
-                ">
-                <button class="btn btn-outline-success" id="pagarcesta" onclick=abaterCesta("' . $idCesta . '")>Simular Abate</button></div>';
-                ?>
             </div>
         </div>
     </section>
