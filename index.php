@@ -25,7 +25,9 @@ session_start();
     crossorigin="anonymous"></script>
 
   <!-- TOASTER -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
@@ -38,7 +40,7 @@ session_start();
 
 <body>
   <!-- Importando componente  -->
-  <?php 
+  <?php
   include 'php/components/navbar.php' ?>
   <?php require_once 'php/components/alerts.php';
   if ($_SESSION['toast'] == 'sucesso') {
@@ -90,17 +92,17 @@ session_start();
       </div>
     </div>
     <div class="custom-shape-divider-bottom-1689380352">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" class="shape-fill"></path>
-    </svg>
-</div>
+      </svg>
+    </div>
     <!-- <div class="custom-shape-divider-bottom-1689036821">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
         <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
     </svg> -->
-</div>
+    </div>
   </section>
 
   <!-- PREVIEW RESTAURANTS -->
@@ -211,40 +213,83 @@ session_start();
   </section>
 
   <section class="average-section darkMode" id="aboutUs">
-    <hr class="hr"/>
+    <hr class="hr" />
     <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1">Quem somos nós</h1>
       <p class="lead text-secondary">
         Conheça um pouco sobre o nosso negócio
       </p>
     </div>
-  <p>Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
+    <p>Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
 
-Somos um aplicativo web criado por três jovens visionários do IFES, movidos por uma ideia que nasceu durante as férias, ao presenciarmos as longas filas na cantina da escola. Decidimos enfrentar esse desafio e criar uma plataforma inovadora que tornasse a experiência alimentar mais ágil, prática e saborosa para todos.<br><br>
+      Somos um aplicativo web criado por três jovens visionários do IFES, movidos por uma ideia que nasceu durante as
+      férias, ao presenciarmos as longas filas na cantina da escola. Decidimos enfrentar esse desafio e criar uma
+      plataforma inovadora que tornasse a experiência alimentar mais ágil, prática e saborosa para todos.<br><br>
 
-Com a EasyEats, você pode adquirir fichas de refeição e armazená-las no seu inventário pessoal. Assim, quando a fome bater ou a correria do dia a dia não permitir uma espera prolongada, é só utilizar nosso QRCode e saborear sua refeição sem complicações.<br><br>
+      Com a EasyEats, você pode adquirir fichas de refeição e armazená-las no seu inventário pessoal. Assim, quando a
+      fome bater ou a correria do dia a dia não permitir uma espera prolongada, é só utilizar nosso QRCode e saborear
+      sua refeição sem complicações.<br><br>
 
-Acreditamos que o tempo é precioso e deve ser bem aproveitado, e é por isso que nosso aplicativo foi desenvolvido com o objetivo de tornar suas refeições mais eficientes e satisfatórias.<br><br>
+      Acreditamos que o tempo é precioso e deve ser bem aproveitado, e é por isso que nosso aplicativo foi desenvolvido
+      com o objetivo de tornar suas refeições mais eficientes e satisfatórias.<br><br>
 
-Seja bem-vindo(a) à EasyEats, onde a praticidade encontra o sabor em cada mordida. Junte-se a nós nessa jornada gastronômica sem filas e desfrute de uma experiência única em alimentação!<br><br>
+      Seja bem-vindo(a) à EasyEats, onde a praticidade encontra o sabor em cada mordida. Junte-se a nós nessa jornada
+      gastronômica sem filas e desfrute de uma experiência única em alimentação!<br><br>
 
-Estamos ansiosos para transformar suas refeições em momentos ainda mais especiais. Bon appétit!<br><br>
-  </p>
+      Estamos ansiosos para transformar suas refeições em momentos ainda mais especiais. Bon appétit!<br><br>
+    </p>
   </section>
-  
+
 
   <section class="average-section" id="developers">
     <hr class="hr" />
     <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1">Abobrinha</h1>
       <p class="lead text-secondary">
-      Tenho qeu decidir oq ue fazer
+        Tenho qeu decidir oq ue fazer
       </p>
-  </div>
+    </div>
 
-  <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis magnam incidunt ut quas ad suscipit ab pariatur aut nostrum quaerat dicta doloremque iusto dolore cum id at, eius veniam, earum animi dolores unde maxime cupiditate. Sunt neque consequuntur dignissimos quidem accusantium excepturi, asperiores beatae assumenda accusamus, tempore dolorem voluptates quis sint recusandae. Libero eaque neque debitis aliquam porro perferendis voluptates velit earum optio totam, harum, quaerat doloremque quos vero, sit fugit autem. Unde, pariatur, qui dolores ea ad, iure eius architecto doloremque quo ducimus soluta sint hic. Beatae est eius totam qui ipsam quos ratione accusantium harum quae, voluptatem minima molestiae, fuga quam voluptatum tempora ipsum odit in recusandae atque veritatis vel ex deserunt obcaecati. Incidunt quis officiis excepturi assumenda accusamus soluta?
-    </p>
+    <!-- CONTENT -->
+    <div data-aos="fade-up" class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span data-purecounter-start="0" data-purecounter-end=<?php echo '""'?> data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Clients</p>
+          </div>
+        </div><!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Projects</p>
+          </div>
+        </div><!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Hours Of Support</p>
+          </div>
+        </div><!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Workers</p>
+          </div>
+        </div><!-- End Stats Item -->
+
+      </div>
+
+    </div>
   </section>
 
 
@@ -294,7 +339,7 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
                   usuários realizem transações online de forma tranquila.</p>
               </li>
             </ol>
-        
+
           </div>
         </div>
       </div>
@@ -307,13 +352,14 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-          <p>Para utilizar o EasyEats, é necessário criar uma conta. Siga estes passos para criar sua conta:</p>
-        <ol>
-          <li>Passo 1: Acesse a página de registro do EasyEats.</li>
-          <li>Passo 2: Preencha o formulário de registro com suas informações pessoais, como nome, e-mail e senha.</li>
-          <li>Passo 3: Clique no botão "Registrar" para criar sua conta.</li>
-          <li>Passo 4: Após criar sua conta, você estará pronto para explorar os recursos do EasyEats.</li>
-        </ol>
+            <p>Para utilizar o EasyEats, é necessário criar uma conta. Siga estes passos para criar sua conta:</p>
+            <ol>
+              <li>Passo 1: Acesse a página de registro do EasyEats.</li>
+              <li>Passo 2: Preencha o formulário de registro com suas informações pessoais, como nome, e-mail e senha.
+              </li>
+              <li>Passo 3: Clique no botão "Registrar" para criar sua conta.</li>
+              <li>Passo 4: Após criar sua conta, você estará pronto para explorar os recursos do EasyEats.</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -326,15 +372,15 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-          <p>Com sua conta criada, você pode fazer pedidos no EasyEats seguindo estas etapas:</p>
-        <ol>
-          <li>Passo 1: Faça login em sua conta no EasyEats.</li>
-          <li>Passo 2: Navegue pelos menus dos restaurantes cadastrados.</li>
-          <li>Passo 3: Selecione os itens desejados e adicione ao seu carrinho de compras.</li>
-          <li>Passo 4: Verifique o seu pedido no carrinho e prossiga para o pagamento.</li>
-          <li>Passo 5: Escolha o método de pagamento e conclua a transação.</li>
-          <li>Passo 6: Aguarde a confirmação do pedido e o status de entrega em tempo real.</li>
-        </ol>
+            <p>Com sua conta criada, você pode fazer pedidos no EasyEats seguindo estas etapas:</p>
+            <ol>
+              <li>Passo 1: Faça login em sua conta no EasyEats.</li>
+              <li>Passo 2: Navegue pelos menus dos restaurantes cadastrados.</li>
+              <li>Passo 3: Selecione os itens desejados e adicione ao seu carrinho de compras.</li>
+              <li>Passo 4: Verifique o seu pedido no carrinho e prossiga para o pagamento.</li>
+              <li>Passo 5: Escolha o método de pagamento e conclua a transação.</li>
+              <li>Passo 6: Aguarde a confirmação do pedido e o status de entrega em tempo real.</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -348,7 +394,8 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             Encontrou o restaurante que você deseja? Ótimo!
-            Agora basta você clicar no botão "Ver", você será redirecionado para uma página que contém todos os produtos daquele estabelecimento.
+            Agora basta você clicar no botão "Ver", você será redirecionado para uma página que contém todos os produtos
+            daquele estabelecimento.
             A partir daí, basta adicionar os itens desejados ao carrinho e fazer o pagamento via pix/cartão!
 
           </div>
@@ -363,29 +410,32 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
         </h2>
         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Com as fichas compradas, você pode acessar seu inventário clicando no canto superior direito. 
-            Dentro do seu inventário, é possível visualizar todas as fichas adquiridas, para utilzá-las, basta clicar no botão ao lado do item para adicioná-lo ao QRCode que será utilizado como ficha.
+            Com as fichas compradas, você pode acessar seu inventário clicando no canto superior direito.
+            Dentro do seu inventário, é possível visualizar todas as fichas adquiridas, para utilzá-las, basta clicar no
+            botão ao lado do item para adicioná-lo ao QRCode que será utilizado como ficha.
           </div>
         </div>
       </div>
 
     </div>
-    
+
     <div data-aos="fade-up" class="tutorialContainer">
 
       <h1 class="h1 mt-5">1. Guia para usuários comuns</h1>
       <div class="ratio ratio-16x9" style="max-width: 1080px; margin: auto;">
-        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para clientes" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para clientes"
+          allowfullscreen></iframe>
       </div>
 
       <h1 class="h1 mt-5">2. Guia para empresas</h1>
       <div class="ratio ratio-16x9" style="max-width: 1080px; margin: auto;">
-        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para empresas" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/watch?v=L3tsYC5OYhQ" title="Tutorial para empresas"
+          allowfullscreen></iframe>
       </div>
 
     </div>
 
-    
+
   </section>
 
   <!-- Apresentando os desenvolvedores -->
@@ -456,9 +506,10 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
           <hr>
 
           <div class="developer-links">
-            <a href="https://www.instagram.com/gabrielpinottibr/" class="fa fa-instagram tt-info hover-tt-bottom" data-hover="Instagram"></a>
-            <a href="https://www.linkedin.com/in/gabriel-pinotti-a52abb239/" class="fa fa-linkedin tt-info hover-tt-bottom"
-              data-hover="LinkedIn"></a>
+            <a href="https://www.instagram.com/gabrielpinottibr/" class="fa fa-instagram tt-info hover-tt-bottom"
+              data-hover="Instagram"></a>
+            <a href="https://www.linkedin.com/in/gabriel-pinotti-a52abb239/"
+              class="fa fa-linkedin tt-info hover-tt-bottom" data-hover="LinkedIn"></a>
             <a href="https://github.com/valance1" class="fa fa-github tt-info hover-tt-bottom" data-hover="Github"></a>
           </div>
           <hr>
@@ -507,7 +558,9 @@ Estamos ansiosos para transformar suas refeições em momentos ainda mais especi
 
   <script type="text/javascript" src="js/main.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/counter.js"></script>
   <script>
+    new PureCounter();
     AOS.init();
   </script>
 </body>
