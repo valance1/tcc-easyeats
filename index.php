@@ -220,73 +220,103 @@ session_start();
         Conheça um pouco sobre o nosso negócio
       </p>
     </div>
-    <p>Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
 
-      Somos um aplicativo web criado por três jovens visionários do IFES, movidos por uma ideia que nasceu durante as
-      férias, ao presenciarmos as longas filas na cantina da escola. Decidimos enfrentar esse desafio e criar uma
-      plataforma inovadora que tornasse a experiência alimentar mais ágil, prática e saborosa para todos.<br><br>
+    <div class="row gy-4">
+      <div class="col-lg-7 position-relative about-img shadow rounded" style="background-size: cover;background-position: center;background-image: url(images/index/ee.jpg);"></div>
 
-      Com a EasyEats, você pode adquirir fichas de refeição e armazená-las no seu inventário pessoal. Assim, quando a
-      fome bater ou a correria do dia a dia não permitir uma espera prolongada, é só utilizar nosso QRCode e saborear
-      sua refeição sem complicações.<br><br>
+      <div class="col-lg-5 d-flex align-items-end"><p style="color: var(--whiteCool) !important;">Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
 
-      Acreditamos que o tempo é precioso e deve ser bem aproveitado, e é por isso que nosso aplicativo foi desenvolvido
-      com o objetivo de tornar suas refeições mais eficientes e satisfatórias.<br><br>
+Somos um aplicativo web criado por três jovens visionários do IFES, movidos por uma ideia que nasceu durante as
+férias, ao presenciarmos as longas filas na cantina da escola. Decidimos enfrentar esse desafio e criar uma
+plataforma inovadora que tornasse a experiência alimentar mais ágil, prática e saborosa para todos.<br><br>
 
-      Seja bem-vindo(a) à EasyEats, onde a praticidade encontra o sabor em cada mordida. Junte-se a nós nessa jornada
-      gastronômica sem filas e desfrute de uma experiência única em alimentação!<br><br>
+Com a EasyEats, você pode adquirir fichas de refeição e armazená-las no seu inventário pessoal. Assim, quando a
+fome bater ou a correria do dia a dia não permitir uma espera prolongada, é só utilizar nosso QRCode e saborear
+sua refeição sem complicações.<br><br>
 
-      Estamos ansiosos para transformar suas refeições em momentos ainda mais especiais. Bon appétit!<br><br>
-    </p>
+Acreditamos que o tempo é precioso e deve ser bem aproveitado, e é por isso que nosso aplicativo foi desenvolvido
+com o objetivo de tornar suas refeições mais eficientes e satisfatórias.<br><br>
+
+Seja bem-vindo(a) à EasyEats, onde a praticidade encontra o sabor em cada mordida. Junte-se a nós nessa jornada
+gastronômica sem filas e desfrute de uma experiência única em alimentação!<br><br>
+
+Estamos ansiosos para transformar suas refeições em momentos ainda mais especiais. Bon appétit!<br><br>
+</p></div>
+
+    </div>
   </section>
 
 
   <section class="average-section" id="developers">
-    <hr class="hr" />
-    <div data-aos="fade-right" class="section-text-container mb-5">
+    <!-- <hr class="hr" /> -->
+    <!-- <div data-aos="fade-right" class="section-text-container mb-5">
       <h1 class="h1">Abobrinha</h1>
       <p class="lead text-secondary">
         Tenho qeu decidir oq ue fazer
       </p>
-    </div>
+    </div> -->
 
     <!-- CONTENT -->
     <div data-aos="fade-up" class="container">
 
       <div class="row gy-4">
 
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end=<?php echo '""'?> data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Clients</p>
-          </div>
-        </div><!-- End Stats Item -->
+      <?php
 
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Projects</p>
-          </div>
-        </div><!-- End Stats Item -->
+      require_once 'php/dao/conexaoBD.php';
 
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Hours Of Support</p>
-          </div>
-        </div><!-- End Stats Item -->
+      $code = "SELECT * FROM empresa";
+      $query = mysqli_query(conectarBD(), $code);
+      $empresas = mysqli_num_rows($query); 
 
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Workers</p>
-          </div>
-        </div><!-- End Stats Item -->
+      $code = "SELECT * FROM pessoa";
+      $query = mysqli_query(conectarBD(), $code);
+      $clientes = mysqli_num_rows($query); ;
 
+      $code = "SELECT * FROM transacaoabate";
+      $query = mysqli_query(conectarBD(), $code);
+      $abates = mysqli_num_rows($query); ;
+
+      $code = "SELECT * FROM transacaopedido";
+      $query = mysqli_query(conectarBD(), $code);
+      $pedidos = mysqli_num_rows($query);
+
+
+      echo '
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100 shadow rounded bg-body border">
+          <span data-purecounter-start="0" data-purecounter-end="'.$clientes.'" data-purecounter-duration="1"
+            class="purecounter"></span>
+          <p>Clientes cadastrados</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6">
+      <div class="stats-item text-center w-100 h-100 shadow rounded bg-body border">
+        <span data-purecounter-start="0" data-purecounter-end="'.$empresas.'" data-purecounter-duration="1"
+          class="purecounter"></span>
+        <p>Empresas cadastradas</p>
+      </div>
+    </div><!-- End Stats Item -->
+
+    <div class="col-lg-3 col-md-6">
+    <div class="stats-item text-center w-100 h-100 shadow rounded bg-body border">
+      <span data-purecounter-start="0" data-purecounter-end="'.$pedidos.'" data-purecounter-duration="1"
+        class="purecounter"></span>
+      <p>Pedidos feitos</p>
+    </div>
+  </div><!-- End Stats Item -->
+
+
+  <div class="col-lg-3 col-md-6">
+  <div class="stats-item text-center w-100 h-100 shadow rounded bg-body border">
+    <span data-purecounter-start="0" data-purecounter-end="'.$abates.'" data-purecounter-duration="1"
+      class="purecounter"></span>
+    <p>Transações concluídas</p>
+  </div>
+</div><!-- End Stats Item -->
+      ';
+?> 
       </div>
 
     </div>
@@ -453,7 +483,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column ">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Disponível para prospostas!"></span>
+            data-hover="Disponível para propostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">
@@ -478,7 +508,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Disponível para prospostas!"></span>
+            data-hover="Disponível para propostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">
@@ -520,7 +550,7 @@ session_start();
       <div data-aos="fade-up" class="developer-card">
         <div class="developer-header d-flex justify-content-center align-items-center flex-column">
           <span id="developer-status" class="fa fa-briefcase tt-info hover-tt-bottom"
-            data-hover="Disponível para prospostas!"></span>
+            data-hover="Disponível para propostas!"></span>
           <img class="developer-profile-img" src="images/placeholder/user.jpeg">
         </div>
         <div class="developer-content">

@@ -59,3 +59,30 @@
     color: rgb(147, 158, 168) !important;
 
 }
+
+
+/*--------------------------------------------------------------
+# Stats Counter Section
+--------------------------------------------------------------*/
+  
+  .stats-item {
+    padding: 30px;
+    width: 100%;
+  }
+  
+  .stats-item span {
+    font-size: 48px;
+    display: block;
+    color: #121212;
+    font-weight: 700;
+  }
+  
+  .stats-item p {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 700;
+    color: #121212;
+  }
+  
