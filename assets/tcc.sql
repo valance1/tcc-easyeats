@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Jul-2023 às 04:27
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 23-Ago-2023 às 12:16
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `cesta` (
   PRIMARY KEY (`idCesta`),
   KEY `clienteDaCesta` (`cliente`),
   KEY `empresaDaCesta` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena as cestas dos clientes';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena as cestas dos clientes';
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `lucro` int(11) DEFAULT NULL COMMENT 'Valor inteiro que informa o lucro total que a empresa já teve utilizando o site',
   PRIMARY KEY (`CNPJ`),
   UNIQUE KEY `email` (`email`,`conta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as empresas';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as empresas';
 
 --
 -- Extraindo dados da tabela `empresa`
@@ -89,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   KEY `DonoDoItem` (`donoDoItem`),
   KEY `ProdutoOriginal` (`idProduto`),
   KEY `EmpresaDono` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena os itens dos clientes e suas informações';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena os itens dos clientes e suas informações';
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   PRIMARY KEY (`idPedido`),
   KEY `clienteDoPedido` (`cliente`),
   KEY `empresaDoPedido` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena os pedidos dos clientes';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena os pedidos dos clientes';
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,14 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `credito` varchar(45) DEFAULT NULL COMMENT 'Crédito associado à conta da pessoa (cliente ou proprietário)',
   PRIMARY KEY (`cpf`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as pessoas (clientes e proprietários)';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as pessoas (clientes e proprietários)';
+
+--
+-- Extraindo dados da tabela `pessoa`
+--
+
+INSERT INTO `pessoa` (`nome`, `cpf`, `email`, `senha`, `credito`) VALUES
+('usuario teste', '18210790005', 'usuario1@gmail.com', '202cb962ac59075b964b07152d234b70', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(120) NOT NULL COMMENT 'Caminho da imagem do produto no sistema',
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre os produtos das empresas';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre os produtos das empresas';
 
 --
 -- Extraindo dados da tabela `produto`
@@ -169,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `transacaoabate` (
   `empresa` varchar(14) NOT NULL COMMENT 'CNPJ da empresa associada à transação de abate',
   KEY `clienteAbate` (`cliente`),
   KEY `empresaAbate` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as transações de abate';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as transações de abate';
 
 -- --------------------------------------------------------
 
@@ -186,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `transacaopedido` (
   `empresa` varchar(14) NOT NULL COMMENT 'CNPJ da empresa associada à transação do pedido',
   KEY `clienteTransacaoPedido` (`cliente`),
   KEY `empresaTransacaoPedido` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as transações dos pedidos';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as transações dos pedidos';
 
 --
 -- Restrições para despejos de tabelas
