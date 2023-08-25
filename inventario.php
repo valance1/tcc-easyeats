@@ -176,6 +176,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
           <div data-aos="fade-up" class="card container-xxl text-center" id="noEmpresasFound">
             <div class="card-body">
               <h5 class="card-title">OPS!</h5>
+              <img src="images/CAT.gif" alt="Não encontramos nada" class="my-2"  width="250" />
               <p class="card-text">Você não possui nenhum item.</p>
             </div>
           </div>';
