@@ -21,7 +21,7 @@ function pagarPedido(idPedido) {
         success: function () {
             //Redirect no usuário para a página do QRCode
             //
-            alert("Sucesso");
+            // alert("Sucesso");
             window.location.href = 'index.php?msg="Pagamento feito com sucesso"';
         },
 

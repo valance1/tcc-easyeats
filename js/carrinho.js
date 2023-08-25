@@ -93,7 +93,7 @@ function finalizarCompra(){
     success: function () {
       //Redirect no usuário para a página do QRCode
       //
-      alert("Sucesso");
+      // alert("Sucesso");
       window.location.href = 'pagamento.php';
     },
 
@@ -103,7 +103,7 @@ function finalizarCompra(){
 
     complete: function (res) {
       // alert(res.responseText);
-      console.log(res.responseText);
+      // console.log(res.responseText);
       // Limpando a array
     
     },

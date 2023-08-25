@@ -109,7 +109,7 @@ function criarCesta() {
         //Redirect no usuário para a página do QRCode
         //
         // alert(res.responseText);
-        alert("Sucesso");
+        // alert("Sucesso");
         window.location.href = 'cesta.php';
       },
 
@@ -119,7 +119,7 @@ function criarCesta() {
 
       complete: function (res) {
         // alert(res.responseText);
-        console.log(res.responseText);
+        // console.log(res.responseText);
         // Limpando a array
 
       },
