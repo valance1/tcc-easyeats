@@ -222,7 +222,7 @@ session_start();
     </div>
 
     <div class="row gy-4" data-aos="fade-up">
-      <div class="col-lg-7 position-relative about-img shadow rounded" style="background-size: cover;background-position: center;background-image: url(images/index/ee.jpg);"></div>
+      <div class="col-lg-7 position-relative about-img shadow rounded image-about-us" style="background-size: cover;background-position: center;background-image: url(images/index/ee.jpg);"></div>
 
       <div class="col-lg-5 d-flex align-items-end"><p style="color: var(--whiteCool) !important;">Bem-vindo à EasyEats - A solução inteligente para evitar filas e aproveitar ao máximo suas refeições!<br><br>
 

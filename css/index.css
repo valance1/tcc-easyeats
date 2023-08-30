@@ -86,3 +86,8 @@
     color: #121212;
   }
   
+  @media (max-width: 992px) {
+    .image-about-us{
+        display: none;
+    }
+  }
