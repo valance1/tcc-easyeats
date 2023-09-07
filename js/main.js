@@ -129,6 +129,12 @@ cadPessoaForm.addEventListener('submit', function (event) {
         }
     };
 
+    termos = document.getElementById('termosdeservico');
+    if(termos.checked != 1){
+        toastr["error"]('Concorde com nossos termos de serviço para prosseguir');
+        return;
+    }
+
     // Cria um objeto FormData para enviar os dados do formulário
     const formData = new FormData();
     formData.append('inputNome', nome.value);
@@ -204,6 +210,12 @@ cadEmpresaForm.addEventListener('submit', function (event) {
             return;
         }
     };
+
+    termos = document.getElementById('termosdeservico');
+    if(termos.checked != 1){
+        toastr["error"]('Concorde com nossos termos de serviço para prosseguir');
+        return
+    }
 
     // Cria um objeto FormData para enviar os dados do formulário
     const formData = new FormData();

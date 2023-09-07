@@ -98,6 +98,11 @@ echo '
 					  <div class="invalid-feedback">Senha inválida</div>
 					  <span class="form-text">Digite a senha idêntica à anterior</span>
 					</div>
+
+					<div class="mb-3 form-check">
+						<input type="checkbox" class="form-check-input" id="termosdeservico">
+						<label class="form-check-label" for="termosdeservico">Eu concordo com os <a href="termos.php"><b>termos de serviço</b></a></label>
+					</div>
 			
 				</div>
 				<div class="modal-footer">
@@ -186,6 +191,11 @@ echo '
 					<div class="invalid-feedback">Senha inválida</div>
 					<span
 					class="form-text">Digite a senha idêntica à anterior</span>
+				  </div>
+
+				  <div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="termosdeservico">
+					<label class="form-check-label" for="termosdeservico">Eu concordo com os <a href="termos.php"><b>termos de serviço</b></a></label>
 				  </div>
 	  
 				</div>
