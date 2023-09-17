@@ -11,7 +11,13 @@
   // Verificar se não há nenhum pedido pendnete com a empresa
   if(existe(conectarBD(), 'pedidos', 'empresa', retornaVal(conectarBD(), 'empresa', 'email', $_SESSION['email'], 'CNPJ'))){
     $_SESSION['toast'] = 'erro';
-    $_SESSION['toastmsg'] = 'Ainda há pedidos pendentes';
+    $_SESSION['toastmsg'] = 'Ainda há pedidos pendentes, você só pode excluir sua conta enquanto não houver nenhum pedido.';
+    header("Location:../../config.php");
+  }
+    // Verificar se não há nenhum pedido pendnete com a empresa
+  if(existe(conectarBD(), 'item', 'empresa', retornaVal(conectarBD(), 'empresa', 'email', $_SESSION['email'], 'CNPJ'))){
+    $_SESSION['toast'] = 'erro';
+    $_SESSION['toastmsg'] = 'Você não pode excluir sua conta enquanto há usuários com fichas da sua loja.';
     header("Location:../../config.php");
   }
 
