@@ -35,6 +35,10 @@ window.addEventListener('DOMContentLoaded', function () {
             },
         });
     });
+    if(document.getElementById('inputPedido').value !== ""){
+        vizitem.scrollIntoView();
+        vizitem.click();
+    }
 });
 
 

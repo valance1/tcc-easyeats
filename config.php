@@ -258,8 +258,17 @@ if (!$_SESSION['email']) {
                 </thead>
                 <tbody>';
       while ($produto = mysqli_fetch_assoc($query)) {
-        $porcaria = $produto['idProduto'] . ",'" . $produto['nome'] . "', '" . $produto['descricao'] . "'," . $produto['preco'];
-        echo '<tr class="align-middle alert border-bottom" role="alert">
+        $disponivel = $produto['disponivel'];
+        if($disponivel == 'false'){
+          $classe = 'table-secondary text-body-secondary';
+          $info = " (Indisponível)";
+        }else{
+          // Importante resetar, já que estamos no loop
+          $classe = "";
+          $info = "";
+        }
+        $grandestring = $produto['idProduto'] . ",'" . $produto['nome'] . "', '" . $produto['descricao'] . "'," . $produto['preco'] . "," . $disponivel;
+        echo '<tr class="align-middle alert border-bottom '. $classe . '" role="alert">
                         <td class="text-center" style="width: 100px;">
                         <!--   FOTO DO PRODUTO  -->
                         <label class="label" title="">
@@ -274,7 +283,7 @@ if (!$_SESSION['email']) {
                         <td>
                           <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
                             <div>
-                                <p class="m-0 fw-bold lead">' . $produto['nome'] . '</p>
+                                <p class="m-0 fw-bold lead">' . $produto['nome'] . $info . '</p>
                                 <p class="m-0 text-muted">' . $produto['descricao'] . '</p>
                             </div>
                         </td>
@@ -287,7 +296,7 @@ if (!$_SESSION['email']) {
                         -->
                         <td>
                           <div>
-                            <button class="btn btn-success" onclick="editModal(' . $porcaria . ')"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-success" onclick="editModal(' . $grandestring . ')"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button class="btn btn-danger" onclick=removeModal(' . $produto['idProduto'] . ')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
@@ -325,6 +334,10 @@ if (!$_SESSION['email']) {
 				<input type="text" class="form-control" id="inputEditPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
 				<label for="inputPreco" class="form-label">Preço</label>
 			  </div>
+        <div class="mb-3 form-check">
+						<input type="checkbox" class="form-check-input" id="proddisponivel">
+						<label class="form-check-label" for="proddisponivel">Produto disponivel?</label>
+					</div>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
@@ -354,7 +367,7 @@ if (!$_SESSION['email']) {
 
 <!-- // Importante para cortar as imagens -->
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="js/config.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

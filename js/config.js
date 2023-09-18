@@ -86,7 +86,8 @@ function removeModal(id) {
 };
 
 //Form para editar um produto
-function editModal(id, nomeProd, descricaoProd, precoProd) {
+function editModal(id, nomeProd, descricaoProd, precoProd, dispo) {
+
 
     // Pegando o objeto dos inputs
     const nome = document.getElementById('inputEditNomeProduto');
@@ -97,7 +98,11 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
     nome.value = nomeProd;
     desc.value = descricaoProd;
     preco.value = precoProd;
-
+    if(dispo === true){
+        document.getElementById('proddisponivel').checked = true;
+    }else{
+        document.getElementById('proddisponivel').checked = false;
+    }
     // Abrindo o modal
     $('#editProdutoModal').modal('show');
 
@@ -115,6 +120,7 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
         formData.append('nome', nome.value);
         formData.append('desc', desc.value);
         formData.append('preco', preco.value);
+        formData.append('disponivel', document.getElementById('proddisponivel').checked);
 
         // Cria uma request para enviar os dados pro arquivo php
         const xhr = new XMLHttpRequest();
@@ -136,13 +142,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
 
 window.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.sr-only');
-    
-    // Se vier de um redirecionamento QRCODE:
-    if(document.getElementById('inputPedido').value !== ""){
-        vizitem.scrollIntoView();
-        vizitem.click();
-    }
-
 
     elements.forEach((item) => {
         item.addEventListener('click', function(){
@@ -160,7 +159,7 @@ window.addEventListener('DOMContentLoaded', function () {
         $modal.on('shown.bs.modal', function () {
             cropper = new Cropper(image, {
                 aspectRatio: 1,
-                viewMode: 3,
+                viewMode: 0,
             });
         }).on('hidden.bs.modal', function () {
             $modal.modal('hide');

@@ -88,7 +88,7 @@ if (mysqli_num_rows($query) == 0) {
                 $idCesta = retornaVal(conectarBD(), 'cesta', 'cliente', $cpf, 'idCesta');
 
                 // Dados para o QR code
-                $text = 'config.php?idCesta='. $idCesta;
+                $text = 'abater.php?idCesta='. $idCesta;
                 $filename = 'images/qrcodes/cesta/'. $idCesta .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code

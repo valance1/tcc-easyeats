@@ -11,6 +11,7 @@ $imagem = $_FILES["imagem"];
 $nome = $_POST["nome"];
 $desc = $_POST["desc"];
 $preco = $_POST["preco"];
+$dispo = $_POST["disponivel"];
 
 // Consultando quem é o dono da imagem primeiro
 $email = $_SESSION['email'];
@@ -69,19 +70,24 @@ if ($imagem['size'] != 0) {
     // Inserindo o produto no BD
     alterarFotoProduto(conectarBD(), $path, $id);
 }
+
+// O importante é o cara não ter simplesmente deletado todos os caracteres.
 if (strlen($nome) != 0) {
-    // Tem que adicionar as verificações
     alterarNomeProduto(conectarBD(), $nome, $id);
+}else{
     $_SESSION['toast'] = 'erro';
     $_SESSION['toastmsg'] = 'Preencha todos os campos';
     exit();
 }
+
 if (strlen($desc) != 0) {
     alterarDescProduto(conectarBD(), $desc, $id);
+}else{
     $_SESSION['toast'] = 'erro';
     $_SESSION['toastmsg'] = 'Preencha todos os campos';
     exit();
 }
+
 if (strlen($preco) != 0 && is_numeric($preco)) {
     alterarPrecoProduto(conectarBD(), $preco, $id);
 }else{
@@ -89,6 +95,9 @@ if (strlen($preco) != 0 && is_numeric($preco)) {
     $_SESSION['toastmsg'] = 'O preço precisa ser numérico e estar completamente preenchido.';
     exit();
 }
+
+// Altera a disponibilidade do produto
+alterarDispoProduto(conectarBD(), $id, $dispo);
 
 $_SESSION['toast'] = 'sucesso';
 $_SESSION['toastmsg'] = 'Suas modificações foram salvas!';
