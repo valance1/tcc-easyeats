@@ -40,9 +40,6 @@ if (!$_SESSION['email']) {
     integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- instascan -->
-  <script type="text/javascript" src="js/instascan.min.js"></script>
-
   <!-- ANIMATIONS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -221,48 +218,7 @@ if (!$_SESSION['email']) {
     ;
     ?>
   </section>
-
-  <?php
-
-  if (!$_SESSION['empresa'] == false) {
-    echo '<!-- Sessão para abater uma ficha -->
-  <section class="average-section" id="abater-fichas-section">
-    <hr class="hr" />
-    <div class="section-text-container mb-5">
-      <h1 class="h1">Abater pedido</h1>
-      <p class="lead text-secondary">Aqui você pode abater as fichas do seu cliente</p>
-    </div>
-<!--     Form para abater uma ficha -->
-    <div class="visualizarPedido">
-
-      <div class="formItens">
-
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="inputPedido" name="inputPedido" maxlength="10" value="' . $_GET['idCesta'] . '">
-          <label for="inputPedido" class="form-label">Código do pedido</label>
-        </div>
-
-        <div class="form-floating mb-3">
-          <button class="btn" id="scanQRCodeBtn"><i class="fa-solid fa-camera"></i></button>
-        </div>
-
-        <div class="form-floating mb-3">
-      <button type="submit" id="viz-pedido"class="btn btn-success align-self-end">Visualizar pedido</button>
-      </div>
-      <video id="previewQR" style="display: none; width: 100%;"></video>
-    </div>
-
-    <div id="viz-cesta-itens" style="display: none;">
-    </div>
-
-
-    </div>
-  </div>
-  </section>';
-  }
-
-  ?>
-
+  
   <!-- SE O USUÁRIO FOR EMPRESARIAL, ADICIONAR SESSÃO DE CRIAR PRODUTO -->
   <?php
   require_once 'php/dao/conexaoBD.php';
@@ -400,77 +356,10 @@ if (!$_SESSION['email']) {
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/abaterCesta.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
-<!-- <script type="text/javascript" src="js/produtoCRUD.js"></script> -->
-
-<?php
-if ($_SESSION['empresa']) {
-  echo '<script type="text/javascript" src="js/config.js"></script>';
-  echo '   
-  <script type="text/javascript">
-  // Variável para armazenar o scanner do instascan
-  let scanner;
-
-  // Função para iniciar o scanner
-  function startScanner() {
-      // Use a API da câmera para acessar a câmera do dispositivo
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-          .then(function(stream) {
-              // Obtenha o elemento de vídeo para visualizar a câmera
-              const videoElement = document.getElementById("previewQR");
-              videoElement.srcObject = stream;
-              videoElement.play();
-
-              // Crie um scanner usando a biblioteca instascan
-              scanner = new Instascan.Scanner({ video: videoElement });
-
-              // Adicione um ouvinte para detectar quando um QRCode é lido
-              scanner.addListener("scan", function(content) {
-                  // Redirecionar para a página com o conteúdo do QRCode
-                  window.location.href = content;
-              });
-
-              // Inicie o scanner
-              Instascan.Camera.getCameras()
-                  .then(function(cameras) {
-                      if (cameras.length > 0) {
-                          scanner.start(cameras[0]); // Use a câmera traseira por padrão
-                      } else {
-                          console.error("Nenhuma câmera encontrada.");
-                          document.getElementById("previewQR").style.display = "none"; 
-                      }
-                  })
-                  .catch(function(err) {
-                    document.getElementById("previewQR").style.display = "none"; 
-                      console.error("Erro ao acessar a câmera: ", err);
-                  });
-          })
-          .catch(function(err) {
-            document.getElementById("previewQR").style.display = "none"; 
-              console.error("Erro ao acessar a câmera: ", err);
-          });
-  }
-
-  // Adicione um ouvinte ao botão "Abrir Câmera"
-  window.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("scanQRCodeBtn").addEventListener("click", function() {
-      previewContainer= document.getElementById("previewQR")
-      if (previewContainer.style.display === "none") {
-        previewContainer.style.display = "flex";
-        startScanner();
-      } else {
-        previewContainer.style.display = "none";
-      }
-      
-  });
-});
-</script>';
-}
-?>
 </section>
 
 </html>

@@ -53,6 +53,9 @@ align-items: center;">
       if($_SESSION['empresa'] != true){
         echo '<li><a class="dropdown-item" href="inventario.php">Inventário</a></li>';
       };
+      if($_SESSION['empresa'] == true){
+        echo '<li><a class="dropdown-item" href="abater.php">Abater fichas</a></li>';
+      };
       
       echo '
       <li><a class="dropdown-item" href="config.php"><i class="fa-solid fa-gear me-2"></i>Configurações</a></li>

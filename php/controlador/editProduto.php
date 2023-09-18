@@ -72,12 +72,22 @@ if ($imagem['size'] != 0) {
 if (strlen($nome) != 0) {
     // Tem que adicionar as verificações
     alterarNomeProduto(conectarBD(), $nome, $id);
+    $_SESSION['toast'] = 'erro';
+    $_SESSION['toastmsg'] = 'Preencha todos os campos';
+    exit();
 }
 if (strlen($desc) != 0) {
     alterarDescProduto(conectarBD(), $desc, $id);
+    $_SESSION['toast'] = 'erro';
+    $_SESSION['toastmsg'] = 'Preencha todos os campos';
+    exit();
 }
-if (strlen($preco) != 0) {
+if (strlen($preco) != 0 && is_numeric($preco)) {
     alterarPrecoProduto(conectarBD(), $preco, $id);
+}else{
+    $_SESSION['toast'] = 'erro';
+    $_SESSION['toastmsg'] = 'O preço precisa ser numérico e estar completamente preenchido.';
+    exit();
 }
 
 $_SESSION['toast'] = 'sucesso';

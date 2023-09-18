@@ -112,14 +112,6 @@ border: 0;
     }
 }
 
-.visualizarPedido .formItens{
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 @media (max-width: 420px) {
     .row.row-cols-1.row-cols-md-3.g-4.justify-content-between{
         flex-direction: column;

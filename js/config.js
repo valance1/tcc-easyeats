@@ -136,43 +136,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd) {
 
 window.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.sr-only');
-
-    // Botao de visualizar itens 
-    vizitem = document.getElementById("viz-pedido")
-    vizitem.addEventListener('click', function(){
-        idCesta = document.getElementById('inputPedido').value;
-        $.ajax({
-            method: 'POST',
-            url: 'php/controlador/retrieveCesta.php',
-            data: 'idCesta=' + idCesta,
-
-            xhr: function () {
-                var xhr = new XMLHttpRequest();
-                return xhr;
-            },
-
-            success: function (resultado) {
-                // codHtml = resultado.responseText;
-                // document.getElementById('viz-cesta-itens').innerHTML = codHtml;
-            },
-
-            error: function () {
-                alert("ERRO");
-            },
-
-            complete: function (response) {
-                codHtml = response.responseText;
-                containterAlvo = document.getElementById('viz-cesta-itens');
-                if (containterAlvo.style.display === "none" ||  containterAlvo.innerHTML.trim() == "") {
-                    containterAlvo.style.display = "block";
-                    containterAlvo.innerHTML = codHtml;
-                  } else {
-                    containterAlvo.style.display = "none";
-                    containterAlvo.innerHTML = "";
-                }
-            },
-        });
-    });
     
     // Se vier de um redirecionamento QRCODE:
     if(document.getElementById('inputPedido').value !== ""){
@@ -340,6 +303,7 @@ window.addEventListener('DOMContentLoaded', function () {
     
                         error: function () {
                             avatar.src = initialAvatarURL;
+                            toastr["error"]('Erro no sistema!');
                             //   $alert.show().addClass('alert-warning').text('Upload error');
                         },
     
