@@ -1,0 +1,30 @@
+/* PRODUTOS */
+.product-card {
+    cursor: pointer;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.product-text-container {
+    margin-right: auto;
+}
+
+.product-img-container {
+    height: 98px;
+    min-width: 98px;
+    width: 98px !important;
+
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.counterGroup {
+    display: flex;
+    margin-right: 12px;
+    justify-content: center;
+    align-items: center;
+}

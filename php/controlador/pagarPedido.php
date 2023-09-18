@@ -45,8 +45,21 @@ foreach ($itens as &$produto) {
 adicionarLucro($conexao, $cnpj, $valorTotal);
 
 // 2 - Criar tabela de transações
+$itensFiltrados = array();
+$itemUnique = array_unique($itens);
+foreach ($itemUnique as &$produto) {
+    $imagemProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'imagem');
+    ;
+    $descProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'descricao');
+    ;
+    $nomeProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'nome');
+    $precoProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'preco');
+    $tmp = array_count_values($itens);
+    $quantidade = $tmp[$produto];
+    array_push($itensFiltrados, $nomeProduto, $quantidade, $precoProduto);
+}
 $data = date('Y-m-d H:i:s');
-criarTransacaoPedido($conexao, $idPedido, $data, $valorTotal, $cpf, $cnpj);
+criarTransacaoPedido($conexao, $idPedido, $data, json_encode($itensFiltrados), $valorTotal, $cpf, $cnpj);
 
 // 3 - Deletar pedido
 $caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";

@@ -55,6 +55,7 @@ align-items: center;">
       };
       if($_SESSION['empresa'] == true){
         echo '<li><a class="dropdown-item" href="abater.php">Abater fichas</a></li>';
+        echo '<li><a class="dropdown-item" href="historico.php">Pedidos</a></li>';
       };
       
       echo '
