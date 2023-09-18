@@ -55,7 +55,7 @@ foreach ($itemUnique as &$produto) {
 
 // 2 - Criar row de abates
 $data = date('Y-m-d H:i:s');
-criarTransacaoCesta($conexao, $idCesta, $data, json_encode($itensFiltrados), $cpf, $cnpj);
+criarTransacaoCesta($conexao, $idCesta, $data, json_encode($itensFiltrados, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES), $cpf, $cnpj);
 
 // 3 - Deletar Cesta
 $caminhoArquivo = "../../images/qrcodes/cesta/" . $idCesta . ".png";

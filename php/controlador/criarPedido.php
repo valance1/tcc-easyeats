@@ -55,7 +55,7 @@ foreach ($multiplicarArray as &$produto) {
 };
 echo 'Preco: ' . $precoPedido;
 // Essa Array é responsável por determinar os itens que serão criados
-echo json_encode($data);
+echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
 // Encontrando um ID para o pedido, caso exista, vamos ficar loopando até não existir
 $pedidoID = bin2hex(random_bytes(5));

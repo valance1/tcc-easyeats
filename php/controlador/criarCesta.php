@@ -76,7 +76,7 @@ while (existe($conexao, 'cesta', 'idCesta', $CestaID)){
     $CestaID = bin2hex(random_bytes(5));
 };
 
-criarCesta($conexao, $CestaID, $cpf, json_encode($data), $cnpj);
+criarCesta($conexao, $CestaID, $cpf, json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES), $cnpj);
 echo '</br> Cesta Criado com sucesso';
 
 ?>

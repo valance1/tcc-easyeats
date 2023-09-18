@@ -59,7 +59,7 @@ foreach ($itemUnique as &$produto) {
     array_push($itensFiltrados, $nomeProduto, $quantidade, $precoProduto);
 }
 $data = date('Y-m-d H:i:s');
-criarTransacaoPedido($conexao, $idPedido, $data, json_encode($itensFiltrados), $valorTotal, $cpf, $cnpj);
+criarTransacaoPedido($conexao, $idPedido, $data, json_encode($itensFiltrados, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES), $valorTotal, $cpf, $cnpj);
 
 // 3 - Deletar pedido
 $caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";
