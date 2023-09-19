@@ -37,13 +37,21 @@ $itensFiltrados = array();
 $itemUnique = array_unique($itens);
 foreach ($itemUnique as &$produto) {
     $imagemProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'imagem');
-    ;
     $descProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'descricao');
-    ;
     $nomeProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'nome');
     $precoProduto = retornaVal($conexao, 'produto', 'idProduto', $produto, 'preco');
     $tmp = array_count_values($itens);
     $quantidade = $tmp[$produto];
+
+    // Verificar se o usuário possui as fichas no inventário
+    $sqlCode = "SELECT * FROM item WHERE idProduto = '$produto' AND donoDoItem='$cpf'";
+    $fichasBD = mysqli_num_rows(mysqli_query($conexao, $sqlCode));
+    if($ocorrencias > $fichasBD){
+        echo "Você está tentando sair com vantagem, você tem menos fichas do que alega ter";
+        exit();
+    }
+
+
     array_push($itensFiltrados, $nomeProduto, $quantidade, $precoProduto);
 
     // Deletar os itens do usuário

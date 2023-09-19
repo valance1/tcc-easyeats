@@ -151,7 +151,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
             if ($secaoAtual !== null) {
                 echo '
                 </div>
-                <button class="btn btn-outline-success" onclick="">Reembolsar fichas</button> 
+                <button class="btn btn-outline-success" onclick="pedirReembolso()">Reembolsar fichas</button> 
                 <button class="btn btn-success" id="btnFecharCesta" onclick="criarCesta()" >Utilizar fichas</button>';
             }
 

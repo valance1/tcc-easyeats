@@ -128,6 +128,44 @@ function incrementarProduto(botao, idProduto) {
   verifArr();
 }
 
+function pedirReembolso() {
+  if (cesta.length == 0) {
+    alert("Cesta vazia, operação cancelada");
+  } else {
+    // Vamos criar o pedido no servidor
+    $.ajax({
+      method: 'POST',
+      url: 'php/controlador/pedirReembolso.php',
+      data: { data: cesta },
+      xhr: function () {
+        var xhr = new XMLHttpRequest();
+        return xhr;
+      },
+
+      success: function (res) {
+        //Redirect no usuário para a página do QRCode
+        //
+        // alert(res.responseText);
+        // alert(res)
+        // alert("Sucesso");
+        window.location.href = 'inventario.php';
+      },
+
+      error: function () {
+        alert("erro");
+      },
+
+      complete: function (res) {
+        // alert(res.responseText);
+        // console.log(res.responseText);
+        // Limpando a array
+
+      },
+    });
+  }
+}
+
+
 function criarCesta() {
   if (cesta.length == 0) {
     alert("Cesta vazia, operação cancelada");
