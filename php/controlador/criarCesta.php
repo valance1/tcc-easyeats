@@ -42,8 +42,14 @@ foreach ($data as $item) {
         break; // Não precisamos mais continuar a verificação
     }
 }
-
-if ($mesmaEmpresa) {
+foreach ($data as $item) {
+    $dispoMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
+    if ($dispoTMP !== true) {
+        $valido = false;
+        break;
+    }
+}
+if ($mesmaEmpresa || $valido == true) {
     // Todos os itens têm a mesma empresa
     echo "Todos os itens pertencem à mesma empresa.";
 } else {

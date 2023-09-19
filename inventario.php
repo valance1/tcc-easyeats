@@ -73,17 +73,17 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
 
         require_once('php/dao/conexaoBD.php');
         require_once('php/controlador/FuncoesUteis.php');
-        
+
         $conexao = conectarBD();
         $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf');
-        $code = "SELECT item.nome AS nomeItem, item.idProduto, produto.descricao, produto.imagem, empresa.nome AS nomeEmpresa, COUNT(item.idItem) AS quantidade
+        $code = "SELECT item.nome AS nomeItem, item.idProduto, produto.descricao, produto.imagem, produto.disponivel, empresa.nome AS nomeEmpresa, COUNT(item.idItem) AS quantidade
         FROM item
         INNER JOIN produto ON item.idProduto = produto.idProduto
         INNER JOIN empresa ON item.empresa = empresa.CNPJ
         WHERE item.donoDoItem = '$cpf'
         GROUP BY item.nome, produto.descricao, produto.imagem, empresa.nome
         ORDER BY empresa.nome";
-    
+
         // $code = "SELECT * FROM item WHERE donoDoItem='$cpf'";
         $query = mysqli_query($conexao, $code) or die(mysqli_error($conexao));
 
@@ -94,6 +94,14 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
             // Lógica simples para dividir os produtos por empresa
             $secaoAtual = null;
             while ($row = mysqli_fetch_assoc($query)) {
+                if ($row['disponivel'] == "false") {
+                    $classe = "product-disabled text-secondary";
+                    $info = " (Produto indisponível)";
+                } else {
+                    $classe = "";
+                    $info = "";
+                }
+
                 $nomeEmpresa = $row["nomeEmpresa"];
                 $nomeItem = $row["nomeItem"];
                 $descricaoItem = $row["descricao"];
@@ -106,41 +114,45 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                     if ($secaoAtual !== null) {
                         echo "</div>";
                     }
-        
+
                     // Abre uma nova seção com o nome da empresa
                     echo '<div class="nome-empresa" data-empresa="' . $nomeEmpresa . '"><h2>' . $nomeEmpresa . ':</h2>';
                     $secaoAtual = $nomeEmpresa;
                 }
-        
+
                 // Exibe o item dentro da seção atual
                 if ($nomeEmpresa === $secaoAtual) {
-                    
+
                     echo '
-                    <div class="card product-card my-3 d-flex flex-row">
+                    <div class="card product-card my-3 d-flex flex-row ' . $classe . '">
                         <div class="product-img-container">
                         <img class="float-start" src="' . $imagemItem . '">
                         </div>
                         <div class="product-text-container ms-3 d-flex flex-column my-3  w-100 float-start">
-                        <p class="fs-4 mb-0">' . $nomeItem . '</p>
+                        <p class="fs-4 mb-0">' . $nomeItem . $info .'</p>
                         <p class="text-muted fs-6 my-1">' . $descricaoItem . '</p>
                         <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
-                        </div>
-                        <div class="cartContainer" id="cartContainer">
+                        </div>';
+
+                    if ($row['disponivel'] != "false") {
+                        echo '<div class="cartContainer" id="cartContainer">
                             <div class="btn-group counterGroup">
                             <button class="btn btn-danger subtrairBtn sectButton" onclick="subtrairProduto(this, ' . $row['idProduto'] . ')"> - </button>
                                 <div class="form-control text-muted" id="productCounter' . $row['idProduto'] . '">0</div>
                                 <button class="btn btn-success somarBtn sectButton" onclick="incrementarProduto(this, ' . $row['idProduto'] . ')"> + </button>
                             </div>
                         </div>
-                    </div>
-              ';
+                    </div>';
+                    }
                 }
             }
-        
+
             // Fecha a última seção
             if ($secaoAtual !== null) {
-                echo '</div><button class="btn btn-success" onclick="criarCesta()" >Utilizar fichas</button>';
-                
+                echo '
+                </div>
+                <button class="btn btn-outline-success" onclick="">Reembolsar fichas</button> 
+                <button class="btn btn-success" onclick="criarCesta()" >Utilizar fichas</button>';
             }
 
             // ============================================================
@@ -189,14 +201,14 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     <?php include 'php/components/footer.php' ?>
     <?php include 'php/components/forms.php' ?>
     <script type="text/javascript" src="js/main.js"></script>
-    <?php 
+    <?php
     echo $_SESSION['pass'];
-    if($_SESSION['PASS']){
+    if ($_SESSION['PASS']) {
         echo '<script type="text/javascript" src="js/cesta.js"></script>';
         unset($_SESSION['PASS']);
     }
     ?>
-    
+
 </body>
 
 </html>

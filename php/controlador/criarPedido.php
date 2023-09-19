@@ -40,6 +40,21 @@ if (mysqli_num_rows($query) >= 1) {
   removerPedido($conexao, $cpf);
 }
 
+// Verificar se os pedidos estão disponíveis
+foreach ($data as $item) {
+    $dispoMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
+    if ($dispoTMP !== true) {
+        $valido = false;
+        break;
+    }
+}
+if ($valido == true) {
+    echo "Todos os itens são validos";
+} else {
+    echo "Pare de tentar alterar o código.";
+    exit(); 
+}
+
 // Parte que pega os preços
 $precoPedido = 0;
 $multiplicarArray = array_unique($data);

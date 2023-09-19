@@ -90,27 +90,37 @@ session_start();
     $code = "SELECT * FROM produto where CNPJ = '$cnpj'";
     $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 
+    $sqlCode2 = "SELECT COUNT(*) AS total FROM produto WHERE CNPJ = '$cnpj' AND disponivel = 'false'";
+    $query2 = mysqli_query(conectarBD(), $sqlCode2);
+    $result = mysqli_fetch_assoc($query2);
+    $totalProdutosFalse = $result['total'];
+
+
     // Se houver algum produto:
-    if (mysqli_num_rows($query) != 0) {
+    if (mysqli_num_rows($query) != 0 && mysqli_num_rows($query) != $totalProdutosFalse) {
       // Pegando as empresas 1 por 1 e exibindo os cartões.
       while ($produto = mysqli_fetch_assoc($query)) {
+        // Se o produto não estiver disponível, nem vamos adicionar ele no cardápio
+        if($produto['disponivel'] == 'false'){
+          continue;
+        }
 
         echo '
-        <div class="card product-card my-3 d-flex flex-row">
-          <div class="product-img-container">
-            <img class="float-start" src="' . $produto['imagem'] . '">
-          </div>
-          <div class="product-text-container ms-3 d-flex flex-column my-3 w-100 float-start">
-            <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
-            <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
-            <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
-          </div>
-          <div class="cartContainer" id="cartContainer'. $produto['idProduto'] .'">
-            <button class="btn btn-success btn-buy-product" id="cartBtn' . $produto['idProduto'] . '" onclick="adicionarAoCarrinho('. $produto['idProduto'] .')"><i class="fa-solid fa-cart-shopping"></i></button>
-          </div>
-    </div>';
+            <div class="card product-card my-3 d-flex flex-row">
+              <div class="product-img-container">
+                <img class="float-start" src="' . $produto['imagem'] . '">
+              </div>
+              <div class="product-text-container ms-3 d-flex flex-column my-3 w-100 float-start">
+                <p class="fs-4 mb-0">' . $produto['nome'] . '</p>
+                <p class="text-muted fs-6 my-1">' . $produto['descricao'] . '</p>
+                <p class="fw-bold text-success green mb-0">R$' . $produto['preco'] . '</p>
+              </div>
+              <div class="cartContainer" id="cartContainer'. $produto['idProduto'] .'">
+                <button class="btn btn-success btn-buy-product" id="cartBtn' . $produto['idProduto'] . '" onclick="adicionarAoCarrinho('. $produto['idProduto'] .')"><i class="fa-solid fa-cart-shopping"></i></button>
+              </div>
+        </div>';
       }
-
+      echo '<button class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button>';
       // Se não houver nenhuma, mostre o card de indisponibilidade
     } else {
       echo '
@@ -124,7 +134,6 @@ session_start();
     ';
     }
     ?>
-   <button class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button> 
   </section>
 
   <!-- Importando componentes -->

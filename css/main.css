@@ -145,6 +145,17 @@ nav a.nav-link:hover:after {
   height: 40vh;
 }
 
+
+.hoverable {
+  transform: scale(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.hoverable:hover{
+  transform: scale(102%);
+  transition: 0.2s ease-in-out;
+}
+
 /* SECTION */
 /* ---------------------------------------- */
 section.average-section,
@@ -224,8 +235,6 @@ section.average-section {
 
 .card:hover {
   box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
-  transition: all ease-out 0.2s;
-  transform: scale(101%);
 }
 
 .card a.btn-outline-dark:hover {

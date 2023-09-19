@@ -71,6 +71,15 @@
   border-radius: 0;
 }
 
+.product-disabled{
+  filter: grayscale(100%);
+  cursor: default !important;
+  user-select: none !important;
+}
+.product-disabled:hover{
+  transform: scale(100%) !important;
+}
+
 @media (max-width: 992px) {
 
   .product-img-container {

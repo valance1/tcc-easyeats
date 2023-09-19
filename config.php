@@ -261,10 +261,12 @@ if (!$_SESSION['email']) {
         $disponivel = $produto['disponivel'];
         if($disponivel == 'false'){
           $classe = 'table-secondary text-body-secondary';
+          $classe2 = "product-disabled";
           $info = " (Indisponível)";
         }else{
           // Importante resetar, já que estamos no loop
           $classe = "";
+          $classe2 = "";
           $info = "";
         }
         $grandestring = $produto['idProduto'] . ",'" . $produto['nome'] . "', '" . $produto['descricao'] . "'," . $produto['preco'] . "," . $disponivel;
@@ -273,7 +275,7 @@ if (!$_SESSION['email']) {
                         <!--   FOTO DO PRODUTO  -->
                         <label class="label" title="">
                           <div class="produtoCRUDFoto">
-                              <img class="pic" id="pic' . $produto['idProduto'] . '"
+                              <img class="pic rounded '. $classe2 .' " id="pic' . $produto['idProduto'] . '"
                                   src="' . $produto['imagem'] . '"
                                   alt="">
                                 <input type="file" class="sr-only inputEditProdutoImagem" data-item-id="' . $produto['idProduto'] . '" id="inputEditProdutoImagem' . $produto['idProduto'] . '" name="inputImagemProduto">
@@ -289,7 +291,7 @@ if (!$_SESSION['email']) {
                         </td>
                         <td>
                           <!-- PREÇO DO PRODUTO -->
-                            <div class="fw-600">' . $produto['preco'] . '</div>
+                            <div class="fw-600">R$' . $produto['preco'] . '</div>
                         </td>
                         <!-- Ações do produto (EDITAR OU DELETAR)
                         Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
