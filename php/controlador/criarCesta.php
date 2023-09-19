@@ -35,16 +35,18 @@ $mesmaEmpresa = true;
 // Verificar se todos os itens têm a mesma empresa
 foreach ($data as $item) {
     $cnpjTMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'CNPJ');
-    if ($cnpjTMP !== $cnpj) {
+    if ($cnpjTMP != $cnpj) {
 
         // Se encontrarmos algum item com empresa diferente, definimos $mesmaEmpresa como false
         $mesmaEmpresa = false;
         break; // Não precisamos mais continuar a verificação
     }
 }
+// Verificar se os itens estão disponíveis
+$valido = true;
 foreach ($data as $item) {
-    $dispoMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
-    if ($dispoTMP !== true) {
+    $dispoTMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
+    if ($dispoTMP != 'true') {
         $valido = false;
         break;
     }

@@ -41,9 +41,10 @@ if (mysqli_num_rows($query) >= 1) {
 }
 
 // Verificar se os pedidos estão disponíveis
+$valido = true;
 foreach ($data as $item) {
-    $dispoMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
-    if ($dispoTMP !== true) {
+    $dispoTMP = retornaVal($conexao, 'produto', 'idProduto', $item, 'disponivel');
+    if ($dispoTMP != 'true') {
         $valido = false;
         break;
     }
