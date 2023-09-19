@@ -124,7 +124,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                 if ($nomeEmpresa === $secaoAtual) {
 
                     echo '
-                    <div class="card product-card my-3 d-flex flex-row ' . $classe . '">
+                    <div data-id="' . $row['idProduto'] . '" class="card product-card my-3 d-flex flex-row ' . $classe . '">
                         <div class="product-img-container">
                         <img class="float-start" src="' . $imagemItem . '">
                         </div>
@@ -134,7 +134,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                         <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
                         </div>';
 
-                    if ($row['disponivel'] != "false") {
+                    if ($row['disponivel'] != "false" || $row['disponivel'] != "true"){
                         echo '<div class="cartContainer" id="cartContainer">
                             <div class="btn-group counterGroup">
                             <button class="btn btn-danger subtrairBtn sectButton" onclick="subtrairProduto(this, ' . $row['idProduto'] . ')"> - </button>
@@ -152,7 +152,7 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                 echo '
                 </div>
                 <button class="btn btn-outline-success" onclick="">Reembolsar fichas</button> 
-                <button class="btn btn-success" onclick="criarCesta()" >Utilizar fichas</button>';
+                <button class="btn btn-success" id="btnFecharCesta" onclick="criarCesta()" >Utilizar fichas</button>';
             }
 
             // ============================================================

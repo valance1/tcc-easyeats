@@ -3,6 +3,36 @@ const cesta = [];
 const quantidadesOriginais = {}; // Armazena as quantidades originais dos produtos
 const botoesSection = {};
 
+// Função que verifica se um produta está desabilitado
+function verifArr(){
+  // Sem repetição
+  uniqArray = cesta.filter((item, index) => cesta.indexOf(item) === index);
+  // console.log(uniqArray);
+
+// Selecionar todos os elementos com a classe ".product-disabled"
+  const elementosComClasse = document.querySelectorAll('.product-disabled');
+
+  // Iterar pelos elementos selecionados
+  elementosComClasse.forEach(function(elemento) {
+      // Obter o valor do atributo "data-id"
+      const dataId = elemento.getAttribute('data-id');
+
+      // Verificar se o valor do "data-id" está presente na array "valoresDataId"
+      if (uniqArray.includes(parseInt(dataId))) {
+          // O valor do "data-id" está na array
+          cestaBtn = document.getElementById("btnFecharCesta");
+          console.log(`Elemento com data-id ${dataId} está presente na array.`);
+          cestaBtn.classList.add("disabled");
+      } else {
+          // O valor do "data-id" não está na array
+          cestaBtn = document.getElementById("btnFecharCesta");
+          cestaBtn.classList.remove("disabled");
+          console.log(`Elemento com data-id ${dataId} não está presente na array.`);
+      }
+  });
+}
+
+
 // Função para contar a quantidade de um determinado produto na cesta
 function contarQuantidade(produto) {
   let quantidade = 0;
@@ -44,12 +74,15 @@ function subtrairProduto(botao, idProduto) {
       }
     }
   };
+
+  // Desabilitar ou habilitar o botão de carrinho.
+  verifArr();
 }
 
 function incrementarProduto(botao, idProduto) {
   const quantidadeMaxima = quantidadesOriginais[idProduto]; // Obtém a quantidade máxima do produto
-  console.log(quantidadeMaxima);
-  console.log(quantidadesOriginais);
+  // console.log(quantidadeMaxima);
+  // console.log(quantidadesOriginais);
 
   // Verifica se a quantidade máxima foi definida
   if (quantidadeMaxima !== undefined) {
@@ -69,8 +102,9 @@ function incrementarProduto(botao, idProduto) {
   container.innerHTML = parseInt(container.innerHTML) + 1;
 
   //Debug reasons
-  console.log("PRODUTO ADCIIONADO: ");
-  console.log(cesta);
+  // console.log("PRODUTO ADCIIONADO: ");
+  // console.log(cesta);
+
   if (contarQuantidade(idProduto) >= quantidadeMaxima) {
     botao.setAttribute("disabled", "");
   }
@@ -89,6 +123,9 @@ function incrementarProduto(botao, idProduto) {
       }
     }
   }
+
+  // Desabilitar ou habilitar o botão de carrinho.
+  verifArr();
 }
 
 function criarCesta() {

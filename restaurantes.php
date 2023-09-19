@@ -58,7 +58,7 @@ session_start();
     }
     ?>
     <?php
-    require 'php/dao/conexaoBD.php';
+    require_once 'php/dao/conexaoBD.php';
 
     // Mesma lógica do index.php, porém, diferentemente do for loop
     // Aqui nós temos um while, que vai simplesmente cuspir todas as

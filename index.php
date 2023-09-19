@@ -119,7 +119,7 @@ session_start();
     <div class="row row-cols-1 justify-content-evenly row-cols-md-3 g-4">
       <!-- CARTAO DO RESTAURANTE -->
       <?php
-      require 'php/dao/conexaoBD.php';
+      require_once 'php/dao/conexaoBD.php';
 
       // Selecionando todas as empresas para adicionar os respectivos cards
       $code = "SELECT * FROM empresa";

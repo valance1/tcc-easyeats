@@ -1,7 +1,7 @@
 <?php
 session_start();
-require "php/dao/conexaoBD.php";
-require "php/controlador/FuncoesUteis.php";
+require_once "php/dao/conexaoBD.php";
+require_once "php/controlador/FuncoesUteis.php";
 // Verifica se o usuário é empresarial ou se há algum usuário.
 if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
   header("Location:index.php");

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-require "php/dao/conexaoBD.php";
-require "php/controlador/FuncoesUteis.php";
+require_once "php/dao/conexaoBD.php";
+require_once "php/controlador/FuncoesUteis.php";
 
 session_start();
 

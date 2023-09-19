@@ -1,5 +1,7 @@
 <?php
 error_reporting(0);
+require_once 'php/controlador/FuncoesUteis.php';
+require_once 'php/dao/conexaoBD.php';
 
 echo '
 <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="padding-right: 150px; padding-left: 150px">
@@ -41,19 +43,33 @@ echo '
         <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar</button>
       </li>';
     }else{
+      if(isset($_SESSION['empresa'])){
         echo '
         <li class="nav-item dropdown"  style="
-display:  flex;
-align-items: center;">
-      <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '
-      </a>
-      <ul class="dropdown-menu">
+        display:  flex;
+        align-items: center;">
+          <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '</a>
+        <ul class="dropdown-menu">
       ';
-      
-      if($_SESSION['empresa'] != true){
+
+      }else{
+        
+        $credito = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'credito');
+        echo '<li class="nav-item nav-credito">R$' . $credito .  '</li>';
+        echo '
+        <li class="nav-item dropdown"  style="
+        display:  flex;
+        align-items: center;">
+          <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '</a>
+        <ul class="dropdown-menu">
+      ';
+      }
+
+      // De qualquer jeito, vamos abrir um dropdown
+      if(isset($_SESSION['empresa']) == false){
         echo '<li><a class="dropdown-item" href="inventario.php">Inventário</a></li>';
       };
-      if($_SESSION['empresa'] == true){
+      if(isset($_SESSION['empresa'])){
         echo '<li><a class="dropdown-item" href="abater.php">Abater fichas</a></li>';
         echo '<li><a class="dropdown-item" href="historico.php">Pedidos</a></li>';
       };
