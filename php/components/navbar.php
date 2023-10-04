@@ -55,6 +55,7 @@ echo '
       }else{
         
         $credito = retornaVal(conectarBD(), 'pessoa', 'email', $_SESSION['email'], 'credito');
+        $credito = 0 + floatval($credito);
         echo '<li class="nav-item nav-credito">R$' . $credito .  '</li>';
         echo '
         <li class="nav-item dropdown"  style="

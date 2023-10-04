@@ -10,4 +10,8 @@ function adicionarCredito($conexao, $email, $creditoNovo, $creditoAntigo){
         $sql =  "UPDATE pessoa SET credito='$credito' WHERE email = '$email'";
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+function removerCredito($conexao, $email, $creditoNovo){
+        $sql =  "UPDATE pessoa SET credito='$creditoNovo' WHERE email = '$email'";
+        mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}
 ?>

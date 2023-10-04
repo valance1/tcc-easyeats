@@ -6,6 +6,7 @@ require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
 require_once "../dao/pedidoDAO.php";
 require_once "../dao/empresaDAO.php";
+require_once "../dao/pessoaDAO.php";
 require_once "../dao/itemDAO.php";
 require_once "../dao/transacaopedidoDAO.php";
 
@@ -15,12 +16,12 @@ date_default_timezone_set('America/Sao_Paulo');
 
 // Verificando se tá logado
 if(!$_SESSION['email']){
-    echo "Usuário não está logado";
+    // echo "Usuário não está logado";
     exit();
 }
 
 if(isset($_SESSION['empresa'])){
-    echo "Empresa não compra";
+    // echo "Empresa não compra";
     exit();
 }
 
@@ -32,6 +33,18 @@ $itens = json_decode(retornaVal($conexao, 'pedidos', 'idPedido', $idPedido, 'qrC
 $valorTotal = retornaVal($conexao, 'pedidos', 'idPedido', $idPedido, 'valorTotal');
 $cnpj = retornaVal($conexao, 'pedidos', 'idPedido', $idPedido, 'empresa'); // Necessário para adicionar fundos
 $cpf = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'cpf'); // Necessário para identificar o dono dos novos itens
+$credito = retornaVal($conexao, 'pessoa', 'email', $_SESSION['email'], 'credito');
+
+if($_POST['pagarComCred'] == 'true'){
+    if (floatVal($valorTotal) > floatval($credito)){
+        $response = array('error' => 'Você não possui crédito suficiente');
+        echo json_encode($response);
+        exit; // Por garantia :)
+    }else{
+        $novoCredito = floatVal($credito) - floatVal($valorTotal);
+        removerCredito($conexao, $_SESSION['email'], $novoCredito);
+    }
+}
 
 // Adicionando cada item ao perfil do usuário
 foreach ($itens as &$produto) {
@@ -66,10 +79,12 @@ $caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";
   if (file_exists($caminhoArquivo)) {
       // Exclui o arquivo
       unlink($caminhoArquivo);
-      echo 'Arquivo do QR Code excluído com sucesso.';
+    //   echo 'Arquivo do QR Code excluído com sucesso.';
   } else {
-      echo 'O arquivo do QR Code não existe.';
+    //   echo 'O arquivo do QR Code não existe.';
   }
 removerPedido($conexao, $cpf);
-
+$response = array('success' => 'Pagamento realizado com sucesso');
+echo json_encode($response);
+exit; // Por garantia :)
 ?>

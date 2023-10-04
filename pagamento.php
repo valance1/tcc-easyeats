@@ -88,7 +88,7 @@ if (mysqli_num_rows($query) == 0) {
                 $query = mysqli_query($conexao, $sqlCode);
 
                 // Dados para o QR code
-                $text = 'Imagine que aqui tem a API do PIX!';
+                $text = '00020126570014br.gov.bcb.pix0111811177100250220testede envio de pix52040000530398654041.235802BR5914testechave cpf6008saopaulo62070503***6304E067';
                 $filename = 'images/qrcodes/'. mysqli_fetch_assoc($query)['idPedido'] .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code
@@ -125,7 +125,8 @@ if (mysqli_num_rows($query) == 0) {
                 align-content: center;
                 justify-content: center;
                 ">
-                <button class="btn btn-outline-success" id="pagarPEDIDO" data-num-pedido="' . $idPedido . '">Simular Pagamento</button></div>';
+                <button class="btn btn-outline-success mx-2" id="pagarPEDIDO" data-num-pedido="' . $idPedido . '">Simular Pagamento</button>
+                <button class="btn btn-outline-success" id="pagarPEDIDOCred" data-num-pedido="' . $idPedido . '">Simular Pagamento com crédito</button></div>';
                 ?>
             </div>
         </div>
