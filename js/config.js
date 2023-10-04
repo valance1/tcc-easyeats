@@ -98,11 +98,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd, dispo) {
     nome.value = nomeProd;
     desc.value = descricaoProd;
     preco.value = precoProd;
-    if(dispo === true){
-        document.getElementById('proddisponivel').checked = true;
-    }else{
-        document.getElementById('proddisponivel').checked = false;
-    }
     // Abrindo o modal
     $('#editProdutoModal').modal('show');
 
@@ -120,7 +115,6 @@ function editModal(id, nomeProd, descricaoProd, precoProd, dispo) {
         formData.append('nome', nome.value);
         formData.append('desc', desc.value);
         formData.append('preco', preco.value);
-        formData.append('disponivel', document.getElementById('proddisponivel').checked);
 
         // Cria uma request para enviar os dados pro arquivo php
         const xhr = new XMLHttpRequest();
@@ -138,7 +132,26 @@ function editModal(id, nomeProd, descricaoProd, precoProd, dispo) {
     );
 };
 
-// EDITAR FOTO DA EMPRESA
+
+// Função para encontrar o TR mais próximo
+function encontrarTRParenteMaisProximo(elemento) {
+    while (elemento && elemento.tagName !== 'TR') {
+      elemento = elemento.parentElement;
+    }
+    return elemento;
+  }
+// Função para encontrar a imagem mais próxima
+function encontrarImagemMaisProxima(elemento) {
+    // Procure a imagem dentro do elemento pai
+    var parent = elemento.parentElement;
+    while (parent) {
+      if (parent.querySelector('img')) {
+        return parent.querySelector('img');
+      }
+      parent = parent.parentElement;
+    }
+    return null; // Retorna null se não encontrar a imagem
+  }
 
 window.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.sr-only');
@@ -148,6 +161,75 @@ window.addEventListener('DOMContentLoaded', function () {
             editarFoto(item);
         });
     });
+
+    // Adicionando a parada de ativar o produto ou não
+    let checkedElements = document.querySelectorAll('.form-check-input');
+
+    checkedElements.forEach((item) => {
+        item.addEventListener('click', function(){
+            if(!item.checked){
+                // Código para tornar false
+
+                // Cria uma request para enviar os dados pro arquivo php
+                var formData = new FormData();
+                formData.append('disponivel', 'false');
+                formData.append('id', item.getAttribute("data-item-id"));
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'php/controlador/editProdutoDisponibilidade.php', true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var trElement = encontrarTRParenteMaisProximo(item);
+                        var imagemElement = encontrarImagemMaisProxima(item);
+                        var nomeProdutoElement = trElement.querySelector('.nome-produto');
+                        var btnEdit = trElement.querySelector('.btn-success');
+                        var btnRemove = trElement.querySelector('.btn-danger');
+                        
+                        trElement.classList.add('table-secondary', 'text-body-secondary');
+                        imagemElement.classList.add('product-disabled');
+                        btnEdit.classList.add('disabled');
+                        btnRemove.classList.add('disabled');
+                        if (!nomeProdutoElement.textContent.includes('Indisponível')) {
+                            nomeProdutoElement.textContent = '(Indisponível) ' + nomeProdutoElement.textContent;
+                        }
+                        
+
+                    } else {
+                        alert('Ocorreu um erro ao enviar os dados para o nosso servidor.');
+                    }
+                };
+                xhr.send(formData);
+            }else{
+                // Código para tornar true;
+                // Cria uma request para enviar os dados pro arquivo php
+                var formData = new FormData();
+                
+                formData.append('disponivel', 'true');
+                formData.append('id', item.getAttribute("data-item-id"));
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'php/controlador/editProdutoDisponibilidade.php', true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var trElement = encontrarTRParenteMaisProximo(item);
+                        var imagemElement = encontrarImagemMaisProxima(item);
+                        var nomeProdutoElement = trElement.querySelector('.nome-produto');
+                        var btnEdit = trElement.querySelector('.btn-success');
+                        var btnRemove = trElement.querySelector('.btn-danger');
+
+                        trElement.classList.remove('table-secondary', 'text-body-secondary');
+                        imagemElement.classList.remove('product-disabled')
+                        btnEdit.classList.remove('disabled');
+                        btnRemove.classList.remove('disabled');
+                        nomeProdutoElement.textContent = nomeProdutoElement.textContent.replace('(Indisponível) ', '');
+                    } else {
+                        alert('Ocorreu um erro ao enviar os dados para o nosso servidor.');
+                    }
+                };
+                xhr.send(formData);
+            }
+        });
+    });
+
     
         // Criar o modal uma vez, fora do loop
         var $modal = $('#modalEditFoto');
@@ -308,8 +390,8 @@ window.addEventListener('DOMContentLoaded', function () {
     
                         complete: function (response) {
                             // var data = JSON.parse(response.responseText);
-                            alert(response.responseText['msg']);
-                            console.log(response.responseText);
+                            // alert(response.responseText['msg']);
+                            // console.log(response.responseText);
                             // alert.log(data);
                         },
                     });

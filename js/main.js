@@ -234,7 +234,7 @@ cadEmpresaForm.addEventListener('submit', function (event) {
     xhr.open('POST', 'php/controlador/cadEmpresa.php', true);
     xhr.onload = function () {
         if (xhr.status === 200) {
-
+            
             var data = JSON.parse(xhr.responseText);
 
             if (data.msg != "Sucesso no cadastro") {

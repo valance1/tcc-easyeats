@@ -263,11 +263,13 @@ if (!$_SESSION['email']) {
           $classe = 'table-secondary text-body-secondary';
           $classe2 = "product-disabled";
           $info = " (Indisponível)";
+          $checked = "";
         }else{
           // Importante resetar, já que estamos no loop
           $classe = "";
           $classe2 = "";
           $info = "";
+          $checked = "checked";
         }
         $grandestring = $produto['idProduto'] . ",'" . $produto['nome'] . "', '" . $produto['descricao'] . "'," . $produto['preco'] . "," . $disponivel;
         echo '<tr class="align-middle alert border-bottom '. $classe . '" role="alert">
@@ -285,8 +287,8 @@ if (!$_SESSION['email']) {
                         <td>
                           <!-- CONTAINER NOME PRODUTO E DESCRICAO -->
                             <div>
-                                <p class="m-0 fw-bold lead">' . $produto['nome'] . $info . '</p>
-                                <p class="m-0 text-muted">' . $produto['descricao'] . '</p>
+                                <p class="m-0 fw-bold lead nome-produto">' . $produto['nome'] . $info . '</p>
+                                <p class="m-0 text-muted desc-produto">' . $produto['descricao'] . '</p>
                             </div>
                         </td>
                         <td>
@@ -297,8 +299,13 @@ if (!$_SESSION['email']) {
                         Tem que adicionar um tooltip nos botões, além de adicionar um modal de edição e outro de exclusão.
                         -->
                         <td>
+                          <div class="form-switch">
+                            <input class="form-check-input" type="checkbox" data-item-id="' . $produto['idProduto']. '"' . $checked . '>
+                          </div>
+
                           <div>
                             <button class="btn btn-success" onclick="editModal(' . $grandestring . ')"><i class="fa-solid fa-pen-to-square"></i></button>
+                            
                             <button class="btn btn-danger" onclick=removeModal(' . $produto['idProduto'] . ')><i class="fa-solid fa-trash"></i></button>
                           </div>
                         </td>
@@ -336,10 +343,6 @@ if (!$_SESSION['email']) {
 				<input type="text" class="form-control" id="inputEditPreco" name="inputPreco" aria-describedby="Preco" placeholder="">
 				<label for="inputPreco" class="form-label">Preço</label>
 			  </div>
-        <div class="mb-3 form-check">
-						<input type="checkbox" class="form-check-input" id="proddisponivel">
-						<label class="form-check-label" for="proddisponivel">Produto disponivel?</label>
-					</div>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
@@ -369,7 +372,11 @@ if (!$_SESSION['email']) {
 
 <!-- // Importante para cortar as imagens -->
 <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/config.js"></script>
+<?php 
+if(!$_SESSION['empresa'] == false){
+  echo '<script type="text/javascript" src="js/config.js"></script>';
+}
+?>
 <script type="text/javascript" src="js/main.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

@@ -97,10 +97,15 @@ white-space: nowrap;
 border: 0;
 }
 
+.form-switch .form-check-input{
+    cursor: pointer;
+}
+
 .product-disabled{
   filter: grayscale(100%);
   cursor: default !important;
   user-select: none !important;
+  transition: all 0.2s ease-in-out;
 }
 .product-disabled:hover{
   transform: scale(100%) !important;
