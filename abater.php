@@ -102,7 +102,15 @@ session_start();
                 // Adicione um ouvinte para detectar quando um QRCode é lido
                 scanner.addListener("scan", function(content) {
                     // Redirecionar para a página com o conteúdo do QRCode
-                    window.location.href = content;
+
+                    var searchString = 'abater.php?idCesta=';
+                    var startIndex = content.indexOf(searchString);
+                    if (startIndex !== -1) {
+                        var result = content.substring(startIndex);
+                        window.location.href = result;
+                    } else {
+                        console.log("Substring not found in the content.");
+                    }
                 });
 
                 // Inicie o scanner
