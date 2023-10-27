@@ -90,7 +90,7 @@ if (mysqli_num_rows($query) == 0) {
                 // Dados para o QR code
 
                 // No lugar do 'abater.php?idCesta='. $idCesta;, é possível colocar o endereço INTEIRO para permitir que o usuário logue.
-                $text = 'https://192.168.0.2/abater.php?idCesta='. $idCesta;
+                $text = 'https://192.168.0.2/tcc-easyeats/abater.php?idCesta='. $idCesta;
                 $filename = 'images/qrcodes/cesta/'. $idCesta .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code
