@@ -108,14 +108,16 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     if (mysqli_num_rows($query) != 0){
       echo'
       <div class="input-group mb-4">
-            <input class="form-control border-end-0 border" type="search" value="" id="search-input">
+            <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input">
             <span class="input-group-append">
                 <button class="btn border" id="search-button" type="button">
                 <i class="fa fa-search"></i>
                 </button>
+                <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
+                <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>            
             </span>
         </div>
-      <table class="table table-hover">
+      <table id="transacaoPedidoTable" class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Ordem</th>
@@ -183,14 +185,16 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     if (mysqli_num_rows($query) != 0){
       echo'
       <div class="input-group mb-4">
-            <input class="form-control border-end-0 border" type="search" value="" id="search-input">
+            <input class="form-control border-end-0 border" placeholder="Escreva aqui o nome dos produtos do abate que você deseja pesquisar" type="search" value="" id="search-input">
             <span class="input-group-append">
                 <button class="btn border" id="search-button" type="button">
                 <i class="fa fa-search"></i>
                 </button>
+                <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
+                <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>     
             </span>
         </div>
-      <table class="table table-hover">
+      <table id="transacaoAbateTable" class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Ordem</th>
@@ -243,6 +247,65 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
   <?php include 'php/components/footer.php' ?>
   <?php include 'php/components/forms.php' ?>
   <script type="text/javascript" src="js/main.js"></script>
+
+  <!-- Não precisa de arquivo, visto que é um script que só sera utilizado para um nicho muito específico. -->
+  <script>
+        function sortTable(order, button) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById(button.classList[2]);
+            console.log(table);
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[1];
+                    y = rows[i + 1].getElementsByTagName("td")[1];
+
+                    if (order === "asc") {
+                        if (x.innerHTML > y.innerHTML) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (order === "desc") {
+                        if (x.innerHTML < y.innerHTML) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("orderTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2]; // Coluna de produtos
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
