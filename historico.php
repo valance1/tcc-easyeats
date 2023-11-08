@@ -107,6 +107,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     $query = mysqli_query($conexao, $sqlCode);
     if (mysqli_num_rows($query) != 0){
       echo'
+      <div class="tableElementFichasCompradas">
       <div class="input-group mb-4">
             <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input">
             <span class="input-group-append">
@@ -184,6 +185,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     $query = mysqli_query($conexao, $sqlCode);
     if (mysqli_num_rows($query) != 0){
       echo'
+      <div class="tableElementFichasAbatidas">
       <div class="input-group mb-4">
             <input class="form-control border-end-0 border" placeholder="Escreva aqui o nome dos produtos do abate que você deseja pesquisar" type="search" value="" id="search-input">
             <span class="input-group-append">
@@ -230,7 +232,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
             echo '<td>' . $obj['data'] . '</td>';
             echo '</tr>';
           };
-          echo '</tbody></table>';
+          echo '</tbody></table></div>';
     }else{
       echo '<div class="card py-4 px-4 text-center container m-auto">Ninguém utilizou nenhuma ficha da sua empresa.</div>';
     }
@@ -250,61 +252,36 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
 
   <!-- Não precisa de arquivo, visto que é um script que só sera utilizado para um nicho muito específico. -->
   <script>
-        function sortTable(order, button) {
-            var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById(button.classList[2]);
-            console.log(table);
-            switching = true;
+function sortTable(order, button) {
+    var classes = button.className.split(' '); 
+    var lastClass = classes[classes.length - 1];
 
-            while (switching) {
-                switching = false;
-                rows = table.rows;
+    var table = document.getElementById(lastClass); // Encontra a tabela pelo ID
+    var tbody = table.querySelector("tbody");
+    var rows = Array.from(tbody.querySelectorAll("tr"));
 
-                for (i = 1; i < (rows.length - 1); i++) {
-                    shouldSwitch = false;
-                    x = rows[i].getElementsByTagName("td")[1];
-                    y = rows[i + 1].getElementsByTagName("td")[1];
+    rows.sort(function (a, b) {
+        var dateA = new Date(a.cells[6].textContent); // Assume que a data está na coluna 6
+        var dateB = new Date(b.cells[6].textContent);
 
-                    if (order === "asc") {
-                        if (x.innerHTML > y.innerHTML) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else if (order === "desc") {
-                        if (x.innerHTML < y.innerHTML) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                }
-            }
+        if (order === "asc") {
+            return dateA - dateB;
+        } else if (order === "desc") {
+            return dateB - dateA;
         }
+    });
 
-        function searchTable() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("orderTable");
-            tr = table.getElementsByTagName("tr");
+    // Remove as linhas da tabela
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+    }
 
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2]; // Coluna de produtos
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+    // Adiciona as linhas ordenadas de volta à tabela
+    rows.forEach(function (row) {
+        tbody.appendChild(row);
+    });
+}
+</script>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

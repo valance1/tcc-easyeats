@@ -28,3 +28,33 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 420px) {
+    .product-card{
+      height: auto;
+      flex-wrap: wrap;
+    }
+    .product-text-container {
+      margin-bottom: 0 !important;
+    }
+    .cartContainer{
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      margin-bottom: 5px;
+      padding-top: 5px;
+      border-top: 1px solid #d2d2d2;
+    }
+    .counterGroup{
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      margin-bottom: 5px;
+      padding-top: 5px;
+      border-top: 1px solid #d2d2d2;
+      /* margin: auto; */
+    }
+    #productCounter{
+        width: auto;
+    }
+  }
