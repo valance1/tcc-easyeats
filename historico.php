@@ -23,6 +23,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     crossorigin="anonymous"></script>
   <link href='css/main.css' rel="stylesheet">
   <link href='css/historico.css' rel="stylesheet">
+  <!-- <link href='css/responsiveTable.css' rel="stylesheet"> -->
   <!-- ICONES -->
   <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 
@@ -109,18 +110,18 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
       echo'
       <div class="tableElementFichasCompradas">
       <div class="input-group mb-4">
-            <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input">
+            <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input1">
             <span class="input-group-append">
-                <button class="btn border" id="search-button" type="button">
+                <button class="btn border" id="search-button1" type="button">
                 <i class="fa fa-search"></i>
                 </button>
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>            
             </span>
         </div>
-      <table id="transacaoPedidoTable" class="table table-hover">
+      <table id="transacaoPedidoTable" class="table table-hover table-mobile-responsive">
       <thead>
-        <tr>
+        <tr class="transacaoPedidoTR">
           <th scope="col">Ordem</th>
           <th scope="col">Cliente</th>
           <th scope="col">Produtos</th>
@@ -187,18 +188,18 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
       echo'
       <div class="tableElementFichasAbatidas">
       <div class="input-group mb-4">
-            <input class="form-control border-end-0 border" placeholder="Escreva aqui o nome dos produtos do abate que você deseja pesquisar" type="search" value="" id="search-input">
+            <input class="form-control border-end-0 border" placeholder="Escreva aqui o nome dos produtos do abate que você deseja pesquisar" type="search" value="" id="search-input2">
             <span class="input-group-append">
-                <button class="btn border" id="search-button" type="button">
+                <button class="btn border" id="search-button2" type="button">
                 <i class="fa fa-search"></i>
                 </button>
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>     
             </span>
         </div>
-      <table id="transacaoAbateTable" class="table table-hover">
+      <table id="transacaoAbateTable" class="table table-hover table-mobile-responsive">
       <thead>
-        <tr>
+        <tr class="transacaoAbateTR">
           <th scope="col">Ordem</th>
           <th scope="col">Cliente</th>
           <th scope="col">Produtos</th>
@@ -282,7 +283,7 @@ function sortTable(order, button) {
     });
 }
 </script>
-
+  <script src="js/searchBarHist.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
