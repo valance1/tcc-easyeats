@@ -1,53 +1,58 @@
 <?php 
-    require '../dao/conexaoBD.php';
-    require_once "FuncoesUteis.php";
-    
-    $texto = $_POST['texto'];
+require '../dao/conexaoBD.php';
+require_once "FuncoesUteis.php";
+session_start();
 
-    // Selecionando todas as empresas
-    if(empty($texto)){
-        $code = "SELECT * FROM empresa";
-    }else{
-        $code = "SELECT * FROM empresa WHERE LOWER(nome) LIKE LOWER('%{$texto}%')";
+$field = $_POST['field'];
+$texto = $_POST['texto'];
+$cnpj = retornaVal($conexao, 'empresa', 'email', $_SESSION['email'], 'cnpj');
+
+// Selecionando todas as empresas
+if(empty($texto)){
+  if($field == "pedidos"){
+    $code = "SELECT * FROM transacaopedido WHERE empresa = '$cnpj' ORDER BY data DESC";
+  }else{
+    $code = "SELECT * FROM transacaoabate WHERE empresa = '$cnpj' ORDER BY data DESC";
+  }
+}else{
+  if($field == "pedidos"){
+    $code = "SELECT * FROM transacaopedido WHERE LOWER(nome) LIKE LOWER('%{$texto}%')";
+  }else{
+
+  }
+}
+$query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
+
+// Se houver alguma empresa, mostre a search bar e começe o while
+if (mysqli_num_rows($query) != 0) {
+  $j = 0;
+  while($obj = mysqli_fetch_assoc($query)){
+    $nomes = array();
+    $quantidades = array();
+    $valores = array();
+
+    $j += 1;
+    echo '<tr><th scope="row">' . $j . '</th>';
+    echo '<td>' . md5($obj['cliente']) . '</td>'; 
+
+    // Tenho que tratar a lista de cada transacao.
+    $obj_arr = json_decode($obj['produtos']);
+    for ($i = 0; $i < count($obj_arr); $i += 3) {
+      array_push($nomes, $obj_arr[$i]);
+      array_push($quantidades, $obj_arr[$i + 1]);
+      array_push($valores, $obj_arr[$i + 2]);
     }
-    $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
+    echo '<td>' . implode(",", $nomes) . '</td>';
+    echo '<td>' . implode(",", $quantidades) . '</td>';
+    echo '<td>' . implode(",", $valores) . '</td>';
 
-    // Se houver alguma empresa, mostre a search bar e começe o while
-    if (mysqli_num_rows($query) != 0) {
+    echo '<td>' . $obj['valor'] . '</td>';
+    echo '<td>' . $obj['data'] . '</td>';
+    echo '</tr>';
+  };
 
-      // Pegando as empresas 1 por 1 e exibindo os cartões.
-      while ($loja = mysqli_fetch_assoc($query)) {
-
-        // Verificando se a loja já possui imagem
-        if (!$loja['perfil']) {
-
-          // Caso não tenha, colocar foto temporária
-          $imagem = "images/placeholder/loja.png";
-        } else {
-          $imagem = $loja['perfil'];
-        }
-
-        // Tive que dar vários "echo" por conta da interpolação de variáveis.
-        echo '
-        <div data-aos="fade-up" class="card card-loja px-0 rounded" style="width: 18rem;">
-        <img src="' . $imagem . '" class="card-img-top loja-foto" alt="...">
-        <div class="card-body loja-details">';
-        echo '<h5 class="card-title fs-4 fw-bold">' . $loja["nome"] . '</h5>';
-        echo '<p class="fs-6 fw-light text-muted">Lanchonete</p>';
-        echo '<a href="cardapio.php?loja=' . $loja['nome'] . '"class="btn btn-outline-dark fw-normal">VER</a>';
-        echo '</div></div>';
-      }
-
-      // Se não houver nenhuma, mostre o card de indisponibilidade
-    } else {
-      echo '
-      <div class="card container-xxl text-center" id="noEmpresasFound">
-        <div class="card-body">
-          <h5 class="card-title">OPS!</h5>
-          <img src="images/CAT.gif" alt="this slowpoke moves" class="my-2"  width="250" />
-          <p class="card-text">Desculpe, mas não encontramos nenhum registro no nosso banco de dados.</p>
-        </div>
-      </div>
-    ';
-    }
+  // Se não houver nenhuma, mostre o card de indisponibilidade
+} else {
+  echo '<div class="card py-4 px-4 text-center container m-auto">Ninguém comprou nenhuma ficha da sua empresa.</div>';
+}
 ?>
