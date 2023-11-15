@@ -90,6 +90,7 @@ if (mysqli_num_rows($query) == 0) {
                 // Dados para o QR code
                 $text = '00020126570014br.gov.bcb.pix0111811177100250220testede envio de pix52040000530398654041.235802BR5914testechave cpf6008saopaulo62070503***6304E067';
                 $filename = 'images/qrcodes/'. mysqli_fetch_assoc($query)['idPedido'] .'.png'; // Nome do arquivo de saída
+                echo $filename;
                 
                 // Configurações do QR code
                 $size = 15; // Tamanho do QR code (pixels)
