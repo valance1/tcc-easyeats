@@ -61,7 +61,8 @@ if (mysqli_num_rows($query) == 0) {
         <div>
             <h1 class="text-center">Você irá realizar uma compra de<b style="color:green;">
                 <?php
-                echo 'R$' . mysqli_fetch_assoc($query)['valorTotal'];
+                $obj =  mysqli_fetch_assoc($query);
+                echo 'R$' . $obj['valorTotal'];
                 ?></b>
             </h1>
             <div class="mt-5" style="
@@ -90,7 +91,8 @@ if (mysqli_num_rows($query) == 0) {
                 // Dados para o QR code
                 
                 $text = '00020126570014br.gov.bcb.pix0111811177100250220testede envio de pix52040000530398654041.235802BR5914testechave cpf6008saopaulo62070503***6304E067';
-                $filename = 'images/qrcodes/'. mysqli_fetch_assoc($query)['idPedido'] .'.png'; // Nome do arquivo de saída
+                
+                $filename = 'images/qrcodes/'. $obj['idPedido'] .'.png'; // Nome do arquivo de saída
                 
                 // Configurações do QR code
                 $size = 15; // Tamanho do QR code (pixels)

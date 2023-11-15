@@ -1,5 +1,9 @@
 <?php
 session_start();
+// Verifica se o usuário é empresarial ou se há algum usuário.
+if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
+  header("Location:index.php");
+}
 ?>
 
 <!DOCTYPE html>

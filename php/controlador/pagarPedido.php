@@ -83,7 +83,6 @@ $caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";
   }
 removerPedido($conexao, $cpf);
 $response = array('success' => 'Pagamento realizado com sucesso');
-$_SESSION['toast'] == 'sucesso';
 echo json_encode($response);
 exit; // Por garantia :)
 ?>
