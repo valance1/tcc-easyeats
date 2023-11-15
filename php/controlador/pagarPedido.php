@@ -1,6 +1,4 @@
 <?php
-//TODO
-// PASSAR DATA DO PEDIDO, VALOR TOTAL, CPF, CNPJ, ID do do QRCODE
 
 require_once "FuncoesUteis.php";
 require_once "../dao/conexaoBD.php";
@@ -85,6 +83,7 @@ $caminhoArquivo = "../../images/qrcodes/" . $idPedido . ".png";
   }
 removerPedido($conexao, $cpf);
 $response = array('success' => 'Pagamento realizado com sucesso');
+$_SESSION['toast'] == 'sucesso';
 echo json_encode($response);
 exit; // Por garantia :)
 ?>
