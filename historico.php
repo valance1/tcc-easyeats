@@ -131,7 +131,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
           <th scope="col">Data</th>
         </tr>
       </thead>
-      <tbody>';
+      <tbody id="transacaoPedidoTableCont">';
           $j = 0;
           while($obj = mysqli_fetch_assoc($query)){
             $nomes = array();
@@ -208,7 +208,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
           <th scope="col">Data</th>
         </tr>
       </thead>
-      <tbody>';
+      <tbody id="transacaoAbateTableCont">';
           $j = 0;
           while($obj = mysqli_fetch_assoc($query)){
             $nomes = array();

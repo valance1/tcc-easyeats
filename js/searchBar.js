@@ -23,8 +23,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
             complete: function (response) {
                 codHtml = response.responseText;
-                containterAlvo = document.getElementsByClassName('result-container');
-                containterAlvo[0].innerHTML = codHtml;
+                containerAlvo = document.getElementsByClassName('result-container');
+                containerAlvo[0].innerHTML = codHtml;
             },
         });
     });

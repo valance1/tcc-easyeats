@@ -3,12 +3,21 @@ require '../dao/conexaoBD.php';
 require_once "FuncoesUteis.php";
 session_start();
 
+// qual botao
 $field = $_POST['field'];
+
+// texto alvo
 $texto = $_POST['texto'];
+
+// qual empresa
 $cnpj = retornaVal($conexao, 'empresa', 'email', $_SESSION['email'], 'cnpj');
 
-// Selecionando todas as empresas
+// Verificando se o usuário digitou alguma coisa
+// Se estiver VAZIO: resetar a query, popular a tabela com um search * 
+// Caso contrário, vamos popular com um select contendo restrições
 if(empty($texto)){
+
+  // Se for pedidos, vamos fazer uma query para a lista de pedidos concluidos
   if($field == "pedidos"){
     $code = "SELECT * FROM transacaopedido WHERE empresa = '$cnpj' ORDER BY data DESC";
   }else{
@@ -23,7 +32,7 @@ if(empty($texto)){
 }
 $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 
-// Se houver alguma empresa, mostre a search bar e começe o while
+// Se houver algum resultado
 if (mysqli_num_rows($query) != 0) {
   $j = 0;
   while($obj = mysqli_fetch_assoc($query)){

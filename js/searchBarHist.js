@@ -1,14 +1,18 @@
 window.addEventListener('DOMContentLoaded', function () {
     // Botao de visualizar itens 
-    searchButton1 = document.getElementById("search-button1")
-    searchButton2 = document.getElementById("search-button2");
+    const searchButton1 = document.getElementById("search-button1")
+    const searchButton2 = document.getElementById("search-button2");
     
+    // Botao dos pedidos
     searchButton1.addEventListener('click', function(){
-        textoPesquisa = document.getElementById('search-input').value;
+        dados = new FormData();
+        dados.append('field', "pedidos");
+        dados.append('texto', document.getElementById('search-input').value);
+        
         $.ajax({
             method: 'POST',
-            url: 'php/controlador/searchBar.php',
-            data: 'texto=' + textoPesquisa,
+            url: 'php/controlador/searchBarHist.php',
+            data: dados,
 
             xhr: function () {
                 var xhr = new XMLHttpRequest();
@@ -24,14 +28,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
             complete: function (response) {
                 codHtml = response.responseText;
-                containterAlvo = document.getElementsByClassName('transacaoPedidoTR');
-                containterAlvo[0].innerHTML = codHtml;
+                containerAlvo = document.getElementById('transacaoPedidoTableCont');
+                containerAlvo.innerHTML = codHtml;
             },
         });
     });
     document.addEventListener("keyup", function(event) {
-        if (event.code === 'Enter') {
-            searchButton.click();
+        if (event.code === 'Enter' && searchButton1.hasFocus()) {
+            searchButton1.click();
+        }
+        if(event.code === 'Enter' && searchButton2.hasFocus()){
+            searchButton2.click()
         }
     });
 });
