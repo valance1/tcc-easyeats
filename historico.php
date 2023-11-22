@@ -108,13 +108,13 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     $query = mysqli_query($conexao, $sqlCode);
     if (mysqli_num_rows($query) != 0){
       echo'
-      <div class="tableElementFichasCompradas">
+      <div class="tableElementFichasCompradas table-responsive">
       <div class="input-group mb-4">
             <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input1">
-            <span class="input-group-append">
-                <button class="btn border" id="search-button1" type="button">
+            <button class="btn border" id="search-button1" type="button">
                 <i class="fa fa-search"></i>
                 </button>
+            <span class="input-group-append">
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>            
             </span>

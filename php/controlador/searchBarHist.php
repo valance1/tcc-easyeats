@@ -10,7 +10,9 @@ $field = $_POST['field'];
 $texto = $_POST['texto'];
 
 // qual empresa
-$cnpj = retornaVal($conexao, 'empresa', 'email', $_SESSION['email'], 'cnpj');
+$conexao = conectarBD();
+
+$cnpj = retornaVal($conexao, 'empresa', 'email', $_SESSION['email'], 'CNPJ');
 
 // Verificando se o usuário digitou alguma coisa
 // Se estiver VAZIO: resetar a query, popular a tabela com um search * 
@@ -25,9 +27,9 @@ if(empty($texto)){
   }
 }else{
   if($field == "pedidos"){
-    $code = "SELECT * FROM transacaopedido WHERE LOWER(nome) LIKE LOWER('%{$texto}%')";
+    $code = "SELECT * FROM transacaopedido WHERE LOWER(produtos) LIKE LOWER('%{$texto}%')";
   }else{
-
+    $code = "SELECT * FROM transacaoabate WHERE LOWER(fichas) LIKE LOWER('%{$texto}%')";
   }
 }
 $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
