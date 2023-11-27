@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Set-2023 às 21:10
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 27-Nov-2023 às 13:34
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,7 +39,14 @@ CREATE TABLE IF NOT EXISTS `cesta` (
   PRIMARY KEY (`idCesta`),
   KEY `clienteDaCesta` (`cliente`),
   KEY `empresaDaCesta` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena as cestas dos clientes';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena as cestas dos clientes';
+
+--
+-- Extraindo dados da tabela `cesta`
+--
+
+INSERT INTO `cesta` (`idCesta`, `itens`, `cliente`, `empresa`) VALUES
+('46fb409680', '[\"1\",\"1\",\"1\",\"1\"]', '18210790005', '45311823000176');
 
 -- --------------------------------------------------------
 
@@ -60,15 +68,15 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `lucro` int(11) DEFAULT NULL COMMENT 'Valor inteiro que informa o lucro total que a empresa já teve utilizando o site',
   PRIMARY KEY (`CNPJ`),
   UNIQUE KEY `email` (`email`,`conta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as empresas';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as empresas';
 
 --
 -- Extraindo dados da tabela `empresa`
 --
 
 INSERT INTO `empresa` (`nome`, `email`, `CNPJ`, `senha`, `agencia`, `conta`, `perfil`, `cpf`, `dono`, `lucro`) VALUES
-('Hamburgueria', 'empresa1@gmail.com', '45311823000176', '202cb962ac59075b964b07152d234b70', '1111', '11111111', 'images/45311823000176/perfil.png', '97753689010', 'Joao', NULL),
-('Sushiteria', 'empresa3@gmail.com', '50818031000122', '202cb962ac59075b964b07152d234b70', '1111', '33333333', 'images/50818031000122/perfil.png', '63388709092', 'Felix', NULL),
+('Hamburgueria', 'empresa1@gmail.com', '45311823000176', '202cb962ac59075b964b07152d234b70', '1111', '11111111', 'images/45311823000176/perfil.png', '97753689010', 'Joao', 204),
+('Sushiteria', 'empresa3@gmail.com', '50818031000122', '202cb962ac59075b964b07152d234b70', '1111', '33333333', 'images/50818031000122/perfil.png', '63388709092', 'Felix', 150),
 ('Pizzaria', 'empresa2@gmail.com', '54188402000190', '202cb962ac59075b964b07152d234b70', '1234', '22222222', 'images/54188402000190/perfil.png', '89001096000', 'Joao', NULL);
 
 -- --------------------------------------------------------
@@ -89,7 +97,31 @@ CREATE TABLE IF NOT EXISTS `item` (
   KEY `DonoDoItem` (`donoDoItem`),
   KEY `ProdutoOriginal` (`idProduto`),
   KEY `EmpresaDono` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena os itens dos clientes e suas informações';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena os itens dos clientes e suas informações';
+
+--
+-- Extraindo dados da tabela `item`
+--
+
+INSERT INTO `item` (`idItem`, `nome`, `preco`, `idProduto`, `donoDoItem`, `empresa`) VALUES
+('01c7b40885', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('1142b4bb20', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('118fa99936', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('1a4fa3fa78', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('29e1e1be2a', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('29ff6c4f20', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('463902dd34', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('4f3b60c524', 'Combo 30 peças', '50', 3, '18210790005', '50818031000122'),
+('72d6ee0a50', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('730350fa0e', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('76c91dade3', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('7c77ce3f40', 'Combo 30 peças', '50', 3, '18210790005', '50818031000122'),
+('89277bfa41', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('8a49fecb76', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('99155a7a84', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('9adce3257a', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('d6f7654230', 'Hambúrguer', '13.5', 1, '18210790005', '45311823000176'),
+('e77c3c422d', 'Combo 30 peças', '50', 3, '18210790005', '50818031000122');
 
 -- --------------------------------------------------------
 
@@ -108,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   PRIMARY KEY (`idPedido`),
   KEY `clienteDoPedido` (`cliente`),
   KEY `empresaDoPedido` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena os pedidos dos clientes';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena os pedidos dos clientes';
 
 -- --------------------------------------------------------
 
@@ -125,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `credito` varchar(45) DEFAULT NULL COMMENT 'Crédito associado à conta da pessoa (cliente ou proprietário)',
   PRIMARY KEY (`cpf`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as pessoas (clientes e proprietários)';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as pessoas (clientes e proprietários)';
 
 --
 -- Extraindo dados da tabela `pessoa`
@@ -151,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `disponivel` text NOT NULL DEFAULT 'true' COMMENT 'true = disponivel para venda\r\nfalse = indisponivel',
   PRIMARY KEY (`idProduto`),
   KEY `EmpresaDoProduto` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre os produtos das empresas';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre os produtos das empresas';
 
 --
 -- Extraindo dados da tabela `produto`
@@ -177,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `transacaoabate` (
   `empresa` varchar(14) NOT NULL COMMENT 'CNPJ da empresa associada à transação de abate',
   KEY `clienteAbate` (`cliente`),
   KEY `empresaAbate` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as transações de abate';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as transações de abate';
 
 -- --------------------------------------------------------
 
@@ -195,7 +227,18 @@ CREATE TABLE IF NOT EXISTS `transacaopedido` (
   `produtos` longtext NOT NULL COMMENT '(nomeproduto, quantidade, valor)',
   KEY `clienteTransacaoPedido` (`cliente`),
   KEY `empresaTransacaoPedido` (`empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='Tabela que armazena informações sobre as transações dos pedidos';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela que armazena informações sobre as transações dos pedidos';
+
+--
+-- Extraindo dados da tabela `transacaopedido`
+--
+
+INSERT INTO `transacaopedido` (`idPedido`, `data`, `valor`, `cliente`, `empresa`, `produtos`) VALUES
+('b80c73d365', '2023-11-22 08:23:23', 54, '18210790005', '45311823000176', '[\"Hambúrguer\",4,\"13.5\"]'),
+('326732853d', '2023-11-22 08:23:29', 40.5, '18210790005', '45311823000176', '[\"Hambúrguer\",3,\"13.5\"]'),
+('51ab8b04ff', '2023-11-22 08:23:35', 67.5, '18210790005', '45311823000176', '[\"Hambúrguer\",5,\"13.5\"]'),
+('b945efffd0', '2023-11-27 09:25:06', 40.5, '18210790005', '45311823000176', '[\"Hambúrguer\",3,\"13.5\"]'),
+('bfef3a9891', '2023-11-27 10:03:00', 150, '18210790005', '50818031000122', '[\"Combo 30 peças\",3,\"50\"]');
 
 --
 -- Restrições para despejos de tabelas
