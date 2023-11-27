@@ -1,18 +1,19 @@
 .product-card {
   cursor: pointer;
   height: 100px;
+  max-height: 100px;
   justify-content: space-between;
 }
 
 .product-text-container {
   margin-right: auto;
+  white-space: pre;
 }
 
 .product-img-container {
   height: 98px;
   min-width: 98px;
   width: 98px !important;
-
 }
 
 .product-card img {
@@ -62,15 +63,6 @@
 }
 
 
-.counterGroup .form-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 0;
-}
-
 .product-disabled{
   filter: grayscale(100%);
   cursor: default !important;
@@ -79,10 +71,17 @@
 .product-disabled:hover{
   transform: scale(100%) !important;
 }
+.counterGroup .form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+}
+/* @media (max-width: 992px) {
 
-@media (max-width: 992px) {
-
-  .product-img-container {
+  .product-img-container{
     height: auto;
     max-width: 200px;
     width: 100% !important;
@@ -91,40 +90,38 @@
   .product-card {
     height: 200px;
   }
-
-  .product-text-container {
+  .product-text-container{
     align-self: center;
   }
 
-}
-
+} */
 /* Mobile */
-@media (max-width: 420px) {
-  .product-img-container {
-
+@media (max-width: 992px) {
+  .product-card{
     max-height: none;
+  }
+  .product-img-container{
+    
+    max-height: none; 
     height: auto;
     width: 100% !important;
     max-width: none;
     min-width: none;
 
   }
-
-  .product-card img {
+  .product-card img{
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
-
-  .product-card {
+  .product-card{
     height: auto;
     flex-wrap: wrap;
   }
-
   .product-text-container {
+    white-space: inherit;
     margin-bottom: 0 !important;
   }
-
-  .cartContainer {
+  .cartContainer{
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -132,8 +129,7 @@
     padding-top: 5px;
     border-top: 1px solid #d2d2d2;
   }
-
-  .counterGroup {
+  .counterGroup{
     /* margin: auto; */
   }
 }

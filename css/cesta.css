@@ -51,6 +51,7 @@
       margin-bottom: 0 !important;
     }
     .cartContainer{
+      margin-top: 5px !important;
       margin-right: auto;
       margin-left: auto;
       width: 100%;

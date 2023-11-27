@@ -5,6 +5,7 @@
 }
 
 .product-text-container {
+  white-space: pre;
   margin-right: auto;
 }
 
@@ -12,7 +13,6 @@
   height: 98px;
   min-width: 98px;
   width: 98px !important;
-
 }
 
 .product-card img {
@@ -82,6 +82,7 @@
     height: 200px;
   }
   .product-text-container{
+    white-space: inherit;
     align-self: center;
   }
 

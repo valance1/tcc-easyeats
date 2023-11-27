@@ -29,7 +29,6 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
     <script src="https://kit.fontawesome.com/2cf2c5048f.js" crossorigin="anonymous"></script>
 
     <link href='css/main.css' rel="stylesheet">
-    <link href='css/cardapio.css' rel="stylesheet">
 
     <!-- TOASTER -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -129,9 +128,9 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
                         <img class="float-start" src="' . $imagemItem . '">
                     </div>
                     <div class="product-text-container ms-3 d-flex flex-column my-3  w-50 float-start">
-                        <p class="fs-4 mb-0">' . $nomeItem . $info .'</p>
-                        <p class="text-muted fs-6 my-1">' . $descricaoItem . '</p>
-                        <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
+                    <p class="fs-4 mb-0">' . $nomeItem . $info .'</p>
+                    <p class="text-muted fs-6 my-1">' . $descricaoItem . '</p>
+                    <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
                     </div>';
 
                     if ($row['disponivel'] != "false" || $row['disponivel'] != "true"){

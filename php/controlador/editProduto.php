@@ -58,13 +58,13 @@ if ($imagem['size'] != 0) {
     }
 
     // Inserindo a imagem no BD.
-    $path = '../../images/' . $cnpj;
+    // $path = '../../images/' . $cnpj;
 
     //Relative path
-    $path = 'images/' . $cnpj . '/' . $image_name;
+    $path = 'images/produtos/' . $cnpj . '/' . $image_name;
 
     // Move o arquivo até o caminho
-    move_uploaded_file($imagem['tmp_name'], "../../images/$cnpj/$image_name");
+    move_uploaded_file($imagem['tmp_name'], "../../images/produtos/$cnpj/$image_name");
     //$image_file[md5($cnpj)]
 
     // Inserindo o produto no BD
