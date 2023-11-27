@@ -40,6 +40,7 @@ if ($imagem['size'] != 0) {
     $image_type = exif_imagetype($imagem["tmp_name"]);
     $image_extension = image_type_to_extension($image_type, true);
     $image_name = basename($fetch['imagem'], pathinfo($fetch['imagem'], PATHINFO_EXTENSION));
+    $image_name = $image_name + 'png';
     
     // Verificar o tamanho do arquivo
     $maxFileSize = 10 * 1024 * 1024; // 10MB
