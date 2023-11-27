@@ -394,6 +394,9 @@ a.btn.btn-outline-light.px-4:hover {
   nav a.nav-link:after {
     display: none;
   }
+  .nav-item.nav-credito {
+    padding: 0;
+  }
 
   #loginBUTTON {
     margin-bottom: 8px;

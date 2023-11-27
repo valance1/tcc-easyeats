@@ -64,6 +64,6 @@ if (mysqli_num_rows($query) != 0) {
 
   // Se não houver nenhuma, mostre o card de indisponibilidade
 } else {
-  echo '<div class="card py-4 px-4 text-center container m-auto">Ninguém comprou nenhuma ficha da sua empresa.</div>';
+  echo '<td colspan="7"><div class="card py-4 px-4 text-center container m-auto">Sua busca não retornou resultados.</div></td>';
 }
 ?>
