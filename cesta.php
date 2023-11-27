@@ -135,7 +135,7 @@ if (mysqli_num_rows($query) == 0) {
                         <p class="text-muted fs-6 my-1">' . $descProduto . '</p>
                         <p class="fw-bold text-success green mb-0">R$' . $precoProduto . '</p>
                     </div>
-                    <div class="counterGroup">
+                    <div class="cartContainer">
                         <div class="form-control text-muted" id="productCounter">'. $quantidade .'</div>
                     </div>
                     </div>';

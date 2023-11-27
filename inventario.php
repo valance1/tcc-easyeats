@@ -125,14 +125,14 @@ if (!$_SESSION['email'] || isset($_SESSION['empresa'])) {
 
                     echo '
                     <div data-id="' . $row['idProduto'] . '" class="card product-card my-3 d-flex flex-row ' . $classe . '">
-                        <div class="product-img-container">
+                    <div class="product-img-container">
                         <img class="float-start" src="' . $imagemItem . '">
-                        </div>
-                        <div class="product-text-container ms-3 d-flex flex-column my-3  w-100 float-start">
+                    </div>
+                    <div class="product-text-container ms-3 d-flex flex-column my-3  w-50 float-start">
                         <p class="fs-4 mb-0">' . $nomeItem . $info .'</p>
                         <p class="text-muted fs-6 my-1">' . $descricaoItem . '</p>
                         <p class="fw-bold green mb-0 quantidade-original" data-id="' . $row['idProduto'] . '" data-quantidade="' . $quantidade . '">Quantidade: ' . $quantidade . '</p>
-                        </div>';
+                    </div>';
 
                     if ($row['disponivel'] != "false" || $row['disponivel'] != "true"){
                         echo '<div class="cartContainer" id="cartContainer">
