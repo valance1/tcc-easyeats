@@ -97,6 +97,11 @@ if (mysqli_num_rows($query) == 0) {
                 $size = 15; // Tamanho do QR code (pixels)
                 $margin = 2; // Margem do QR code (pixels)
                 
+                $directory = 'images/qrcodes/cesta/';
+                if (!is_dir($directory)) {
+                    mkdir($directory, 0755, true);
+                }
+
                 // Gerar o QR code
                 QRcode::png($text, $filename, QR_ECLEVEL_L, $size, $margin);
 
