@@ -26,7 +26,7 @@ echo '
           <a class="nav-link" href="restaurantes.php">Restaurantes</a>
         </li>
         <li class="nav-item">
-        <button type="button" class="btn nav-link" id="contactModalOpenButton" data-bs-toggle="modal" data-bs-target="#contactModal" style="color: #fff !important;">Contato</button>
+        <a type="button" class="btn nav-link" id="contactModalOpenButton" data-bs-toggle="modal" data-bs-target="#contactModal" style="color: #fff !important;">Contato</a>
         </li>
       </ul>
 
@@ -48,7 +48,7 @@ echo '
         <li class="nav-item dropdown"  style="
         display:  flex;
         align-items: center;">
-          <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '</a>
+          <a class="nav-link dropdown-toggle" id="emailNav"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $_SESSION['email']. '</a>
         <ul class="dropdown-menu">
       ';
 
