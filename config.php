@@ -12,7 +12,7 @@ if (!$_SESSION['email']) {
 <head>
   <title>EasyEats</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/icon.png">
   <link href="css/main.css" type="text/css" rel="stylesheet">
   <link href="css/config.css" type="text/css" rel="stylesheet">
