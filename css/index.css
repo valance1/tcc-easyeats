@@ -91,3 +91,13 @@
         display: none;
     }
   }
+
+  @media (max-width: 420px){
+    .row.flex-lg-row-reverse.align-items-center.g-5.py-5{
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
+    }
+    #HERO{
+        padding: 0 !important;
+      }
+  }
