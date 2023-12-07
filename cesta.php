@@ -35,7 +35,6 @@ if (mysqli_num_rows($query) == 0) {
     <link rel="icon" type="image/x-icon" href="assets/icon.png">
     <link href="css/main.css" type="text/css" rel="stylesheet">
     <link href="css/cesta.css" type="text/css" rel="stylesheet">
-    <link href="css/pagamento.css" type="text/css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -140,7 +139,7 @@ if (mysqli_num_rows($query) == 0) {
                         <p class="text-muted fs-6 my-1">' . $descProduto . '</p>
                         <p class="fw-bold text-success green mb-0">R$' . $precoProduto . '</p>
                     </div>
-                    <div class="cartContainer">
+                    <div class="counterGroup">
                         <div class="form-control text-muted" id="productCounter">'. $quantidade .'</div>
                     </div>
                     </div>';

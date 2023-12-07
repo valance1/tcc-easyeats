@@ -419,6 +419,10 @@ a.btn.btn-outline-light.px-4:hover {
     padding-left: 0;
     padding-right: 0;
   }
+  .nav-link.dropdown-toggle#emailNav{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
 /* Mobile */
