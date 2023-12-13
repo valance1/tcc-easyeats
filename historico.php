@@ -115,10 +115,12 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
             <button class="btn border" id="search-button1" type="button">
                 <i class="fa fa-search"></i>
             </button>
+
             <span class="input-group-append">
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>            
             </span>
+
         </div>
       <table id="transacaoPedidoTable" class="table table-hover table-mobile-responsive">
       <thead>
@@ -199,6 +201,7 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>     
             </span>
+            
         </div>
       <table id="transacaoAbateTable" class="table table-hover table-mobile-responsive">
       <thead>
@@ -265,8 +268,13 @@ function sortTable(order, button) {
     var rows = Array.from(tbody.querySelectorAll("tr"));
 
     rows.sort(function (a, b) {
-        var dateA = new Date(a.cells[6].textContent); // Assume que a data está na coluna 6
-        var dateB = new Date(b.cells[6].textContent);
+        if(lastClass == "transacaoPedidoTable"){
+          var randValue = 6;
+        }else{
+          var randValue = 5;
+        }
+        var dateA = new Date(a.cells[randValue].textContent); // Assume que a data está na coluna 6
+        var dateB = new Date(b.cells[randValue].textContent);
 
         if (order === "asc") {
             return dateA - dateB;
