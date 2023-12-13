@@ -35,6 +35,40 @@ window.addEventListener('DOMContentLoaded', function () {
             },
         });
     });
+
+    // Outro Botao
+
+    searchButton2.addEventListener('click', function(){
+        var dados = new FormData();
+        dados.append('field', "abate");
+        dados.append('texto', document.getElementById('search-input2').value);
+        
+        $.ajax({
+            method: 'POST',
+            url: 'php/controlador/searchBarHist.php',
+            data: dados,
+            processData: false,
+            contentType: false,
+
+            xhr: function () {
+                var xhr = new XMLHttpRequest();
+                return xhr;
+            },
+
+            success: function (resultado) {
+            },
+
+            error: function () {
+                alert("ERRO");
+            },
+
+            complete: function (response) {
+                codHtml = response.responseText;
+                containerAlvo = document.getElementById('transacaoAbateTableCont');
+                containerAlvo.innerHTML = codHtml;
+            },
+        });
+    });
     document.addEventListener("keyup", function(event) {
         if (event.code === 'Enter' && searchButton1 == document.activeElement) {
             searchButton1.click();

@@ -25,6 +25,8 @@ if(empty($texto)){
   }else{
     $code = "SELECT * FROM transacaoabate WHERE empresa = '$cnpj' ORDER BY data DESC";
   }
+
+// Se tiver algum texto na barra de pesquisa:
 }else{
   if($field == "pedidos"){
     $code = "SELECT * FROM transacaopedido WHERE LOWER(produtos) LIKE LOWER('%{$texto}%')";
@@ -37,30 +39,56 @@ $query = mysqli_query(conectarBD(), $code) or die(mysqli_error(conectarBD()));
 // Se houver algum resultado
 if (mysqli_num_rows($query) != 0) {
   $j = 0;
-  while($obj = mysqli_fetch_assoc($query)){
-    $nomes = array();
-    $quantidades = array();
-    $valores = array();
-
-    $j += 1;
-    echo '<tr><th scope="row">' . $j . '</th>';
-    echo '<td>' . md5($obj['cliente']) . '</td>'; 
-
-    // Tenho que tratar a lista de cada transacao.
-    $obj_arr = json_decode($obj['produtos']);
-    for ($i = 0; $i < count($obj_arr); $i += 3) {
-      array_push($nomes, $obj_arr[$i]);
-      array_push($quantidades, $obj_arr[$i + 1]);
-      array_push($valores, $obj_arr[$i + 2]);
-    }
-    echo '<td>' . implode(",", $nomes) . '</td>';
-    echo '<td>' . implode(",", $quantidades) . '</td>';
-    echo '<td>' . implode(",", $valores) . '</td>';
-
-    echo '<td>' . $obj['valor'] . '</td>';
-    echo '<td>' . $obj['data'] . '</td>';
-    echo '</tr>';
-  };
+  
+  if($field == "pedidos"){
+    while($obj = mysqli_fetch_assoc($query)){
+      $nomes = array();
+      $quantidades = array();
+      $valores = array();
+  
+      $j += 1;
+      echo '<tr><th scope="row">' . $j . '</th>';
+      echo '<td>' . md5($obj['cliente']) . '</td>'; 
+  
+      // Tenho que tratar a lista de cada transacao.
+      $obj_arr = json_decode($obj['produtos']);
+      for ($i = 0; $i < count($obj_arr); $i += 3) {
+        array_push($nomes, $obj_arr[$i]);
+        array_push($quantidades, $obj_arr[$i + 1]);
+        array_push($valores, $obj_arr[$i + 2]);
+      }
+      echo '<td>' . implode(",", $nomes) . '</td>';
+      echo '<td>' . implode(",", $quantidades) . '</td>';
+      echo '<td>' . implode(",", $valores) . '</td>';
+  
+      echo '<td>' . $obj['valor'] . '</td>';
+      echo '<td>' . $obj['data'] . '</td>';
+      echo '</tr>';
+    };
+  }else{
+    while($obj = mysqli_fetch_assoc($query)){
+      $nomes = array();
+      $quantidades = array();
+      $valores = array();
+  
+      $j += 1;
+      echo '<tr><th scope="row">' . $j . '</th>';
+      echo '<td>' . md5($obj['cliente']) . '</td>'; 
+  
+      // Tenho que tratar a lista de cada transacao.
+      $obj_arr = json_decode($obj['fichas']);
+      for ($i = 0; $i < count($obj_arr); $i += 3) {
+        array_push($nomes, $obj_arr[$i]);
+        array_push($quantidades, $obj_arr[$i + 1]);
+        array_push($valores, $obj_arr[$i + 2]);
+      }
+      echo '<td>' . implode(",", $nomes) . '</td>';
+      echo '<td>' . implode(",", $quantidades) . '</td>';
+      echo '<td>' . implode(",", $valores) . '</td>';
+      echo '<td>' . $obj['data'] . '</td>';
+      echo '</tr>';
+    };
+  }
 
   // Se não houver nenhuma, mostre o card de indisponibilidade
 } else {
