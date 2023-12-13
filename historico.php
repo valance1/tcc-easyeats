@@ -111,9 +111,10 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
       <div class="tableElementFichasCompradas table-responsive">
       <div class="input-group mb-4">
             <input class="form-control border-end-0 border" placeholder="Escreva o nome dos produtos que você deseja pesquisar" type="search" value="" id="search-input1">
+
             <button class="btn border" id="search-button1" type="button">
                 <i class="fa fa-search"></i>
-                </button>
+            </button>
             <span class="input-group-append">
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoPedidoTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>            
@@ -186,13 +187,15 @@ if ($_SESSION['empresa'] != true || isset($_SESSION['email']) == false) {
     $query = mysqli_query($conexao, $sqlCode);
     if (mysqli_num_rows($query) != 0){
       echo'
-      <div class="tableElementFichasAbatidas">
+      <div class="tableElementFichasAbatidas table-responsive">
       <div class="input-group mb-4">
             <input class="form-control border-end-0 border" placeholder="Escreva aqui o nome dos produtos do abate que você deseja pesquisar" type="search" value="" id="search-input2">
+
+            <button class="btn border" id="search-button2" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+            
             <span class="input-group-append">
-                <button class="btn border" id="search-button2" type="button">
-                <i class="fa fa-search"></i>
-                </button>
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'asc' . "'" . ', this)">Ordenar por data mais antiga</button>
                 <button class="btn border transacaoAbateTable" onclick="sortTable(' . "'" . 'desc' . "'" . ', this)">Ordenar por data mais recente</button>     
             </span>

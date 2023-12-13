@@ -5,12 +5,12 @@ require_once "php/controlador/FuncoesUteis.php";
 
 session_start();
 
-// Se o usuário não estiver logado, LOL!
+// Se o usuário não estiver logado
 if (!$_SESSION['email']) {
-    header("Location:index.php");
+    header("Location:index.php?msg=Voce nao esta logado");
 }
 if (isset($_SESSION['empresa'])) {
-    header("Location:index.php");
+    header("Location:index.php?msg=Voce nao pode acessar essa pagina");
 }
 
 $conexao = conectarBD();
